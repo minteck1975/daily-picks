@@ -37,10 +37,37 @@ warnings.filterwarnings("ignore")
 
 # ---------- Default watchlists ----------
 US_DEFAULT = [
-    "AAPL", "MSFT", "NVDA", "GOOGL", "META", "AMZN", "TSLA", "AMD",
-    "AVGO", "NFLX", "CRM", "ORCL", "ADBE", "INTC", "QCOM", "MU",
-    "PLTR", "COIN", "SHOP", "UBER", "ABNB", "SNOW", "DDOG", "NET",
-    "JPM", "BAC", "GS", "V", "MA", "BRK-B", "WMT", "COST",
+    # Mega-cap tech
+    "AAPL", "MSFT", "NVDA", "GOOGL", "META", "AMZN", "TSLA",
+    # Semis (broad)
+    "AMD", "AVGO", "INTC", "QCOM", "MU", "MRVL", "ARM", "TSM",
+    # AI infra hardware
+    "SMCI", "ALAB", "VRT", "ANET", "DELL", "COHR",
+    # Software/SaaS w/ AI exposure
+    "ORCL", "CRM", "ADBE", "NOW", "INTU", "SNOW", "DDOG", "NET",
+    "PLTR", "AI", "PATH", "SOUN", "IBM",
+    # Consumer / other liquid names
+    "NFLX", "SHOP", "UBER", "ABNB", "COIN",
+    # Financials
+    "JPM", "BAC", "GS", "V", "MA",
+    # Defensive
+    "BRK-B", "WMT", "COST",
+]
+
+# Focused AI / AI-infrastructure universe (use with --market ai)
+AI_DEFAULT = [
+    # Chips / accelerators
+    "NVDA", "AMD", "AVGO", "MRVL", "TSM", "ARM", "MU", "QCOM", "INTC",
+    # AI server / infra hardware
+    "SMCI", "ALAB", "VRT", "ANET", "DELL", "COHR",
+    # Hyperscalers / cloud AI
+    "MSFT", "GOOGL", "META", "AMZN", "ORCL", "IBM",
+    # AI software & data platforms
+    "PLTR", "SNOW", "DDOG", "CRM", "NOW", "AI", "PATH", "SOUN", "ADBE", "INTU",
+    # Networking / edge for AI
+    "NET",
+    # Application / autonomy
+    "TSLA",
 ]
 
 SGX_DEFAULT = [
@@ -400,7 +427,7 @@ def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
     except Exception:
         pass
 
-    # Build chart data: last 60 sessions of OHLC + MA20 + MA50 for the dashboard
+    # Build chart data: last 60 sessions of OHLC + Volume + MA20 + MA50 for the dashboard
     chart_df = df.tail(60)
     chart_data = []
     for ts, row in chart_df.iterrows():
@@ -408,12 +435,13 @@ def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
         ma50_val = row["MA50"]
         chart_data.append({
             "time": ts.strftime("%Y-%m-%d"),
-            "open":  round(float(row["Open"]),  4),
-            "high":  round(float(row["High"]),  4),
-            "low":   round(float(row["Low"]),   4),
-            "close": round(float(row["Close"]), 4),
-            "ma20":  None if pd.isna(ma20_val) else round(float(ma20_val), 4),
-            "ma50":  None if pd.isna(ma50_val) else round(float(ma50_val), 4),
+            "open":   round(float(row["Open"]),  4),
+            "high":   round(float(row["High"]),  4),
+            "low":    round(float(row["Low"]),   4),
+            "close":  round(float(row["Close"]), 4),
+            "volume": int(row["Volume"]) if not pd.isna(row["Volume"]) else 0,
+            "ma20":   None if pd.isna(ma20_val) else round(float(ma20_val), 4),
+            "ma50":   None if pd.isna(ma50_val) else round(float(ma50_val), 4),
         })
 
     return Signal(
@@ -498,7 +526,7 @@ def render_report(picks: list, scanned: int) -> str:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--market", choices=["us", "sgx", "both"], default="both")
+    parser.add_argument("--market", choices=["us", "sgx", "ai", "both"], default="both")
     parser.add_argument("--watchlist", help="Path to a text file with one ticker per line")
     parser.add_argument("--json", action="store_true", help="Output JSON instead of text")
     parser.add_argument("--top", type=int, default=3)
@@ -512,6 +540,8 @@ def main():
         tickers = US_DEFAULT
     elif args.market == "sgx":
         tickers = SGX_DEFAULT
+    elif args.market == "ai":
+        tickers = AI_DEFAULT
     else:
         tickers = US_DEFAULT + SGX_DEFAULT
 
