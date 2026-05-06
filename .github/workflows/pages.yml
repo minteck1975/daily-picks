@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿name: Deploy Pages
-=======
 name: Deploy Pages
->>>>>>> 8ee08fda82c4b74e8883de49fbfcd1dcf8a1265a
 
 on:
   push:
