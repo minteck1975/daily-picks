@@ -300,9 +300,10 @@
   .chart-legend .swatch.up   { background: var(--gain); height: 8px; transform: translateY(-1px); }
   .chart-legend .swatch.down { background: var(--warn); height: 8px; transform: translateY(-1px); }
   .chart-legend .swatch.ma50 { background: #6b7b8a; }
+  .chart-legend .swatch.vol  { background: #5a5447; height: 8px; transform: translateY(-1px); }
   .chart {
     width: 100%;
-    height: 220px;
+    height: 280px;
   }
   /* Empty state */
   .empty {
@@ -473,6 +474,7 @@ function renderPick(p, idx) {
             <span><span class="swatch down"></span>Down</span>
             <span><span class="swatch"></span>MA20</span>
             <span><span class="swatch ma50"></span>MA50</span>
+            <span><span class="swatch vol"></span>Volume</span>
           </div>
         </div>
         <div class="chart" id="chart-${safeId}"></div>
@@ -527,9 +529,30 @@ function drawChart(pick) {
     borderDownColor:'#b86b58',
     wickUpColor:   '#7fa66b',
     wickDownColor: '#b86b58',
+    priceScaleId:  'right',
   });
   candles.setData(pick.chart_data.map(d => ({
     time: d.time, open: d.open, high: d.high, low: d.low, close: d.close,
+  })));
+
+  // Reserve bottom 25% of chart for volume
+  chart.priceScale('right').applyOptions({
+    scaleMargins: { top: 0.05, bottom: 0.28 },
+  });
+
+  const volume = chart.addHistogramSeries({
+    priceFormat: { type: 'volume' },
+    priceScaleId: 'volume',
+    color: '#5a5447',
+  });
+  chart.priceScale('volume').applyOptions({
+    scaleMargins: { top: 0.78, bottom: 0 },
+    borderColor: '#2a2620',
+  });
+  volume.setData(pick.chart_data.map(d => ({
+    time: d.time,
+    value: d.volume || 0,
+    color: d.close >= d.open ? 'rgba(127, 166, 107, 0.55)' : 'rgba(184, 107, 88, 0.55)',
   })));
 
   const ma = chart.addLineSeries({
