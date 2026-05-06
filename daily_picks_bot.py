@@ -1,24 +1,3 @@
-“””
-Daily 3-Pick Trading Bot
-
-Screens a watchlist for stocks with all four signals aligned:
-
-1. Price crossing above the 20-day moving average
-1. Momentum confirmation (RSI rising, MACD positive)
-1. Volume confirmation (today >= 1.5x 20-day avg volume)
-1. Sentiment proxy (recent news flow + headline scoring)
-
-Outputs the top 3 ranked picks with a written reason for each.
-
-Usage:
-python daily_picks_bot.py
-python daily_picks_bot.py –watchlist my_tickers.txt
-python daily_picks_bot.py –market sgx     # use SGX defaults
-python daily_picks_bot.py –market us      # use US defaults
-
-Schedule with cron / Task Scheduler / launchd to run after market close.
-“””
-
 import argparse
 import json
 import math
