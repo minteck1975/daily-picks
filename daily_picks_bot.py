@@ -1,4 +1,4 @@
-# “””
+“””
 Daily 3-Pick Trading Bot
 
 Screens a watchlist for stocks with all four signals aligned:
