@@ -268,6 +268,7 @@
   }
   .chart-legend .swatch.up   { background: var(--gain); height: 8px; transform: translateY(-1px); }
   .chart-legend .swatch.down { background: var(--warn); height: 8px; transform: translateY(-1px); }
+  .chart-legend .swatch.ma50 { background: #6b7b8a; }
   .chart {
     width: 100%;
     height: 220px;
@@ -417,6 +418,7 @@ function renderPick(p, idx) {
             <span><span class="swatch up"></span>Up</span>
             <span><span class="swatch down"></span>Down</span>
             <span><span class="swatch"></span>MA20</span>
+            <span><span class="swatch ma50"></span>MA50</span>
           </div>
         </div>
         <div class="chart" id="chart-${safeId}"></div>
@@ -486,6 +488,18 @@ function drawChart(pick) {
   ma.setData(pick.chart_data
     .filter(d => d.ma20 != null)
     .map(d => ({ time: d.time, value: d.ma20 })));
+
+  const ma50 = chart.addLineSeries({
+    color: '#6b7b8a',
+    lineWidth: 1,
+    lineStyle: 2, // dashed
+    priceLineVisible: false,
+    lastValueVisible: false,
+    crosshairMarkerVisible: false,
+  });
+  ma50.setData((pick.chart_data || [])
+    .filter(d => d.ma50 != null)
+    .map(d => ({ time: d.time, value: d.ma50 })));
 
   chart.timeScale().fitContent();
 
