@@ -87,9 +87,14 @@ class Signal:
     name: str
     price: float
     ma20: float
+    ma50: float
     cross_today: bool
-    cross_recent: bool       # cross within last 3 sessions
+    cross_recent: bool       # cross within last 10 sessions (informational)
     pct_above_ma20: float
+    pct_above_ma50: float
+    ma20_slope_5d: float     # % change in MA20 over last 5 sessions
+    in_uptrend: bool         # price > MA20 > MA50
+    ma20_rising: bool        # MA20 slope positive over 5 sessions
     rsi: float
     rsi_rising: bool
     macd_hist: float
@@ -100,7 +105,7 @@ class Signal:
     news_score: float        # -1 .. +1 (very rough)
     composite_score: float
     reasons: list
-    chart_data: list         # last 60 sessions: [{time, open, high, low, close, ma20}, ...]
+    chart_data: list         # last 60 sessions: [{time, open, high, low, close, ma20, ma50}, ...]
 
 
 # Lightweight headline sentiment (placeholder).
@@ -158,6 +163,7 @@ def evaluate(ticker: str) -> Optional[Signal]:
         return None
 
     df["MA20"] = sma(df["Close"], 20)
+    df["MA50"] = sma(df["Close"], 50)
     df["RSI"] = rsi(df["Close"], 14)
     df["VolAvg20"] = sma(df["Volume"], 20)
     macd_line, sig_line, hist = macd(df["Close"])
@@ -166,13 +172,25 @@ def evaluate(ticker: str) -> Optional[Signal]:
     last = df.iloc[-1]
     prev = df.iloc[-2]
 
-    if any(pd.isna(x) for x in [last["MA20"], last["RSI"], last["VolAvg20"]]):
+    if any(pd.isna(x) for x in [last["MA20"], last["MA50"], last["RSI"], last["VolAvg20"]]):
         return None
 
-    # Cross detection: close above MA20 today, close below or equal MA20 yesterday
+    # Trend metrics
+    pct_above_ma20 = float((last["Close"] / last["MA20"] - 1) * 100)
+    pct_above_ma50 = float((last["Close"] / last["MA50"] - 1) * 100)
+    ma_separation = float((last["MA20"] / last["MA50"] - 1) * 100)
+    if len(df) > 6 and not pd.isna(df["MA20"].iloc[-6]):
+        ma20_slope_5d = float((last["MA20"] / df["MA20"].iloc[-6] - 1) * 100)
+    else:
+        ma20_slope_5d = 0.0
+
+    in_uptrend = bool(last["Close"] > last["MA20"] > last["MA50"])
+    ma20_rising = bool(ma20_slope_5d > 0.3)  # MA20 up at least 0.3% over 5 sessions
+
+    # Cross detection (now informational, expanded to 10 sessions)
     cross_today = bool(last["Close"] > last["MA20"] and prev["Close"] <= prev["MA20"])
     cross_recent = False
-    for i in range(1, 4):
+    for i in range(1, 11):
         if i + 1 > len(df):
             break
         a = df.iloc[-i]
@@ -181,7 +199,6 @@ def evaluate(ticker: str) -> Optional[Signal]:
             cross_recent = True
             break
 
-    pct_above_ma20 = float((last["Close"] / last["MA20"] - 1) * 100)
     rsi_now = float(last["RSI"])
     rsi_rising = bool(last["RSI"] > prev["RSI"])
     macd_h = float(last["MACD_hist"])
@@ -191,44 +208,68 @@ def evaluate(ticker: str) -> Optional[Signal]:
 
     news_count, news_score = fetch_news_sentiment(tk)
 
-    # Composite scoring (tunable weights)
+    # Trend-focused scoring
     score = 0.0
     reasons = []
 
-    if cross_today:
+    if in_uptrend and ma20_rising:
         score += 3.0
-        reasons.append(f"Price closed above MA20 today ({last['Close']:.2f} vs MA20 {last['MA20']:.2f})")
-    elif cross_recent:
-        score += 1.5
-        reasons.append(f"MA20 cross within last 3 sessions; now {pct_above_ma20:+.2f}% above MA20")
+        reasons.append(f"In uptrend: price > MA20 > MA50, MA20 rising {ma20_slope_5d:+.2f}% over 5 sessions")
 
-    if 50 <= rsi_now <= 70 and rsi_rising:
+    # Position relative to MA20: prefer healthy pullbacks, penalize extension
+    if 0 < pct_above_ma20 <= 3:
+        score += 2.0
+        reasons.append(f"Healthy pullback: only {pct_above_ma20:+.2f}% above MA20 — good entry near support")
+    elif 3 < pct_above_ma20 <= 8:
+        score += 1.0
+        reasons.append(f"{pct_above_ma20:+.2f}% above MA20 — moderate extension, room to run")
+    elif 8 < pct_above_ma20 <= 15:
+        score += 0.0
+        reasons.append(f"{pct_above_ma20:+.2f}% above MA20 — extended, limited entry margin")
+    elif pct_above_ma20 > 15:
+        score -= 1.5
+        reasons.append(f"{pct_above_ma20:+.2f}% above MA20 — overextended, mean-reversion risk")
+
+    # MA20–MA50 separation: established trends have clear separation
+    if ma_separation >= 4:
         score += 1.5
-        reasons.append(f"RSI {rsi_now:.1f} and rising — momentum building, not yet overbought")
-    elif rsi_now > 70:
+        reasons.append(f"Established trend: MA20 sits {ma_separation:+.2f}% above MA50")
+    elif ma_separation >= 1.5:
+        score += 0.5
+        reasons.append(f"Trend forming: MA20 {ma_separation:+.2f}% above MA50")
+
+    # RSI (allow slightly higher in trending names)
+    if 50 <= rsi_now <= 75 and rsi_rising:
+        score += 1.0
+        reasons.append(f"RSI {rsi_now:.1f} and rising — momentum healthy")
+    elif rsi_now > 80:
         score -= 0.5
-        reasons.append(f"RSI {rsi_now:.1f} is overbought (caution)")
+        reasons.append(f"RSI {rsi_now:.1f} extreme — wait for cooldown")
 
     if macd_positive:
-        score += 1.5
+        score += 1.0
         reasons.append(f"MACD histogram positive and expanding ({macd_h:+.3f})")
 
     if vol_strong:
-        score += 2.0
+        score += 1.5
         reasons.append(f"Volume {vol_ratio:.2f}x the 20-day average — institutional interest")
     elif vol_ratio >= 1.0:
+        score += 0.3
+
+    # Recent cross is now a small bonus (signals fresh trend)
+    if cross_recent and pct_above_ma20 < 6:
         score += 0.5
+        reasons.append("Recent MA20 cross within last 10 sessions — potentially fresh trend")
 
     # Sentiment
     if news_score > 0.15:
-        score += 1.5
+        score += 1.0
         reasons.append(f"{news_count} recent headlines, net positive tone (score {news_score:+.2f})")
     elif news_score < -0.15:
         score -= 1.5
         reasons.append(f"{news_count} recent headlines, net negative tone (score {news_score:+.2f})")
     elif news_count >= 5:
-        score += 0.5
-        reasons.append(f"{news_count} recent headlines — high attention, neutral tone")
+        score += 0.3
 
     name = ticker
     try:
@@ -238,11 +279,12 @@ def evaluate(ticker: str) -> Optional[Signal]:
     except Exception:
         pass
 
-    # Build chart data: last 60 sessions of OHLC + MA20 for the dashboard
+    # Build chart data: last 60 sessions of OHLC + MA20 + MA50 for the dashboard
     chart_df = df.tail(60)
     chart_data = []
     for ts, row in chart_df.iterrows():
         ma20_val = row["MA20"]
+        ma50_val = row["MA50"]
         chart_data.append({
             "time": ts.strftime("%Y-%m-%d"),
             "open":  round(float(row["Open"]),  4),
@@ -250,6 +292,7 @@ def evaluate(ticker: str) -> Optional[Signal]:
             "low":   round(float(row["Low"]),   4),
             "close": round(float(row["Close"]), 4),
             "ma20":  None if pd.isna(ma20_val) else round(float(ma20_val), 4),
+            "ma50":  None if pd.isna(ma50_val) else round(float(ma50_val), 4),
         })
 
     return Signal(
@@ -257,9 +300,14 @@ def evaluate(ticker: str) -> Optional[Signal]:
         name=name,
         price=float(last["Close"]),
         ma20=float(last["MA20"]),
+        ma50=float(last["MA50"]),
         cross_today=cross_today,
         cross_recent=cross_recent,
         pct_above_ma20=pct_above_ma20,
+        pct_above_ma50=pct_above_ma50,
+        ma20_slope_5d=ma20_slope_5d,
+        in_uptrend=in_uptrend,
+        ma20_rising=ma20_rising,
         rsi=rsi_now,
         rsi_rising=rsi_rising,
         macd_hist=macd_h,
@@ -275,8 +323,8 @@ def evaluate(ticker: str) -> Optional[Signal]:
 
 
 def select_top(signals: list, n: int = 3) -> list:
-    # Hard requirement: must have crossed (today or recently)
-    eligible = [s for s in signals if s.cross_today or s.cross_recent]
+    # Hard requirement: established uptrend with rising MA20
+    eligible = [s for s in signals if s.in_uptrend and s.ma20_rising]
     eligible.sort(key=lambda s: s.composite_score, reverse=True)
     return eligible[:n]
 
