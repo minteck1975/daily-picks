@@ -1,4 +1,4 @@
-# “””
+“””
 Daily 3-Pick Trading Bot
 
 Screens a watchlist for stocks with all four signals aligned:
@@ -17,7 +17,7 @@ python daily_picks_bot.py –market sgx     # use SGX defaults
 python daily_picks_bot.py –market us      # use US defaults
 
 Schedule with cron / Task Scheduler / launchd to run after market close.
-# “””
+“””
 
 import argparse
 import json
