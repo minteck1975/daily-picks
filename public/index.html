@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Daily Picks · The Tape</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+  :root {
+    --bg: #0d0c0a;
+    --bg-elev: #16140f;
+    --ink: #f0e9d8;
+    --ink-dim: #a39b88;
+    --ink-faint: #5a5447;
+    --rule: #2a2620;
+    --accent: #c97f3d;          /* burnt amber */
+    --accent-soft: #e0a674;
+    --gain: #7fa66b;             /* muted sage */
+    --warn: #b86b58;             /* terracotta */
+    --grid: rgba(240, 233, 216, 0.04);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  body {
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(201, 127, 61, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 100%, rgba(201, 127, 61, 0.04) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+  /* Subtle grain */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    z-index: 1;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+    position: relative;
+    z-index: 2;
+  }
+  /* Masthead */
+  .masthead {
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 18px 0 14px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .masthead .lhs {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    font-style: italic;
+  }
+  .masthead .lhs::after {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-left: 10px;
+    transform: translateY(-3px);
+  }
+  .masthead .rhs {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-dim);
+  }
+  /* Date hero */
+  .hero {
+    margin-bottom: 56px;
+  }
+  .hero .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 8vw, 68px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-soft);
+  }
+  .hero .sub {
+    margin-top: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-dim);
+    letter-spacing: 0.04em;
+  }
+  /* Picks */
+  .picks {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .pick {
+    border-top: 1px solid var(--rule);
+    padding: 32px 0 36px;
+    position: relative;
+  }
+  .pick:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  .pick-head {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 16px;
+    align-items: baseline;
+    margin-bottom: 18px;
+  }
+  .rank {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--ink-faint);
+    font-feature-settings: "lnum";
+  }
+  .ticker-block .ticker {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .ticker-block .name {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-dim);
+    margin-top: 2px;
+  }
+  .score-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+    padding: 14px 16px;
+    background: var(--bg-elev);
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
+  .stat .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin-bottom: 4px;
+  }
+  .stat .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .stat .value.gain { color: var(--gain); }
+  .stat .value.warn { color: var(--warn); }
+  @media (max-width: 480px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .reasons-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+  }
+  .reasons {
+    list-style: none;
+  }
+  .reasons li {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    line-height: 1.55;
+    padding: 8px 0 8px 22px;
+    position: relative;
+    color: var(--ink);
+  }
+  .reasons li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  /* Chart */
+  .chart-wrap {
+    margin: 24px 0 4px;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 14px 12px 8px;
+  }
+  .chart-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 0 4px;
+  }
+  .chart-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+  }
+  .chart-legend {
+    display: flex;
+    gap: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-dim);
+    letter-spacing: 0.05em;
+  }
+  .chart-legend .swatch {
+    display: inline-block;
+    width: 10px; height: 2px;
+    background: var(--accent);
+    margin-right: 5px;
+    transform: translateY(-3px);
+  }
+  .chart-legend .swatch.up   { background: var(--gain); height: 8px; transform: translateY(-1px); }
+  .chart-legend .swatch.down { background: var(--warn); height: 8px; transform: translateY(-1px); }
+  .chart {
+    width: 100%;
+    height: 220px;
+  }
+  /* Empty state */
+  .empty {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 80px 24px;
+    text-align: center;
+  }
+  .empty h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .empty p {
+    color: var(--ink-dim);
+    font-size: 15px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  /* Loading */
+  .loading {
+    text-align: center;
+    padding: 80px 0;
+    color: var(--ink-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .loading::after {
+    content: '...';
+    display: inline-block;
+    animation: dots 1.4s infinite;
+  }
+  @keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+  }
+  /* Footer */
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    line-height: 1.7;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: reveal 0.6s ease-out forwards;
+  }
+  @keyframes reveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .pick:nth-child(1) { animation-delay: 0.1s; }
+  .pick:nth-child(2) { animation-delay: 0.25s; }
+  .pick:nth-child(3) { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="lhs">The Tape</div>
+    <div class="rhs" id="generated">— · —</div>
+  </header>
+
+  <section class="hero">
+    <div class="kicker">Daily edition</div>
+    <h1 id="dateline">—</h1>
+    <div class="sub" id="meta">Loading market scan…</div>
+  </section>
+
+  <section id="content">
+    <div class="loading">Fetching today's picks</div>
+  </section>
+
+  <footer>
+    Algorithmic screen: MA20 cross · momentum · volume · headline tone.<br>
+    Not financial advice. Verify against your own risk rules before trading.
+  </footer>
+
+</div>
+
+<script>
+const $ = (sel) => document.querySelector(sel);
+
+function fmtDate(iso) {
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-SG', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+}
+function fmtTime(iso) {
+  const d = new Date(iso);
+  return d.toLocaleString('en-SG', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
+}
+function num(n, d=2) {
+  return Number(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+
+function renderPick(p, idx) {
+  const rsiClass = p.rsi >= 50 && p.rsi <= 70 ? 'gain' : (p.rsi > 70 ? 'warn' : '');
+  const volClass = p.volume_ratio >= 1.5 ? 'gain' : '';
+  const newsClass = p.news_score > 0.15 ? 'gain' : (p.news_score < -0.15 ? 'warn' : '');
+  const safeId = p.ticker.replace(/[^a-zA-Z0-9]/g, '_');
+  return `
+    <article class="pick reveal">
+      <div class="pick-head">
+        <div class="rank">${String(idx + 1).padStart(2, '0')}</div>
+        <div class="ticker-block">
+          <div class="ticker">${p.ticker}</div>
+          <div class="name">${p.name}</div>
+        </div>
+        <div class="score-tag">Score ${num(p.composite_score, 1)}</div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Price</div>
+          <div class="value">${num(p.price)}</div>
+        </div>
+        <div class="stat">
+          <div class="label">MA20</div>
+          <div class="value">${num(p.ma20)}</div>
+        </div>
+        <div class="stat">
+          <div class="label">RSI</div>
+          <div class="value ${rsiClass}">${num(p.rsi, 1)}</div>
+        </div>
+        <div class="stat">
+          <div class="label">Vol ×Avg</div>
+          <div class="value ${volClass}">${num(p.volume_ratio, 2)}</div>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-head">
+          <div class="chart-title">60-day daily</div>
+          <div class="chart-legend">
+            <span><span class="swatch up"></span>Up</span>
+            <span><span class="swatch down"></span>Down</span>
+            <span><span class="swatch"></span>MA20</span>
+          </div>
+        </div>
+        <div class="chart" id="chart-${safeId}"></div>
+      </div>
+      <div class="reasons-label">Why it made the cut</div>
+      <ul class="reasons">
+        ${p.reasons.map(r => `<li>${r}</li>`).join('')}
+      </ul>
+    </article>
+  `;
+}
+
+function drawChart(pick) {
+  const safeId = pick.ticker.replace(/[^a-zA-Z0-9]/g, '_');
+  const el = document.getElementById('chart-' + safeId);
+  if (!el || !pick.chart_data || !pick.chart_data.length) return;
+  if (typeof LightweightCharts === 'undefined') {
+    el.innerHTML = '<div style="padding:40px;text-align:center;color:var(--ink-faint);font-family:JetBrains Mono,monospace;font-size:11px;">Chart library failed to load</div>';
+    return;
+  }
+
+  const chart = LightweightCharts.createChart(el, {
+    autoSize: true,
+    layout: {
+      background: { color: 'transparent' },
+      textColor: '#a39b88',
+      fontFamily: 'JetBrains Mono, monospace',
+      fontSize: 10,
+    },
+    grid: {
+      vertLines: { color: 'rgba(240, 233, 216, 0.04)' },
+      horzLines: { color: 'rgba(240, 233, 216, 0.04)' },
+    },
+    rightPriceScale: { borderColor: '#2a2620' },
+    timeScale: {
+      borderColor: '#2a2620',
+      timeVisible: false,
+      fixLeftEdge: true,
+      fixRightEdge: true,
+    },
+    crosshair: {
+      mode: LightweightCharts.CrosshairMode.Normal,
+      vertLine: { color: '#c97f3d', width: 1, style: 2, labelBackgroundColor: '#c97f3d' },
+      horzLine: { color: '#c97f3d', width: 1, style: 2, labelBackgroundColor: '#c97f3d' },
+    },
+  });
+
+  const candles = chart.addCandlestickSeries({
+    upColor:       '#7fa66b',
+    downColor:     '#b86b58',
+    borderUpColor: '#7fa66b',
+    borderDownColor:'#b86b58',
+    wickUpColor:   '#7fa66b',
+    wickDownColor: '#b86b58',
+  });
+  candles.setData(pick.chart_data.map(d => ({
+    time: d.time, open: d.open, high: d.high, low: d.low, close: d.close,
+  })));
+
+  const ma = chart.addLineSeries({
+    color: '#c97f3d',
+    lineWidth: 2,
+    priceLineVisible: false,
+    lastValueVisible: false,
+    crosshairMarkerVisible: false,
+  });
+  ma.setData(pick.chart_data
+    .filter(d => d.ma20 != null)
+    .map(d => ({ time: d.time, value: d.ma20 })));
+
+  chart.timeScale().fitContent();
+
+  // Re-fit when window resizes
+  const ro = new ResizeObserver(() => chart.timeScale().fitContent());
+  ro.observe(el);
+}
+
+async function load() {
+  try {
+    const res = await fetch('picks.json?ts=' + Date.now());
+    if (!res.ok) throw new Error('no picks file');
+    const data = await res.json();
+
+    $('#generated').textContent = 'Generated ' + fmtTime(data.generated_at);
+    $('#dateline').innerHTML = fmtDate(data.generated_at).replace(/(\w+),/, '<em>$1,</em>');
+    $('#meta').textContent = `Scanned ${data.scanned} of ${data.universe_size} tickers · market: ${data.market}`;
+
+    if (!data.picks || data.picks.length === 0) {
+      $('#content').innerHTML = `
+        <div class="empty">
+          <h2>No setups today.</h2>
+          <p>Nothing in the universe met all four signal requirements. The screener is patient — sit tight and check tomorrow.</p>
+        </div>`;
+    } else {
+      $('#content').innerHTML = `<div class="picks">${data.picks.map(renderPick).join('')}</div>`;
+      // Draw charts after DOM is in place
+      data.picks.forEach(p => drawChart(p));
+    }
+  } catch (e) {
+    $('#content').innerHTML = `
+      <div class="empty">
+        <h2>Awaiting first run.</h2>
+        <p>The bot hasn't generated picks yet, or picks.json couldn't be loaded. Trigger the GitHub Action manually to populate it.</p>
+      </div>`;
+    $('#dateline').textContent = 'No data yet';
+  }
+}
+load();
+</script>
+</body>
+</html>

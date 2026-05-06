@@ -1,0 +1,45 @@
+name: Daily Stock Picks
+
+# Runs daily after SGX close (5pm SGT = 9am UTC)
+# Adjust schedule as needed. Cron is in UTC.
+# Examples:
+#   '0 9 * * 1-5'   = 5pm SGT weekdays (after SGX close)
+#   '0 21 * * 1-5'  = 5pm ET weekdays (after US close)
+on:
+  schedule:
+    - cron: '0 9 * * 1-5'
+  workflow_dispatch:  # allows manual trigger from GitHub UI
+
+permissions:
+  contents: write  # needed to commit picks.json back to repo
+
+jobs:
+  generate-picks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install yfinance pandas numpy
+
+      - name: Run bot
+        run: python daily_picks_bot.py --market both --output public/picks.json
+
+      - name: Commit updated picks.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/picks.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update daily picks ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
