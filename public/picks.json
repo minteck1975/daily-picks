@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T07:57:48+00:00",
+  "generated_at": "2026-05-07T08:11:38+00:00",
   "market": "top100",
   "scanned": 100,
   "enriched": 12,
@@ -36,7 +36,7 @@
       "breakout_days_since": null,
       "consolidation_range_pct": 32.66,
       "news_count_7d": 10,
-      "news_score": 0.13330242037773132,
+      "news_score": 0.13330255150794984,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -698,7 +698,7 @@
       "breakout_days_since": null,
       "consolidation_range_pct": 27.35,
       "news_count_7d": 10,
-      "news_score": 0.2835948348045349,
+      "news_score": 0.28359511494636536,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -1360,7 +1360,7 @@
       "breakout_days_since": null,
       "consolidation_range_pct": 23.91,
       "news_count_7d": 10,
-      "news_score": 0.21447228789329528,
+      "news_score": 0.21447257995605468,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -2104,8 +2104,8 @@
       "total": 100
     },
     "vix": {
-      "level": 17.5,
-      "day_change_pct": 0.63,
+      "level": 17.52,
+      "day_change_pct": 0.75,
       "regime": "normal"
     },
     "hyg": {
@@ -2126,77 +2126,77 @@
   "market_news": {
     "items": [
       {
-        "title": "Dividend Yields Are Scarce. Stock Buybacks May Fill the Gap.",
-        "summary": "Stocks with hefty dividend yields have gotten harder and harder to find as more companies use buybacks to distribute extra cash.  Fund investors might want to follow their lead.  While the  is having another strong year, up 7.6% so far in 2026, dividends haven\u2019t been a huge part ",
-        "source": "Barrons.com",
-        "url": "https://www.barrons.com/articles/dividend-yields-stock-buybacks-etf-1458371d?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1778139000
-      },
-      {
-        "title": "Oil Stabilizes in Wake of Selloff",
-        "summary": "Oil prices stabilized in Asian trading, a day after investor optimism about diplomacy between the U.S. and Iran sparked steep declines. Brent crude, the global benchmark, was 0.5% higher at around $102.",
-        "source": "The Wall Street Journal",
-        "url": "https://www.wsj.com/livecoverage/iran-hormuz/card/oil-stabilizes-in-wake-of-selloff-NTEQpaG7T5RV8JVH5vxi?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1778135950
-      },
-      {
-        "title": "Emerging Market Stocks Are Outperforming the S&P 500. How to Play the Rally.",
-        "summary": "Emerging market stocks are hitting new highs, driven by Asian AI firms and Latin American commodity exporters.",
-        "source": "Barrons.com",
-        "url": "https://www.barrons.com/articles/emerging-market-stocks-how-to-play-the-rally-2d6c7e7f?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1778133600
-      },
-      {
-        "title": "This \"Magnificent Seven\" Stock Is the Cheapest of Them All. Is It a Buy Right Now?",
-        "summary": "Meta Platforms is trading at a relatively low forward P/E ratio.",
+        "title": "Not Nvidia. Not Broadcom. Intel Is Going to Be the Biggest Winner of the Artificial Intelligence (AI) Inference Era.",
+        "summary": "Sales of Intel's central processing units and custom AI processors are gaining traction as AI inference workloads grow.",
         "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/05/07/this-magnificent-seven-stock-is-the-cheapest-of-th/",
-        "publish_time": 1778132880
+        "url": "https://www.fool.com/investing/2026/05/07/not-nvidia-not-broadcom-intel-is-going-to-be-the-b/",
+        "publish_time": 1778140680
       },
       {
-        "title": "Coke Keeps Beating Pepsi. Warren Buffett\u2019s Bet Has Paid Off.",
-        "summary": "New Berkshire CEO Greg Abel has called Coke one of its \u201ccore four\u201d investments, along with Apple, Moody\u2019s, and American Express. It\u2019s beating the S&P 500 this year.",
+        "title": "Nvidia Invested $2 Billion in This Artificial Intelligence (AI) Stock. It Is Already Up 57% and Can Become a Multibagger",
+        "summary": "Nebius stock has been red-hot lately, and its tremendous backlog points to further upside.",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/investing/2026/05/07/nvidia-invested-2-billion-in-this-artificial-intel/",
+        "publish_time": 1778140260
+      },
+      {
+        "title": "Oklo (OKLO) Is Up 22.5% After NRC Clears Aurora Design Criteria And AI Power Tie-Up",
+        "summary": "In late April 2026, Oklo Inc. reported that the U.S. Nuclear Regulatory Commission approved the Principal Design Criteria topical report for its Aurora powerhouse advanced reactor in Idaho, while also advancing a collaboration with NVIDIA and Los Alamos National Laboratory on AI-",
+        "source": "Simply Wall St.",
+        "url": "https://finance.yahoo.com/sectors/energy/articles/oklo-oklo-22-5-nrc-071216730.html",
+        "publish_time": 1778137936
+      },
+      {
+        "title": "Your Company Is Offering You Stock. Should You Buy It?",
+        "summary": "Most companies now offer stock purchase plans to employees. It can be great for retirement, but it pays to know the pros and cons.",
         "source": "Barrons.com",
-        "url": "https://www.barrons.com/articles/coke-pepsi-stock-warren-buffett-2eb08eda?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1778131800
+        "url": "https://www.barrons.com/articles/retirement-company-stock-purchase-plans-59103a79?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1778135400
       },
       {
-        "title": "Why Is The Crypto Market Down Today?",
-        "summary": "Crypto market down 0.59% as money rotated into equities after the S&P's all-time high, with Bitcoin rejected on a bearish divergence.",
-        "source": "BeInCrypto",
-        "url": "https://beincrypto.com/why-is-the-crypto-market-down-today/",
-        "publish_time": 1778131522
+        "title": "Should Corning\u2013NVIDIA U.S. Fiber Partnership Reshaping AI Data Centers Require Action From NVIDIA (NVDA) Investors?",
+        "summary": "Earlier this week, Corning announced a multiyear commercial and technology partnership with NVIDIA to build three advanced U.S. plants that will massively expand domestic optical connectivity manufacturing for next-generation AI data centers. By moving to replace thousands of cop",
+        "source": "Simply Wall St.",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/corning-nvidia-u-fiber-partnership-062628048.html",
+        "publish_time": 1778135188
       },
       {
-        "title": "Morning Bid: No stopping AI frenzy in Asia",
-        "summary": "A look at the day ahead in European and global markets from Ankur Banerjee Japan's Nikkei returned from holiday and jumped onto the scorching AI rally, joining South Korea and Taiwan equities at",
-        "source": "Reuters",
-        "url": "https://finance.yahoo.com/markets/world-indices/articles/morning-bid-no-stopping-ai-043303632.html",
-        "publish_time": 1778128383
+        "title": "Should You Invest in This Artificial Intelligence (AI) IPO Stock That Has a Partnership with Amazon?",
+        "summary": "It could offer incredible opportunities down the line.",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/investing/2026/05/07/should-you-invest-in-this-artificial-intelligence/",
+        "publish_time": 1778135100
       },
       {
-        "title": "Nikkei 225 Tops 62,000 as Major Japanese Stocks Post Double-Digit Gains",
-        "summary": "Japan's Nikkei 225 tops 62,000 first time as major tech, materials stocks post double-digit gains in broad rally.",
-        "source": "BeInCrypto",
-        "url": "https://beincrypto.com/nikkei-225-record-japan-stocks-rally/",
-        "publish_time": 1778125563
+        "title": "Does AEO\u2019s Pivot To Amazon And Buybacks Reshape The Margin-Improvement Bull Case For American Eagle?",
+        "summary": "In recent months, American Eagle Outfitters filed a preliminary proxy for its June 26, 2026 virtual annual meeting, reported record US$5.50 billion Fiscal 2025 revenue with positive comparable sales fueled by Aerie, moved to wind down its Quiet Platforms third-party logistics bus",
+        "source": "Simply Wall St.",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/does-aeo-pivot-amazon-buybacks-062401001.html",
+        "publish_time": 1778135041
       },
       {
-        "title": "Dow Jones Futures: Stock Market Hits Highs On Iran-Deal Hopes, Nvidia Leads New Buys; ARM Is Earnings Mover",
-        "summary": "The S&P 500 and Nasdaq hit new highs on Iran deal hopes. Nvidia leads new buys with Arm a big earnings mover late.",
-        "source": "Investor's Business Daily",
-        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-iran-deal-hopes-nvidia-new-buy-arm-earnings/?src=A00220&yptr=yahoo",
-        "publish_time": 1778123166
+        "title": "Alphabet (GOOGL): A Must-Buy Stock with the Strongest 1Q2026 Earnings Beats",
+        "summary": "Alphabet Inc. (NASDAQ:GOOGL) is one of the 10 Must-Buy Stocks with the Strongest 1Q2026 Earnings Beats. On April 30, 2026, Roth Capital raised its price target on Alphabet Inc. (NASDAQ:GOOGL) to $435 from $395 and maintained a Buy rating after the company reported a Q1 beat. The ",
+        "source": "Insider Monkey",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-googl-must-buy-stock-062223673.html",
+        "publish_time": 1778134943
       },
       {
-        "title": "Review & Preview: The Road Back to 50K",
-        "summary": "The Dow Jones Industrial Average finally joined the Nasdaq Composite and S&P 500 in exiting correction territory, but it ended the day just short of a major milestone.  The Dow rose 612 points, or 1.2% after briefly crossing the symbolic 50,000 level.  The S&P 500 ended up 1.5% w",
-        "source": "Barrons.com",
-        "url": "https://www.barrons.com/articles/stocks-today-dow-50k-arm-earnings-684dca1b?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1778112300
+        "title": "Is Amazon (AMZN) a Must-Buy Stock with the Strongest 1Q2026 Earnings Beats?",
+        "summary": "Amazon.com, Inc. (NASDAQ:AMZN) is one of the 10 Must-Buy Stocks with the Strongest 1Q2026 Earnings Beats. On May 1, 2026, Baird raised its price target on Amazon.com, Inc. (NASDAQ:AMZN) to $300 from $285 and maintained an Outperform rating after updating its model following Q1 re",
+        "source": "Insider Monkey",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-amzn-must-buy-stock-062147848.html",
+        "publish_time": 1778134907
+      },
+      {
+        "title": "Here is Why Meta Platforms (META) is Among the 10 Must-Buy Stocks with the Strongest 1Q2026 Earnings Beats",
+        "summary": "Meta Platforms, Inc. (NASDAQ:META) is one of the 10 Must-Buy Stocks with the Strongest 1Q2026 Earnings Beats. On April 30, 2026, BofA analyst Justin Post raised the price target on Meta Platforms, Inc. (NASDAQ:META) to $835 from $820 and maintained a Buy rating after the company\u2019",
+        "source": "Insider Monkey",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/why-meta-platforms-meta-among-062120724.html",
+        "publish_time": 1778134880
       }
     ],
-    "overall_mood": 0.55,
-    "fetched_at": "2026-05-07T07:57:48+00:00"
+    "overall_mood": 0.43,
+    "fetched_at": "2026-05-07T08:11:38+00:00"
   }
 }
