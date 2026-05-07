@@ -785,6 +785,92 @@ def fetch_vix_and_hyg() -> dict:
     return out
 
 
+def fetch_market_news(top_n: int = 10) -> dict:
+    """
+    Aggregate top market news from broad-market proxies (SPY, QQQ, indices).
+    Dedupes by URL, sorts newest first, runs FinBERT to compute overall mood.
+    Returns {items: [...], overall_mood: float, fetched_at: iso}.
+    """
+    proxies = ["SPY", "QQQ", "^GSPC", "^DJI"]
+    items: list = []
+    seen: set = set()
+
+    for sym in proxies:
+        try:
+            tk = yf.Ticker(sym)
+            news = tk.news or []
+        except Exception as e:
+            print(f"  ! Market news fetch from {sym} failed: {e}", file=sys.stderr)
+            continue
+
+        for raw in news:
+            content = raw.get("content", raw)
+
+            title = (content.get("title") or raw.get("title") or "").strip()
+            summary = (content.get("summary") or raw.get("summary") or "").strip()
+
+            url = ""
+            cu = content.get("canonicalUrl")
+            if isinstance(cu, dict):
+                url = cu.get("url", "") or ""
+            if not url:
+                url = raw.get("link", "") or ""
+
+            provider = ""
+            prov = content.get("provider")
+            if isinstance(prov, dict):
+                provider = prov.get("displayName", "") or ""
+            if not provider:
+                provider = raw.get("publisher", "") or "Yahoo Finance"
+
+            pub_time = None
+            pd_iso = content.get("pubDate")
+            if pd_iso:
+                try:
+                    pub_time = int(datetime.fromisoformat(
+                        pd_iso.replace("Z", "+00:00")).timestamp())
+                except Exception:
+                    pass
+            if pub_time is None:
+                pub_time = raw.get("providerPublishTime")
+
+            if not title or not url:
+                continue
+
+            key = url
+            if key in seen:
+                continue
+            seen.add(key)
+
+            items.append({
+                "title": title,
+                "summary": summary[:280],
+                "source": provider,
+                "url": url,
+                "publish_time": pub_time,
+            })
+
+    # Sort newest first; keep top N
+    items.sort(key=lambda x: x.get("publish_time") or 0, reverse=True)
+    top_items = items[:top_n]
+
+    # Compute overall headline mood with FinBERT
+    overall_mood = 0.0
+    if top_items:
+        try:
+            scorer = get_sentiment_scorer()
+            texts = [f"{i['title']}. {i['summary']}" for i in top_items]
+            overall_mood = scorer.score_texts(texts)
+        except Exception:
+            pass
+
+    return {
+        "items": top_items,
+        "overall_mood": round(float(overall_mood), 2),
+        "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }
+
+
 def fetch_fear_greed() -> Optional[dict]:
     """
     Fetch CNN's Fear & Greed Index (composite of 7 sentiment factors).
@@ -1449,6 +1535,10 @@ def main():
     print("Fetching Fear & Greed Index...", file=sys.stderr)
     fear_greed = fetch_fear_greed()
 
+    # Fetch market headlines
+    print("Fetching top market headlines...", file=sys.stderr)
+    market_news = fetch_market_news(top_n=10)
+
     # Combine into enhanced regime payload
     regime["breadth"] = breadth
     regime["vix"] = market_health.get("vix")
@@ -1471,6 +1561,7 @@ def main():
         "picks": [asdict(p) for p in picks],
         "sectors": sectors,
         "regime": regime,
+        "market_news": market_news,
     }
 
     if args.output:
