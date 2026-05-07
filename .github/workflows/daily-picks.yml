@@ -16,6 +16,7 @@ permissions:
 jobs:
   generate-picks:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -26,8 +27,14 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
+      - name: Cache HuggingFace models
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-cache-finbert-v1
+
       - name: Install dependencies
-        run: pip install yfinance pandas numpy
+        run: pip install -r requirements.txt
 
       - name: Run bot
         run: python daily_picks_bot.py --market top100 --output public/picks.json
