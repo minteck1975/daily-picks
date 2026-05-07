@@ -30,7 +30,7 @@ jobs:
         run: pip install yfinance pandas numpy
 
       - name: Run bot
-        run: python daily_picks_bot.py --market us --output public/picks.json
+        run: python daily_picks_bot.py --market top100 --output public/picks.json
 
       - name: Commit updated picks.json
         run: |
