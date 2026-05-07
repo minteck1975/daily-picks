@@ -1,0 +1,64 @@
+{
+  "picks": [
+    {
+      "date": "2026-05-07",
+      "ticker": "KLAC",
+      "name": "KLA Corporation",
+      "sector": "Technology",
+      "entry_price": 1816.2900390625,
+      "score": 13.3,
+      "stop_loss": 1665.43,
+      "target": 1840.0,
+      "rr_ratio": 0.16,
+      "key_signals": {
+        "rs_vs_spy_30d": 3.62,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 4.15,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-07",
+      "ticker": "MS",
+      "name": "Morgan Stanley",
+      "sector": "Financial Services",
+      "entry_price": 193.35000610351562,
+      "score": 13.0,
+      "stop_loss": 185.32,
+      "target": 194.59,
+      "rr_ratio": 0.15,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.22,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.08,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-07",
+      "ticker": "BA",
+      "name": "Boeing Company (The)",
+      "sector": "Industrials",
+      "entry_price": 229.92999267578125,
+      "score": 12.3,
+      "stop_loss": 216.15,
+      "target": 231.33,
+      "rr_ratio": 0.1,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.71,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.0,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    }
+  ]
+}
