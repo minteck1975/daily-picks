@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T02:24:58",
+  "generated_at": "2026-05-07T03:27:35",
   "market": "top100",
   "scanned": 100,
   "enriched": 12,
@@ -1921,5 +1921,113 @@
         }
       ]
     }
-  ]
+  ],
+  "sectors": [
+    {
+      "symbol": "XLK",
+      "name": "Technology",
+      "price": 170.03,
+      "day_return": 2.66,
+      "month_return": 20.0,
+      "is_cyclical": true,
+      "is_defensive": false
+    },
+    {
+      "symbol": "XLI",
+      "name": "Industrials",
+      "price": 176.87,
+      "day_return": 2.59,
+      "month_return": 3.77,
+      "is_cyclical": true,
+      "is_defensive": false
+    },
+    {
+      "symbol": "XLB",
+      "name": "Basic Materials",
+      "price": 52.41,
+      "day_return": 1.71,
+      "month_return": 1.28,
+      "is_cyclical": true,
+      "is_defensive": false
+    },
+    {
+      "symbol": "XLY",
+      "name": "Consumer Cyclical",
+      "price": 119.87,
+      "day_return": 1.52,
+      "month_return": 8.17,
+      "is_cyclical": true,
+      "is_defensive": false
+    },
+    {
+      "symbol": "XLC",
+      "name": "Communication Services",
+      "price": 117.35,
+      "day_return": 1.49,
+      "month_return": 3.11,
+      "is_cyclical": true,
+      "is_defensive": false
+    },
+    {
+      "symbol": "XLRE",
+      "name": "Real Estate",
+      "price": 44.74,
+      "day_return": 1.29,
+      "month_return": 5.42,
+      "is_cyclical": false,
+      "is_defensive": true
+    },
+    {
+      "symbol": "XLF",
+      "name": "Financial Services",
+      "price": 51.84,
+      "day_return": 0.48,
+      "month_return": 1.25,
+      "is_cyclical": true,
+      "is_defensive": false
+    },
+    {
+      "symbol": "XLP",
+      "name": "Consumer Defensive",
+      "price": 84.24,
+      "day_return": 0.21,
+      "month_return": 1.76,
+      "is_cyclical": false,
+      "is_defensive": true
+    },
+    {
+      "symbol": "XLV",
+      "name": "Healthcare",
+      "price": 145.4,
+      "day_return": 0.07,
+      "month_return": -2.85,
+      "is_cyclical": false,
+      "is_defensive": true
+    },
+    {
+      "symbol": "XLU",
+      "name": "Utilities",
+      "price": 45.71,
+      "day_return": -1.42,
+      "month_return": -2.29,
+      "is_cyclical": false,
+      "is_defensive": true
+    },
+    {
+      "symbol": "XLE",
+      "name": "Energy",
+      "price": 57.0,
+      "day_return": -4.12,
+      "month_return": -1.81,
+      "is_cyclical": false,
+      "is_defensive": false
+    }
+  ],
+  "regime": {
+    "label": "risk-on",
+    "score": 1.7,
+    "cyclical_avg": 1.74,
+    "defensive_avg": 0.04,
+    "summary": "Cyclicals are leading defensives by +1.70%. Money is rotating into growth \u2014 favorable backdrop for trend setups."
+  }
 }
