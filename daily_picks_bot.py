@@ -70,6 +70,32 @@ AI_DEFAULT = [
     "TSLA",
 ]
 
+# Top-100 US large caps by market cap, sector-balanced (use with --market top100)
+TOP100_DEFAULT = [
+    # Tech / AI / Internet (35)
+    "MSFT", "AAPL", "NVDA", "GOOGL", "AMZN", "META", "TSLA", "AVGO",
+    "ORCL", "NFLX", "ADBE", "CRM", "AMD", "INTC", "INTU", "QCOM",
+    "AMAT", "IBM", "NOW", "MU", "TXN", "ARM", "MRVL", "ANET",
+    "PLTR", "SMCI", "CSCO", "LRCX", "KLAC", "PANW", "ABNB", "UBER",
+    "SHOP", "SNOW", "DDOG",
+    # Financials (15)
+    "JPM", "V", "MA", "BAC", "WFC", "MS", "GS", "AXP",
+    "BLK", "SPGI", "PGR", "SCHW", "CB", "C", "CME",
+    # Healthcare (15)
+    "LLY", "UNH", "JNJ", "ABBV", "MRK", "TMO", "ABT", "AMGN",
+    "PFE", "ISRG", "BMY", "GILD", "DHR", "BSX", "VRTX",
+    # Consumer (15)
+    "WMT", "COST", "HD", "PG", "KO", "PEP", "MCD", "DIS",
+    "NKE", "SBUX", "TJX", "LOW", "BKNG", "CMCSA", "MDLZ",
+    # Industrial (10)
+    "BRK-B", "HON", "GE", "CAT", "RTX", "BA", "UNP", "DE",
+    "ETN", "LMT",
+    # Energy (5)
+    "XOM", "CVX", "COP", "SLB", "EOG",
+    # Utilities / Telecom / Materials (5)
+    "T", "VZ", "TMUS", "NEE", "LIN",
+]
+
 SGX_DEFAULT = [
     "D05.SI",  # DBS
     "O39.SI",  # OCBC
@@ -526,7 +552,7 @@ def render_report(picks: list, scanned: int) -> str:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--market", choices=["us", "sgx", "ai", "both"], default="both")
+    parser.add_argument("--market", choices=["us", "sgx", "ai", "top100", "both"], default="both")
     parser.add_argument("--watchlist", help="Path to a text file with one ticker per line")
     parser.add_argument("--json", action="store_true", help="Output JSON instead of text")
     parser.add_argument("--top", type=int, default=3)
@@ -542,6 +568,8 @@ def main():
         tickers = SGX_DEFAULT
     elif args.market == "ai":
         tickers = AI_DEFAULT
+    elif args.market == "top100":
+        tickers = TOP100_DEFAULT
     else:
         tickers = US_DEFAULT + SGX_DEFAULT
 
