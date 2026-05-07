@@ -21,6 +21,8 @@ Schedule with cron / Task Scheduler / launchd to run after market close.
 import argparse
 import json
 import math
+import os
+import re
 import sys
 import time
 import warnings
@@ -32,6 +34,13 @@ import numpy as np
 import pandas as pd
 import requests
 import yfinance as yf
+
+# FinBERT is optional — bot falls back to keyword scoring if unavailable
+try:
+    from transformers import pipeline
+    _FINBERT_AVAILABLE = True
+except ImportError:
+    _FINBERT_AVAILABLE = False
 
 warnings.filterwarnings("ignore")
 
@@ -163,27 +172,48 @@ class Signal:
     ma20: float
     ma50: float
     cross_today: bool
-    cross_recent: bool       # cross within last 10 sessions (informational)
+    cross_recent: bool
     pct_above_ma20: float
     pct_above_ma50: float
-    ma20_slope_5d: float     # % change in MA20 over last 5 sessions
-    in_uptrend: bool         # price > MA20 > MA50
-    ma20_rising: bool        # MA20 slope positive over 5 sessions
+    ma20_slope_5d: float
+    in_uptrend: bool
+    ma20_rising: bool
     rsi: float
     rsi_rising: bool
     macd_hist: float
     macd_positive: bool
-    volume_ratio: float      # today vs 20d avg
+    volume_ratio: float
     volume_strong: bool
+    # New: relative strength
+    rs_vs_spy_30d: float       # outperformance vs SPY over 30 sessions, %
+    rs_leader: bool            # outperforming SPY by > 3%
+    # New: multi-timeframe
+    weekly_uptrend: Optional[bool]   # weekly close > weekly MA10 AND MA10 rising
+    # New: 52-week high context
+    pct_below_52w_high: float        # how far below 52w high (negative number)
+    near_52w_high: bool              # within 15% of 52w high
+    # New: volatility (ATR)
+    atr_14: float                    # absolute ATR
+    atr_pct: float                   # ATR as % of price
+    # New: consolidation/breakout
+    breakout_recent: bool            # broke out of tight range in last 10 sessions
+    breakout_days_since: Optional[int]
+    consolidation_range_pct: Optional[float]
+    # Existing sentiment
     news_count_7d: int
-    news_score: float        # -1 .. +1 (very rough)
-    st_message_count: int    # StockTwits messages in recent stream
-    st_bullish_ratio: float  # 0..1 bullish share of tagged messages (0.5 = neutral)
-    st_tagged: int           # number of bullish/bearish-tagged messages
-    days_to_earnings: Optional[int]  # None if unknown
+    news_score: float
+    st_message_count: int
+    st_bullish_ratio: float
+    st_tagged: int
+    # New: Reddit + insider
+    reddit_mention_count: int
+    reddit_score_total: int
+    insider_buy_count_30d: int
+    insider_buy_value_usd: int
+    days_to_earnings: Optional[int]
     composite_score: float
     reasons: list
-    chart_data: list         # last 60 sessions: [{time, open, high, low, close, ma20, ma50}, ...]
+    chart_data: list
 
 
 # Lightweight headline sentiment (placeholder).
@@ -314,6 +344,258 @@ def fetch_sector(tk: yf.Ticker) -> str:
         return "Unknown"
 
 
+# ---------- New: technical helpers ----------
+def compute_atr(df: pd.DataFrame, n: int = 14) -> pd.Series:
+    """Average True Range — measures average price range per session."""
+    high = df["High"]
+    low = df["Low"]
+    close_prev = df["Close"].shift(1)
+    tr = pd.concat([
+        high - low,
+        (high - close_prev).abs(),
+        (low - close_prev).abs(),
+    ], axis=1).max(axis=1)
+    return tr.rolling(n).mean()
+
+
+def compute_52w_high_distance(df: pd.DataFrame) -> tuple[float, float]:
+    """Returns (high_value, pct_below_high). pct is negative (or 0)."""
+    window = df["High"].iloc[-252:] if len(df) >= 252 else df["High"]
+    high = float(window.max())
+    last = float(df["Close"].iloc[-1])
+    pct = (last / high - 1) * 100 if high else 0.0
+    return high, pct
+
+
+def compute_rs_vs_spy(stock_df: pd.DataFrame, spy_df: pd.DataFrame, lookback: int = 30) -> float:
+    """% outperformance of stock vs SPY over `lookback` sessions."""
+    if len(stock_df) < lookback + 1 or len(spy_df) < lookback + 1:
+        return 0.0
+    stock_ret = (stock_df["Close"].iloc[-1] / stock_df["Close"].iloc[-lookback - 1] - 1) * 100
+    spy_ret = (spy_df["Close"].iloc[-1] / spy_df["Close"].iloc[-lookback - 1] - 1) * 100
+    return float(stock_ret - spy_ret)
+
+
+def check_weekly_uptrend(ticker: str) -> Optional[bool]:
+    """
+    Returns True if weekly trend is also up: close > 10-week MA AND MA rising.
+    None if data insufficient or fetch failed.
+    """
+    try:
+        tk = yf.Ticker(ticker)
+        df = tk.history(period="1y", interval="1wk", auto_adjust=False)
+    except Exception:
+        return None
+    if len(df) < 12:
+        return None
+    df["MA10"] = df["Close"].rolling(10).mean()
+    last = df.iloc[-1]
+    prev = df.iloc[-2]
+    if pd.isna(last["MA10"]) or pd.isna(prev["MA10"]):
+        return None
+    return bool(last["Close"] > last["MA10"] and last["MA10"] > prev["MA10"])
+
+
+def detect_breakout(df: pd.DataFrame,
+                    consolidation_window: int = 30,
+                    breakout_window: int = 10,
+                    max_range_pct: float = 12.0) -> dict:
+    """
+    Detect: stock spent recent weeks in a tight range, then broke above it.
+    Returns {is_breakout, days_since, range_pct}.
+    """
+    needed = consolidation_window + breakout_window + 2
+    if len(df) < needed:
+        return {"is_breakout": False, "days_since": None, "range_pct": None}
+
+    cons = df.iloc[-(consolidation_window + breakout_window):-breakout_window]
+    cons_high = float(cons["High"].max())
+    cons_low = float(cons["Low"].min())
+    if cons_low <= 0:
+        return {"is_breakout": False, "days_since": None, "range_pct": None}
+    range_pct = (cons_high / cons_low - 1) * 100
+
+    if range_pct > max_range_pct:
+        return {"is_breakout": False, "days_since": None, "range_pct": round(range_pct, 2)}
+
+    recent = df.iloc[-breakout_window:]
+    breakout_idx = None
+    for i in range(len(recent)):
+        if float(recent["Close"].iloc[i]) > cons_high * 1.01:
+            breakout_idx = len(df) - breakout_window + i
+            break
+    if breakout_idx is None:
+        return {"is_breakout": False, "days_since": None, "range_pct": round(range_pct, 2)}
+
+    return {
+        "is_breakout": True,
+        "days_since": int(len(df) - 1 - breakout_idx),
+        "range_pct": round(range_pct, 2),
+    }
+
+
+# ---------- New: insider buying via OpenInsider ----------
+def fetch_insider_buying(ticker: str) -> dict:
+    """
+    Scrape OpenInsider for Form 4 purchase activity in last 30 days.
+    Returns {buy_count, total_value_usd}. Failures return zeros.
+    """
+    base = "http://openinsider.com/screener"
+    params = (
+        f"?s={ticker}&fd=30&xt=2&grp=0&cnt=20"  # xt=2 → purchase only
+    )
+    try:
+        resp = requests.get(
+            base + params,
+            timeout=10,
+            headers={"User-Agent": "Mozilla/5.0 (compatible; daily-picks-bot/1.0)"},
+        )
+        if resp.status_code != 200:
+            return {"buy_count": 0, "total_value_usd": 0}
+    except Exception:
+        return {"buy_count": 0, "total_value_usd": 0}
+
+    # Parse table without bs4 dependency — use regex on the value column
+    # OpenInsider rows look like ... <td>$1,234,567</td> ... in the value cell
+    # We also use a simple heuristic: count rows containing the ticker symbol
+    # as a row anchor, and pull dollar values.
+    text = resp.text
+    # Find the screener table block
+    table_match = re.search(r'<table[^>]*tinytable[^>]*>(.*?)</table>',
+                            text, flags=re.DOTALL | re.IGNORECASE)
+    if not table_match:
+        return {"buy_count": 0, "total_value_usd": 0}
+    table_html = table_match.group(1)
+    rows = re.findall(r'<tr[^>]*>(.*?)</tr>', table_html, flags=re.DOTALL | re.IGNORECASE)
+
+    buy_count = 0
+    total_value = 0
+    for row in rows:
+        cells = re.findall(r'<td[^>]*>(.*?)</td>', row, flags=re.DOTALL | re.IGNORECASE)
+        if len(cells) < 13:
+            continue
+        # Strip HTML tags from each cell
+        clean = [re.sub(r'<[^>]+>', '', c).strip() for c in cells]
+        # Trade type column is usually idx 7-8; "P - Purchase" indicates buy
+        joined = " ".join(clean).lower()
+        if "purchase" not in joined and "p - " not in joined:
+            continue
+        # Look for a dollar value in the row
+        money_match = re.search(r'\$([\d,]+)', " ".join(clean))
+        if money_match:
+            try:
+                value = int(money_match.group(1).replace(",", ""))
+                if value > 0:
+                    buy_count += 1
+                    total_value += value
+            except ValueError:
+                continue
+    return {"buy_count": buy_count, "total_value_usd": total_value}
+
+
+# ---------- New: Reddit mentions via public JSON ----------
+def fetch_reddit_mentions(ticker: str) -> dict:
+    """
+    Count Reddit posts mentioning ticker in major investing subs over last week.
+    Uses unauthenticated public endpoint — rate limited but free.
+    """
+    subs = "wallstreetbets+stocks+investing+stockmarket"
+    url = (f"https://www.reddit.com/r/{subs}/search.json"
+           f"?q=%24{ticker}&restrict_sr=on&t=week&limit=25")
+    try:
+        resp = requests.get(
+            url, timeout=10,
+            headers={"User-Agent": "daily-picks-bot/1.0 (research)"},
+        )
+        if resp.status_code != 200:
+            return {"count": 0, "score_total": 0}
+        data = resp.json()
+    except Exception:
+        return {"count": 0, "score_total": 0}
+    posts = (data.get("data") or {}).get("children") or []
+    count = len(posts)
+    score_total = sum((p.get("data") or {}).get("score", 0) for p in posts)
+    return {"count": count, "score_total": int(score_total)}
+
+
+# ---------- New: FinBERT sentiment scorer ----------
+class _SentimentScorer:
+    """Tries FinBERT first, falls back to keyword scoring on any failure."""
+    def __init__(self):
+        self._pipe = None
+        if _FINBERT_AVAILABLE and not os.environ.get("DISABLE_FINBERT"):
+            try:
+                self._pipe = pipeline(
+                    "sentiment-analysis",
+                    model="ProsusAI/finbert",
+                    truncation=True,
+                    max_length=256,
+                )
+                print("FinBERT loaded successfully", file=sys.stderr)
+            except Exception as e:
+                print(f"FinBERT unavailable ({type(e).__name__}: {e}); using keyword fallback",
+                      file=sys.stderr)
+                self._pipe = None
+        else:
+            print("FinBERT not installed; using keyword fallback", file=sys.stderr)
+
+    def score_texts(self, texts: list) -> float:
+        """Average sentiment in [-1, +1] across `texts`."""
+        if not texts:
+            return 0.0
+        if self._pipe is not None:
+            try:
+                results = self._pipe(texts)
+                scores = []
+                for r in results:
+                    label = (r.get("label") or "").lower()
+                    s = float(r.get("score") or 0)
+                    if "positive" in label:
+                        scores.append(s)
+                    elif "negative" in label:
+                        scores.append(-s)
+                    else:
+                        scores.append(0.0)
+                if scores:
+                    return float(np.mean(scores))
+            except Exception as e:
+                print(f"  ! FinBERT inference failed: {e}", file=sys.stderr)
+        # Keyword fallback
+        raws = [score_headline(t) for t in texts]
+        return float(np.tanh(np.mean(raws))) if raws else 0.0
+
+
+# Singleton scorer (loads model once per run)
+_SCORER: Optional[_SentimentScorer] = None
+def get_sentiment_scorer() -> _SentimentScorer:
+    global _SCORER
+    if _SCORER is None:
+        _SCORER = _SentimentScorer()
+    return _SCORER
+
+
+def fetch_news_sentiment_finbert(tk: yf.Ticker) -> tuple[int, float]:
+    """Same as fetch_news_sentiment but uses FinBERT on title+summary."""
+    try:
+        news = tk.news or []
+    except Exception:
+        return 0, 0.0
+    if not news:
+        return 0, 0.0
+    texts = []
+    for item in news[:15]:
+        content = item.get("content", item)
+        title = content.get("title") or item.get("title", "") or ""
+        summary = content.get("summary") or item.get("summary", "") or ""
+        merged = f"{title}. {summary}".strip()
+        if merged:
+            texts.append(merged)
+    if not texts:
+        return 0, 0.0
+    avg = get_sentiment_scorer().score_texts(texts)
+    return len(texts), float(avg)
+
+
 def fetch_sector_etfs() -> list:
     """
     Pull recent prices for the 11 SPDR sector ETFs. Returns a list of dicts
@@ -387,16 +669,12 @@ def compute_regime(sectors: list) -> dict:
     }
 
 
-def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
-    """
-    Evaluate one ticker. Computes technicals always.
-    If enrich=False, skips expensive lookups (sector, StockTwits, earnings).
-    These are filled in later by enrich_signal() for finalists only.
-    """
+def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
+    """Evaluate one ticker. Heavy lookups deferred unless enrich=True."""
     try:
         tk = yf.Ticker(ticker)
-        df = tk.history(period="6mo", interval="1d", auto_adjust=False)
-        if len(df) < 30:
+        df = tk.history(period="1y", interval="1d", auto_adjust=False)
+        if len(df) < 50:
             return None
     except Exception as e:
         print(f"  ! {ticker}: data fetch failed ({e})", file=sys.stderr)
@@ -406,16 +684,15 @@ def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
     df["MA50"] = sma(df["Close"], 50)
     df["RSI"] = rsi(df["Close"], 14)
     df["VolAvg20"] = sma(df["Volume"], 20)
+    df["ATR"] = compute_atr(df, 14)
     macd_line, sig_line, hist = macd(df["Close"])
     df["MACD_hist"] = hist
 
     last = df.iloc[-1]
     prev = df.iloc[-2]
-
-    if any(pd.isna(x) for x in [last["MA20"], last["MA50"], last["RSI"], last["VolAvg20"]]):
+    if any(pd.isna(x) for x in [last["MA20"], last["MA50"], last["RSI"], last["VolAvg20"], last["ATR"]]):
         return None
 
-    # Trend metrics
     pct_above_ma20 = float((last["Close"] / last["MA20"] - 1) * 100)
     pct_above_ma50 = float((last["Close"] / last["MA50"] - 1) * 100)
     ma_separation = float((last["MA20"] / last["MA50"] - 1) * 100)
@@ -427,17 +704,25 @@ def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
     in_uptrend = bool(last["Close"] > last["MA20"] > last["MA50"])
     ma20_rising = bool(ma20_slope_5d > 0.3)
 
-    # Cross detection (informational)
+    high_52w, pct_below_52w = compute_52w_high_distance(df)
+    near_52w_high = pct_below_52w >= -15
+
+    atr_14 = float(last["ATR"])
+    atr_pct = float(atr_14 / last["Close"] * 100) if last["Close"] else 0.0
+
+    rs_30d = compute_rs_vs_spy(df, spy_df, 30) if spy_df is not None else 0.0
+    rs_leader = rs_30d > 3.0
+
+    bo = detect_breakout(df)
+
     cross_today = bool(last["Close"] > last["MA20"] and prev["Close"] <= prev["MA20"])
     cross_recent = False
     for i in range(1, 11):
         if i + 1 > len(df):
             break
-        a = df.iloc[-i]
-        b = df.iloc[-i - 1]
+        a = df.iloc[-i]; b = df.iloc[-i - 1]
         if a["Close"] > a["MA20"] and b["Close"] <= b["MA20"]:
-            cross_recent = True
-            break
+            cross_recent = True; break
 
     rsi_now = float(last["RSI"])
     rsi_rising = bool(last["RSI"] > prev["RSI"])
@@ -446,20 +731,24 @@ def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
     vol_ratio = float(last["Volume"] / last["VolAvg20"]) if last["VolAvg20"] else 0
     vol_strong = vol_ratio >= 1.5
 
-    # Defer expensive calls until we know the ticker is a candidate
     if enrich:
         sector = fetch_sector(tk)
-        news_count, news_score = fetch_news_sentiment(tk)
+        news_count, news_score = fetch_news_sentiment_finbert(tk)
         st_messages, st_bull_ratio, st_tagged = fetch_stocktwits(ticker)
         days_to_earn = fetch_days_to_earnings(tk)
-        time.sleep(0.3)  # gentle rate limit
+        weekly_uptrend = check_weekly_uptrend(ticker)
+        insider = fetch_insider_buying(ticker)
+        reddit = fetch_reddit_mentions(ticker)
+        time.sleep(0.3)
     else:
         sector = "Unknown"
         news_count, news_score = 0, 0.0
         st_messages, st_bull_ratio, st_tagged = 0, 0.5, 0
         days_to_earn = None
+        weekly_uptrend = None
+        insider = {"buy_count": 0, "total_value_usd": 0}
+        reddit = {"count": 0, "score_total": 0}
 
-    # Trend-focused scoring
     score = 0.0
     reasons = []
 
@@ -467,28 +756,47 @@ def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
         score += 3.0
         reasons.append(f"In uptrend: price > MA20 > MA50, MA20 rising {ma20_slope_5d:+.2f}% over 5 sessions")
 
+    if rs_leader:
+        score += 2.0
+        reasons.append(f"Leadership: outperforming SPY by {rs_30d:+.2f}% over 30 sessions")
+    elif rs_30d > 0:
+        score += 0.5
+
+    if enrich and weekly_uptrend is True:
+        score += 1.5
+        reasons.append("Weekly trend confirms: above 10-week MA and rising")
+    elif enrich and weekly_uptrend is False:
+        score -= 1.5
+        reasons.append("Weekly trend is down — daily setup fights the bigger tide")
+
+    if near_52w_high:
+        score += 1.0
+        reasons.append(f"Near 52-week high (only {-pct_below_52w:.1f}% below)")
+    elif pct_below_52w < -30:
+        score -= 1.0
+        reasons.append(f"{-pct_below_52w:.1f}% below 52-week high — long-term downtrend")
+
     if 0 < pct_above_ma20 <= 3:
         score += 2.0
-        reasons.append(f"Healthy pullback: only {pct_above_ma20:+.2f}% above MA20 — good entry near support")
+        reasons.append(f"Healthy pullback: only +{pct_above_ma20:.2f}% above MA20")
     elif 3 < pct_above_ma20 <= 8:
         score += 1.0
-        reasons.append(f"{pct_above_ma20:+.2f}% above MA20 — moderate extension, room to run")
+        reasons.append(f"+{pct_above_ma20:.2f}% above MA20 — moderate extension")
     elif 8 < pct_above_ma20 <= 15:
-        reasons.append(f"{pct_above_ma20:+.2f}% above MA20 — extended, limited entry margin")
+        reasons.append(f"+{pct_above_ma20:.2f}% above MA20 — extended")
     elif pct_above_ma20 > 15:
         score -= 1.5
-        reasons.append(f"{pct_above_ma20:+.2f}% above MA20 — overextended, mean-reversion risk")
+        reasons.append(f"+{pct_above_ma20:.2f}% above MA20 — overextended")
 
     if ma_separation >= 4:
         score += 1.5
-        reasons.append(f"Established trend: MA20 sits {ma_separation:+.2f}% above MA50")
+        reasons.append(f"Established trend: MA20 +{ma_separation:.2f}% above MA50")
     elif ma_separation >= 1.5:
         score += 0.5
-        reasons.append(f"Trend forming: MA20 {ma_separation:+.2f}% above MA50")
 
     if 50 <= rsi_now <= 75 and rsi_rising:
         score += 1.0
-        reasons.append(f"RSI {rsi_now:.1f} and rising — momentum healthy")
+        reasons.append(f"RSI {rsi_now:.1f} and rising")
     elif rsi_now > 80:
         score -= 0.5
         reasons.append(f"RSI {rsi_now:.1f} extreme — wait for cooldown")
@@ -499,40 +807,64 @@ def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
 
     if vol_strong:
         score += 1.5
-        reasons.append(f"Volume {vol_ratio:.2f}x the 20-day average — institutional interest")
+        reasons.append(f"Volume {vol_ratio:.2f}x 20-day average")
     elif vol_ratio >= 1.0:
         score += 0.3
 
-    if cross_recent and pct_above_ma20 < 6:
-        score += 0.5
-        reasons.append("Recent MA20 cross within last 10 sessions — potentially fresh trend")
+    if atr_pct < 1.0:
+        score -= 0.5
+        reasons.append(f"ATR only {atr_pct:.2f}% of price — low volatility")
+    elif atr_pct > 6.0:
+        score -= 1.0
+        reasons.append(f"ATR {atr_pct:.2f}% of price — too volatile")
 
-    # Social sentiment (StockTwits) — primary social signal
+    if bo["is_breakout"] and bo["days_since"] is not None and bo["days_since"] <= 5:
+        score += 2.0
+        reasons.append(f"Fresh breakout from {bo['range_pct']:.1f}% consolidation ({bo['days_since']} sessions ago)")
+
+    if cross_recent and pct_above_ma20 < 6:
+        score += 0.3
+
     if enrich and st_tagged >= 5:
         if st_bull_ratio >= 0.70:
             score += 2.0
-            reasons.append(f"StockTwits crowd is {st_bull_ratio*100:.0f}% bullish across {st_tagged} tagged messages — strong positive sentiment")
+            reasons.append(f"StockTwits {st_bull_ratio*100:.0f}% bullish across {st_tagged} tagged messages")
         elif st_bull_ratio >= 0.55:
             score += 1.0
-            reasons.append(f"StockTwits crowd leans bullish ({st_bull_ratio*100:.0f}% of {st_tagged} tagged messages)")
         elif st_bull_ratio <= 0.30:
             score -= 1.5
-            reasons.append(f"StockTwits crowd is {(1-st_bull_ratio)*100:.0f}% bearish across {st_tagged} tagged messages — negative sentiment")
+            reasons.append(f"StockTwits {(1-st_bull_ratio)*100:.0f}% bearish")
     if enrich and st_messages >= 25:
         score += 0.5
-        reasons.append(f"High discussion volume on StockTwits ({st_messages} recent messages)")
 
-    # News headlines (secondary)
-    if news_score > 0.15:
-        score += 1.0
-        reasons.append(f"{news_count} recent headlines, net positive tone (score {news_score:+.2f})")
-    elif news_score < -0.15:
-        score -= 1.5
-        reasons.append(f"{news_count} recent headlines, net negative tone (score {news_score:+.2f})")
-    elif news_count >= 5:
-        score += 0.3
+    if enrich and reddit["count"] >= 5:
+        if reddit["score_total"] >= 200:
+            score += 1.5
+            reasons.append(f"Reddit buzz: {reddit['count']} posts with {reddit['score_total']} upvotes")
+        else:
+            score += 0.5
+            reasons.append(f"Reddit chatter: {reddit['count']} recent posts")
 
-    # Earnings warning (informational; hard filter happens in select_top)
+    if news_score > 0.30:
+        score += 1.5
+        reasons.append(f"{news_count} headlines, strongly positive (FinBERT {news_score:+.2f})")
+    elif news_score > 0.10:
+        score += 0.7
+        reasons.append(f"{news_count} headlines, mildly positive (FinBERT {news_score:+.2f})")
+    elif news_score < -0.30:
+        score -= 2.0
+        reasons.append(f"{news_count} headlines, strongly negative (FinBERT {news_score:+.2f})")
+    elif news_score < -0.10:
+        score -= 1.0
+
+    if enrich and insider["buy_count"] >= 1:
+        if insider["total_value_usd"] >= 1_000_000:
+            score += 2.0
+            reasons.append(f"Insider buying: {insider['buy_count']} purchase(s) totaling ${insider['total_value_usd']:,} in last 30d")
+        else:
+            score += 1.0
+            reasons.append(f"Some insider buying: {insider['buy_count']} purchase(s) recently")
+
     if enrich and days_to_earn is not None and 0 <= days_to_earn <= 3:
         reasons.append(f"⚠ Earnings in {days_to_earn} day(s) — excluded from final picks")
 
@@ -544,12 +876,10 @@ def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
     except Exception:
         pass
 
-    # Build chart data: last 60 sessions of OHLC + Volume + MA20 + MA50 for the dashboard
     chart_df = df.tail(60)
     chart_data = []
     for ts, row in chart_df.iterrows():
-        ma20_val = row["MA20"]
-        ma50_val = row["MA50"]
+        ma20_val = row["MA20"]; ma50_val = row["MA50"]
         chart_data.append({
             "time": ts.strftime("%Y-%m-%d"),
             "open":   round(float(row["Open"]),  4),
@@ -562,30 +892,27 @@ def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
         })
 
     return Signal(
-        ticker=ticker,
-        name=name,
-        sector=sector,
-        price=float(last["Close"]),
-        ma20=float(last["MA20"]),
-        ma50=float(last["MA50"]),
-        cross_today=cross_today,
-        cross_recent=cross_recent,
-        pct_above_ma20=pct_above_ma20,
-        pct_above_ma50=pct_above_ma50,
+        ticker=ticker, name=name, sector=sector,
+        price=float(last["Close"]), ma20=float(last["MA20"]), ma50=float(last["MA50"]),
+        cross_today=cross_today, cross_recent=cross_recent,
+        pct_above_ma20=pct_above_ma20, pct_above_ma50=pct_above_ma50,
         ma20_slope_5d=ma20_slope_5d,
-        in_uptrend=in_uptrend,
-        ma20_rising=ma20_rising,
-        rsi=rsi_now,
-        rsi_rising=rsi_rising,
-        macd_hist=macd_h,
-        macd_positive=macd_positive,
-        volume_ratio=vol_ratio,
-        volume_strong=vol_strong,
-        news_count_7d=news_count,
-        news_score=news_score,
-        st_message_count=st_messages,
-        st_bullish_ratio=st_bull_ratio,
-        st_tagged=st_tagged,
+        in_uptrend=in_uptrend, ma20_rising=ma20_rising,
+        rsi=rsi_now, rsi_rising=rsi_rising,
+        macd_hist=macd_h, macd_positive=macd_positive,
+        volume_ratio=vol_ratio, volume_strong=vol_strong,
+        rs_vs_spy_30d=round(rs_30d, 2), rs_leader=rs_leader,
+        weekly_uptrend=weekly_uptrend,
+        pct_below_52w_high=round(pct_below_52w, 2), near_52w_high=near_52w_high,
+        atr_14=round(atr_14, 4), atr_pct=round(atr_pct, 2),
+        breakout_recent=bo["is_breakout"],
+        breakout_days_since=bo["days_since"],
+        consolidation_range_pct=bo["range_pct"],
+        news_count_7d=news_count, news_score=news_score,
+        st_message_count=st_messages, st_bullish_ratio=st_bull_ratio, st_tagged=st_tagged,
+        reddit_mention_count=reddit["count"], reddit_score_total=reddit["score_total"],
+        insider_buy_count_30d=insider["buy_count"],
+        insider_buy_value_usd=insider["total_value_usd"],
         days_to_earnings=days_to_earn,
         composite_score=round(score, 2),
         reasons=reasons,
@@ -594,21 +921,14 @@ def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
 
 
 def select_top(signals: list, n: int = 3, max_per_sector: int = 1, earnings_window: int = 3) -> list:
-    """
-    Pick top N with two diversification rules:
-      1. Skip tickers with earnings in the next `earnings_window` days
-      2. Allow at most `max_per_sector` picks per GICS sector
-    """
+    """Pick top N: skip earnings within window, max per sector, exclude weekly downtrend."""
     eligible = [s for s in signals if s.in_uptrend and s.ma20_rising]
-    # Earnings filter
-    eligible = [
-        s for s in eligible
-        if s.days_to_earnings is None or s.days_to_earnings > earnings_window
-    ]
+    eligible = [s for s in eligible
+                if s.days_to_earnings is None or s.days_to_earnings > earnings_window]
+    eligible = [s for s in eligible if s.weekly_uptrend is not False]
     eligible.sort(key=lambda s: s.composite_score, reverse=True)
-
     chosen = []
-    sector_count: dict = {}
+    sector_count = {}
     for s in eligible:
         if sector_count.get(s.sector, 0) >= max_per_sector:
             continue
@@ -617,7 +937,6 @@ def select_top(signals: list, n: int = 3, max_per_sector: int = 1, earnings_wind
         if len(chosen) >= n:
             break
     return chosen
-
 
 def render_report(picks: list, scanned: int) -> str:
     today = datetime.now().strftime("%A, %d %b %Y")
@@ -670,26 +989,35 @@ def main():
     sectors = fetch_sector_etfs()
     regime = compute_regime(sectors)
 
+    # Fetch SPY history once for relative strength comparisons
+    print("Fetching SPY benchmark for relative strength...", file=sys.stderr)
+    try:
+        spy_df = yf.Ticker("SPY").history(period="1y", interval="1d", auto_adjust=False)
+        if len(spy_df) < 50:
+            spy_df = None
+    except Exception:
+        spy_df = None
+
+    # Pre-warm FinBERT once (model load is the expensive part, not inference)
+    print("Initializing sentiment scorer...", file=sys.stderr)
+    get_sentiment_scorer()
+
     print(f"Scanning {len(tickers)} tickers (technicals only)...", file=sys.stderr)
-    # Pass 1: cheap technicals only — no API calls beyond price data
     technical_signals = []
     for t in tickers:
-        s = evaluate(t, enrich=False)
+        s = evaluate(t, enrich=False, spy_df=spy_df)
         if s is not None:
             technical_signals.append(s)
 
-    # Filter to candidates that pass the technical bar (uptrend + rising MA20)
     candidates = [s for s in technical_signals if s.in_uptrend and s.ma20_rising]
     candidates.sort(key=lambda s: s.composite_score, reverse=True)
-    # Enrich only the top ~3x what we need, to give the sector filter room
     enrich_count = min(len(candidates), max(args.top * 4, 8))
     top_candidates = candidates[:enrich_count]
-    print(f"Enriching {len(top_candidates)} candidates with sentiment/earnings/sector...", file=sys.stderr)
+    print(f"Enriching {len(top_candidates)} candidates with sentiment/earnings/sector/insider/reddit/weekly...", file=sys.stderr)
 
-    # Pass 2: re-evaluate with full enrichment for finalists
     signals = []
     for s in top_candidates:
-        full = evaluate(s.ticker, enrich=True)
+        full = evaluate(s.ticker, enrich=True, spy_df=spy_df)
         if full is not None:
             signals.append(full)
 
