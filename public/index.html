@@ -356,6 +356,125 @@
     color: var(--ink-faint);
     letter-spacing: 0.04em;
   }
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
+  }
+  .tab {
+    background: none;
+    border: none;
+    padding: 12px 0;
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-faint);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s ease;
+  }
+  .tab:hover { color: var(--ink-dim); }
+  .tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+  /* Market view: regime + sectors */
+  .regime {
+    margin-bottom: 40px;
+    padding: 28px 24px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--bg-elev);
+  }
+  .regime-label {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(40px, 8vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .regime-label.on  { color: var(--gain); }
+  .regime-label.off { color: var(--warn); }
+  .regime-label.neutral { color: var(--ink-dim); }
+  .regime-spread {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  .regime-summary {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .sector-section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 600px) {
+    .sector-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .sector-card {
+    padding: 16px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.15s ease;
+  }
+  .sector-card:hover { transform: translateY(-1px); }
+  .sector-name {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .sector-return {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .sector-month {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  /* Color tints based on day return */
+  .sector-card.heat-up-3   { background: rgba(127, 166, 107, 0.28); border-color: rgba(127, 166, 107, 0.5); }
+  .sector-card.heat-up-2   { background: rgba(127, 166, 107, 0.18); border-color: rgba(127, 166, 107, 0.35); }
+  .sector-card.heat-up-1   { background: rgba(127, 166, 107, 0.08); }
+  .sector-card.heat-flat   { background: rgba(255, 255, 255, 0.02); }
+  .sector-card.heat-dn-1   { background: rgba(184, 107, 88, 0.08); }
+  .sector-card.heat-dn-2   { background: rgba(184, 107, 88, 0.18); border-color: rgba(184, 107, 88, 0.35); }
+  .sector-card.heat-dn-3   { background: rgba(184, 107, 88, 0.28); border-color: rgba(184, 107, 88, 0.5); }
+  .sector-return.up   { color: var(--gain); }
+  .sector-return.down { color: var(--warn); }
+  .sector-return.flat { color: var(--ink-dim); }
   /* Reveal animation */
   .reveal {
     opacity: 0;
@@ -384,8 +503,21 @@
     <div class="sub" id="meta">Loading market scan…</div>
   </section>
 
-  <section id="content">
-    <div class="loading">Fetching today's picks</div>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-target="picks" role="tab">Picks</button>
+    <button class="tab" data-target="market" role="tab">Market</button>
+  </nav>
+
+  <section id="view-picks">
+    <div id="content">
+      <div class="loading">Fetching today's picks</div>
+    </div>
+  </section>
+
+  <section id="view-market" hidden>
+    <div id="market-content">
+      <div class="loading">Loading sector data</div>
+    </div>
   </section>
 
   <footer>
@@ -408,6 +540,71 @@ function fmtTime(iso) {
 }
 function num(n, d=2) {
   return Number(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+
+function heatClass(r) {
+  if (r >= 2)    return 'heat-up-3';
+  if (r >= 0.5)  return 'heat-up-2';
+  if (r > 0)     return 'heat-up-1';
+  if (r === 0)   return 'heat-flat';
+  if (r > -0.5)  return 'heat-dn-1';
+  if (r > -2)    return 'heat-dn-2';
+  return 'heat-dn-3';
+}
+function returnClass(r) {
+  if (r > 0.05)  return 'up';
+  if (r < -0.05) return 'down';
+  return 'flat';
+}
+function fmtPct(r) {
+  return (r > 0 ? '+' : '') + (r ?? 0).toFixed(2) + '%';
+}
+
+function renderMarket(data) {
+  const sectors = data.sectors || [];
+  const regime  = data.regime || { label: 'neutral', summary: '', score: 0 };
+
+  if (!sectors.length) {
+    return `<div class="empty"><h2>No sector data.</h2><p>The sector ETF fetch returned nothing this run.</p></div>`;
+  }
+
+  const regimeClass = regime.label === 'risk-on' ? 'on'
+                    : regime.label === 'risk-off' ? 'off' : 'neutral';
+  const regimeLabel = regime.label === 'risk-on' ? 'Risk-On'
+                    : regime.label === 'risk-off' ? 'Risk-Off' : 'Neutral';
+
+  const sectorCards = sectors.map(s => `
+    <div class="sector-card ${heatClass(s.day_return)}">
+      <div class="sector-name">${s.name}</div>
+      <div>
+        <div class="sector-return ${returnClass(s.day_return)}">${fmtPct(s.day_return)}</div>
+        <div class="sector-month">30d ${fmtPct(s.month_return)}</div>
+      </div>
+    </div>
+  `).join('');
+
+  return `
+    <div class="regime">
+      <div class="regime-label ${regimeClass}">${regimeLabel}</div>
+      <div class="regime-spread">Cyclicals ${fmtPct(regime.cyclical_avg ?? 0)} · Defensives ${fmtPct(regime.defensive_avg ?? 0)} · Spread ${fmtPct(regime.score ?? 0)}</div>
+      <div class="regime-summary">${regime.summary || ''}</div>
+    </div>
+    <div class="sector-section-label">Sector Heatmap — Today's Move</div>
+    <div class="sector-grid">${sectorCards}</div>
+  `;
+}
+
+function setupTabs() {
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(t => {
+    t.addEventListener('click', () => {
+      tabs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      const target = t.dataset.target;
+      document.getElementById('view-picks').hidden  = target !== 'picks';
+      document.getElementById('view-market').hidden = target !== 'market';
+    });
+  });
 }
 
 function renderPick(p, idx) {
@@ -586,6 +783,7 @@ function drawChart(pick) {
 }
 
 async function load() {
+  setupTabs();
   try {
     const res = await fetch('picks.json?ts=' + Date.now());
     if (!res.ok) throw new Error('no picks file');
@@ -606,11 +804,19 @@ async function load() {
       // Draw charts after DOM is in place
       data.picks.forEach(p => drawChart(p));
     }
+
+    // Market view
+    $('#market-content').innerHTML = renderMarket(data);
   } catch (e) {
     $('#content').innerHTML = `
       <div class="empty">
         <h2>Awaiting first run.</h2>
         <p>The bot hasn't generated picks yet, or picks.json couldn't be loaded. Trigger the GitHub Action manually to populate it.</p>
+      </div>`;
+    $('#market-content').innerHTML = `
+      <div class="empty">
+        <h2>Awaiting first run.</h2>
+        <p>Sector data will appear after the next workflow run.</p>
       </div>`;
     $('#dateline').textContent = 'No data yet';
   }
