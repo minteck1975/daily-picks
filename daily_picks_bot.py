@@ -317,14 +317,16 @@ def fetch_sector(tk: yf.Ticker) -> str:
 def fetch_sector_etfs() -> list:
     """
     Pull recent prices for the 11 SPDR sector ETFs. Returns a list of dicts
-    sorted by today's return (descending).
+    sorted by today's return (descending). Logs failures to stderr.
     """
     rows = []
+    failures = []
     for sym, name in SECTOR_ETFS.items():
         try:
             tk = yf.Ticker(sym)
             df = tk.history(period="3mo", interval="1d", auto_adjust=False)
             if len(df) < 25:
+                failures.append(f"{sym}: only {len(df)} rows of history")
                 continue
             last = float(df["Close"].iloc[-1])
             prev = float(df["Close"].iloc[-2])
@@ -341,8 +343,12 @@ def fetch_sector_etfs() -> list:
                 "is_cyclical": sym in CYCLICAL_SECTORS,
                 "is_defensive": sym in DEFENSIVE_SECTORS,
             })
-        except Exception:
+        except Exception as e:
+            failures.append(f"{sym}: {type(e).__name__}: {e}")
             continue
+    for f in failures:
+        print(f"  ! Sector fetch failure: {f}", file=sys.stderr)
+    print(f"Sector ETFs: {len(rows)}/{len(SECTOR_ETFS)} fetched successfully", file=sys.stderr)
     rows.sort(key=lambda r: r["day_return"], reverse=True)
     return rows
 
@@ -658,6 +664,12 @@ def main():
     else:
         tickers = US_DEFAULT + SGX_DEFAULT
 
+    # Fetch sectors FIRST while yfinance is fresh — these calls fail when
+    # we put them after the heavy 100-stock scan (Yahoo throttles).
+    print("Fetching sector ETFs for market regime...", file=sys.stderr)
+    sectors = fetch_sector_etfs()
+    regime = compute_regime(sectors)
+
     print(f"Scanning {len(tickers)} tickers (technicals only)...", file=sys.stderr)
     # Pass 1: cheap technicals only — no API calls beyond price data
     technical_signals = []
@@ -682,11 +694,6 @@ def main():
             signals.append(full)
 
     picks = select_top(signals, n=args.top)
-
-    # Fetch sector ETFs and compute risk-on/off regime
-    print("Fetching sector ETFs for market regime...", file=sys.stderr)
-    sectors = fetch_sector_etfs()
-    regime = compute_regime(sectors)
 
     payload = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
