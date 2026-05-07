@@ -25,7 +25,7 @@ import sys
 import time
 import warnings
 from dataclasses import dataclass, asdict
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
 import numpy as np
@@ -696,7 +696,7 @@ def main():
     picks = select_top(signals, n=args.top)
 
     payload = {
-        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "market": args.market,
         "scanned": len(technical_signals),
         "enriched": len(signals),
