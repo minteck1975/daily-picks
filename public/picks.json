@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T03:52:28",
+  "generated_at": "2026-05-07T04:10:19+00:00",
   "market": "top100",
   "scanned": 100,
   "enriched": 12,
@@ -23,7 +23,7 @@
       "rsi_rising": true,
       "macd_hist": 0.14038205180925323,
       "macd_positive": true,
-      "volume_ratio": 2.72299756540534,
+      "volume_ratio": 2.7223690908195266,
       "volume_strong": true,
       "news_count_7d": 10,
       "news_score": 0.46211715726000974,
@@ -635,11 +635,11 @@
         },
         {
           "time": "2026-05-06",
-          "open": 106.515,
+          "open": 106.52,
           "high": 109.14,
           "low": 105.31,
           "close": 108.06,
-          "volume": 23217503,
+          "volume": 23211300,
           "ma20": 102.971,
           "ma50": 100.8586
         }
@@ -663,7 +663,7 @@
       "rsi_rising": true,
       "macd_hist": -16.718515660043963,
       "macd_positive": false,
-      "volume_ratio": 1.3639320722968395,
+      "volume_ratio": 1.3630306297874937,
       "volume_strong": false,
       "news_count_7d": 10,
       "news_score": 0.7615941559557649,
@@ -1277,7 +1277,7 @@
           "high": 1824.79,
           "low": 1759.26,
           "close": 1816.29,
-          "volume": 1340851,
+          "volume": 1339900,
           "ma20": 1786.0555,
           "ma50": 1605.9772
         }
@@ -1301,7 +1301,7 @@
       "rsi_rising": true,
       "macd_hist": -0.09549463658338975,
       "macd_positive": false,
-      "volume_ratio": 0.8362227248458484,
+      "volume_ratio": 0.8321901176967959,
       "volume_strong": false,
       "news_count_7d": 10,
       "news_score": 0.197375320224904,
@@ -1915,7 +1915,7 @@
           "high": 54.2,
           "low": 53.47,
           "close": 53.6,
-          "volume": 27539372,
+          "volume": 27400800,
           "ma20": 53.127,
           "ma50": 50.5106
         }
