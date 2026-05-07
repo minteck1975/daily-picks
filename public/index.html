@@ -616,25 +616,59 @@ function renderPick(p, idx) {
   const volClass = p.volume_ratio >= 1.5 ? 'gain' : '';
   const safeId = p.ticker.replace(/[^a-zA-Z0-9]/g, '_');
 
-  // Build chip row (sentiment + earnings + discussion volume)
+  // Build chip row (sentiment + earnings + discussion volume + new signals)
   const chips = [];
+
+  if (p.rs_leader) {
+    chips.push(`<span class="chip bull">SPY +${(p.rs_vs_spy_30d || 0).toFixed(1)}% · 30d leader</span>`);
+  } else if (p.rs_vs_spy_30d > 0) {
+    chips.push(`<span class="chip">SPY +${(p.rs_vs_spy_30d || 0).toFixed(1)}% · 30d</span>`);
+  } else if (p.rs_vs_spy_30d < -3) {
+    chips.push(`<span class="chip bear">Lagging SPY ${(p.rs_vs_spy_30d || 0).toFixed(1)}%</span>`);
+  }
+
+  if (p.weekly_uptrend === true) {
+    chips.push(`<span class="chip bull">Weekly trend up</span>`);
+  } else if (p.weekly_uptrend === false) {
+    chips.push(`<span class="chip bear">Weekly trend down</span>`);
+  }
+
+  if (p.near_52w_high) {
+    chips.push(`<span class="chip bull">${(-p.pct_below_52w_high).toFixed(1)}% off 52w high</span>`);
+  } else if (p.pct_below_52w_high < -30) {
+    chips.push(`<span class="chip bear">${(-p.pct_below_52w_high).toFixed(0)}% off 52w high</span>`);
+  }
+
+  if (p.breakout_recent && p.breakout_days_since !== null && p.breakout_days_since <= 5) {
+    chips.push(`<span class="chip bull">Fresh breakout (${p.breakout_days_since}d ago)</span>`);
+  }
+
+  if (p.insider_buy_count_30d >= 1) {
+    const val = p.insider_buy_value_usd || 0;
+    const valStr = val >= 1_000_000 ? `$${(val/1_000_000).toFixed(1)}M`
+                  : val >= 1_000 ? `$${Math.round(val/1_000)}K` : `$${val}`;
+    chips.push(`<span class="chip bull">Insider buying ${valStr} (30d)</span>`);
+  }
+
+  if (p.reddit_mention_count >= 5) {
+    chips.push(`<span class="chip">Reddit ${p.reddit_mention_count} posts · ${p.reddit_score_total} upvotes</span>`);
+  }
+
+  if (p.atr_pct) {
+    chips.push(`<span class="chip">ATR ${p.atr_pct.toFixed(2)}%</span>`);
+  }
+
   if (p.st_tagged && p.st_tagged >= 5) {
     const pct = Math.round((p.st_bullish_ratio || 0.5) * 100);
     if (p.st_bullish_ratio >= 0.55) {
-      chips.push(`<span class="chip bull">StockTwits ${pct}% bullish · ${p.st_tagged} tagged</span>`);
+      chips.push(`<span class="chip bull">StockTwits ${pct}% bullish · ${p.st_tagged}</span>`);
     } else if (p.st_bullish_ratio <= 0.45) {
-      chips.push(`<span class="chip bear">StockTwits ${100 - pct}% bearish · ${p.st_tagged} tagged</span>`);
-    } else {
-      chips.push(`<span class="chip">StockTwits mixed · ${p.st_tagged} tagged</span>`);
+      chips.push(`<span class="chip bear">StockTwits ${100 - pct}% bearish · ${p.st_tagged}</span>`);
     }
   }
-  if (p.st_message_count && p.st_message_count >= 25) {
-    chips.push(`<span class="chip">${p.st_message_count} recent posts</span>`);
-  }
-  if (p.days_to_earnings !== null && p.days_to_earnings !== undefined) {
-    if (p.days_to_earnings <= 7) {
-      chips.push(`<span class="chip warn">Earnings in ${p.days_to_earnings}d</span>`);
-    }
+
+  if (p.days_to_earnings !== null && p.days_to_earnings !== undefined && p.days_to_earnings <= 7) {
+    chips.push(`<span class="chip warn">Earnings in ${p.days_to_earnings}d</span>`);
   }
 
   return `
