@@ -923,7 +923,7 @@ function renderMarket(data) {
   const regimeLabel = regime.label === 'risk-on' ? 'Risk-On'
                     : regime.label === 'risk-off' ? 'Risk-Off' : 'Neutral';
 
-  // Health gauges (VIX / HYG / breadth)
+  // Health gauges (VIX / HYG / breadth / Fear & Greed)
   let healthCards = '';
   if (vix) {
     const vixClass = vix.regime === 'complacent' ? 'warn'
@@ -933,6 +933,24 @@ function renderMarket(data) {
         <div class="hlabel">VIX · Volatility</div>
         <div class="hval ${vixClass}">${num(vix.level, 2)}</div>
         <div class="hsub">${vix.regime} · ${fmtPct(vix.day_change_pct)} today</div>
+      </div>`;
+  }
+  const fg = regime.fear_greed;
+  if (fg && fg.score !== null && fg.score !== undefined) {
+    let fgClass = '';
+    if (fg.score < 25 || fg.score > 75) fgClass = 'warn';   // both extremes = caution
+    else if (fg.score >= 55) fgClass = 'gain';              // greed leans bullish
+    else if (fg.score < 45) fgClass = 'warn';               // fear
+    const change = fg.previous_close !== null
+                 ? fg.score - fg.previous_close : null;
+    const changeStr = change !== null
+      ? (change > 0 ? '+' : '') + change.toFixed(1) + ' from yesterday'
+      : '';
+    healthCards += `
+      <div class="health-card">
+        <div class="hlabel">Fear &amp; Greed Index</div>
+        <div class="hval ${fgClass}">${Math.round(fg.score)}</div>
+        <div class="hsub">${fg.rating}${changeStr ? ' · ' + changeStr : ''}</div>
       </div>`;
   }
   if (breadth && breadth.pct_above_50dma !== null) {
