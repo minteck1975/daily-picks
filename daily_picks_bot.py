@@ -210,6 +210,10 @@ class Signal:
     reddit_score_total: int
     insider_buy_count_30d: int
     insider_buy_value_usd: int
+    # New: X / Twitter sentiment
+    x_mention_count: int
+    x_sentiment: float           # -1 .. +1 (FinBERT-scored) or 0 if no data
+    x_source: str                # 'api' | 'nitter' | 'none'
     days_to_earnings: Optional[int]
     composite_score: float
     reasons: list
@@ -524,6 +528,105 @@ def fetch_reddit_mentions(ticker: str) -> dict:
     return {"count": count, "score_total": int(score_total)}
 
 
+# ---------- New: X / Twitter sentiment ----------
+# Tries paid X API (if X_BEARER_TOKEN env var set), falls back to Nitter mirrors.
+# Both gracefully degrade to empty result on failure.
+NITTER_MIRRORS = [
+    "https://nitter.privacydev.net",
+    "https://nitter.poast.org",
+    "https://nitter.tiekoetter.com",
+    "https://nitter.cz",
+    "https://nitter.fdn.fr",
+]
+
+def _fetch_x_via_api(ticker: str) -> dict:
+    """Use official X API v2. Requires X_BEARER_TOKEN env var (paid tier)."""
+    token = os.environ.get("X_BEARER_TOKEN", "").strip()
+    if not token:
+        return {"count": 0, "sentiment": 0.0, "source": "none"}
+    url = "https://api.x.com/2/tweets/search/recent"
+    params = {
+        "query": f"${ticker} OR #{ticker} -is:retweet lang:en",
+        "max_results": "50",
+    }
+    try:
+        resp = requests.get(
+            url, params=params, timeout=10,
+            headers={
+                "Authorization": f"Bearer {token}",
+                "User-Agent": "daily-picks-bot/1.0",
+            },
+        )
+        if resp.status_code != 200:
+            return {"count": 0, "sentiment": 0.0, "source": "none"}
+        data = resp.json()
+    except Exception as e:
+        print(f"  ! X API failed for {ticker}: {e}", file=sys.stderr)
+        return {"count": 0, "sentiment": 0.0, "source": "none"}
+    tweets = data.get("data") or []
+    if not tweets:
+        return {"count": 0, "sentiment": 0.0, "source": "api"}
+    texts = [t.get("text", "")[:280] for t in tweets if t.get("text")]
+    if not texts:
+        return {"count": 0, "sentiment": 0.0, "source": "api"}
+    sentiment = get_sentiment_scorer().score_texts(texts)
+    return {
+        "count": len(tweets),
+        "sentiment": round(float(sentiment), 3),
+        "source": "api",
+    }
+
+
+def _fetch_x_via_nitter(ticker: str) -> dict:
+    """Scrape public Nitter mirrors. Best-effort, often unreliable."""
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    }
+    for mirror in NITTER_MIRRORS:
+        try:
+            url = f"{mirror}/search?f=tweets&q=%24{ticker}"
+            resp = requests.get(url, timeout=8, headers=headers)
+            if resp.status_code != 200:
+                continue
+            html = resp.text
+            # Extract tweet text from common Nitter HTML structure
+            tweets = re.findall(
+                r'<div class="tweet-content[^"]*">(.+?)</div>',
+                html, flags=re.DOTALL
+            )
+            if not tweets:
+                continue
+            texts = []
+            for t in tweets[:25]:
+                clean = re.sub(r'<[^>]+>', '', t).strip()
+                if clean:
+                    texts.append(clean[:280])
+            if not texts:
+                continue
+            sentiment = get_sentiment_scorer().score_texts(texts)
+            return {
+                "count": len(texts),
+                "sentiment": round(float(sentiment), 3),
+                "source": "nitter",
+            }
+        except Exception:
+            continue
+    return {"count": 0, "sentiment": 0.0, "source": "none"}
+
+
+def fetch_x_mentions(ticker: str) -> dict:
+    """
+    Returns recent X mentions + FinBERT sentiment.
+    Tries paid API first (if X_BEARER_TOKEN set), falls back to Nitter.
+    Returns {count, sentiment (-1..+1), source: 'api'|'nitter'|'none'}.
+    """
+    api_result = _fetch_x_via_api(ticker)
+    if api_result["source"] == "api" and api_result["count"] > 0:
+        return api_result
+    return _fetch_x_via_nitter(ticker)
+
+
 # ---------- New: FinBERT sentiment scorer ----------
 class _SentimentScorer:
     """Tries FinBERT first, falls back to keyword scoring on any failure."""
@@ -680,6 +783,51 @@ def fetch_vix_and_hyg() -> dict:
     except Exception as e:
         print(f"  ! HYG fetch failed: {e}", file=sys.stderr)
     return out
+
+
+def fetch_fear_greed() -> Optional[dict]:
+    """
+    Fetch CNN's Fear & Greed Index (composite of 7 sentiment factors).
+    Endpoint is unofficial but widely used. Returns None on failure.
+    Score: 0-24 Extreme Fear, 25-44 Fear, 45-55 Neutral, 56-74 Greed, 75-100 Extreme Greed.
+    """
+    url = "https://production.dataviz.cnn.io/index/fearandgreed/graphdata"
+    try:
+        resp = requests.get(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0 (compatible; daily-picks-bot/1.0)",
+                "Accept": "application/json",
+            },
+            timeout=10,
+        )
+        if resp.status_code != 200:
+            print(f"  ! Fear & Greed returned {resp.status_code}", file=sys.stderr)
+            return None
+        data = resp.json()
+    except Exception as e:
+        print(f"  ! Fear & Greed fetch failed: {e}", file=sys.stderr)
+        return None
+
+    fg = data.get("fear_and_greed") or {}
+    score = fg.get("score")
+    if score is None:
+        return None
+
+    def _r(v, n=1):
+        try:
+            return round(float(v), n)
+        except (TypeError, ValueError):
+            return None
+
+    return {
+        "score": _r(score),
+        "rating": fg.get("rating") or "Unknown",
+        "previous_close":    _r(fg.get("previous_close")),
+        "previous_1_week":   _r(fg.get("previous_1_week")),
+        "previous_1_month":  _r(fg.get("previous_1_month")),
+        "previous_1_year":   _r(fg.get("previous_1_year")),
+    }
 
 
 # ---------- New: performance tracking ----------
@@ -975,6 +1123,7 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
         weekly_uptrend = check_weekly_uptrend(ticker)
         insider = fetch_insider_buying(ticker)
         reddit = fetch_reddit_mentions(ticker)
+        x_data = fetch_x_mentions(ticker)
         time.sleep(0.3)
     else:
         sector = "Unknown"
@@ -984,6 +1133,7 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
         weekly_uptrend = None
         insider = {"buy_count": 0, "total_value_usd": 0}
         reddit = {"count": 0, "score_total": 0}
+        x_data = {"count": 0, "sentiment": 0.0, "source": "none"}
 
     score = 0.0
     reasons = []
@@ -1081,6 +1231,24 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
             score += 0.5
             reasons.append(f"Reddit chatter: {reddit['count']} recent posts")
 
+    # X / Twitter sentiment (NEW)
+    if enrich and x_data["count"] >= 5 and x_data["source"] != "none":
+        x_sent = x_data["sentiment"]
+        if x_sent > 0.30:
+            score += 1.5
+            reasons.append(f"X sentiment strongly positive across {x_data['count']} mentions (FinBERT {x_sent:+.2f})")
+        elif x_sent > 0.10:
+            score += 0.7
+            reasons.append(f"X sentiment positive across {x_data['count']} mentions")
+        elif x_sent < -0.30:
+            score -= 1.5
+            reasons.append(f"X sentiment strongly negative across {x_data['count']} mentions")
+        elif x_sent < -0.10:
+            score -= 0.7
+        if x_data["count"] >= 25:
+            # High X discussion volume bonus
+            score += 0.3
+
     if news_score > 0.30:
         score += 1.5
         reasons.append(f"{news_count} headlines, strongly positive (FinBERT {news_score:+.2f})")
@@ -1152,6 +1320,9 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
         reddit_mention_count=reddit["count"], reddit_score_total=reddit["score_total"],
         insider_buy_count_30d=insider["buy_count"],
         insider_buy_value_usd=insider["total_value_usd"],
+        x_mention_count=x_data["count"],
+        x_sentiment=x_data["sentiment"],
+        x_source=x_data["source"],
         days_to_earnings=days_to_earn,
         composite_score=round(score, 2),
         reasons=reasons,
@@ -1274,10 +1445,15 @@ def main():
     print("Fetching VIX and HYG for regime context...", file=sys.stderr)
     market_health = fetch_vix_and_hyg()
 
+    # Fetch CNN Fear & Greed Index (composite of 7 sentiment factors)
+    print("Fetching Fear & Greed Index...", file=sys.stderr)
+    fear_greed = fetch_fear_greed()
+
     # Combine into enhanced regime payload
     regime["breadth"] = breadth
     regime["vix"] = market_health.get("vix")
     regime["hyg"] = market_health.get("hyg")
+    regime["fear_greed"] = fear_greed
 
     # ----- Performance tracking: load history, update returns, append today's picks -----
     today_iso = datetime.now(timezone.utc).date().isoformat()
