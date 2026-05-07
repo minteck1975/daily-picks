@@ -530,13 +530,17 @@
 <script>
 const $ = (sel) => document.querySelector(sel);
 
+// Parse an ISO timestamp; if no timezone marker, assume UTC (legacy bot output)
+function parseTime(iso) {
+  if (!iso) return new Date();
+  const hasTimezone = /[+-]\d{2}:?\d{2}$|Z$/.test(iso);
+  return new Date(hasTimezone ? iso : iso + 'Z');
+}
 function fmtDate(iso) {
-  const d = new Date(iso);
-  return d.toLocaleDateString('en-SG', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  return parseTime(iso).toLocaleDateString('en-SG', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 }
 function fmtTime(iso) {
-  const d = new Date(iso);
-  return d.toLocaleString('en-SG', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
+  return parseTime(iso).toLocaleString('en-SG', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
 }
 function num(n, d=2) {
   return Number(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
