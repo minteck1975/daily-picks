@@ -1343,23 +1343,6 @@ function renderPick(p, idx) {
           <div class="value ${volClass}">${num(p.volume_ratio, 2)}</div>
         </div>
       </div>
-      <div class="trade-setup">
-        <div class="trade-cell stop">
-          <div class="tlabel">Stop loss</div>
-          <div class="tval">${num(p.stop_loss)}</div>
-          <div class="tsub">−${num(p.stop_distance_pct, 1)}% · 2× ATR</div>
-        </div>
-        <div class="trade-cell target">
-          <div class="tlabel">Target</div>
-          <div class="tval">${num(p.target)}</div>
-          <div class="tsub">+${num(p.target_distance_pct, 1)}% · nearest resistance</div>
-        </div>
-        <div class="trade-cell rr">
-          <div class="tlabel">Risk · Reward</div>
-          <div class="tval ${p.rr_ratio >= 1.5 ? 'good' : p.rr_ratio < 1 ? 'poor' : ''}">1 : ${num(p.rr_ratio, 2)}</div>
-          <div class="tsub">${p.rr_ratio >= 2 ? 'Favorable' : p.rr_ratio >= 1.5 ? 'Acceptable' : p.rr_ratio >= 1 ? 'Tight' : 'Unfavorable'}</div>
-        </div>
-      </div>
       <div class="chart-wrap">
         <div class="chart-head">
           <div class="chart-title">60-day daily</div>
