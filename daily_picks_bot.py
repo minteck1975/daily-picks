@@ -785,15 +785,24 @@ def fetch_vix_and_hyg() -> dict:
     return out
 
 
-def fetch_market_news(top_n: int = 10) -> dict:
+def fetch_market_news(top_n: int = 10, pick_tickers: Optional[list] = None) -> dict:
     """
-    Aggregate top market news from broad-market proxies (SPY, QQQ, indices).
-    Dedupes by URL, sorts newest first, runs FinBERT to compute overall mood.
-    Returns {items: [...], overall_mood: float, fetched_at: iso}.
+    Aggregate top market news from broad-market ETFs + mega-caps + today's picks.
+    Robustly handles multiple yfinance news schemas. Dedupes by URL,
+    sorts newest first, runs FinBERT to compute overall mood.
     """
-    proxies = ["SPY", "QQQ", "^GSPC", "^DJI"]
+    # Use ETFs + reliable mega-caps + today's picks for broad coverage.
+    # Indices like ^GSPC don't carry news in yfinance, so we use ETF proxies.
+    proxies = ["SPY", "QQQ", "AAPL", "NVDA", "MSFT", "GOOGL", "AMZN", "META", "TSLA"]
+    if pick_tickers:
+        proxies = list(pick_tickers) + proxies
+    # Dedupe while preserving order
+    seen_proxies = set()
+    proxies = [t for t in proxies if not (t in seen_proxies or seen_proxies.add(t))]
+
     items: list = []
-    seen: set = set()
+    seen_urls: set = set()
+    per_ticker_count = {}
 
     for sym in proxies:
         try:
@@ -803,44 +812,60 @@ def fetch_market_news(top_n: int = 10) -> dict:
             print(f"  ! Market news fetch from {sym} failed: {e}", file=sys.stderr)
             continue
 
+        added_this_ticker = 0
         for raw in news:
-            content = raw.get("content", raw)
+            content = raw.get("content", raw) if isinstance(raw, dict) else {}
+            if not isinstance(content, dict):
+                continue
 
             title = (content.get("title") or raw.get("title") or "").strip()
-            summary = (content.get("summary") or raw.get("summary") or "").strip()
+            summary = (content.get("summary")
+                       or content.get("description")
+                       or raw.get("summary") or "").strip()
 
+            # URL extraction — try every field Yahoo uses
             url = ""
-            cu = content.get("canonicalUrl")
-            if isinstance(cu, dict):
-                url = cu.get("url", "") or ""
+            for src in (content.get("canonicalUrl"),
+                        content.get("clickThroughUrl"),
+                        raw.get("canonicalUrl"),
+                        raw.get("clickThroughUrl")):
+                if isinstance(src, dict):
+                    candidate = src.get("url") or ""
+                    if candidate:
+                        url = candidate
+                        break
             if not url:
-                url = raw.get("link", "") or ""
+                url = raw.get("link") or content.get("link") or ""
 
+            # Provider
             provider = ""
-            prov = content.get("provider")
-            if isinstance(prov, dict):
-                provider = prov.get("displayName", "") or ""
+            for src in (content.get("provider"), raw.get("provider")):
+                if isinstance(src, dict):
+                    provider = src.get("displayName") or src.get("name") or ""
+                    if provider:
+                        break
             if not provider:
-                provider = raw.get("publisher", "") or "Yahoo Finance"
+                provider = raw.get("publisher") or "Yahoo Finance"
 
+            # Publish time — try ISO string first, then unix timestamp
             pub_time = None
-            pd_iso = content.get("pubDate")
+            pd_iso = content.get("pubDate") or content.get("displayTime")
             if pd_iso:
                 try:
                     pub_time = int(datetime.fromisoformat(
-                        pd_iso.replace("Z", "+00:00")).timestamp())
+                        str(pd_iso).replace("Z", "+00:00")).timestamp())
                 except Exception:
                     pass
             if pub_time is None:
-                pub_time = raw.get("providerPublishTime")
+                pub_time = (raw.get("providerPublishTime")
+                            or content.get("providerPublishTime"))
 
             if not title or not url:
                 continue
 
-            key = url
-            if key in seen:
+            if url in seen_urls:
                 continue
-            seen.add(key)
+            seen_urls.add(url)
 
             items.append({
                 "title": title,
@@ -849,6 +874,12 @@ def fetch_market_news(top_n: int = 10) -> dict:
                 "url": url,
                 "publish_time": pub_time,
             })
+            added_this_ticker += 1
+
+        per_ticker_count[sym] = added_this_ticker
+
+    print(f"  Market news per ticker: {per_ticker_count}", file=sys.stderr)
+    print(f"  Total unique headlines collected: {len(items)}", file=sys.stderr)
 
     # Sort newest first; keep top N
     items.sort(key=lambda x: x.get("publish_time") or 0, reverse=True)
@@ -861,8 +892,8 @@ def fetch_market_news(top_n: int = 10) -> dict:
             scorer = get_sentiment_scorer()
             texts = [f"{i['title']}. {i['summary']}" for i in top_items]
             overall_mood = scorer.score_texts(texts)
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"  ! News mood scoring failed: {e}", file=sys.stderr)
 
     return {
         "items": top_items,
@@ -1535,9 +1566,10 @@ def main():
     print("Fetching Fear & Greed Index...", file=sys.stderr)
     fear_greed = fetch_fear_greed()
 
-    # Fetch market headlines
+    # Fetch market headlines (include today's pick tickers for relevance)
     print("Fetching top market headlines...", file=sys.stderr)
-    market_news = fetch_market_news(top_n=10)
+    pick_tickers = [p.ticker for p in picks] if picks else None
+    market_news = fetch_market_news(top_n=10, pick_tickers=pick_tickers)
 
     # Combine into enhanced regime payload
     regime["breadth"] = breadth
