@@ -114,6 +114,24 @@ SGX_DEFAULT = [
     "V03.SI",  # Venture
 ]
 
+# SPDR sector ETFs — used to gauge sector breadth + risk-on/off regime
+SECTOR_ETFS = {
+    "XLK":  "Technology",
+    "XLC":  "Communication Services",
+    "XLY":  "Consumer Cyclical",
+    "XLF":  "Financial Services",
+    "XLI":  "Industrials",
+    "XLB":  "Basic Materials",
+    "XLE":  "Energy",
+    "XLV":  "Healthcare",
+    "XLP":  "Consumer Defensive",
+    "XLU":  "Utilities",
+    "XLRE": "Real Estate",
+}
+# Risk-on / risk-off groupings for regime detection
+CYCLICAL_SECTORS  = {"XLK", "XLY", "XLF", "XLI", "XLB", "XLC"}
+DEFENSIVE_SECTORS = {"XLU", "XLP", "XLV", "XLRE"}
+
 
 # ---------- Indicator math (no ta-lib dependency) ----------
 def sma(s: pd.Series, n: int) -> pd.Series:
@@ -294,6 +312,73 @@ def fetch_sector(tk: yf.Ticker) -> str:
         return info.get("sector") or info.get("industry") or "Unknown"
     except Exception:
         return "Unknown"
+
+
+def fetch_sector_etfs() -> list:
+    """
+    Pull recent prices for the 11 SPDR sector ETFs. Returns a list of dicts
+    sorted by today's return (descending).
+    """
+    rows = []
+    for sym, name in SECTOR_ETFS.items():
+        try:
+            tk = yf.Ticker(sym)
+            df = tk.history(period="3mo", interval="1d", auto_adjust=False)
+            if len(df) < 25:
+                continue
+            last = float(df["Close"].iloc[-1])
+            prev = float(df["Close"].iloc[-2])
+            month_idx = -21 if len(df) >= 21 else 0
+            month = float(df["Close"].iloc[month_idx])
+            day_ret = (last / prev - 1) * 100 if prev else 0.0
+            month_ret = (last / month - 1) * 100 if month else 0.0
+            rows.append({
+                "symbol": sym,
+                "name": name,
+                "price": round(last, 2),
+                "day_return": round(day_ret, 2),
+                "month_return": round(month_ret, 2),
+                "is_cyclical": sym in CYCLICAL_SECTORS,
+                "is_defensive": sym in DEFENSIVE_SECTORS,
+            })
+        except Exception:
+            continue
+    rows.sort(key=lambda r: r["day_return"], reverse=True)
+    return rows
+
+
+def compute_regime(sectors: list) -> dict:
+    """
+    Determine risk-on / risk-off / neutral by comparing average daily returns
+    of cyclical sectors to defensive sectors.
+    """
+    cyc = [s["day_return"] for s in sectors if s["is_cyclical"]]
+    defs = [s["day_return"] for s in sectors if s["is_defensive"]]
+    if not cyc or not defs:
+        return {"label": "neutral", "score": 0.0, "cyclical_avg": 0.0,
+                "defensive_avg": 0.0, "summary": "Insufficient sector data"}
+    cyc_avg = sum(cyc) / len(cyc)
+    def_avg = sum(defs) / len(defs)
+    spread = cyc_avg - def_avg
+    if spread > 0.4:
+        label = "risk-on"
+        summary = (f"Cyclicals are leading defensives by {spread:+.2f}%. "
+                   "Money is rotating into growth — favorable backdrop for trend setups.")
+    elif spread < -0.4:
+        label = "risk-off"
+        summary = (f"Defensives are outperforming cyclicals by {-spread:+.2f}%. "
+                   "Capital is rotating to safety — be cautious chasing breakouts today.")
+    else:
+        label = "neutral"
+        summary = (f"Cyclicals {cyc_avg:+.2f}% vs defensives {def_avg:+.2f}% — "
+                   "no clear regime. Treat picks with normal sizing, no conviction premium.")
+    return {
+        "label": label,
+        "score": round(spread, 2),
+        "cyclical_avg": round(cyc_avg, 2),
+        "defensive_avg": round(def_avg, 2),
+        "summary": summary,
+    }
 
 
 def evaluate(ticker: str, enrich: bool = True) -> Optional[Signal]:
@@ -598,6 +683,11 @@ def main():
 
     picks = select_top(signals, n=args.top)
 
+    # Fetch sector ETFs and compute risk-on/off regime
+    print("Fetching sector ETFs for market regime...", file=sys.stderr)
+    sectors = fetch_sector_etfs()
+    regime = compute_regime(sectors)
+
     payload = {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "market": args.market,
@@ -605,6 +695,8 @@ def main():
         "enriched": len(signals),
         "universe_size": len(tickers),
         "picks": [asdict(p) for p in picks],
+        "sectors": sectors,
+        "regime": regime,
     }
 
     if args.output:
