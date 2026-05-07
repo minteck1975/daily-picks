@@ -475,6 +475,115 @@
   .sector-return.up   { color: var(--gain); }
   .sector-return.down { color: var(--warn); }
   .sector-return.flat { color: var(--ink-dim); }
+  /* About page */
+  .about-doc {
+    max-width: 640px;
+  }
+  .about-doc .about-lede {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--ink);
+    padding: 4px 0 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 36px;
+    font-style: italic;
+  }
+  .about-doc h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 36px 0 14px;
+    padding-top: 10px;
+  }
+  .about-doc h2:first-of-type {
+    margin-top: 0;
+  }
+  .about-doc h2::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: 16px;
+  }
+  .about-doc p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .about-doc p em {
+    color: var(--accent-soft);
+    font-style: italic;
+  }
+  .about-doc p strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .about-doc ul, .about-doc ol {
+    list-style: none;
+    padding-left: 22px;
+    margin: 14px 0 18px;
+  }
+  .about-doc ul li, .about-doc ol li {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    padding: 6px 0;
+    position: relative;
+  }
+  .about-doc ul li::before {
+    content: '—';
+    position: absolute;
+    left: -22px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .about-doc ol {
+    counter-reset: about-list;
+  }
+  .about-doc ol li {
+    counter-increment: about-list;
+    padding-left: 6px;
+  }
+  .about-doc ol li::before {
+    content: counter(about-list, decimal-leading-zero) '.';
+    position: absolute;
+    left: -28px;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    top: 9px;
+  }
+  .about-doc code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    background: var(--bg-elev);
+    padding: 1px 6px;
+    border-radius: 2px;
+    color: var(--accent-soft);
+    border: 1px solid var(--rule);
+  }
+  .about-doc .about-disclaimer {
+    margin-top: 40px;
+    padding: 18px 20px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: rgba(184, 107, 88, 0.06);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--ink-dim);
+    letter-spacing: 0.04em;
+  }
   /* Reveal animation */
   .reveal {
     opacity: 0;
@@ -506,6 +615,7 @@
   <nav class="tabs" role="tablist">
     <button class="tab active" data-target="picks" role="tab">Picks</button>
     <button class="tab" data-target="market" role="tab">Market</button>
+    <button class="tab" data-target="about" role="tab">About</button>
   </nav>
 
   <section id="view-picks">
@@ -518,6 +628,102 @@
     <div id="market-content">
       <div class="loading">Loading sector data</div>
     </div>
+  </section>
+
+  <section id="view-about" hidden>
+    <article class="about-doc">
+
+      <p class="about-lede">
+        Each weekday after market close, this bot scans 100 large-cap US stocks for high-conviction trend setups. It surfaces up to three picks plus a snapshot of the broader market regime. Below is exactly how it decides.
+      </p>
+
+      <h2>The trend filter</h2>
+      <p>
+        The bot only considers stocks where price is above the 20-day moving average, the 20-day MA itself is above the 50-day MA, and the 20-day MA is rising over the past 5 sessions. This is a hard requirement — no name makes the picks list without satisfying these three conditions. The intuition: <em>established uptrends with rising support</em> beat fresh breakouts that often fail.
+      </p>
+
+      <h2>Momentum confirmation</h2>
+      <p>
+        Two oscillators verify the trend has fuel: <strong>RSI(14)</strong> between 50 and 75 while rising — momentum healthy but not yet overbought. And the <strong>MACD histogram</strong> positive and expanding — price acceleration is increasing, not decaying.
+      </p>
+
+      <h2>Volume</h2>
+      <p>
+        Today's volume must be at least 1.5× the 20-day average for a +1.5 score boost. Volume confirms institutional participation. Price moves on shrinking volume usually fail.
+      </p>
+
+      <h2>Relative strength</h2>
+      <p>
+        A stock outperforming SPY by more than 3% over 30 sessions earns a "leader" tag and a +2.0 boost. The thesis: in a bull market, almost everything trends up — that's not edge. The actual winners are the stocks <em>beating</em> the index. This single filter reliably separates trend leaders from trend followers.
+      </p>
+
+      <h2>Multi-timeframe alignment</h2>
+      <p>
+        For each candidate, the bot also pulls weekly bars and checks that the weekly trend isn't explicitly down (close above 10-week MA, MA rising). Daily breakouts that fight a weekly downtrend are the most common failure mode in trend systems. Confirming the bigger timeframe filters those out.
+      </p>
+
+      <h2>52-week high context</h2>
+      <p>
+        Stocks within 15% of their 52-week high get +1.0 — the long-term uptrend is intact. Stocks more than 30% below their high get −1.0 — even if they look good locally, they're still in a long-term downtrend, which means rallies often turn into bull traps.
+      </p>
+
+      <h2>Volatility normalization</h2>
+      <p>
+        The 14-day Average True Range, expressed as a percentage of price, tells the bot how much each stock typically moves per session. Names with ATR below 1% are too quiet to bother with. Names above 6% are too volatile to size sensibly. Both extremes get penalized.
+      </p>
+
+      <h2>Pattern recognition</h2>
+      <p>
+        The bot detects a specific high-quality pattern: a tight consolidation (price range under 12% over 30 sessions) followed by a clean break above the consolidation high in the last 10 sessions. Fresh breakouts (within 5 days) earn +2.0. The pattern often precedes sustained moves because it represents accumulation followed by demand overwhelming supply.
+      </p>
+
+      <h2>The sentiment layer</h2>
+      <p>
+        Three independent sentiment sources are checked for each finalist:
+      </p>
+      <ul>
+        <li><strong>StockTwits</strong> — recent posts scraped for Bullish/Bearish tags. Both the ratio and the total tagged count contribute. ≥70% bullish across 5+ tagged messages = +2.0.</li>
+        <li><strong>Reddit</strong> — posts in <code>r/wallstreetbets</code>, <code>r/stocks</code>, <code>r/investing</code>, <code>r/stockmarket</code> over last 7 days. Discussion volume + total upvotes both matter.</li>
+        <li><strong>News headlines</strong> — yfinance returns recent article titles and summaries. These are fed through <strong>FinBERT</strong>, a financial-domain NLP model, for proper sentiment scoring (replacing crude keyword matching).</li>
+      </ul>
+
+      <h2>Insider conviction</h2>
+      <p>
+        SEC Form 4 filings (via OpenInsider) are checked for insider purchase activity in the last 30 days. Buys totaling ≥$1M earn +2.0. The reasoning: when a CEO buys their own stock with personal money, that's the highest-quality signal available outside of fundamentals. They have information you don't.
+      </p>
+
+      <h2>Selection rules</h2>
+      <p>After scoring, three filters are applied in order to the ranked list:</p>
+      <ol>
+        <li>Skip any ticker with earnings in the next 3 trading days. Earnings cause violent moves unrelated to technical signals; holding through one is a different bet.</li>
+        <li>Exclude any explicit weekly downtrends.</li>
+        <li>Maximum one pick per GICS sector. Prevents the screener from surfacing three banks on a day financials are running.</li>
+      </ol>
+      <p>The top 3 by composite score that pass all three filters become the day's picks. If fewer than 3 qualify, the bot returns fewer — it doesn't manufacture picks just to fill the slots.</p>
+
+      <h2>Market regime</h2>
+      <p>
+        Separately from the picks, the Market tab shows whether today's tape is in risk-on or risk-off mode. The bot fetches the 11 SPDR sector ETFs and compares the average daily return of cyclicals (XLK, XLF, XLY, XLI, XLB, XLC) to defensives (XLU, XLP, XLV, XLRE). When cyclicals lead by &gt;0.4%, it's risk-on. When defensives lead, risk-off.
+      </p>
+      <p>
+        The picks are computed independently of regime, but the regime tells you <em>how much to trust them</em>. Trend setups in a risk-on market are higher conviction than the same setups during a defensive rotation. The Market tab is a sanity check, not a hard gate.
+      </p>
+
+      <h2>Limitations &amp; honesty</h2>
+      <ul>
+        <li>This is a <strong>screener, not a portfolio system</strong>. It tells you what to look at, not how much to buy or when to sell.</li>
+        <li>StockTwits and Reddit skew retail and can be gamed by coordinated posting on small-caps.</li>
+        <li>Yahoo Finance data has occasional gaps and dividend-adjustment quirks.</li>
+        <li>OpenInsider scraping is brittle. If their HTML changes, insider data silently drops to zero.</li>
+        <li>FinBERT is accurate on financial text but not magical — it can misread sarcasm or context.</li>
+        <li><strong>This system has not been backtested.</strong> There is no statistical evidence yet that following these picks would have made money historically. The signal stack is well-established in the literature; <em>that is not the same as proven on this implementation</em>.</li>
+      </ul>
+
+      <p class="about-disclaimer">
+        Not financial advice. Verify against your own risk rules. Past patterns don't predict future returns. Paper-trade for a meaningful period before risking capital.
+      </p>
+
+    </article>
   </section>
 
   <footer>
@@ -600,13 +806,16 @@ function renderMarket(data) {
 
 function setupTabs() {
   const tabs = document.querySelectorAll('.tab');
+  const views = ['picks', 'market', 'about'];
   tabs.forEach(t => {
     t.addEventListener('click', () => {
       tabs.forEach(x => x.classList.remove('active'));
       t.classList.add('active');
       const target = t.dataset.target;
-      document.getElementById('view-picks').hidden  = target !== 'picks';
-      document.getElementById('view-market').hidden = target !== 'market';
+      views.forEach(v => {
+        const el = document.getElementById('view-' + v);
+        if (el) el.hidden = target !== v;
+      });
     });
   });
 }
