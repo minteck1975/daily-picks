@@ -214,6 +214,12 @@ class Signal:
     composite_score: float
     reasons: list
     chart_data: list
+    # New: trade setup
+    stop_loss: float
+    stop_distance_pct: float
+    target: float
+    target_distance_pct: float
+    rr_ratio: float
 
 
 # Lightweight headline sentiment (placeholder).
@@ -596,6 +602,236 @@ def fetch_news_sentiment_finbert(tk: yf.Ticker) -> tuple[int, float]:
     return len(texts), float(avg)
 
 
+# ---------- New: trade setup ----------
+def compute_trade_setup(df: pd.DataFrame, entry: float, atr: float) -> dict:
+    """ATR-based stop + nearest-resistance target."""
+    stop = entry - 2 * atr
+    stop_dist = entry - stop
+    if stop_dist <= 0:
+        stop_dist = entry * 0.05  # safety: 5% stop minimum
+        stop = entry - stop_dist
+
+    # Target: nearest resistance from last 60 days above current price
+    recent_highs = df["High"].iloc[-60:]
+    above_entry = recent_highs[recent_highs > entry * 1.005]
+    if len(above_entry) > 0:
+        target = float(above_entry.min())
+    else:
+        # No overhead resistance — default to 1.5x stop distance
+        target = entry + stop_dist * 1.5
+
+    target_dist = target - entry
+    rr = target_dist / stop_dist if stop_dist > 0 else 0.0
+
+    return {
+        "stop_loss": round(stop, 2),
+        "stop_distance_pct": round((stop_dist / entry) * 100, 2),
+        "target": round(target, 2),
+        "target_distance_pct": round((target_dist / entry) * 100, 2),
+        "rr_ratio": round(rr, 2),
+    }
+
+
+# ---------- New: market breadth + VIX + HYG ----------
+def compute_breadth(technical_signals: list) -> dict:
+    """% of universe above their 50-day MA — measures market participation."""
+    if not technical_signals:
+        return {"pct_above_50dma": None, "count_above": 0, "total": 0}
+    above = sum(1 for s in technical_signals if s.price > s.ma50)
+    total = len(technical_signals)
+    return {
+        "pct_above_50dma": round((above / total) * 100, 1),
+        "count_above": above,
+        "total": total,
+    }
+
+
+def fetch_vix_and_hyg() -> dict:
+    """Fetch VIX (volatility) and HYG (junk credit) for regime context."""
+    out = {"vix": None, "hyg": None}
+    try:
+        vix_df = yf.Ticker("^VIX").history(period="1mo", interval="1d")
+        if len(vix_df) >= 2:
+            level = float(vix_df["Close"].iloc[-1])
+            prev = float(vix_df["Close"].iloc[-2])
+            out["vix"] = {
+                "level": round(level, 2),
+                "day_change_pct": round((level / prev - 1) * 100, 2) if prev else 0.0,
+                "regime": ("complacent" if level < 15
+                           else "stressed" if level > 25 else "normal"),
+            }
+    except Exception as e:
+        print(f"  ! VIX fetch failed: {e}", file=sys.stderr)
+    try:
+        hyg_df = yf.Ticker("HYG").history(period="3mo", interval="1d")
+        if len(hyg_df) >= 50:
+            hyg_df["MA50"] = hyg_df["Close"].rolling(50).mean()
+            last = hyg_df.iloc[-1]
+            ma50_val = float(last["MA50"])
+            close = float(last["Close"])
+            month_idx = -21 if len(hyg_df) >= 21 else 0
+            month_ago = float(hyg_df["Close"].iloc[month_idx])
+            out["hyg"] = {
+                "price": round(close, 2),
+                "above_ma50": bool(close > ma50_val),
+                "pct_vs_ma50": round((close / ma50_val - 1) * 100, 2) if ma50_val else 0.0,
+                "month_return": round((close / month_ago - 1) * 100, 2) if month_ago else 0.0,
+            }
+    except Exception as e:
+        print(f"  ! HYG fetch failed: {e}", file=sys.stderr)
+    return out
+
+
+# ---------- New: performance tracking ----------
+HISTORY_PATH = "public/history.json"
+HISTORY_MAX_AGE_DAYS = 365  # prune older entries
+
+def load_history(path: str = HISTORY_PATH) -> dict:
+    if not os.path.exists(path):
+        return {"picks": []}
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except Exception:
+        return {"picks": []}
+
+
+def save_history(history: dict, path: str = HISTORY_PATH):
+    try:
+        with open(path, "w") as f:
+            json.dump(history, f, indent=2)
+    except Exception as e:
+        print(f"  ! Failed to save history: {e}", file=sys.stderr)
+
+
+def update_history_returns(history: dict, spy_df: Optional[pd.DataFrame]) -> dict:
+    """For each unsettled pick, compute 1d/5d/30d returns + alpha vs SPY."""
+    today = datetime.now(timezone.utc).date()
+    picks = history.get("picks") or []
+
+    # Identify picks needing updates
+    needs_update = []
+    for i, p in enumerate(picks):
+        try:
+            entry_date = datetime.fromisoformat(p["date"]).date()
+        except Exception:
+            continue
+        days_held = (today - entry_date).days
+        if days_held < 1:
+            continue
+        # Skip if all horizons settled
+        if all(p.get(f"return_{h}d") is not None for h in [1, 5, 30]):
+            continue
+        # Skip very old picks already past 30d
+        if days_held > 60 and p.get("return_30d") is not None:
+            continue
+        needs_update.append((i, entry_date, days_held))
+
+    if not needs_update:
+        return history
+
+    tickers = sorted({picks[i]["ticker"] for i, _, _ in needs_update})
+    print(f"Updating returns for {len(needs_update)} historical picks ({len(tickers)} unique tickers)...",
+          file=sys.stderr)
+
+    try:
+        if len(tickers) == 1:
+            data = yf.Ticker(tickers[0]).history(period="2mo", interval="1d", auto_adjust=False)
+            data_dict = {tickers[0]: data}
+        else:
+            raw = yf.download(tickers, period="2mo", interval="1d",
+                              group_by="ticker", auto_adjust=False, progress=False, threads=True)
+            data_dict = {t: raw[t] for t in tickers if t in raw.columns.get_level_values(0)}
+    except Exception as e:
+        print(f"  ! History update fetch failed: {e}", file=sys.stderr)
+        return history
+
+    spy_close = spy_df["Close"] if spy_df is not None else None
+
+    for i, entry_date, days_held in needs_update:
+        p = picks[i]
+        tk = p["ticker"]
+        if tk not in data_dict:
+            continue
+        df = data_dict[tk]
+        if df is None or len(df) == 0:
+            continue
+        try:
+            close_series = df["Close"].dropna()
+            after = close_series[close_series.index.date > entry_date]
+            entry_price = p.get("entry_price") or 0
+            if not entry_price:
+                continue
+            for h in [1, 5, 30]:
+                key = f"return_{h}d"
+                if p.get(key) is not None:
+                    continue
+                if days_held < h:
+                    continue
+                if len(after) < h:
+                    continue
+                price_then = float(after.iloc[h - 1])
+                ret = (price_then / entry_price - 1) * 100
+                p[key] = round(ret, 2)
+                # SPY alpha
+                if spy_close is not None:
+                    spy_at = spy_close[spy_close.index.date <= entry_date]
+                    spy_after = spy_close[spy_close.index.date > entry_date]
+                    if len(spy_at) and len(spy_after) >= h:
+                        spy_entry = float(spy_at.iloc[-1])
+                        spy_then = float(spy_after.iloc[h - 1])
+                        spy_ret = (spy_then / spy_entry - 1) * 100
+                        p[f"alpha_{h}d"] = round(ret - spy_ret, 2)
+        except Exception as e:
+            print(f"  ! {tk}: history calc failed ({e})", file=sys.stderr)
+
+    return history
+
+
+def append_picks_to_history(history: dict, new_picks: list, today_iso: str) -> dict:
+    if "picks" not in history:
+        history["picks"] = []
+    # Prune: drop picks older than HISTORY_MAX_AGE_DAYS
+    cutoff = datetime.now(timezone.utc).date()
+    fresh = []
+    for p in history["picks"]:
+        try:
+            d = datetime.fromisoformat(p["date"]).date()
+            if (cutoff - d).days <= HISTORY_MAX_AGE_DAYS:
+                fresh.append(p)
+        except Exception:
+            fresh.append(p)
+    history["picks"] = fresh
+
+    # Append new picks (deduplicated by date+ticker so manual re-runs don't double-up)
+    existing = {(p.get("date"), p.get("ticker")) for p in history["picks"]}
+    for s in new_picks:
+        key = (today_iso, s.ticker)
+        if key in existing:
+            continue
+        history["picks"].append({
+            "date": today_iso,
+            "ticker": s.ticker,
+            "name": s.name,
+            "sector": s.sector,
+            "entry_price": s.price,
+            "score": s.composite_score,
+            "stop_loss": s.stop_loss,
+            "target": s.target,
+            "rr_ratio": s.rr_ratio,
+            "key_signals": {
+                "rs_vs_spy_30d": s.rs_vs_spy_30d,
+                "weekly_uptrend": s.weekly_uptrend,
+                "near_52w_high": s.near_52w_high,
+                "breakout_recent": s.breakout_recent,
+                "atr_pct": s.atr_pct,
+                "insider_buy": s.insider_buy_count_30d > 0,
+                "rs_leader": s.rs_leader,
+            },
+        })
+    return history
+
+
 def fetch_sector_etfs() -> list:
     """
     Pull recent prices for the 11 SPDR sector ETFs. Returns a list of dicts
@@ -891,6 +1127,9 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
             "ma50":   None if pd.isna(ma50_val) else round(float(ma50_val), 4),
         })
 
+    # Compute trade setup (stop-loss, target, R:R)
+    setup = compute_trade_setup(df, float(last["Close"]), atr_14)
+
     return Signal(
         ticker=ticker, name=name, sector=sector,
         price=float(last["Close"]), ma20=float(last["MA20"]), ma50=float(last["MA50"]),
@@ -917,6 +1156,11 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
         composite_score=round(score, 2),
         reasons=reasons,
         chart_data=chart_data,
+        stop_loss=setup["stop_loss"],
+        stop_distance_pct=setup["stop_distance_pct"],
+        target=setup["target"],
+        target_distance_pct=setup["target_distance_pct"],
+        rr_ratio=setup["rr_ratio"],
     )
 
 
@@ -1022,6 +1266,25 @@ def main():
             signals.append(full)
 
     picks = select_top(signals, n=args.top)
+
+    # Compute market breadth from the universe scan we already have
+    breadth = compute_breadth(technical_signals)
+
+    # Fetch VIX and HYG for richer regime context
+    print("Fetching VIX and HYG for regime context...", file=sys.stderr)
+    market_health = fetch_vix_and_hyg()
+
+    # Combine into enhanced regime payload
+    regime["breadth"] = breadth
+    regime["vix"] = market_health.get("vix")
+    regime["hyg"] = market_health.get("hyg")
+
+    # ----- Performance tracking: load history, update returns, append today's picks -----
+    today_iso = datetime.now(timezone.utc).date().isoformat()
+    history = load_history()
+    history = update_history_returns(history, spy_df)
+    history = append_picks_to_history(history, picks, today_iso)
+    save_history(history)
 
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
