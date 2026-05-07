@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T07:00:01+00:00",
+  "generated_at": "2026-05-07T07:27:38+00:00",
   "market": "top100",
   "scanned": 100,
   "enriched": 12,
@@ -36,7 +36,7 @@
       "breakout_days_since": null,
       "consolidation_range_pct": 32.66,
       "news_count_7d": 10,
-      "news_score": 0.13330270051956178,
+      "news_score": 0.13330242037773132,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -44,6 +44,9 @@
       "reddit_score_total": 0,
       "insider_buy_count_30d": 0,
       "insider_buy_value_usd": 0,
+      "x_mention_count": 0,
+      "x_sentiment": 0.0,
+      "x_source": "none",
       "days_to_earnings": 84,
       "composite_score": 13.3,
       "reasons": [
@@ -695,7 +698,7 @@
       "breakout_days_since": null,
       "consolidation_range_pct": 27.35,
       "news_count_7d": 10,
-      "news_score": 0.28359511494636536,
+      "news_score": 0.2835948348045349,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -703,6 +706,9 @@
       "reddit_score_total": 0,
       "insider_buy_count_30d": 0,
       "insider_buy_value_usd": 0,
+      "x_mention_count": 0,
+      "x_sentiment": 0.0,
+      "x_source": "none",
       "days_to_earnings": 69,
       "composite_score": 13.0,
       "reasons": [
@@ -1354,7 +1360,7 @@
       "breakout_days_since": null,
       "consolidation_range_pct": 23.91,
       "news_count_7d": 10,
-      "news_score": 0.2144726574420929,
+      "news_score": 0.21447228789329528,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -1362,6 +1368,9 @@
       "reddit_score_total": 0,
       "insider_buy_count_30d": 0,
       "insider_buy_value_usd": 0,
+      "x_mention_count": 0,
+      "x_sentiment": 0.0,
+      "x_source": "none",
       "days_to_earnings": 82,
       "composite_score": 12.3,
       "reasons": [
@@ -2104,6 +2113,14 @@
       "above_ma50": true,
       "pct_vs_ma50": 1.02,
       "month_return": 0.49
+    },
+    "fear_greed": {
+      "score": 68.3,
+      "rating": "greed",
+      "previous_close": 68.4,
+      "previous_1_week": 66.7,
+      "previous_1_month": 27.6,
+      "previous_1_year": 54.1
     }
   }
 }
