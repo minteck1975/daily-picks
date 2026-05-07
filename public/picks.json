@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-07T07:27:38+00:00",
+  "generated_at": "2026-05-07T07:57:48+00:00",
   "market": "top100",
   "scanned": 100,
   "enriched": 12,
@@ -2104,8 +2104,8 @@
       "total": 100
     },
     "vix": {
-      "level": 17.39,
-      "day_change_pct": 0.06,
+      "level": 17.5,
+      "day_change_pct": 0.63,
       "regime": "normal"
     },
     "hyg": {
@@ -2115,12 +2115,88 @@
       "month_return": 0.49
     },
     "fear_greed": {
-      "score": 68.3,
+      "score": 68.6,
       "rating": "greed",
       "previous_close": 68.4,
       "previous_1_week": 66.7,
       "previous_1_month": 27.6,
       "previous_1_year": 54.1
     }
+  },
+  "market_news": {
+    "items": [
+      {
+        "title": "Dividend Yields Are Scarce. Stock Buybacks May Fill the Gap.",
+        "summary": "Stocks with hefty dividend yields have gotten harder and harder to find as more companies use buybacks to distribute extra cash.  Fund investors might want to follow their lead.  While the  is having another strong year, up 7.6% so far in 2026, dividends haven\u2019t been a huge part ",
+        "source": "Barrons.com",
+        "url": "https://www.barrons.com/articles/dividend-yields-stock-buybacks-etf-1458371d?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1778139000
+      },
+      {
+        "title": "Oil Stabilizes in Wake of Selloff",
+        "summary": "Oil prices stabilized in Asian trading, a day after investor optimism about diplomacy between the U.S. and Iran sparked steep declines. Brent crude, the global benchmark, was 0.5% higher at around $102.",
+        "source": "The Wall Street Journal",
+        "url": "https://www.wsj.com/livecoverage/iran-hormuz/card/oil-stabilizes-in-wake-of-selloff-NTEQpaG7T5RV8JVH5vxi?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1778135950
+      },
+      {
+        "title": "Emerging Market Stocks Are Outperforming the S&P 500. How to Play the Rally.",
+        "summary": "Emerging market stocks are hitting new highs, driven by Asian AI firms and Latin American commodity exporters.",
+        "source": "Barrons.com",
+        "url": "https://www.barrons.com/articles/emerging-market-stocks-how-to-play-the-rally-2d6c7e7f?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1778133600
+      },
+      {
+        "title": "This \"Magnificent Seven\" Stock Is the Cheapest of Them All. Is It a Buy Right Now?",
+        "summary": "Meta Platforms is trading at a relatively low forward P/E ratio.",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/investing/2026/05/07/this-magnificent-seven-stock-is-the-cheapest-of-th/",
+        "publish_time": 1778132880
+      },
+      {
+        "title": "Coke Keeps Beating Pepsi. Warren Buffett\u2019s Bet Has Paid Off.",
+        "summary": "New Berkshire CEO Greg Abel has called Coke one of its \u201ccore four\u201d investments, along with Apple, Moody\u2019s, and American Express. It\u2019s beating the S&P 500 this year.",
+        "source": "Barrons.com",
+        "url": "https://www.barrons.com/articles/coke-pepsi-stock-warren-buffett-2eb08eda?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1778131800
+      },
+      {
+        "title": "Why Is The Crypto Market Down Today?",
+        "summary": "Crypto market down 0.59% as money rotated into equities after the S&P's all-time high, with Bitcoin rejected on a bearish divergence.",
+        "source": "BeInCrypto",
+        "url": "https://beincrypto.com/why-is-the-crypto-market-down-today/",
+        "publish_time": 1778131522
+      },
+      {
+        "title": "Morning Bid: No stopping AI frenzy in Asia",
+        "summary": "A look at the day ahead in European and global markets from Ankur Banerjee Japan's Nikkei returned from holiday and jumped onto the scorching AI rally, joining South Korea and Taiwan equities at",
+        "source": "Reuters",
+        "url": "https://finance.yahoo.com/markets/world-indices/articles/morning-bid-no-stopping-ai-043303632.html",
+        "publish_time": 1778128383
+      },
+      {
+        "title": "Nikkei 225 Tops 62,000 as Major Japanese Stocks Post Double-Digit Gains",
+        "summary": "Japan's Nikkei 225 tops 62,000 first time as major tech, materials stocks post double-digit gains in broad rally.",
+        "source": "BeInCrypto",
+        "url": "https://beincrypto.com/nikkei-225-record-japan-stocks-rally/",
+        "publish_time": 1778125563
+      },
+      {
+        "title": "Dow Jones Futures: Stock Market Hits Highs On Iran-Deal Hopes, Nvidia Leads New Buys; ARM Is Earnings Mover",
+        "summary": "The S&P 500 and Nasdaq hit new highs on Iran deal hopes. Nvidia leads new buys with Arm a big earnings mover late.",
+        "source": "Investor's Business Daily",
+        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-iran-deal-hopes-nvidia-new-buy-arm-earnings/?src=A00220&yptr=yahoo",
+        "publish_time": 1778123166
+      },
+      {
+        "title": "Review & Preview: The Road Back to 50K",
+        "summary": "The Dow Jones Industrial Average finally joined the Nasdaq Composite and S&P 500 in exiting correction territory, but it ended the day just short of a major milestone.  The Dow rose 612 points, or 1.2% after briefly crossing the symbolic 50,000 level.  The S&P 500 ended up 1.5% w",
+        "source": "Barrons.com",
+        "url": "https://www.barrons.com/articles/stocks-today-dow-50k-arm-earnings-684dca1b?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1778112300
+      }
+    ],
+    "overall_mood": 0.55,
+    "fetched_at": "2026-05-07T07:57:48+00:00"
   }
 }
