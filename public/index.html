@@ -221,6 +221,49 @@
     border-radius: 4px;
     border: 1px solid var(--rule);
   }
+  /* Trade setup row */
+  .trade-setup {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .trade-cell {
+    padding: 12px 14px;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+  }
+  .trade-cell.stop   { background: rgba(184, 107, 88, 0.08); border-color: rgba(184, 107, 88, 0.25); }
+  .trade-cell.target { background: rgba(127, 166, 107, 0.08); border-color: rgba(127, 166, 107, 0.25); }
+  .trade-cell.rr     { background: var(--bg-elev); }
+  .trade-cell .tlabel {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-faint);
+    margin-bottom: 4px;
+  }
+  .trade-cell .tval {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+  }
+  .trade-cell .tsub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-dim);
+    margin-top: 3px;
+  }
+  .trade-cell.stop .tval   { color: var(--warn); }
+  .trade-cell.target .tval { color: var(--gain); }
+  .trade-cell.rr .tval.good { color: var(--gain); }
+  .trade-cell.rr .tval.poor { color: var(--warn); }
+  @media (max-width: 480px) {
+    .trade-setup { grid-template-columns: 1fr 1fr; }
+    .trade-cell.rr { grid-column: 1 / -1; }
+  }
   .stat .label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
@@ -481,6 +524,87 @@
   .sector-return.up   { color: var(--gain); }
   .sector-return.down { color: var(--warn); }
   .sector-return.flat { color: var(--ink-dim); }
+  /* Health gauges (VIX, breadth, HYG, track summaries) */
+  .health-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 600px) {
+    .health-grid { grid-template-columns: 1fr; }
+  }
+  .health-card, .track-summary {
+    padding: 18px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--bg-elev);
+  }
+  .hlabel {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+  .hval {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .hval.gain  { color: var(--gain); }
+  .hval.warn  { color: var(--warn); }
+  .hval.bear  { color: var(--warn); }
+  .hval.flat  { color: var(--ink-dim); }
+  .hsub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  .hsub .gain { color: var(--gain); }
+  .hsub .warn { color: var(--warn); }
+  /* Track record table */
+  .track-table-wrap {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+  .track-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+  .track-table thead th {
+    background: var(--bg-elev);
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 9px;
+    font-weight: 500;
+    padding: 12px 14px;
+    text-align: left;
+  }
+  .track-table tbody tr {
+    border-bottom: 1px solid var(--rule);
+  }
+  .track-table tbody tr:last-child { border-bottom: none; }
+  .track-table td {
+    padding: 12px 14px;
+    color: var(--ink);
+  }
+  .track-table .date-cell { color: var(--ink-dim); }
+  .track-table .ticker-cell { font-weight: 600; }
+  .track-table .ret-cell { text-align: right; }
+  .track-table .ret-cell.up   { color: var(--gain); }
+  .track-table .ret-cell.down { color: var(--warn); }
+  .track-table .ret-cell.flat { color: var(--ink-dim); }
   /* About page */
   .about-doc {
     max-width: 640px;
@@ -621,6 +745,7 @@
   <nav class="tabs" role="tablist">
     <button class="tab active" data-target="picks" role="tab">Picks</button>
     <button class="tab" data-target="market" role="tab">Market</button>
+    <button class="tab" data-target="track" role="tab">Track Record</button>
     <button class="tab" data-target="about" role="tab">About</button>
   </nav>
 
@@ -633,6 +758,12 @@
   <section id="view-market" hidden>
     <div id="market-content">
       <div class="loading">Loading sector data</div>
+    </div>
+  </section>
+
+  <section id="view-track" hidden>
+    <div id="track-content">
+      <div class="loading">Loading track record</div>
     </div>
   </section>
 
@@ -779,6 +910,9 @@ function fmtPct(r) {
 function renderMarket(data) {
   const sectors = data.sectors || [];
   const regime  = data.regime || { label: 'neutral', summary: '', score: 0 };
+  const vix     = regime.vix;
+  const hyg     = regime.hyg;
+  const breadth = regime.breadth;
 
   if (!sectors.length) {
     return `<div class="empty"><h2>No sector data.</h2><p>The sector ETF fetch returned nothing this run.</p></div>`;
@@ -788,6 +922,44 @@ function renderMarket(data) {
                     : regime.label === 'risk-off' ? 'off' : 'neutral';
   const regimeLabel = regime.label === 'risk-on' ? 'Risk-On'
                     : regime.label === 'risk-off' ? 'Risk-Off' : 'Neutral';
+
+  // Health gauges (VIX / HYG / breadth)
+  let healthCards = '';
+  if (vix) {
+    const vixClass = vix.regime === 'complacent' ? 'warn'
+                   : vix.regime === 'stressed' ? 'bear' : '';
+    healthCards += `
+      <div class="health-card">
+        <div class="hlabel">VIX · Volatility</div>
+        <div class="hval ${vixClass}">${num(vix.level, 2)}</div>
+        <div class="hsub">${vix.regime} · ${fmtPct(vix.day_change_pct)} today</div>
+      </div>`;
+  }
+  if (breadth && breadth.pct_above_50dma !== null) {
+    const b = breadth.pct_above_50dma;
+    const bClass = b >= 70 ? 'gain' : b < 50 ? 'warn' : '';
+    const bRead = b >= 70 ? 'broad participation'
+                : b < 50 ? 'narrow leadership' : 'mixed breadth';
+    healthCards += `
+      <div class="health-card">
+        <div class="hlabel">Breadth · Above 50DMA</div>
+        <div class="hval ${bClass}">${num(b, 1)}%</div>
+        <div class="hsub">${breadth.count_above}/${breadth.total} · ${bRead}</div>
+      </div>`;
+  }
+  if (hyg) {
+    const hClass = hyg.above_ma50 && hyg.month_return > 0 ? 'gain'
+                 : !hyg.above_ma50 ? 'warn' : '';
+    const hRead = hyg.above_ma50
+                ? 'credit constructive'
+                : 'credit weakening — equity warning';
+    healthCards += `
+      <div class="health-card">
+        <div class="hlabel">HYG · Junk Credit</div>
+        <div class="hval ${hClass}">${num(hyg.price, 2)}</div>
+        <div class="hsub">${fmtPct(hyg.month_return)} 30d · ${hRead}</div>
+      </div>`;
+  }
 
   const sectorCards = sectors.map(s => `
     <div class="sector-card ${heatClass(s.day_return)}">
@@ -805,16 +977,117 @@ function renderMarket(data) {
       <div class="regime-spread">Cyclicals ${fmtPct(regime.cyclical_avg ?? 0)} · Defensives ${fmtPct(regime.defensive_avg ?? 0)} · Spread ${fmtPct(regime.score ?? 0)}</div>
       <div class="regime-summary">${regime.summary || ''}</div>
     </div>
+    ${healthCards ? `
+      <div class="sector-section-label">Market Health Gauges</div>
+      <div class="health-grid">${healthCards}</div>
+    ` : ''}
     <div class="sector-section-label">Sector Heatmap — Today's Move</div>
     <div class="sector-grid">${sectorCards}</div>
   `;
 }
 
+async function renderTrack() {
+  let history;
+  try {
+    const res = await fetch('history.json?ts=' + Date.now());
+    if (!res.ok) throw new Error('no history');
+    history = await res.json();
+  } catch (e) {
+    return `<div class="empty"><h2>No history yet.</h2><p>Track record will populate after a few daily picks have been generated and aged.</p></div>`;
+  }
+
+  const allPicks = (history.picks || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  if (!allPicks.length) {
+    return `<div class="empty"><h2>No picks recorded yet.</h2></div>`;
+  }
+
+  // Compute aggregate stats
+  function stats(horizonKey) {
+    const settled = allPicks.filter(p => p[horizonKey] !== undefined && p[horizonKey] !== null);
+    if (!settled.length) return null;
+    const wins = settled.filter(p => p[horizonKey] > 0).length;
+    const sum  = settled.reduce((a, p) => a + p[horizonKey], 0);
+    const alphaKey = horizonKey.replace('return_', 'alpha_');
+    const alphaSet = settled.filter(p => p[alphaKey] !== undefined && p[alphaKey] !== null);
+    const alphaSum = alphaSet.reduce((a, p) => a + p[alphaKey], 0);
+    return {
+      n: settled.length,
+      win_rate: settled.length ? (wins / settled.length) * 100 : 0,
+      avg_return: settled.length ? sum / settled.length : 0,
+      avg_alpha: alphaSet.length ? alphaSum / alphaSet.length : null,
+    };
+  }
+  const s1  = stats('return_1d');
+  const s5  = stats('return_5d');
+  const s30 = stats('return_30d');
+
+  function summaryCard(label, s) {
+    if (!s) return `
+      <div class="track-summary">
+        <div class="hlabel">${label}</div>
+        <div class="hval flat">—</div>
+        <div class="hsub">awaiting data</div>
+      </div>`;
+    const winClass = s.win_rate >= 55 ? 'gain' : s.win_rate < 45 ? 'warn' : '';
+    const retClass = s.avg_return > 0 ? 'gain' : s.avg_return < 0 ? 'warn' : '';
+    return `
+      <div class="track-summary">
+        <div class="hlabel">${label} · ${s.n} settled</div>
+        <div class="hval ${winClass}">${num(s.win_rate, 0)}%</div>
+        <div class="hsub">avg <span class="${retClass}">${fmtPct(s.avg_return)}</span>${
+          s.avg_alpha !== null ? ` · alpha ${fmtPct(s.avg_alpha)}` : ''
+        }</div>
+      </div>`;
+  }
+
+  // Recent picks list (last 50)
+  const recent = allPicks.slice(0, 50);
+  const rows = recent.map(p => {
+    function cellRet(key) {
+      const v = p[key];
+      if (v === undefined || v === null) return '<td class="ret-cell">—</td>';
+      const cls = v > 0 ? 'up' : v < 0 ? 'down' : 'flat';
+      return `<td class="ret-cell ${cls}">${fmtPct(v)}</td>`;
+    }
+    return `
+      <tr>
+        <td class="date-cell">${p.date}</td>
+        <td class="ticker-cell">${p.ticker}</td>
+        <td class="entry-cell">${num(p.entry_price)}</td>
+        ${cellRet('return_1d')}
+        ${cellRet('return_5d')}
+        ${cellRet('return_30d')}
+      </tr>`;
+  }).join('');
+
+  return `
+    <div class="sector-section-label">Performance Summary</div>
+    <div class="health-grid">
+      ${summaryCard('1-day win rate', s1)}
+      ${summaryCard('5-day win rate', s5)}
+      ${summaryCard('30-day win rate', s30)}
+    </div>
+    <div class="sector-section-label" style="margin-top:36px;">Recent Picks · ${recent.length} of ${allPicks.length}</div>
+    <div class="track-table-wrap">
+      <table class="track-table">
+        <thead>
+          <tr>
+            <th>Date</th><th>Ticker</th><th>Entry</th>
+            <th>+1d</th><th>+5d</th><th>+30d</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
 function setupTabs() {
   const tabs = document.querySelectorAll('.tab');
-  const views = ['picks', 'market', 'about'];
+  const views = ['picks', 'market', 'track', 'about'];
+  let trackLoaded = false;
   tabs.forEach(t => {
-    t.addEventListener('click', () => {
+    t.addEventListener('click', async () => {
       tabs.forEach(x => x.classList.remove('active'));
       t.classList.add('active');
       const target = t.dataset.target;
@@ -822,6 +1095,12 @@ function setupTabs() {
         const el = document.getElementById('view-' + v);
         if (el) el.hidden = target !== v;
       });
+      // Lazy-load track record on first click
+      if (target === 'track' && !trackLoaded) {
+        trackLoaded = true;
+        const html = await renderTrack();
+        document.getElementById('track-content').innerHTML = html;
+      }
     });
   });
 }
@@ -914,6 +1193,23 @@ function renderPick(p, idx) {
         <div class="stat">
           <div class="label">Vol ×Avg</div>
           <div class="value ${volClass}">${num(p.volume_ratio, 2)}</div>
+        </div>
+      </div>
+      <div class="trade-setup">
+        <div class="trade-cell stop">
+          <div class="tlabel">Stop loss</div>
+          <div class="tval">${num(p.stop_loss)}</div>
+          <div class="tsub">−${num(p.stop_distance_pct, 1)}% · 2× ATR</div>
+        </div>
+        <div class="trade-cell target">
+          <div class="tlabel">Target</div>
+          <div class="tval">${num(p.target)}</div>
+          <div class="tsub">+${num(p.target_distance_pct, 1)}% · nearest resistance</div>
+        </div>
+        <div class="trade-cell rr">
+          <div class="tlabel">Risk · Reward</div>
+          <div class="tval ${p.rr_ratio >= 1.5 ? 'good' : p.rr_ratio < 1 ? 'poor' : ''}">1 : ${num(p.rr_ratio, 2)}</div>
+          <div class="tsub">${p.rr_ratio >= 2 ? 'Favorable' : p.rr_ratio >= 1.5 ? 'Acceptable' : p.rr_ratio >= 1 ? 'Tight' : 'Unfavorable'}</div>
         </div>
       </div>
       <div class="chart-wrap">
