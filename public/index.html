@@ -525,6 +525,47 @@
   .sector-return.down { color: var(--warn); }
   .sector-return.flat { color: var(--ink-dim); }
   /* Health gauges (VIX, breadth, HYG, track summaries) */
+  .fg-hero {
+    margin-bottom: 28px;
+    padding: 24px 24px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--bg-elev);
+    text-align: center;
+  }
+  .fg-hero .hlabel {
+    margin-bottom: 6px;
+    text-align: left;
+  }
+  .fg-gauge {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    display: block;
+    margin: 4px auto 8px;
+  }
+  .fg-rating {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-top: 2px;
+    letter-spacing: 0.01em;
+  }
+  .fg-rating.fear, .fg-rating.extreme-fear { color: var(--warn); }
+  .fg-rating.greed { color: var(--gain); }
+  .fg-rating.extreme-greed { color: var(--warn); }
+  .fg-trend {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin-top: 10px;
+    line-height: 1.7;
+  }
+  .fg-trend .delta-up   { color: var(--gain); }
+  .fg-trend .delta-down { color: var(--warn); }
   .health-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -907,6 +948,105 @@ function fmtPct(r) {
   return (r > 0 ? '+' : '') + (r ?? 0).toFixed(2) + '%';
 }
 
+function renderFearGreedGauge(fg) {
+  const score = Math.max(0, Math.min(100, Number(fg.score) || 0));
+  const W = 400, H = 220;
+  const cx = W / 2;
+  const cy = 200;
+  const r = 145;
+  const sw = 26;
+
+  // Convert score (0-100) to position on the upper semicircle.
+  // Score 0 → angle 180° (left), Score 100 → angle 0° (right).
+  function polar(s, rr = r) {
+    const a = (180 - s * 1.8) * Math.PI / 180;
+    return [cx + rr * Math.cos(a), cy - rr * Math.sin(a)];
+  }
+  function arc(a, b, gap = 0.6) {
+    const [x1, y1] = polar(a + gap);
+    const [x2, y2] = polar(b - gap);
+    return `M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 0 1 ${x2.toFixed(2)} ${y2.toFixed(2)}`;
+  }
+
+  // 5 zones — terracotta-to-sage gradient, harmonized with editorial palette
+  const zones = [
+    [0,  25,  '#9c4d3c'],   // Extreme Fear
+    [25, 45,  '#b86b58'],   // Fear
+    [45, 55,  '#a39b88'],   // Neutral
+    [55, 75,  '#7fa66b'],   // Greed
+    [75, 100, '#5a8350'],   // Extreme Greed
+  ];
+  const segs = zones.map(([a, b, c]) =>
+    `<path d="${arc(a, b)}" stroke="${c}" stroke-width="${sw}" fill="none" stroke-linecap="butt"/>`
+  ).join('');
+
+  // Tick marks at 0, 25, 50, 75, 100
+  const ticks = [0, 25, 50, 75, 100].map(s => {
+    const [tx1, ty1] = polar(s, r + sw / 2 + 4);
+    const [tx2, ty2] = polar(s, r + sw / 2 + 11);
+    return `<line x1="${tx1.toFixed(2)}" y1="${ty1.toFixed(2)}" x2="${tx2.toFixed(2)}" y2="${ty2.toFixed(2)}" stroke="#5a5447" stroke-width="1"/>`;
+  }).join('');
+
+  // Numeric end-labels
+  const labels = `
+    <text x="${cx - r - sw/2 - 6}" y="${cy + 14}" font-size="11" fill="#5a5447"
+          text-anchor="end" font-family="JetBrains Mono, monospace" letter-spacing="1">0</text>
+    <text x="${cx + r + sw/2 + 6}" y="${cy + 14}" font-size="11" fill="#5a5447"
+          text-anchor="start" font-family="JetBrains Mono, monospace" letter-spacing="1">100</text>
+    <text x="${cx - 95}" y="${cy - r + 8}" font-size="9" fill="#5a5447"
+          text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="2">FEAR</text>
+    <text x="${cx + 95}" y="${cy - r + 8}" font-size="9" fill="#5a5447"
+          text-anchor="middle" font-family="JetBrains Mono, monospace" letter-spacing="2">GREED</text>
+  `;
+
+  // Needle
+  const [tipX, tipY] = polar(score, r - sw - 4);
+  const needle = `
+    <line x1="${cx}" y1="${cy}" x2="${tipX.toFixed(2)}" y2="${tipY.toFixed(2)}"
+          stroke="#f0e9d8" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="${cx}" cy="${cy}" r="9" fill="#f0e9d8"/>
+    <circle cx="${cx}" cy="${cy}" r="3" fill="#0d0c0a"/>
+  `;
+
+  // Score text inside the gauge, above the needle pivot
+  const scoreText = `
+    <text x="${cx}" y="${cy - 60}" text-anchor="middle"
+          font-family="JetBrains Mono, monospace" font-size="58" font-weight="600"
+          fill="#f0e9d8" letter-spacing="-2">${Math.round(score)}</text>
+  `;
+
+  // Rating + history
+  const ratingClass = (fg.rating || '').toLowerCase().replace(/\s+/g, '-');
+  function deltaSpan(value) {
+    if (value === null || value === undefined) return '<span style="color:#5a5447">—</span>';
+    const cls = value > 0 ? 'delta-up' : value < 0 ? 'delta-down' : '';
+    const sign = value > 0 ? '+' : '';
+    return `<span class="${cls}">${sign}${value.toFixed(1)}</span>`;
+  }
+  const dWeek  = (fg.previous_1_week  !== null && fg.previous_1_week  !== undefined) ? score - fg.previous_1_week  : null;
+  const dMonth = (fg.previous_1_month !== null && fg.previous_1_month !== undefined) ? score - fg.previous_1_month : null;
+  const dYear  = (fg.previous_1_year  !== null && fg.previous_1_year  !== undefined) ? score - fg.previous_1_year  : null;
+
+  return `
+    <div class="fg-hero">
+      <div class="hlabel">CNN Fear &amp; Greed Index</div>
+      <svg class="fg-gauge" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+        ${segs}
+        ${ticks}
+        ${labels}
+        ${scoreText}
+        ${needle}
+      </svg>
+      <div class="fg-rating ${ratingClass}">${fg.rating || ''}</div>
+      <div class="fg-trend">
+        Week ago ${deltaSpan(dWeek)} &nbsp;·&nbsp;
+        Month ago ${deltaSpan(dMonth)} &nbsp;·&nbsp;
+        Year ago ${deltaSpan(dYear)}
+      </div>
+    </div>
+  `;
+}
+
 function renderMarket(data) {
   const sectors = data.sectors || [];
   const regime  = data.regime || { label: 'neutral', summary: '', score: 0 };
@@ -923,7 +1063,14 @@ function renderMarket(data) {
   const regimeLabel = regime.label === 'risk-on' ? 'Risk-On'
                     : regime.label === 'risk-off' ? 'Risk-Off' : 'Neutral';
 
-  // Health gauges (VIX / HYG / breadth / Fear & Greed)
+  // Fear & Greed Index — rendered as a hero gauge above the smaller health cards
+  const fg = regime.fear_greed;
+  let fgHero = '';
+  if (fg && fg.score !== null && fg.score !== undefined) {
+    fgHero = renderFearGreedGauge(fg);
+  }
+
+  // Health gauges (VIX / Breadth / HYG)
   let healthCards = '';
   if (vix) {
     const vixClass = vix.regime === 'complacent' ? 'warn'
@@ -933,24 +1080,6 @@ function renderMarket(data) {
         <div class="hlabel">VIX · Volatility</div>
         <div class="hval ${vixClass}">${num(vix.level, 2)}</div>
         <div class="hsub">${vix.regime} · ${fmtPct(vix.day_change_pct)} today</div>
-      </div>`;
-  }
-  const fg = regime.fear_greed;
-  if (fg && fg.score !== null && fg.score !== undefined) {
-    let fgClass = '';
-    if (fg.score < 25 || fg.score > 75) fgClass = 'warn';   // both extremes = caution
-    else if (fg.score >= 55) fgClass = 'gain';              // greed leans bullish
-    else if (fg.score < 45) fgClass = 'warn';               // fear
-    const change = fg.previous_close !== null
-                 ? fg.score - fg.previous_close : null;
-    const changeStr = change !== null
-      ? (change > 0 ? '+' : '') + change.toFixed(1) + ' from yesterday'
-      : '';
-    healthCards += `
-      <div class="health-card">
-        <div class="hlabel">Fear &amp; Greed Index</div>
-        <div class="hval ${fgClass}">${Math.round(fg.score)}</div>
-        <div class="hsub">${fg.rating}${changeStr ? ' · ' + changeStr : ''}</div>
       </div>`;
   }
   if (breadth && breadth.pct_above_50dma !== null) {
@@ -995,6 +1124,7 @@ function renderMarket(data) {
       <div class="regime-spread">Cyclicals ${fmtPct(regime.cyclical_avg ?? 0)} · Defensives ${fmtPct(regime.defensive_avg ?? 0)} · Spread ${fmtPct(regime.score ?? 0)}</div>
       <div class="regime-summary">${regime.summary || ''}</div>
     </div>
+    ${fgHero}
     ${healthCards ? `
       <div class="sector-section-label">Market Health Gauges</div>
       <div class="health-grid">${healthCards}</div>
