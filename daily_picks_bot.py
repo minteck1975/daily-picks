@@ -224,6 +224,13 @@ class Signal:
     target: float
     target_distance_pct: float
     rr_ratio: float
+    # New: fundamentals
+    pe_ttm: Optional[float]
+    pe_forward: Optional[float]
+    revenue_growth_yoy: Optional[float]
+    earnings_growth_yoy: Optional[float]
+    profit_margin: Optional[float]
+    market_cap: Optional[int]
 
 
 # Lightweight headline sentiment (placeholder).
@@ -352,6 +359,55 @@ def fetch_sector(tk: yf.Ticker) -> str:
         return info.get("sector") or info.get("industry") or "Unknown"
     except Exception:
         return "Unknown"
+
+
+def fetch_fundamentals(tk: yf.Ticker) -> dict:
+    """Pull key fundamental ratios from yfinance .info. Reuses cached info."""
+    empty = {
+        "pe_ttm": None, "pe_forward": None,
+        "revenue_growth_yoy": None, "earnings_growth_yoy": None,
+        "profit_margin": None, "market_cap": None,
+    }
+    try:
+        info = tk.info or {}
+    except Exception:
+        return empty
+
+    def _f(key):
+        v = info.get(key)
+        if v is None:
+            return None
+        try:
+            f = float(v)
+            # Filter out NaN, infinity, and meaningless zeros for ratios
+            if f != f or f in (float("inf"), float("-inf")):
+                return None
+            return f
+        except (TypeError, ValueError):
+            return None
+
+    pe_ttm = _f("trailingPE")
+    pe_forward = _f("forwardPE")
+    # P/E often returns garbage for unprofitable companies; cap insanity
+    if pe_ttm is not None and (pe_ttm <= 0 or pe_ttm > 1000):
+        pe_ttm = None
+    if pe_forward is not None and (pe_forward <= 0 or pe_forward > 1000):
+        pe_forward = None
+
+    market_cap = info.get("marketCap")
+    try:
+        market_cap = int(market_cap) if market_cap else None
+    except (TypeError, ValueError):
+        market_cap = None
+
+    return {
+        "pe_ttm": round(pe_ttm, 2) if pe_ttm is not None else None,
+        "pe_forward": round(pe_forward, 2) if pe_forward is not None else None,
+        "revenue_growth_yoy": _f("revenueGrowth"),
+        "earnings_growth_yoy": _f("earningsGrowth"),
+        "profit_margin": _f("profitMargins"),
+        "market_cap": market_cap,
+    }
 
 
 # ---------- New: technical helpers ----------
@@ -1234,6 +1290,7 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
 
     if enrich:
         sector = fetch_sector(tk)
+        fundamentals = fetch_fundamentals(tk)
         news_count, news_score = fetch_news_sentiment_finbert(tk)
         st_messages, st_bull_ratio, st_tagged = fetch_stocktwits(ticker)
         days_to_earn = fetch_days_to_earnings(tk)
@@ -1244,6 +1301,11 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
         time.sleep(0.3)
     else:
         sector = "Unknown"
+        fundamentals = {
+            "pe_ttm": None, "pe_forward": None,
+            "revenue_growth_yoy": None, "earnings_growth_yoy": None,
+            "profit_margin": None, "market_cap": None,
+        }
         news_count, news_score = 0, 0.0
         st_messages, st_bull_ratio, st_tagged = 0, 0.5, 0
         days_to_earn = None
@@ -1449,6 +1511,12 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
         target=setup["target"],
         target_distance_pct=setup["target_distance_pct"],
         rr_ratio=setup["rr_ratio"],
+        pe_ttm=fundamentals["pe_ttm"],
+        pe_forward=fundamentals["pe_forward"],
+        revenue_growth_yoy=fundamentals["revenue_growth_yoy"],
+        earnings_growth_yoy=fundamentals["earnings_growth_yoy"],
+        profit_margin=fundamentals["profit_margin"],
+        market_cap=fundamentals["market_cap"],
     )
 
 
