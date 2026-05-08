@@ -37,6 +37,8 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run bot
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
         run: python daily_picks_bot.py --market top100 --output public/picks.json
 
       - name: Commit updated picks.json
@@ -46,7 +48,18 @@ jobs:
           git add public/picks.json public/history.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
-          else
-            git commit -m "chore: update daily picks ($(date -u '+%Y-%m-%d %H:%M UTC'))"
-            git push
+            exit 0
           fi
+          git commit -m "chore: update daily picks ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+          # Retry push up to 3 times with rebase, in case main moved during the run
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "Push succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "Push rejected on attempt $attempt — pulling latest and rebasing..."
+            git pull --rebase --autostash origin main
+            sleep 3
+          done
+          echo "Push failed after 3 attempts"
+          exit 1
