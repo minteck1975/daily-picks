@@ -280,6 +280,7 @@
   }
   .stat .value.gain { color: var(--gain); }
   .stat .value.warn { color: var(--warn); }
+  .stat .value.na   { color: var(--ink-faint); font-weight: 400; font-size: 16px; }
   @media (max-width: 480px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
   }
@@ -1036,6 +1037,24 @@ function fmtPct(r) {
   return (r > 0 ? '+' : '') + (r ?? 0).toFixed(2) + '%';
 }
 
+// Fundamentals formatters
+function fmtPE(v) {
+  if (v == null) return 'n/a';
+  return v.toFixed(1);
+}
+function fmtGrowth(v) {
+  if (v == null) return 'n/a';
+  // yfinance returns growth as decimal (0.18 = 18%)
+  const pct = v * 100;
+  return (pct > 0 ? '+' : '') + pct.toFixed(1) + '%';
+}
+function growthClass(v) {
+  if (v == null) return 'na';
+  if (v > 0.10) return 'gain';
+  if (v < 0)    return 'warn';
+  return '';
+}
+
 function timeAgo(unixSeconds) {
   if (!unixSeconds) return '';
   const sec = Math.floor(Date.now() / 1000) - unixSeconds;
@@ -1470,20 +1489,20 @@ function renderPick(p, idx) {
       ${chips.length ? `<div class="pick-meta">${chips.join('')}</div>` : ''}
       <div class="stats">
         <div class="stat">
-          <div class="label">Price</div>
-          <div class="value">${num(p.price)}</div>
+          <div class="label">P/E (TTM)</div>
+          <div class="value ${p.pe_ttm == null ? 'na' : ''}">${fmtPE(p.pe_ttm)}</div>
         </div>
         <div class="stat">
-          <div class="label">MA20</div>
-          <div class="value">${num(p.ma20)}</div>
+          <div class="label">Fwd P/E</div>
+          <div class="value ${p.pe_forward == null ? 'na' : ''}">${fmtPE(p.pe_forward)}</div>
         </div>
         <div class="stat">
-          <div class="label">RSI</div>
-          <div class="value ${rsiClass}">${num(p.rsi, 1)}</div>
+          <div class="label">Rev Growth</div>
+          <div class="value ${growthClass(p.revenue_growth_yoy)}">${fmtGrowth(p.revenue_growth_yoy)}</div>
         </div>
         <div class="stat">
-          <div class="label">Vol ×Avg</div>
-          <div class="value ${volClass}">${num(p.volume_ratio, 2)}</div>
+          <div class="label">EPS Growth</div>
+          <div class="value ${growthClass(p.earnings_growth_yoy)}">${fmtGrowth(p.earnings_growth_yoy)}</div>
         </div>
       </div>
       <div class="chart-wrap">
