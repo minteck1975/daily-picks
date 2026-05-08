@@ -59,6 +59,66 @@
         "insider_buy": false,
         "rs_leader": true
       }
+    },
+    {
+      "date": "2026-05-08",
+      "ticker": "BA",
+      "name": "Boeing Company (The)",
+      "sector": "Industrials",
+      "entry_price": 231.02999877929688,
+      "score": 13.1,
+      "stop_loss": 217.87,
+      "target": 232.6,
+      "rr_ratio": 0.12,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.36,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.85,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-08",
+      "ticker": "MS",
+      "name": "Morgan Stanley",
+      "sector": "Financial Services",
+      "entry_price": 190.1699981689453,
+      "score": 12.8,
+      "stop_loss": 182.05,
+      "target": 191.22,
+      "rr_ratio": 0.13,
+      "key_signals": {
+        "rs_vs_spy_30d": 3.42,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.14,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-08",
+      "ticker": "PANW",
+      "name": "Palo Alto Networks, Inc.",
+      "sector": "Technology",
+      "entry_price": 196.52999877929688,
+      "score": 12.2,
+      "stop_loss": 181.96,
+      "target": 199.09,
+      "rr_ratio": 0.18,
+      "key_signals": {
+        "rs_vs_spy_30d": 16.88,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.71,
+        "insider_buy": false,
+        "rs_leader": true
+      }
     }
   ]
 }
