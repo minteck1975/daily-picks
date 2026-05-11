@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-11T11:59:39+00:00",
+  "generated_at": "2026-05-11T12:09:09+00:00",
   "market": "top100",
   "scanned": 100,
   "enriched": 12,
@@ -2122,8 +2122,8 @@
       "total": 100
     },
     "vix": {
-      "level": 18.13,
-      "day_change_pct": 5.47,
+      "level": 18.17,
+      "day_change_pct": 5.7,
       "regime": "normal"
     },
     "hyg": {
@@ -2143,6 +2143,13 @@
   },
   "market_news": {
     "items": [
+      {
+        "title": "The Semiconductor Market Could Double to More Than $1.5 Trillion by 2030. Here's the Best Chip Stock to Buy.",
+        "summary": "What's driving semiconductor stocks higher in the near term and long term?",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/investing/2026/05/11/the-semiconductor-market-could-double-to-more-than/",
+        "publish_time": 1778500200
+      },
       {
         "title": "Anthropic secures $1.8bn cloud deal with Akamai for AI expansion",
         "summary": "Akamai lands its biggest-ever cloud contract, marking a major push beyond content delivery into AI infrastructure.",
@@ -2205,16 +2212,9 @@
         "source": "Simply Wall St.",
         "url": "https://finance.yahoo.com/sectors/technology/articles/week-electric-vehicles-charger-materials-103941346.html",
         "publish_time": 1778495981
-      },
-      {
-        "title": "Leading Stocks Are Losing Their Low-Asset Edge",
-        "summary": "It\u2019s business lesson number one: \u201cYou\u2019ve got to spend money to make money.\u201d  Now that we have details of a full century of detailed U.S. stock returns, investors who study it for an edge can confidently say that asset-light companies did much better.  \u201cWe know from this 100 years",
-        "source": "The Wall Street Journal",
-        "url": "https://www.wsj.com/finance/investing/leading-stocks-are-losing-their-low-asset-edge-4a2885c3?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1778495520
       }
     ],
-    "overall_mood": 0.27,
-    "fetched_at": "2026-05-11T11:59:39+00:00"
+    "overall_mood": 0.34,
+    "fetched_at": "2026-05-11T12:09:09+00:00"
   }
 }
