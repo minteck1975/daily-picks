@@ -84,7 +84,9 @@
         "atr_pct": 2.85,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 3.11,
+      "alpha_1d": 2.88
     },
     {
       "date": "2026-05-08",
@@ -104,7 +106,9 @@
         "atr_pct": 2.14,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.49,
+      "alpha_1d": 0.26
     },
     {
       "date": "2026-05-08",
@@ -124,7 +128,9 @@
         "atr_pct": 3.71,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 8.72,
+      "alpha_1d": 8.49
     },
     {
       "date": "2026-05-08",
@@ -144,7 +150,9 @@
         "atr_pct": 3.41,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 3.75,
+      "alpha_1d": 3.53
     },
     {
       "date": "2026-05-09",
@@ -164,7 +172,9 @@
         "atr_pct": 3.42,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.97,
+      "alpha_1d": 1.74
     },
     {
       "date": "2026-05-09",
@@ -184,7 +194,9 @@
         "atr_pct": 2.85,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.36,
+      "alpha_1d": 0.13
     },
     {
       "date": "2026-05-09",
@@ -204,7 +216,9 @@
         "atr_pct": 2.07,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.03,
+      "alpha_1d": -1.26
     },
     {
       "date": "2026-05-11",
@@ -264,6 +278,66 @@
         "atr_pct": 2.85,
         "insider_buy": false,
         "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "ticker": "BA",
+      "name": "Boeing Company (The)",
+      "sector": "Industrials",
+      "entry_price": 238.2100067138672,
+      "score": 13.8,
+      "stop_loss": 224.99,
+      "target": 240.0,
+      "rr_ratio": 0.14,
+      "key_signals": {
+        "rs_vs_spy_30d": 8.44,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.78,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "ticker": "KLAC",
+      "name": "KLA Corporation",
+      "sector": "Technology",
+      "entry_price": 1845.18994140625,
+      "score": 13.1,
+      "stop_loss": 1678.73,
+      "target": 1855.58,
+      "rr_ratio": 0.06,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.26,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 4.51,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "ticker": "GS",
+      "name": "Goldman Sachs Group, Inc. (The)",
+      "sector": "Financial Services",
+      "entry_price": 944.8599853515625,
+      "score": 11.8,
+      "stop_loss": 902.56,
+      "target": 949.78,
+      "rr_ratio": 0.12,
+      "key_signals": {
+        "rs_vs_spy_30d": 1.09,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.24,
+        "insider_buy": false,
+        "rs_leader": false
       }
     }
   ]
