@@ -238,7 +238,9 @@
         "atr_pct": 4.44,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -3.09,
+      "alpha_1d": -2.94
     },
     {
       "date": "2026-05-11",
@@ -258,7 +260,9 @@
         "atr_pct": 3.07,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -4.25,
+      "alpha_1d": -4.1
     },
     {
       "date": "2026-05-11",
@@ -278,7 +282,9 @@
         "atr_pct": 2.85,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.21,
+      "alpha_1d": -0.05
     },
     {
       "date": "2026-05-12",
@@ -336,6 +342,66 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.24,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-13",
+      "ticker": "KLAC",
+      "name": "KLA Corporation",
+      "sector": "Technology",
+      "entry_price": 1811.3499755859375,
+      "score": 12.8,
+      "stop_loss": 1635.68,
+      "target": 1823.27,
+      "rr_ratio": 0.07,
+      "key_signals": {
+        "rs_vs_spy_30d": 14.21,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 4.85,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-13",
+      "ticker": "BA",
+      "name": "Boeing Company (The)",
+      "sector": "Industrials",
+      "entry_price": 236.8699951171875,
+      "score": 12.3,
+      "stop_loss": 224.44,
+      "target": 238.54,
+      "rr_ratio": 0.13,
+      "key_signals": {
+        "rs_vs_spy_30d": 8.38,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.62,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-13",
+      "ticker": "GS",
+      "name": "Goldman Sachs Group, Inc. (The)",
+      "sector": "Financial Services",
+      "entry_price": 945.9000244140625,
+      "score": 11.6,
+      "stop_loss": 901.7,
+      "target": 952.01,
+      "rr_ratio": 0.14,
+      "key_signals": {
+        "rs_vs_spy_30d": 0.32,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.34,
         "insider_buy": false,
         "rs_leader": false
       }
