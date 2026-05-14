@@ -231,6 +231,16 @@ class Signal:
     earnings_growth_yoy: Optional[float]
     profit_margin: Optional[float]
     market_cap: Optional[int]
+    # New: freshness & acceleration
+    days_above_ma50: Optional[int]
+    days_since_ma50_cross: Optional[int]
+    golden_cross_days: Optional[int]
+    roc_5d: float
+    roc_10d: float
+    roc_20d: float
+    roc_accelerating: bool
+    volume_trend_ratio: float
+    stage: str   # 'fresh' | 'developing' | 'accelerating' | 'mature'
 
 
 # Lightweight headline sentiment (placeholder).
@@ -422,6 +432,123 @@ def compute_atr(df: pd.DataFrame, n: int = 14) -> pd.Series:
         (low - close_prev).abs(),
     ], axis=1).max(axis=1)
     return tr.rolling(n).mean()
+
+
+# ---------- New: freshness & acceleration helpers ----------
+def compute_days_above_ma50(df: pd.DataFrame) -> Optional[int]:
+    """Consecutive days price has been above MA50 (counting backwards from today)."""
+    if "MA50" not in df.columns or len(df) < 50:
+        return None
+    above = df["Close"] > df["MA50"]
+    count = 0
+    for i in range(len(above) - 1, -1, -1):
+        val = above.iloc[i]
+        if pd.isna(val) or not val:
+            break
+        count += 1
+    return count
+
+
+def compute_days_since_ma50_cross_up(df: pd.DataFrame, lookback: int = 60) -> Optional[int]:
+    """Days since the most recent upward cross of price above MA50."""
+    if "MA50" not in df.columns or len(df) < 51:
+        return None
+    close = df["Close"]; ma50 = df["MA50"]
+    look = min(lookback, len(df) - 1)
+    for i in range(look):
+        ai = -1 - i; bi = -2 - i
+        if bi < -len(df): break
+        if pd.isna(ma50.iloc[ai]) or pd.isna(ma50.iloc[bi]): continue
+        if close.iloc[ai] > ma50.iloc[ai] and close.iloc[bi] <= ma50.iloc[bi]:
+            return i + 1
+    return None
+
+
+def compute_golden_cross_days(df: pd.DataFrame, lookback: int = 60) -> Optional[int]:
+    """Days since MA20 crossed above MA50 ('golden cross')."""
+    if "MA20" not in df.columns or "MA50" not in df.columns or len(df) < 51:
+        return None
+    ma20 = df["MA20"]; ma50 = df["MA50"]
+    look = min(lookback, len(df) - 1)
+    for i in range(look):
+        ai = -1 - i; bi = -2 - i
+        if bi < -len(df): break
+        if pd.isna(ma20.iloc[ai]) or pd.isna(ma50.iloc[ai]): continue
+        if pd.isna(ma20.iloc[bi]) or pd.isna(ma50.iloc[bi]): continue
+        if ma20.iloc[ai] > ma50.iloc[ai] and ma20.iloc[bi] <= ma50.iloc[bi]:
+            return i + 1
+    return None
+
+
+def compute_roc_acceleration(df: pd.DataFrame) -> dict:
+    """Rate of change at 5/10/20 days. Acceleration: per-day rate increasing as horizon shortens."""
+    if len(df) < 21 or "Close" not in df.columns:
+        return {"roc_5d": 0.0, "roc_10d": 0.0, "roc_20d": 0.0, "accelerating": False}
+    close = df["Close"]
+    last = float(close.iloc[-1])
+    if pd.isna(last) or last == 0:
+        return {"roc_5d": 0.0, "roc_10d": 0.0, "roc_20d": 0.0, "accelerating": False}
+
+    def roc(p):
+        if len(close) <= p: return None
+        prev = float(close.iloc[-1 - p])
+        if pd.isna(prev) or prev == 0: return None
+        return (last / prev - 1) * 100
+
+    r5, r10, r20 = roc(5), roc(10), roc(20)
+    if r5 is None or r10 is None or r20 is None:
+        return {"roc_5d": r5 or 0.0, "roc_10d": r10 or 0.0,
+                "roc_20d": r20 or 0.0, "accelerating": False}
+
+    # Per-day rate of change. Acceleration means recent days outpace older days.
+    rate_5  = r5 / 5
+    rate_10 = r10 / 10
+    rate_20 = r20 / 20
+    accelerating = bool(r5 > 0 and rate_5 > rate_10 > rate_20)
+
+    return {"roc_5d": round(r5, 2), "roc_10d": round(r10, 2),
+            "roc_20d": round(r20, 2), "accelerating": accelerating}
+
+
+def compute_volume_trend(df: pd.DataFrame) -> float:
+    """Ratio of last 5 days avg volume / last 20 days avg volume. >1.2 = volume expansion."""
+    if "Volume" not in df.columns or len(df) < 20:
+        return 1.0
+    vol = df["Volume"]
+    recent = vol.tail(5).mean()
+    older = vol.tail(20).mean()
+    if pd.isna(older) or older == 0:
+        return 1.0
+    return round(float(recent / older), 2)
+
+
+def classify_stage(days_above_ma50: Optional[int],
+                   days_since_ma50_cross: Optional[int],
+                   golden_cross_days: Optional[int],
+                   roc_accelerating: bool,
+                   near_52w_high: bool,
+                   rsi: float,
+                   pct_above_ma20: float) -> str:
+    """
+    Classify trend stage:
+      fresh        — uptrend < 20 days old, or fresh MA50 cross in last 15 days
+      accelerating — established but picking up pace (ROC accelerating)
+      mature       — well-established, near 52w high, momentum getting tired
+      developing   — everything in between
+    """
+    if days_since_ma50_cross is not None and days_since_ma50_cross <= 15:
+        return "fresh"
+    if golden_cross_days is not None and golden_cross_days <= 20:
+        return "fresh"
+    if days_above_ma50 is not None and days_above_ma50 < 20:
+        return "fresh"
+    if days_above_ma50 is not None and days_above_ma50 > 50 and near_52w_high and rsi > 65:
+        return "mature"
+    if pct_above_ma20 > 12 and rsi > 70:
+        return "mature"
+    if roc_accelerating:
+        return "accelerating"
+    return "developing"
 
 
 def compute_52w_high_distance(df: pd.DataFrame) -> tuple[float, float]:
@@ -1288,6 +1415,16 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
     vol_ratio = float(last["Volume"] / last["VolAvg20"]) if last["VolAvg20"] else 0
     vol_strong = vol_ratio >= 1.5
 
+    # Freshness & acceleration metrics
+    days_above_ma50 = compute_days_above_ma50(df)
+    days_since_ma50_cross = compute_days_since_ma50_cross_up(df, lookback=90)
+    golden_cross_days = compute_golden_cross_days(df, lookback=90)
+    roc = compute_roc_acceleration(df)
+    vol_trend_ratio = compute_volume_trend(df)
+    stage = classify_stage(days_above_ma50, days_since_ma50_cross,
+                           golden_cross_days, roc["accelerating"],
+                           near_52w_high, rsi_now, pct_above_ma20)
+
     if enrich:
         sector = fetch_sector(tk)
         fundamentals = fetch_fundamentals(tk)
@@ -1321,11 +1458,50 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
         score += 3.0
         reasons.append(f"In uptrend: price > MA20 > MA50, MA20 rising {ma20_slope_5d:+.2f}% over 5 sessions")
 
+    # --- FRESHNESS BIAS: reward early-stage trends heavily ---
+    if days_since_ma50_cross is not None and days_since_ma50_cross <= 15:
+        score += 3.0
+        reasons.append(f"Fresh MA50 reclaim: price crossed above {days_since_ma50_cross} sessions ago")
+    elif days_since_ma50_cross is not None and days_since_ma50_cross <= 30:
+        score += 1.5
+        reasons.append(f"Recent MA50 reclaim ({days_since_ma50_cross} sessions ago)")
+
+    if golden_cross_days is not None and golden_cross_days <= 20:
+        score += 2.5
+        reasons.append(f"Golden cross {golden_cross_days} sessions ago: MA20 crossed above MA50")
+    elif golden_cross_days is not None and golden_cross_days <= 45:
+        score += 1.0
+
+    # --- ACCELERATION BIAS: reward trends picking up pace ---
+    if roc["accelerating"]:
+        score += 2.5
+        reasons.append(f"Acceleration: 5d {roc['roc_5d']:+.1f}%, 10d {roc['roc_10d']:+.1f}%, 20d {roc['roc_20d']:+.1f}% — pace rising")
+
+    if vol_trend_ratio > 1.3:
+        score += 1.5
+        reasons.append(f"Volume expanding: last 5 sessions averaging {vol_trend_ratio:.2f}× the 20-session base")
+    elif vol_trend_ratio > 1.1:
+        score += 0.5
+
+    # --- MATURITY PENALTIES: discount late-stage setups ---
+    if days_above_ma50 is not None and days_above_ma50 > 60:
+        score -= 0.5
+        reasons.append(f"Trend is {days_above_ma50}+ sessions old — late-stage, less room to run")
+
+    if rsi_now > 72 and pct_above_ma20 > 8:
+        score -= 1.5
+        reasons.append(f"Overbought + extended (RSI {rsi_now:.1f}, +{pct_above_ma20:.1f}% above MA20) — pullback risk")
+
+    if near_52w_high and rsi_now > 68 and (days_above_ma50 or 0) > 40:
+        score -= 1.0
+        reasons.append("Near 52w high + elevated RSI + mature trend — classic topping setup")
+
+    # --- Existing signals (reduced weights on maturity-favoring ones) ---
     if rs_leader:
-        score += 2.0
+        score += 1.0  # reduced from 2.0
         reasons.append(f"Leadership: outperforming SPY by {rs_30d:+.2f}% over 30 sessions")
     elif rs_30d > 0:
-        score += 0.5
+        score += 0.3
 
     if enrich and weekly_uptrend is True:
         score += 1.5
@@ -1335,11 +1511,19 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
         reasons.append("Weekly trend is down — daily setup fights the bigger tide")
 
     if near_52w_high:
-        score += 1.0
+        score += 0.5  # reduced from 1.0 — less reward for already-extended names
         reasons.append(f"Near 52-week high (only {-pct_below_52w:.1f}% below)")
+    elif -30 < pct_below_52w < -10:
+        # Sweet spot: room to run, not yet broken out
+        score += 0.5
+        reasons.append(f"{-pct_below_52w:.1f}% below 52w high — runway intact")
     elif pct_below_52w < -30:
-        score -= 1.0
-        reasons.append(f"{-pct_below_52w:.1f}% below 52-week high — long-term downtrend")
+        # Far below 52w but if we've got fresh reversal signals, this is upside
+        if (days_since_ma50_cross is not None and days_since_ma50_cross <= 20):
+            reasons.append(f"{-pct_below_52w:.1f}% below 52w high BUT showing fresh reversal — turnaround setup")
+        else:
+            score -= 1.0
+            reasons.append(f"{-pct_below_52w:.1f}% below 52-week high — long-term downtrend")
 
     if 0 < pct_above_ma20 <= 3:
         score += 2.0
@@ -1517,6 +1701,15 @@ def evaluate(ticker: str, enrich: bool = True, spy_df=None) -> Optional[Signal]:
         earnings_growth_yoy=fundamentals["earnings_growth_yoy"],
         profit_margin=fundamentals["profit_margin"],
         market_cap=fundamentals["market_cap"],
+        days_above_ma50=days_above_ma50,
+        days_since_ma50_cross=days_since_ma50_cross,
+        golden_cross_days=golden_cross_days,
+        roc_5d=roc["roc_5d"],
+        roc_10d=roc["roc_10d"],
+        roc_20d=roc["roc_20d"],
+        roc_accelerating=roc["accelerating"],
+        volume_trend_ratio=vol_trend_ratio,
+        stage=stage,
     )
 
 
