@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-14T05:29:13+00:00",
+  "generated_at": "2026-05-14T11:14:12+00:00",
   "market": "top100",
   "scanned": 100,
   "enriched": 12,
@@ -36,7 +36,7 @@
       "breakout_days_since": null,
       "consolidation_range_pct": 7.79,
       "news_count_7d": 10,
-      "news_score": 0.015623801946640014,
+      "news_score": 0.19770618677139282,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -48,7 +48,7 @@
       "x_sentiment": 0.0,
       "x_source": "none",
       "days_to_earnings": 14,
-      "composite_score": 17.8,
+      "composite_score": 18.5,
       "reasons": [
         "In uptrend: price > MA20 > MA50, MA20 rising +0.52% over 5 sessions",
         "Fresh MA50 reclaim: price crossed above 5 sessions ago",
@@ -58,7 +58,8 @@
         "Near 52-week high (only 3.2% below)",
         "Healthy pullback: only +2.60% above MA20",
         "RSI 57.1 and rising",
-        "MACD histogram positive and expanding (+1.690)"
+        "MACD histogram positive and expanding (+1.690)",
+        "10 headlines, mildly positive (FinBERT +0.20)"
       ],
       "chart_data": [
         {
@@ -1347,7 +1348,7 @@
       "target": 242.27,
       "target_distance_pct": 0.69,
       "rr_ratio": 0.13,
-      "pe_ttm": 93.62,
+      "pe_ttm": 95.1,
       "pe_forward": 56.87,
       "revenue_growth_yoy": 0.14,
       "earnings_growth_yoy": null,
@@ -1394,7 +1395,7 @@
       "breakout_days_since": null,
       "consolidation_range_pct": 32.0,
       "news_count_7d": 10,
-      "news_score": 0.5546264231204987,
+      "news_score": 0.4906729459762573,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -1419,7 +1420,7 @@
         "Established trend: MA20 +8.41% above MA50",
         "RSI 69.7 and rising",
         "MACD histogram positive and expanding (+1.462)",
-        "10 headlines, strongly positive (FinBERT +0.55)"
+        "10 headlines, strongly positive (FinBERT +0.49)"
       ],
       "chart_data": [
         {
@@ -2159,7 +2160,7 @@
     },
     "vix": {
       "level": 17.87,
-      "day_change_pct": -0.67,
+      "day_change_pct": 0.0,
       "regime": "normal"
     },
     "hyg": {
@@ -2169,7 +2170,7 @@
       "month_return": -0.16
     },
     "fear_greed": {
-      "score": 65.8,
+      "score": 64.4,
       "rating": "greed",
       "previous_close": 65.9,
       "previous_1_week": 66.4,
@@ -2180,77 +2181,77 @@
   "market_news": {
     "items": [
       {
-        "title": "Is Walmart (WMT) One of the Best Stocks to Buy Now for a $1 Million Portfolio?",
-        "summary": "Walmart Inc. (NASDAQ:WMT) is included among the 10 Best Stocks to Buy Now for a $1 Million Portfolio. On May 13, Reuters reported that Walmart Inc. (NASDAQ:WMT) eliminated 1,000 roles as the retailer continues simplifying its operating structure, according to a source familiar wi",
-        "source": "Insider Monkey",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/walmart-wmt-one-best-stocks-052140938.html",
-        "publish_time": 1778736100
-      },
-      {
-        "title": "Doximity Q4 Earnings Call Highlights",
-        "summary": "Doximity (NYSE:DOCS) reported fiscal fourth-quarter revenue above the high end of its guidance and said it is entering what management called an \u201cAI investment year,\u201d with higher spending planned for artificial intelligence products even as near-term growth in the digital pharma ",
-        "source": "MarketBeat",
-        "url": "https://www.marketbeat.com/instant-alerts/doximity-q4-earnings-call-highlights-2026-05-14/?utm_source=yahoofinance&utm_medium=yahoofinance",
-        "publish_time": 1778735137
-      },
-      {
-        "title": "AEye Inc (LIDR) Q1 2026 Earnings Call Highlights: Revenue Surge Amidst Strategic Partnerships",
-        "summary": "AEye Inc (LIDR) reports a 60% revenue increase, expands customer base, but faces challenges with net loss and cash burn.",
+        "title": "Tesla Faces Mixed China Reception",
+        "summary": "Elon Musk remains influential in China, but Tesla's position is being tested by local rivals and regulatory pressure.",
         "source": "GuruFocus.com",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/aeye-inc-lidr-q1-2026-050030213.html",
-        "publish_time": 1778734830
+        "url": "https://finance.yahoo.com/markets/stocks/articles/tesla-faces-mixed-china-reception-111238999.html",
+        "publish_time": 1778757158
       },
       {
-        "title": "Apple China Talks Put Valuation And Growth Expectations In Sharper Focus",
-        "summary": "Apple (NasdaqGS:AAPL) CEO Tim Cook is joining President Trump and other top U.S. tech leaders on a business delegation to China. The group is meeting Chinese officials to discuss technology, trade, and regulatory issues that directly affect Apple's position in the country. The su",
-        "source": "Simply Wall St.",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/apple-china-talks-put-valuation-043706551.html",
-        "publish_time": 1778733426
+        "title": "Apple Stock Hits Record Peak as iPhone Demand Stays Strong",
+        "summary": "Apple Stock Breaks Out as Wall Street Cheers Growth Outlook",
+        "source": "GuruFocus.com",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/apple-stock-hits-record-peak-110923460.html",
+        "publish_time": 1778756963
       },
       {
-        "title": "Elon Musk Left For China With Trump During OpenAI Trial Despite Judge's 'Recall Status' Order: Report",
-        "summary": "Tesla Inc. (NASDAQ:TSLA) CEO Elon Musk reportedly accompanied President Donald Trump on his trip to China without seeking permission from the Judge currently presiding over the OpenAI trial. Elon Musk Defies \u2018Recall Order\u2019 Amid the ongoing trial in Oakland, California, U.S. Distr",
-        "source": "Benzinga",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/elon-musk-left-china-trump-042512601.html",
-        "publish_time": 1778732712
+        "title": "Xi Jinping tells Nvidia, Tesla and Apple CEOs that China will \u2018open wider\u2019",
+        "summary": "Xi Jinping has told American chief executives travelling with Donald Trump that China\u2019s door to business \u201cwill only open wider and wider\u201d as...",
+        "source": "Financial Times",
+        "url": "https://finance.yahoo.com/economy/policy/articles/xi-jinping-tells-nvidia-tesla-062031527.html",
+        "publish_time": 1778756944
       },
       {
-        "title": "Elon Musk Chimes In As Delta Picks Amazon Leo Over Starlink: They Wanted To Make It 'Painful, Difficult And Expensive'",
-        "summary": "Elon Musk said Delta Air Lines Inc. (NYSE:DAL) passed on integrating SpaceX's Starlink internet because the carrier wanted passengers to use a branded login portal, while Starlink insisted on a seamless connection that works without one. Musk Says Delta Wanted A Portal Musk respo",
-        "source": "Benzinga",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/elon-musk-chimes-delta-picks-042445553.html",
-        "publish_time": 1778732685
+        "title": "Dow Jones Futures Rise As Cisco Soars On AI Orders; Trump-Xi Summit Begins",
+        "summary": "Futures rose as Cisco soared on earnings. AI chip IPO Cerebras priced high. The Trump-Xi summit has begun.",
+        "source": "Investor's Business Daily",
+        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-cisco-earnings-google-nvidia-tesla-sp-500-nasdaq-cerebras-ipo-late/?src=A00220&yptr=yahoo",
+        "publish_time": 1778756617
       },
       {
-        "title": "Nvidia CEO hopes Trump and Xi will improve two-way ties, CCTV says",
-        "summary": "BEIJING, May 14 (Reuters) - Nvidia CEO Jensen Huang told state broadcaster CCTV on Thursday that he hoped U.S.",
+        "title": "When Gerry Rubin Brainstorms \u2014 The Biological World Feels The Jolt",
+        "summary": "One way to become a famous biologist is to veg out in elementary school. That's the unlikely path of Gerald Rubin.",
+        "source": "Investor's Business Daily",
+        "url": "https://www.investors.com/news/management/leaders-and-success/gerry-rubin-brainstorms-the-biological-world-feels-the-jolt/?src=A00220&yptr=yahoo",
+        "publish_time": 1778756402
+      },
+      {
+        "title": "Cerebras set for debut in stock market gripped by AI mania",
+        "summary": "Chipmaker Cerebras is set to make its U.S. market debut later on Thursday, as it looks to ride a wave of investor euphoria for companies that \u200care at the heart of the artificial intelligence boom.  The firm's IPO is the largest this year \u200cand comes as AI-linked stocks push broade",
         "source": "Reuters",
-        "url": "https://ca.finance.yahoo.com/news/nvidia-ceo-hopes-trump-xi-042223934.html",
-        "publish_time": 1778732543
+        "url": "https://finance.yahoo.com/markets/stocks/articles/cerebras-set-debut-stock-market-103818589.html",
+        "publish_time": 1778755098
       },
       {
-        "title": "The Real Reason Microsoft Just Went All-In on AI Infrastructure. It's Not What You Might Think.",
-        "summary": "Microsoft is transforming from a software giant into an AI infrastructure powerhouse.",
+        "title": "Canopy Growth Is One of the Market's Most Polarizing Stocks: 3 Scenarios for the Next 12 Months",
+        "summary": "After years of heavy losses and repeated restructurings, Canopy Growth is showing early signs of stabilization.",
         "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/05/14/the-real-reason-microsoft-just-went-all-in-on-ai-i/",
-        "publish_time": 1778732400
+        "url": "https://www.fool.com/investing/2026/05/14/canopy-growth-is-one-of-the-markets-most-polarizin/",
+        "publish_time": 1778754900
       },
       {
-        "title": "3 Reasons This Warren Buffett Favorite AI Stock Could Soar Over the Next 10 Years",
-        "summary": "Trading near record highs, this tech giant's stock may still have plenty of upside over the next decade.",
-        "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/05/13/3-reasons-this-warren-buffett-favorite-ai-stock-co/",
-        "publish_time": 1778732280
+        "title": "Nvidia Shares Gain After Report of U.S. Approval for H200 Chip Sales to China (NVDA)",
+        "summary": "Nvidia (NASDAQ:NVDA) shares moved higher in premarket trading after Reuters reported that the United States has approved roughly 10 Chinese companies to purchase Nvidia\u2019s H200 artificial intelligence chips, although shipments have not yet begun. The report comes as Nvidia chief e",
+        "source": "InvestorsHub",
+        "url": "https://investorshub.advfn.com/market-news/article/28371/nvidia-shares-gain-after-report-of-u-s-approval-for-h200-chip-sales-to-china-nvda",
+        "publish_time": 1778754806
       },
       {
-        "title": "Nvidia CEO Jensen Huang's Foundation Donates $108 Million In CoreWeave AI Computing Power To Universities",
-        "summary": "Nvidia Corp (NASDAQ:NVDA) CEO Jensen Huang and his wife Lori's charitable foundation is channeling more than $108 million in CoreWeave Inc. (NASDAQ:CRWV) cloud computing resources to universities and nonprofit research institutions. Nvidia Foundation Funds AI Research Through Cor",
-        "source": "Benzinga",
-        "url": "https://finance.yahoo.com/sectors/technology/articles/nvidia-ceo-jensen-huangs-foundation-041509219.html",
-        "publish_time": 1778732109
+        "title": "Photonics is 'phase 3' of AI infrastructure build. But what is photonics?",
+        "summary": "The Nasdaq Composite (^IXIC) leads Wednesday's stock gains alongside the S&P 500 (^GSPC), the former ending the trading day 1.2% higher as the sector rallied. IDX Advisors CIO Ben McMillan comes on Market Domination Overtime to explain the demand for photonics technology \u2014 or the",
+        "source": "Yahoo Finance Video",
+        "url": "https://finance.yahoo.com/video/photonics-phase-3-ai-infrastructure-103000049.html",
+        "publish_time": 1778754600
+      },
+      {
+        "title": "UK opens antitrust probe into Microsoft's business software",
+        "summary": "Britain launched an antitrust investigation into Microsoft's dominance in business software that could \u200clead to targeted action if the U.S. company \u200cis found to have \"strategic market status\" in the sector.  It \u200cwould also look \u2060at how AI competitors were able to integrate with M",
+        "source": "Reuters",
+        "url": "https://finance.yahoo.com/economy/policy/articles/uk-opens-antitrust-probe-microsofts-102917679.html",
+        "publish_time": 1778754557
       }
     ],
-    "overall_mood": 0.3,
-    "fetched_at": "2026-05-14T05:29:13+00:00"
+    "overall_mood": 0.38,
+    "fetched_at": "2026-05-14T11:14:11+00:00"
   }
 }
