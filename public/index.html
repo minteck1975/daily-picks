@@ -197,6 +197,28 @@
   .chip.bull   { color: var(--gain); border-color: rgba(127, 166, 107, 0.4); }
   .chip.bear   { color: var(--warn); border-color: rgba(184, 107, 88, 0.4); }
   .chip.warn   { color: var(--warn); border-color: rgba(184, 107, 88, 0.4); background: rgba(184, 107, 88, 0.08); }
+  /* Stage chips — visually distinct, sit at the front of the chip row */
+  .chip.stage-fresh {
+    color: var(--gain);
+    border-color: var(--gain);
+    background: rgba(127, 166, 107, 0.12);
+    font-weight: 600;
+  }
+  .chip.stage-accel {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(201, 127, 61, 0.10);
+    font-weight: 600;
+  }
+  .chip.stage-dev {
+    color: var(--ink-dim);
+    border-color: var(--rule);
+  }
+  .chip.stage-mature {
+    color: var(--warn);
+    border-color: rgba(184, 107, 88, 0.5);
+    background: rgba(184, 107, 88, 0.08);
+  }
   @media (max-width: 480px) {
     .pick-meta { margin-left: 0; }
   }
@@ -1422,6 +1444,32 @@ function renderPick(p, idx) {
 
   // Build chip row (sentiment + earnings + discussion volume + new signals)
   const chips = [];
+
+  // Stage chip: fresh / developing / accelerating / mature
+  if (p.stage) {
+    const stageLabels = {
+      'fresh':        { text: 'Fresh trend',        cls: 'stage-fresh' },
+      'accelerating': { text: 'Accelerating',       cls: 'stage-accel' },
+      'developing':   { text: 'Developing',         cls: 'stage-dev'   },
+      'mature':       { text: 'Mature',             cls: 'stage-mature'},
+    };
+    const sd = stageLabels[p.stage];
+    if (sd) chips.push(`<span class="chip ${sd.cls}">● ${sd.text}</span>`);
+  }
+
+  if (p.roc_accelerating) {
+    chips.push(`<span class="chip bull">5d ${(p.roc_5d ?? 0) > 0 ? '+' : ''}${(p.roc_5d ?? 0).toFixed(1)}% · pace rising</span>`);
+  }
+
+  if (p.days_since_ma50_cross !== null && p.days_since_ma50_cross !== undefined && p.days_since_ma50_cross <= 20) {
+    chips.push(`<span class="chip bull">Fresh MA50 reclaim · ${p.days_since_ma50_cross}d</span>`);
+  } else if (p.golden_cross_days !== null && p.golden_cross_days !== undefined && p.golden_cross_days <= 25) {
+    chips.push(`<span class="chip bull">Golden cross · ${p.golden_cross_days}d ago</span>`);
+  }
+
+  if (p.volume_trend_ratio > 1.3) {
+    chips.push(`<span class="chip bull">Volume expanding ${p.volume_trend_ratio.toFixed(2)}×</span>`);
+  }
 
   if (p.rs_leader) {
     chips.push(`<span class="chip bull">SPY +${(p.rs_vs_spy_30d || 0).toFixed(1)}% · 30d leader</span>`);
