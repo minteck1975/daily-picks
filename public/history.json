@@ -511,6 +511,66 @@
         "insider_buy": false,
         "rs_leader": true
       }
+    },
+    {
+      "date": "2026-05-14",
+      "ticker": "COST",
+      "name": "Costco Wholesale Corporation",
+      "sector": "Consumer Defensive",
+      "entry_price": 1033.0799560546875,
+      "score": 17.8,
+      "stop_loss": 992.75,
+      "target": 1042.52,
+      "rr_ratio": 0.23,
+      "key_signals": {
+        "rs_vs_spy_30d": -10.46,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.95,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-14",
+      "ticker": "BA",
+      "name": "Boeing Company (The)",
+      "sector": "Industrials",
+      "entry_price": 240.60000610351562,
+      "score": 17.6,
+      "stop_loss": 228.06,
+      "target": 242.27,
+      "rr_ratio": 0.13,
+      "key_signals": {
+        "rs_vs_spy_30d": 6.74,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.61,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-14",
+      "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "sector": "Technology",
+      "entry_price": 225.8300018310547,
+      "score": 17.5,
+      "stop_loss": 209.61,
+      "target": 227.84,
+      "rr_ratio": 0.12,
+      "key_signals": {
+        "rs_vs_spy_30d": 15.35,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.59,
+        "insider_buy": false,
+        "rs_leader": true
+      }
     }
   ]
 }
