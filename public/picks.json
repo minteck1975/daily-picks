@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-17T03:20:52+00:00",
+  "generated_at": "2026-05-17T04:01:13+00:00",
   "market": "top100",
   "scanned": 100,
   "enriched": 12,
@@ -2176,6 +2176,13 @@
   "market_news": {
     "items": [
       {
+        "title": "Is It Too Late to Buy Broadcom Stock?",
+        "summary": "Broadcom's stock has delivered a huge rally since 2025 began.",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/investing/2026/05/16/is-it-too-late-to-buy-broadcom-stock/",
+        "publish_time": 1778988000
+      },
+      {
         "title": "A quarter of recent layoffs has been attributed to AI",
         "summary": "Investing.com -- Artificial intelligence is beginning to account for a significantly larger share of corporate workforce reductions, according to a UBS Global Research report issued on May 13, 2026.",
         "source": "Investing.com",
@@ -2237,16 +2244,9 @@
         "source": "Simply Wall St.",
         "url": "https://finance.yahoo.com/markets/stocks/articles/why-coherent-cohr-14-1-001704420.html",
         "publish_time": 1778977024
-      },
-      {
-        "title": "2 AI Stocks to Avoid (Including BigBear.ai) and 1 to Buy Now",
-        "summary": "BigBear.ai and C3.ai aren't worth buying, but Broadcom still has a bright future.",
-        "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/05/16/x-ai-stocks-to-avoid-including-bbai-and-x-to-bu/",
-        "publish_time": 1778974800
       }
     ],
-    "overall_mood": 0.22,
-    "fetched_at": "2026-05-17T03:20:52+00:00"
+    "overall_mood": 0.23,
+    "fetched_at": "2026-05-17T04:01:13+00:00"
   }
 }
