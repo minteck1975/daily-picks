@@ -92,7 +92,9 @@
         "rs_leader": true
       },
       "return_1d": 3.11,
-      "alpha_1d": 2.88
+      "alpha_1d": 2.88,
+      "return_5d": -4.56,
+      "alpha_5d": -4.77
     },
     {
       "date": "2026-05-08",
@@ -114,7 +116,9 @@
         "rs_leader": true
       },
       "return_1d": 0.49,
-      "alpha_1d": 0.26
+      "alpha_1d": 0.26,
+      "return_5d": 1.23,
+      "alpha_5d": 1.02
     },
     {
       "date": "2026-05-08",
@@ -136,7 +140,9 @@
         "rs_leader": true
       },
       "return_1d": 8.72,
-      "alpha_1d": 8.49
+      "alpha_1d": 8.49,
+      "return_5d": 23.56,
+      "alpha_5d": 23.35
     },
     {
       "date": "2026-05-08",
@@ -158,7 +164,9 @@
         "rs_leader": true
       },
       "return_1d": 3.75,
-      "alpha_1d": 3.53
+      "alpha_1d": 3.53,
+      "return_5d": 6.53,
+      "alpha_5d": 6.32
     },
     {
       "date": "2026-05-09",
@@ -180,7 +188,9 @@
         "rs_leader": true
       },
       "return_1d": 1.97,
-      "alpha_1d": 1.74
+      "alpha_1d": 1.74,
+      "return_5d": 4.7,
+      "alpha_5d": 4.49
     },
     {
       "date": "2026-05-09",
@@ -202,7 +212,9 @@
         "rs_leader": true
       },
       "return_1d": 0.36,
-      "alpha_1d": 0.13
+      "alpha_1d": 0.13,
+      "return_5d": -7.11,
+      "alpha_5d": -7.32
     },
     {
       "date": "2026-05-09",
@@ -224,7 +236,9 @@
         "rs_leader": true
       },
       "return_1d": -1.03,
-      "alpha_1d": -1.26
+      "alpha_1d": -1.26,
+      "return_5d": -0.3,
+      "alpha_5d": -0.51
     },
     {
       "date": "2026-05-11",
@@ -486,7 +500,9 @@
         "atr_pct": 2.73,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -2.22,
+      "alpha_1d": -1.01
     },
     {
       "date": "2026-05-14",
@@ -506,7 +522,9 @@
         "atr_pct": 4.8,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -2.45,
+      "alpha_1d": -1.25
     },
     {
       "date": "2026-05-14",
@@ -526,7 +544,9 @@
         "atr_pct": 2.16,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.68,
+      "alpha_1d": 0.52
     },
     {
       "date": "2026-05-14",
@@ -546,7 +566,9 @@
         "atr_pct": 1.95,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 1.54,
+      "alpha_1d": 2.74
     },
     {
       "date": "2026-05-14",
@@ -566,7 +588,9 @@
         "atr_pct": 2.61,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -8.36,
+      "alpha_1d": -7.16
     },
     {
       "date": "2026-05-14",
@@ -586,7 +610,9 @@
         "atr_pct": 3.59,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.23,
+      "alpha_1d": 0.98
     },
     {
       "date": "2026-05-15",
@@ -664,6 +690,66 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 2.57,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-17",
+      "ticker": "COST",
+      "name": "Costco Wholesale Corporation",
+      "sector": "Consumer Defensive",
+      "entry_price": 1048.949951171875,
+      "score": 18.6,
+      "stop_loss": 1008.0,
+      "target": 1057.5,
+      "rr_ratio": 0.21,
+      "key_signals": {
+        "rs_vs_spy_30d": -9.36,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 1.95,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-17",
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "sector": "Technology",
+      "entry_price": 421.9200134277344,
+      "score": 16.6,
+      "stop_loss": 399.1,
+      "target": 424.95,
+      "rr_ratio": 0.13,
+      "key_signals": {
+        "rs_vs_spy_30d": 0.27,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.7,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-17",
+      "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "sector": "Healthcare",
+      "entry_price": 1004.9199829101562,
+      "score": 16.5,
+      "stop_loss": 939.92,
+      "target": 1012.0,
+      "rr_ratio": 0.11,
+      "key_signals": {
+        "rs_vs_spy_30d": -5.3,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.23,
         "insider_buy": false,
         "rs_leader": false
       }
