@@ -1,6 +1,17 @@
 name: Deploy Pages
 
 on:
+  # PRIMARY: run automatically the moment "Daily Stock Picks" finishes.
+  # This is required because commits pushed by GITHUB_TOKEN do NOT trigger
+  # a normal `on: push` workflow — so chaining via workflow_run is the only
+  # reliable way to redeploy after the cron commits picks.json.
+  workflow_run:
+    workflows: ["Daily Stock Picks"]
+    types:
+      - completed
+
+  # SECONDARY: also deploy when you manually push files (e.g. uploading a
+  # new index.html through the GitHub web UI), and allow manual triggering.
   push:
     branches: [main]
   workflow_dispatch:
@@ -10,8 +21,9 @@ permissions:
   pages: write
   id-token: write
 
+# Only one deployment at a time; don't cancel an in-flight deploy.
 concurrency:
-  group: pages
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
@@ -21,10 +33,21 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # When triggered by workflow_run, check out the latest main
+          # (which already includes the freshly committed picks.json).
+          ref: main
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload public/ as Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-      - id: deployment
+
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
