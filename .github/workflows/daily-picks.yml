@@ -1,13 +1,14 @@
 name: Daily Stock Picks
 
-# Runs daily after SGX close (5pm SGT = 9am UTC)
-# Adjust schedule as needed. Cron is in UTC.
-# Examples:
-#   '0 9 * * 1-5'   = 5pm SGT weekdays (after SGX close)
-#   '0 21 * * 1-5'  = 5pm ET weekdays (after US close)
+# Runs daily after the US market close.
+# Cron is ALWAYS in UTC. Singapore is UTC+8 (no DST).
+#   '21 21 * * 1-5' = 5:21 AM SGT weekdays (current — just after US close,
+#                     off-minute to dodge GitHub's top-of-hour load spike)
+#   '0 21 * * 1-5'  = 5:00 AM SGT exactly (may be delayed at the hour mark)
+#   '0 9 * * 1-5'   = 5:00 PM SGT weekdays (previous setting, post-SGX-close)
 on:
   schedule:
-    - cron: '0 9 * * 1-5'
+    - cron: '21 21 * * 1-5'   # 5:21 AM SGT (21:21 UTC), just after US market close
   workflow_dispatch:  # allows manual trigger from GitHub UI
 
 permissions:
