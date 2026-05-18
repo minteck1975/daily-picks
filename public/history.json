@@ -260,7 +260,9 @@
         "rs_leader": true
       },
       "return_1d": -3.09,
-      "alpha_1d": -2.94
+      "alpha_1d": -2.94,
+      "return_5d": -6.03,
+      "alpha_5d": -5.94
     },
     {
       "date": "2026-05-11",
@@ -282,7 +284,9 @@
         "rs_leader": false
       },
       "return_1d": -4.25,
-      "alpha_1d": -4.1
+      "alpha_1d": -4.1,
+      "return_5d": -5.08,
+      "alpha_5d": -4.99
     },
     {
       "date": "2026-05-11",
@@ -304,7 +308,9 @@
         "rs_leader": true
       },
       "return_1d": -0.21,
-      "alpha_1d": -0.05
+      "alpha_1d": -0.05,
+      "return_5d": -7.06,
+      "alpha_5d": -6.97
     },
     {
       "date": "2026-05-12",
@@ -632,7 +638,9 @@
         "atr_pct": 3.42,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -5.69,
+      "alpha_1d": -5.62
     },
     {
       "date": "2026-05-15",
@@ -652,7 +660,9 @@
         "atr_pct": 2.35,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -2.33,
+      "alpha_1d": -2.26
     },
     {
       "date": "2026-05-15",
@@ -672,7 +682,9 @@
         "atr_pct": 1.95,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 0.66,
+      "alpha_1d": 0.73
     },
     {
       "date": "2026-05-15",
@@ -692,7 +704,9 @@
         "atr_pct": 2.57,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -1.43,
+      "alpha_1d": -1.36
     },
     {
       "date": "2026-05-17",
@@ -712,7 +726,9 @@
         "atr_pct": 1.95,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 2.62,
+      "alpha_1d": 2.69
     },
     {
       "date": "2026-05-17",
@@ -732,7 +748,9 @@
         "atr_pct": 2.7,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 0.38,
+      "alpha_1d": 0.45
     },
     {
       "date": "2026-05-17",
@@ -750,6 +768,68 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 3.23,
+        "insider_buy": false,
+        "rs_leader": false
+      },
+      "return_1d": -1.67,
+      "alpha_1d": -1.6
+    },
+    {
+      "date": "2026-05-18",
+      "ticker": "KO",
+      "name": "Coca-Cola Company (The)",
+      "sector": "Consumer Defensive",
+      "entry_price": 81.19999694824219,
+      "score": 19.0,
+      "stop_loss": 78.97,
+      "target": 82.0,
+      "rr_ratio": 0.36,
+      "key_signals": {
+        "rs_vs_spy_30d": -6.94,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 1.38,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-18",
+      "ticker": "SMCI",
+      "name": "Super Micro Computer, Inc.",
+      "sector": "Technology",
+      "entry_price": 30.850000381469727,
+      "score": 16.0,
+      "stop_loss": 26.21,
+      "target": 31.23,
+      "rr_ratio": 0.08,
+      "key_signals": {
+        "rs_vs_spy_30d": 27.81,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 7.52,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-18",
+      "ticker": "V",
+      "name": "Visa Inc.",
+      "sector": "Financial Services",
+      "entry_price": 332.6400146484375,
+      "score": 14.7,
+      "stop_loss": 316.41,
+      "target": 335.85,
+      "rr_ratio": 0.2,
+      "key_signals": {
+        "rs_vs_spy_30d": -2.44,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.44,
         "insider_buy": false,
         "rs_leader": false
       }
