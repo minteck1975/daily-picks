@@ -404,7 +404,9 @@
         "rs_leader": true
       },
       "return_1d": 4.5,
-      "alpha_1d": 3.71
+      "alpha_1d": 3.71,
+      "return_5d": 1.0,
+      "alpha_5d": 1.14
     },
     {
       "date": "2026-05-13",
@@ -426,7 +428,9 @@
         "rs_leader": true
       },
       "return_1d": -3.23,
-      "alpha_1d": -4.02
+      "alpha_1d": -4.02,
+      "return_5d": -6.19,
+      "alpha_5d": -6.05
     },
     {
       "date": "2026-05-13",
@@ -448,7 +452,9 @@
         "rs_leader": false
       },
       "return_1d": 2.44,
-      "alpha_1d": 1.65
+      "alpha_1d": 1.65,
+      "return_5d": 3.83,
+      "alpha_5d": 3.97
     },
     {
       "date": "2026-05-13",
@@ -470,7 +476,9 @@
         "rs_leader": true
       },
       "return_1d": 6.78,
-      "alpha_1d": 5.99
+      "alpha_1d": 5.99,
+      "return_5d": 1.22,
+      "alpha_5d": 1.36
     },
     {
       "date": "2026-05-13",
@@ -492,7 +500,9 @@
         "rs_leader": true
       },
       "return_1d": 1.38,
-      "alpha_1d": 0.59
+      "alpha_1d": 0.59,
+      "return_5d": 3.07,
+      "alpha_5d": 3.21
     },
     {
       "date": "2026-05-14",
@@ -864,7 +874,9 @@
         "atr_pct": 1.99,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -1.86,
+      "alpha_1d": -2.88
     },
     {
       "date": "2026-05-19",
@@ -884,7 +896,9 @@
         "atr_pct": 1.88,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 0.25,
+      "alpha_1d": -0.77
     },
     {
       "date": "2026-05-19",
@@ -902,6 +916,68 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 4.58,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 3.25,
+      "alpha_1d": 2.23
+    },
+    {
+      "date": "2026-05-20",
+      "ticker": "COST",
+      "name": "Costco Wholesale Corporation",
+      "sector": "Consumer Defensive",
+      "entry_price": 1074.010009765625,
+      "score": 17.6,
+      "stop_loss": 1030.25,
+      "target": 1079.83,
+      "rr_ratio": 0.13,
+      "key_signals": {
+        "rs_vs_spy_30d": -5.41,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.04,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-20",
+      "ticker": "V",
+      "name": "Visa Inc.",
+      "sector": "Financial Services",
+      "entry_price": 330.75,
+      "score": 17.5,
+      "stop_loss": 318.65,
+      "target": 332.5,
+      "rr_ratio": 0.14,
+      "key_signals": {
+        "rs_vs_spy_30d": -2.6,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.83,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-20",
+      "ticker": "TSLA",
+      "name": "Tesla, Inc.",
+      "sector": "Consumer Cyclical",
+      "entry_price": 417.260009765625,
+      "score": 15.7,
+      "stop_loss": 380.69,
+      "target": 420.34,
+      "rr_ratio": 0.08,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.91,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 4.38,
         "insider_buy": false,
         "rs_leader": true
       }
