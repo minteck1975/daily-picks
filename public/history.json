@@ -524,7 +524,9 @@
         "rs_leader": true
       },
       "return_1d": -2.22,
-      "alpha_1d": -1.01
+      "alpha_1d": -1.01,
+      "return_5d": -0.62,
+      "alpha_5d": 0.11
     },
     {
       "date": "2026-05-14",
@@ -546,7 +548,9 @@
         "rs_leader": true
       },
       "return_1d": -2.45,
-      "alpha_1d": -1.25
+      "alpha_1d": -1.25,
+      "return_5d": -0.41,
+      "alpha_5d": 0.32
     },
     {
       "date": "2026-05-14",
@@ -568,7 +572,9 @@
         "rs_leader": true
       },
       "return_1d": -0.68,
-      "alpha_1d": 0.52
+      "alpha_1d": 0.52,
+      "return_5d": 3.45,
+      "alpha_5d": 4.17
     },
     {
       "date": "2026-05-14",
@@ -590,7 +596,9 @@
         "rs_leader": false
       },
       "return_1d": 1.54,
-      "alpha_1d": 2.74
+      "alpha_1d": 2.74,
+      "return_5d": 1.68,
+      "alpha_5d": 2.41
     },
     {
       "date": "2026-05-14",
@@ -612,7 +620,9 @@
         "rs_leader": true
       },
       "return_1d": -8.36,
-      "alpha_1d": -7.16
+      "alpha_1d": -7.16,
+      "return_5d": -8.72,
+      "alpha_5d": -8.0
     },
     {
       "date": "2026-05-14",
@@ -634,7 +644,9 @@
         "rs_leader": true
       },
       "return_1d": -0.23,
-      "alpha_1d": 0.98
+      "alpha_1d": 0.98,
+      "return_5d": -2.8,
+      "alpha_5d": -2.07
     },
     {
       "date": "2026-05-15",
@@ -940,7 +952,9 @@
         "atr_pct": 2.04,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -2.19,
+      "alpha_1d": -2.39
     },
     {
       "date": "2026-05-20",
@@ -960,7 +974,9 @@
         "atr_pct": 1.83,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 0.11,
+      "alpha_1d": -0.09
     },
     {
       "date": "2026-05-20",
@@ -980,6 +996,68 @@
         "atr_pct": 4.38,
         "insider_buy": false,
         "rs_leader": true
+      },
+      "return_1d": 0.14,
+      "alpha_1d": -0.06
+    },
+    {
+      "date": "2026-05-21",
+      "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "sector": "Healthcare",
+      "entry_price": 1041.6500244140625,
+      "score": 17.0,
+      "stop_loss": 984.74,
+      "target": 1047.24,
+      "rr_ratio": 0.1,
+      "key_signals": {
+        "rs_vs_spy_30d": -0.19,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.73,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-21",
+      "ticker": "TSLA",
+      "name": "Tesla, Inc.",
+      "sector": "Consumer Cyclical",
+      "entry_price": 417.8500061035156,
+      "score": 15.7,
+      "stop_loss": 381.99,
+      "target": 421.13,
+      "rr_ratio": 0.09,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.66,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 4.29,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-21",
+      "ticker": "KO",
+      "name": "Coca-Cola Company (The)",
+      "sector": "Consumer Defensive",
+      "entry_price": 81.16999816894531,
+      "score": 15.3,
+      "stop_loss": 78.94,
+      "target": 81.8,
+      "rr_ratio": 0.28,
+      "key_signals": {
+        "rs_vs_spy_30d": -5.41,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 1.37,
+        "insider_buy": false,
+        "rs_leader": false
       }
     }
   ]
