@@ -668,7 +668,9 @@
         "rs_leader": true
       },
       "return_1d": -5.69,
-      "alpha_1d": -5.62
+      "alpha_1d": -5.62,
+      "return_5d": -8.66,
+      "alpha_5d": -9.53
     },
     {
       "date": "2026-05-15",
@@ -690,7 +692,9 @@
         "rs_leader": false
       },
       "return_1d": -2.33,
-      "alpha_1d": -2.26
+      "alpha_1d": -2.26,
+      "return_5d": 2.87,
+      "alpha_5d": 1.99
     },
     {
       "date": "2026-05-15",
@@ -712,7 +716,9 @@
         "rs_leader": false
       },
       "return_1d": 0.66,
-      "alpha_1d": 0.73
+      "alpha_1d": 0.73,
+      "return_5d": -9.2,
+      "alpha_5d": -10.08
     },
     {
       "date": "2026-05-15",
@@ -734,7 +740,9 @@
         "rs_leader": false
       },
       "return_1d": -1.43,
-      "alpha_1d": -1.36
+      "alpha_1d": -1.36,
+      "return_5d": -2.3,
+      "alpha_5d": -3.17
     },
     {
       "date": "2026-05-17",
@@ -756,7 +764,9 @@
         "rs_leader": false
       },
       "return_1d": 2.62,
-      "alpha_1d": 2.69
+      "alpha_1d": 2.69,
+      "return_5d": -1.97,
+      "alpha_5d": -2.85
     },
     {
       "date": "2026-05-17",
@@ -778,7 +788,9 @@
         "rs_leader": false
       },
       "return_1d": 0.38,
-      "alpha_1d": 0.45
+      "alpha_1d": 0.45,
+      "return_5d": -0.79,
+      "alpha_5d": -1.67
     },
     {
       "date": "2026-05-17",
@@ -800,7 +812,9 @@
         "rs_leader": false
       },
       "return_1d": -1.67,
-      "alpha_1d": -1.6
+      "alpha_1d": -1.6,
+      "return_5d": 5.98,
+      "alpha_5d": 5.1
     },
     {
       "date": "2026-05-18",
@@ -1018,7 +1032,9 @@
         "atr_pct": 2.73,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 2.24,
+      "alpha_1d": 1.85
     },
     {
       "date": "2026-05-21",
@@ -1038,7 +1054,9 @@
         "atr_pct": 4.29,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.95,
+      "alpha_1d": 1.56
     },
     {
       "date": "2026-05-21",
@@ -1058,6 +1076,68 @@
         "atr_pct": 1.37,
         "insider_buy": false,
         "rs_leader": false
+      },
+      "return_1d": 0.38,
+      "alpha_1d": -0.01
+    },
+    {
+      "date": "2026-05-22",
+      "ticker": "COST",
+      "name": "Costco Wholesale Corporation",
+      "sector": "Consumer Defensive",
+      "entry_price": 1028.239990234375,
+      "score": 16.1,
+      "stop_loss": 982.66,
+      "target": 1035.82,
+      "rr_ratio": 0.17,
+      "key_signals": {
+        "rs_vs_spy_30d": -6.76,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.22,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-22",
+      "ticker": "GS",
+      "name": "Goldman Sachs Group, Inc. (The)",
+      "sector": "Financial Services",
+      "entry_price": 996.72998046875,
+      "score": 14.4,
+      "stop_loss": 946.49,
+      "target": 1005.18,
+      "rr_ratio": 0.17,
+      "key_signals": {
+        "rs_vs_spy_30d": 0.06,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.52,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-22",
+      "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "sector": "Healthcare",
+      "entry_price": 1065.0,
+      "score": 14.0,
+      "stop_loss": 1007.19,
+      "target": 1070.34,
+      "rr_ratio": 0.09,
+      "key_signals": {
+        "rs_vs_spy_30d": 3.62,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.71,
+        "insider_buy": false,
+        "rs_leader": true
       }
     }
   ]
