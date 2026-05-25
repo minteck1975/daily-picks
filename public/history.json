@@ -1139,6 +1139,66 @@
         "insider_buy": false,
         "rs_leader": true
       }
+    },
+    {
+      "date": "2026-05-25",
+      "ticker": "GS",
+      "name": "Goldman Sachs Group, Inc. (The)",
+      "sector": "Financial Services",
+      "entry_price": 996.72998046875,
+      "score": 15.9,
+      "stop_loss": 946.47,
+      "target": 1005.36,
+      "rr_ratio": 0.17,
+      "key_signals": {
+        "rs_vs_spy_30d": 0.06,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.52,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-25",
+      "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "sector": "Healthcare",
+      "entry_price": 1065.0,
+      "score": 14.3,
+      "stop_loss": 1007.19,
+      "target": 1070.34,
+      "rr_ratio": 0.09,
+      "key_signals": {
+        "rs_vs_spy_30d": 3.62,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.71,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-25",
+      "ticker": "MDLZ",
+      "name": "Mondelez International, Inc.",
+      "sector": "Consumer Defensive",
+      "entry_price": 61.7599983215332,
+      "score": 14.0,
+      "stop_loss": 59.47,
+      "target": 62.14,
+      "rr_ratio": 0.17,
+      "key_signals": {
+        "rs_vs_spy_30d": -5.06,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.85,
+        "insider_buy": false,
+        "rs_leader": false
+      }
     }
   ]
 }
