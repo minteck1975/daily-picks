@@ -980,7 +980,9 @@
         "rs_leader": false
       },
       "return_1d": -2.19,
-      "alpha_1d": -2.39
+      "alpha_1d": -2.39,
+      "return_5d": -7.34,
+      "alpha_5d": -9.14
     },
     {
       "date": "2026-05-20",
@@ -1002,7 +1004,9 @@
         "rs_leader": false
       },
       "return_1d": 0.11,
-      "alpha_1d": -0.09
+      "alpha_1d": -0.09,
+      "return_5d": -1.75,
+      "alpha_5d": -3.55
     },
     {
       "date": "2026-05-20",
@@ -1024,7 +1028,9 @@
         "rs_leader": true
       },
       "return_1d": 0.14,
-      "alpha_1d": -0.06
+      "alpha_1d": -0.06,
+      "return_5d": 5.95,
+      "alpha_5d": 4.15
     },
     {
       "date": "2026-05-21",
@@ -1308,7 +1314,9 @@
         "atr_pct": 2.73,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 1.14,
+      "alpha_1d": 0.59
     },
     {
       "date": "2026-05-27",
@@ -1328,7 +1336,9 @@
         "atr_pct": 1.86,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 0.22,
+      "alpha_1d": -0.33
     },
     {
       "date": "2026-05-27",
@@ -1348,6 +1358,68 @@
         "atr_pct": 3.98,
         "insider_buy": false,
         "rs_leader": true
+      },
+      "return_1d": 0.4,
+      "alpha_1d": -0.16
+    },
+    {
+      "date": "2026-05-28",
+      "ticker": "GE",
+      "name": "GE Aerospace",
+      "sector": "Industrials",
+      "entry_price": 320.82000732421875,
+      "score": 17.5,
+      "stop_loss": 303.55,
+      "target": 324.54,
+      "rr_ratio": 0.22,
+      "key_signals": {
+        "rs_vs_spy_30d": -5.61,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.69,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-05-28",
+      "ticker": "SNOW",
+      "name": "Snowflake Inc.",
+      "sector": "Technology",
+      "entry_price": 239.1999969482422,
+      "score": 16.5,
+      "stop_loss": 214.41,
+      "target": 244.92,
+      "rr_ratio": 0.23,
+      "key_signals": {
+        "rs_vs_spy_30d": 57.75,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 5.18,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-05-28",
+      "ticker": "ABBV",
+      "name": "AbbVie Inc.",
+      "sector": "Healthcare",
+      "entry_price": 218.6300048828125,
+      "score": 16.5,
+      "stop_loss": 208.57,
+      "target": 220.01,
+      "rr_ratio": 0.14,
+      "key_signals": {
+        "rs_vs_spy_30d": -2.91,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.3,
+        "insider_buy": false,
+        "rs_leader": false
       }
     }
   ]
