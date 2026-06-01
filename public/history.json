@@ -1124,7 +1124,9 @@
         "rs_leader": false
       },
       "return_1d": -2.46,
-      "alpha_1d": -3.13
+      "alpha_1d": -3.13,
+      "return_5d": -7.99,
+      "alpha_5d": -9.72
     },
     {
       "date": "2026-05-22",
@@ -1146,7 +1148,9 @@
         "rs_leader": false
       },
       "return_1d": -0.22,
-      "alpha_1d": -0.89
+      "alpha_1d": -0.89,
+      "return_5d": 5.2,
+      "alpha_5d": 3.47
     },
     {
       "date": "2026-05-22",
@@ -1168,7 +1172,9 @@
         "rs_leader": true
       },
       "return_1d": -0.02,
-      "alpha_1d": -0.69
+      "alpha_1d": -0.69,
+      "return_5d": 1.62,
+      "alpha_5d": -0.12
     },
     {
       "date": "2026-05-25",
@@ -1190,7 +1196,9 @@
         "rs_leader": false
       },
       "return_1d": -0.22,
-      "alpha_1d": -0.89
+      "alpha_1d": -0.89,
+      "return_5d": 5.2,
+      "alpha_5d": 3.47
     },
     {
       "date": "2026-05-25",
@@ -1212,7 +1220,9 @@
         "rs_leader": true
       },
       "return_1d": -0.02,
-      "alpha_1d": -0.69
+      "alpha_1d": -0.69,
+      "return_5d": 1.62,
+      "alpha_5d": -0.12
     },
     {
       "date": "2026-05-25",
@@ -1234,7 +1244,9 @@
         "rs_leader": false
       },
       "return_1d": -0.84,
-      "alpha_1d": -1.51
+      "alpha_1d": -1.51,
+      "return_5d": -1.15,
+      "alpha_5d": -2.88
     },
     {
       "date": "2026-05-26",
@@ -1452,7 +1464,9 @@
         "atr_pct": 2.69,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 0.26,
+      "alpha_1d": -0.01
     },
     {
       "date": "2026-05-29",
@@ -1472,7 +1486,9 @@
         "atr_pct": 5.07,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 9.63,
+      "alpha_1d": 9.36
     },
     {
       "date": "2026-05-29",
@@ -1490,6 +1506,68 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.18,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 1.45,
+      "alpha_1d": 1.17
+    },
+    {
+      "date": "2026-06-01",
+      "ticker": "ADBE",
+      "name": "Adobe Inc.",
+      "sector": "Technology",
+      "entry_price": 274.0299987792969,
+      "score": 19.5,
+      "stop_loss": 253.85,
+      "target": 275.44,
+      "rr_ratio": 0.07,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.29,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.68,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-01",
+      "ticker": "GE",
+      "name": "GE Aerospace",
+      "sector": "Industrials",
+      "entry_price": 324.6000061035156,
+      "score": 14.5,
+      "stop_loss": 307.02,
+      "target": 326.4,
+      "rr_ratio": 0.1,
+      "key_signals": {
+        "rs_vs_spy_30d": -0.08,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.71,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-06-01",
+      "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "sector": "Healthcare",
+      "entry_price": 1082.199951171875,
+      "score": 14.0,
+      "stop_loss": 1017.7,
+      "target": 1093.0,
+      "rr_ratio": 0.17,
+      "key_signals": {
+        "rs_vs_spy_30d": 9.92,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.98,
         "insider_buy": false,
         "rs_leader": true
       }
