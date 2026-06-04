@@ -1412,7 +1412,9 @@
         "rs_leader": false
       },
       "return_1d": 0.92,
-      "alpha_1d": 0.67
+      "alpha_1d": 0.67,
+      "return_5d": 2.13,
+      "alpha_5d": 1.8
     },
     {
       "date": "2026-05-28",
@@ -1434,7 +1436,9 @@
         "rs_leader": true
       },
       "return_1d": 6.84,
-      "alpha_1d": 6.59
+      "alpha_1d": 6.59,
+      "return_5d": 2.08,
+      "alpha_5d": 1.75
     },
     {
       "date": "2026-05-28",
@@ -1456,7 +1460,9 @@
         "rs_leader": false
       },
       "return_1d": -0.42,
-      "alpha_1d": -0.67
+      "alpha_1d": -0.67,
+      "return_5d": 2.89,
+      "alpha_5d": 2.56
     },
     {
       "date": "2026-05-29",
@@ -1674,7 +1680,9 @@
         "atr_pct": 4.18,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 0.85,
+      "alpha_1d": 0.47
     },
     {
       "date": "2026-06-03",
@@ -1694,7 +1702,9 @@
         "atr_pct": 2.45,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 3.6,
+      "alpha_1d": 3.22
     },
     {
       "date": "2026-06-03",
@@ -1714,6 +1724,68 @@
         "atr_pct": 2.84,
         "insider_buy": false,
         "rs_leader": false
+      },
+      "return_1d": 4.13,
+      "alpha_1d": 3.76
+    },
+    {
+      "date": "2026-06-04",
+      "ticker": "ADBE",
+      "name": "Adobe Inc.",
+      "sector": "Technology",
+      "entry_price": 258.4200134277344,
+      "score": 15.8,
+      "stop_loss": 236.56,
+      "target": 260.0,
+      "rr_ratio": 0.07,
+      "key_signals": {
+        "rs_vs_spy_30d": -5.48,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 4.23,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-06-04",
+      "ticker": "C",
+      "name": "Citigroup, Inc.",
+      "sector": "Financial Services",
+      "entry_price": 135.14999389648438,
+      "score": 15.7,
+      "stop_loss": 128.54,
+      "target": 145.06,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": -2.27,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.44,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-06-04",
+      "ticker": "GE",
+      "name": "GE Aerospace",
+      "sector": "Industrials",
+      "entry_price": 327.6499938964844,
+      "score": 15.7,
+      "stop_loss": 308.89,
+      "target": 329.46,
+      "rr_ratio": 0.1,
+      "key_signals": {
+        "rs_vs_spy_30d": 12.14,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.86,
+        "insider_buy": false,
+        "rs_leader": true
       }
     }
   ]
