@@ -1484,7 +1484,9 @@
         "rs_leader": false
       },
       "return_1d": 0.26,
-      "alpha_1d": -0.01
+      "alpha_1d": -0.01,
+      "return_5d": 1.31,
+      "alpha_5d": 3.81
     },
     {
       "date": "2026-05-29",
@@ -1506,7 +1508,9 @@
         "rs_leader": true
       },
       "return_1d": 9.63,
-      "alpha_1d": 9.36
+      "alpha_1d": 9.36,
+      "return_5d": -6.77,
+      "alpha_5d": -4.26
     },
     {
       "date": "2026-05-29",
@@ -1528,7 +1532,9 @@
         "rs_leader": true
       },
       "return_1d": 1.45,
-      "alpha_1d": 1.17
+      "alpha_1d": 1.17,
+      "return_5d": 1.89,
+      "alpha_5d": 4.39
     },
     {
       "date": "2026-06-01",
@@ -1746,7 +1752,9 @@
         "atr_pct": 4.23,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -2.7,
+      "alpha_1d": -0.12
     },
     {
       "date": "2026-06-04",
@@ -1766,7 +1774,9 @@
         "atr_pct": 2.44,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -1.98,
+      "alpha_1d": 0.6
     },
     {
       "date": "2026-06-04",
@@ -1784,6 +1794,68 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.86,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 0.11,
+      "alpha_1d": 2.69
+    },
+    {
+      "date": "2026-06-05",
+      "ticker": "BRK-B",
+      "name": "Berkshire Hathaway Inc. New",
+      "sector": "Financial Services",
+      "entry_price": 488.1300048828125,
+      "score": 19.3,
+      "stop_loss": 473.9,
+      "target": 490.99,
+      "rr_ratio": 0.2,
+      "key_signals": {
+        "rs_vs_spy_30d": -0.37,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.46,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-06-05",
+      "ticker": "UNH",
+      "name": "UnitedHealth Group Incorporated",
+      "sector": "Healthcare",
+      "entry_price": 399.4700012207031,
+      "score": 15.6,
+      "stop_loss": 379.66,
+      "target": 401.9,
+      "rr_ratio": 0.12,
+      "key_signals": {
+        "rs_vs_spy_30d": 8.56,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.48,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-05",
+      "ticker": "CAT",
+      "name": "Caterpillar, Inc.",
+      "sector": "Industrials",
+      "entry_price": 904.280029296875,
+      "score": 14.0,
+      "stop_loss": 844.21,
+      "target": 908.9,
+      "rr_ratio": 0.08,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.16,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.32,
         "insider_buy": false,
         "rs_leader": true
       }
