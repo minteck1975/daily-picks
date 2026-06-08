@@ -1556,7 +1556,9 @@
         "rs_leader": true
       },
       "return_1d": -4.35,
-      "alpha_1d": -4.49
+      "alpha_1d": -4.49,
+      "return_5d": -10.6,
+      "alpha_5d": -8.05
     },
     {
       "date": "2026-06-01",
@@ -1578,7 +1580,9 @@
         "rs_leader": false
       },
       "return_1d": -2.12,
-      "alpha_1d": -2.26
+      "alpha_1d": -2.26,
+      "return_5d": -0.79,
+      "alpha_5d": 1.76
     },
     {
       "date": "2026-06-01",
@@ -1600,7 +1604,9 @@
         "rs_leader": true
       },
       "return_1d": -1.67,
-      "alpha_1d": -1.8
+      "alpha_1d": -1.8,
+      "return_5d": 6.19,
+      "alpha_5d": 8.73
     },
     {
       "date": "2026-06-02",
@@ -1818,7 +1824,9 @@
         "atr_pct": 1.46,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -0.23,
+      "alpha_1d": -0.46
     },
     {
       "date": "2026-06-05",
@@ -1838,7 +1846,9 @@
         "atr_pct": 2.48,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.78,
+      "alpha_1d": 1.55
     },
     {
       "date": "2026-06-05",
@@ -1858,6 +1868,68 @@
         "atr_pct": 3.32,
         "insider_buy": false,
         "rs_leader": true
+      },
+      "return_1d": 1.26,
+      "alpha_1d": 1.03
+    },
+    {
+      "date": "2026-06-08",
+      "ticker": "CAT",
+      "name": "Caterpillar, Inc.",
+      "sector": "Industrials",
+      "entry_price": 915.6400146484375,
+      "score": 15.8,
+      "stop_loss": 858.11,
+      "target": 920.35,
+      "rr_ratio": 0.08,
+      "key_signals": {
+        "rs_vs_spy_30d": 6.67,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.14,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-08",
+      "ticker": "VRTX",
+      "name": "Vertex Pharmaceuticals Incorpor",
+      "sector": "Healthcare",
+      "entry_price": 442.9599914550781,
+      "score": 15.3,
+      "stop_loss": 420.92,
+      "target": 445.35,
+      "rr_ratio": 0.11,
+      "key_signals": {
+        "rs_vs_spy_30d": -0.6,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.49,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-06-08",
+      "ticker": "BRK-B",
+      "name": "Berkshire Hathaway Inc. New",
+      "sector": "Financial Services",
+      "entry_price": 487.0,
+      "score": 14.9,
+      "stop_loss": 473.13,
+      "target": 490.76,
+      "rr_ratio": 0.27,
+      "key_signals": {
+        "rs_vs_spy_30d": 0.23,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.42,
+        "insider_buy": false,
+        "rs_leader": false
       }
     }
   ]
