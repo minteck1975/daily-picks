@@ -1700,7 +1700,9 @@
         "rs_leader": false
       },
       "return_1d": 0.85,
-      "alpha_1d": 0.47
+      "alpha_1d": 0.47,
+      "return_5d": -8.92,
+      "alpha_5d": -5.1
     },
     {
       "date": "2026-06-03",
@@ -1722,7 +1724,9 @@
         "rs_leader": false
       },
       "return_1d": 3.6,
-      "alpha_1d": 3.22
+      "alpha_1d": 3.22,
+      "return_5d": 3.6,
+      "alpha_5d": 7.42
     },
     {
       "date": "2026-06-03",
@@ -1744,7 +1748,9 @@
         "rs_leader": false
       },
       "return_1d": 4.13,
-      "alpha_1d": 3.76
+      "alpha_1d": 3.76,
+      "return_5d": 1.29,
+      "alpha_5d": 5.11
     },
     {
       "date": "2026-06-04",
@@ -1962,7 +1968,9 @@
         "atr_pct": 1.39,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -0.84,
+      "alpha_1d": 0.74
     },
     {
       "date": "2026-06-09",
@@ -1982,7 +1990,9 @@
         "atr_pct": 3.09,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -3.55,
+      "alpha_1d": -1.97
     },
     {
       "date": "2026-06-09",
@@ -2000,6 +2010,68 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.43,
+        "insider_buy": false,
+        "rs_leader": false
+      },
+      "return_1d": -2.26,
+      "alpha_1d": -0.68
+    },
+    {
+      "date": "2026-06-10",
+      "ticker": "KO",
+      "name": "Coca-Cola Company (The)",
+      "sector": "Consumer Defensive",
+      "entry_price": 83.58999633789062,
+      "score": 19.8,
+      "stop_loss": 80.21,
+      "target": 88.66,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.76,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.02,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-10",
+      "ticker": "UNH",
+      "name": "UnitedHealth Group Incorporated",
+      "sector": "Healthcare",
+      "entry_price": 407.4599914550781,
+      "score": 15.5,
+      "stop_loss": 387.49,
+      "target": 413.0,
+      "rr_ratio": 0.28,
+      "key_signals": {
+        "rs_vs_spy_30d": 9.16,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.45,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-10",
+      "ticker": "BRK-B",
+      "name": "Berkshire Hathaway Inc. New",
+      "sector": "Financial Services",
+      "entry_price": 483.67999267578125,
+      "score": 14.8,
+      "stop_loss": 469.81,
+      "target": 486.25,
+      "rr_ratio": 0.19,
+      "key_signals": {
+        "rs_vs_spy_30d": -0.78,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.43,
         "insider_buy": false,
         "rs_leader": false
       }
