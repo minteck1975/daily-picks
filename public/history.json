@@ -1772,7 +1772,9 @@
         "rs_leader": false
       },
       "return_1d": -2.7,
-      "alpha_1d": -0.12
+      "alpha_1d": -0.12,
+      "return_5d": -15.33,
+      "alpha_5d": -12.78
     },
     {
       "date": "2026-06-04",
@@ -1794,7 +1796,9 @@
         "rs_leader": false
       },
       "return_1d": -1.98,
-      "alpha_1d": 0.6
+      "alpha_1d": 0.6,
+      "return_5d": 2.16,
+      "alpha_5d": 4.71
     },
     {
       "date": "2026-06-04",
@@ -1816,7 +1820,9 @@
         "rs_leader": true
       },
       "return_1d": 0.11,
-      "alpha_1d": 2.69
+      "alpha_1d": 2.69,
+      "return_5d": 1.56,
+      "alpha_5d": 4.11
     },
     {
       "date": "2026-06-05",
@@ -2034,7 +2040,9 @@
         "atr_pct": 2.02,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.27,
+      "alpha_1d": -2.97
     },
     {
       "date": "2026-06-10",
@@ -2054,7 +2062,9 @@
         "atr_pct": 2.45,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.47,
+      "alpha_1d": -2.17
     },
     {
       "date": "2026-06-10",
@@ -2072,6 +2082,68 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 1.43,
+        "insider_buy": false,
+        "rs_leader": false
+      },
+      "return_1d": 0.44,
+      "alpha_1d": -1.26
+    },
+    {
+      "date": "2026-06-11",
+      "ticker": "KO",
+      "name": "Coca-Cola Company (The)",
+      "sector": "Consumer Defensive",
+      "entry_price": 82.52999877929688,
+      "score": 18.8,
+      "stop_loss": 79.08,
+      "target": 83.85,
+      "rr_ratio": 0.38,
+      "key_signals": {
+        "rs_vs_spy_30d": 0.96,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.09,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-06-11",
+      "ticker": "BRK-B",
+      "name": "Berkshire Hathaway Inc. New",
+      "sector": "Financial Services",
+      "entry_price": 485.7900085449219,
+      "score": 16.3,
+      "stop_loss": 471.92,
+      "target": 488.3,
+      "rr_ratio": 0.18,
+      "key_signals": {
+        "rs_vs_spy_30d": -1.49,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.43,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-06-11",
+      "ticker": "LIN",
+      "name": "Linde plc",
+      "sector": "Basic Materials",
+      "entry_price": 515.4400024414062,
+      "score": 15.3,
+      "stop_loss": 494.82,
+      "target": 518.58,
+      "rr_ratio": 0.15,
+      "key_signals": {
+        "rs_vs_spy_30d": -1.55,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.0,
         "insider_buy": false,
         "rs_leader": false
       }
