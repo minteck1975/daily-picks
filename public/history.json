@@ -1916,7 +1916,9 @@
         "rs_leader": true
       },
       "return_1d": -0.1,
-      "alpha_1d": 0.19
+      "alpha_1d": 0.19,
+      "return_5d": 2.0,
+      "alpha_5d": -0.11
     },
     {
       "date": "2026-06-08",
@@ -1938,7 +1940,9 @@
         "rs_leader": false
       },
       "return_1d": 0.63,
-      "alpha_1d": 0.93
+      "alpha_1d": 0.93,
+      "return_5d": 1.69,
+      "alpha_5d": -0.42
     },
     {
       "date": "2026-06-08",
@@ -1960,7 +1964,9 @@
         "rs_leader": false
       },
       "return_1d": 0.16,
-      "alpha_1d": 0.45
+      "alpha_1d": 0.45,
+      "return_5d": 1.75,
+      "alpha_5d": -0.36
     },
     {
       "date": "2026-06-09",
@@ -2178,7 +2184,9 @@
         "atr_pct": 1.97,
         "insider_buy": true,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.64,
+      "alpha_1d": -2.4
     },
     {
       "date": "2026-06-12",
@@ -2198,7 +2206,9 @@
         "atr_pct": 2.11,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -2.07,
+      "alpha_1d": -3.83
     },
     {
       "date": "2026-06-12",
@@ -2217,6 +2227,68 @@
         "breakout_recent": false,
         "atr_pct": 2.02,
         "insider_buy": false,
+        "rs_leader": false
+      },
+      "return_1d": -0.4,
+      "alpha_1d": -2.16
+    },
+    {
+      "date": "2026-06-15",
+      "ticker": "KO",
+      "name": "Coca-Cola Company (The)",
+      "sector": "Consumer Defensive",
+      "entry_price": 80.91000366210938,
+      "score": 17.0,
+      "stop_loss": 77.28,
+      "target": 81.36,
+      "rr_ratio": 0.12,
+      "key_signals": {
+        "rs_vs_spy_30d": -1.78,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.24,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "ticker": "LIN",
+      "name": "Linde plc",
+      "sector": "Basic Materials",
+      "entry_price": 521.47998046875,
+      "score": 16.6,
+      "stop_loss": 500.1,
+      "target": 525.82,
+      "rr_ratio": 0.2,
+      "key_signals": {
+        "rs_vs_spy_30d": -2.07,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.05,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "ticker": "TJX",
+      "name": "TJX Companies, Inc. (The)",
+      "sector": "Consumer Cyclical",
+      "entry_price": 167.3300018310547,
+      "score": 16.6,
+      "stop_loss": 160.5,
+      "target": 168.74,
+      "rr_ratio": 0.21,
+      "key_signals": {
+        "rs_vs_spy_30d": 1.95,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.04,
+        "insider_buy": true,
         "rs_leader": false
       }
     }
