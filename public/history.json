@@ -1988,7 +1988,9 @@
         "rs_leader": false
       },
       "return_1d": -0.84,
-      "alpha_1d": 0.74
+      "alpha_1d": 0.74,
+      "return_5d": 1.47,
+      "alpha_5d": -0.33
     },
     {
       "date": "2026-06-09",
@@ -2010,7 +2012,9 @@
         "rs_leader": true
       },
       "return_1d": -3.55,
-      "alpha_1d": -1.97
+      "alpha_1d": -1.97,
+      "return_5d": 6.44,
+      "alpha_5d": 4.64
     },
     {
       "date": "2026-06-09",
@@ -2032,7 +2036,9 @@
         "rs_leader": false
       },
       "return_1d": -2.26,
-      "alpha_1d": -0.68
+      "alpha_1d": -0.68,
+      "return_5d": 1.66,
+      "alpha_5d": -0.14
     },
     {
       "date": "2026-06-10",
@@ -2250,7 +2256,9 @@
         "atr_pct": 2.24,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -0.78,
+      "alpha_1d": -0.18
     },
     {
       "date": "2026-06-15",
@@ -2270,7 +2278,9 @@
         "atr_pct": 2.05,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -0.63,
+      "alpha_1d": -0.04
     },
     {
       "date": "2026-06-15",
@@ -2289,6 +2299,68 @@
         "breakout_recent": true,
         "atr_pct": 2.04,
         "insider_buy": true,
+        "rs_leader": false
+      },
+      "return_1d": -0.6,
+      "alpha_1d": -0.01
+    },
+    {
+      "date": "2026-06-16",
+      "ticker": "BAC",
+      "name": "Bank of America Corporation",
+      "sector": "Financial Services",
+      "entry_price": 56.84000015258789,
+      "score": 18.2,
+      "stop_loss": 54.51,
+      "target": 60.33,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.41,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.05,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-16",
+      "ticker": "TJX",
+      "name": "TJX Companies, Inc. (The)",
+      "sector": "Consumer Cyclical",
+      "entry_price": 166.32000732421875,
+      "score": 18.0,
+      "stop_loss": 159.78,
+      "target": 167.92,
+      "rr_ratio": 0.24,
+      "key_signals": {
+        "rs_vs_spy_30d": 3.05,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 1.97,
+        "insider_buy": true,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-16",
+      "ticker": "ANET",
+      "name": "Arista Networks, Inc.",
+      "sector": "Technology",
+      "entry_price": 168.00999450683594,
+      "score": 15.0,
+      "stop_loss": 150.45,
+      "target": 169.28,
+      "rr_ratio": 0.07,
+      "key_signals": {
+        "rs_vs_spy_30d": -7.17,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 5.22,
+        "insider_buy": false,
         "rs_leader": false
       }
     }
