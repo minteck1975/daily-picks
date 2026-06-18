@@ -2132,7 +2132,9 @@
         "rs_leader": false
       },
       "return_1d": 0.11,
-      "alpha_1d": -0.43
+      "alpha_1d": -0.43,
+      "return_5d": -3.8,
+      "alpha_5d": -5.02
     },
     {
       "date": "2026-06-11",
@@ -2154,7 +2156,9 @@
         "rs_leader": false
       },
       "return_1d": 0.71,
-      "alpha_1d": 0.17
+      "alpha_1d": 0.17,
+      "return_5d": 0.76,
+      "alpha_5d": -0.46
     },
     {
       "date": "2026-06-11",
@@ -2176,7 +2180,9 @@
         "rs_leader": false
       },
       "return_1d": 1.58,
-      "alpha_1d": 1.04
+      "alpha_1d": 1.04,
+      "return_5d": -0.64,
+      "alpha_5d": -1.86
     },
     {
       "date": "2026-06-12",
@@ -2394,7 +2400,9 @@
         "atr_pct": 2.08,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -2.47,
+      "alpha_1d": -3.25
     },
     {
       "date": "2026-06-17",
@@ -2414,7 +2422,9 @@
         "atr_pct": 3.13,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.17,
+      "alpha_1d": -0.61
     },
     {
       "date": "2026-06-17",
@@ -2432,6 +2442,68 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.56,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -1.6,
+      "alpha_1d": -2.38
+    },
+    {
+      "date": "2026-06-18",
+      "ticker": "JPM",
+      "name": "JP Morgan Chase & Co.",
+      "sector": "Financial Services",
+      "entry_price": 325.2200012207031,
+      "score": 18.3,
+      "stop_loss": 310.05,
+      "target": 331.75,
+      "rr_ratio": 0.43,
+      "key_signals": {
+        "rs_vs_spy_30d": 1.52,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.33,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-06-18",
+      "ticker": "ANET",
+      "name": "Arista Networks, Inc.",
+      "sector": "Technology",
+      "entry_price": 169.6699981689453,
+      "score": 17.1,
+      "stop_loss": 151.78,
+      "target": 171.21,
+      "rr_ratio": 0.09,
+      "key_signals": {
+        "rs_vs_spy_30d": 13.62,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 5.27,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-18",
+      "ticker": "VRTX",
+      "name": "Vertex Pharmaceuticals Incorpor",
+      "sector": "Healthcare",
+      "entry_price": 451.6300048828125,
+      "score": 16.5,
+      "stop_loss": 427.14,
+      "target": 453.98,
+      "rr_ratio": 0.1,
+      "key_signals": {
+        "rs_vs_spy_30d": 3.85,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.71,
         "insider_buy": false,
         "rs_leader": true
       }
