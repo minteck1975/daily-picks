@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-18T23:14:22+00:00",
+  "generated_at": "2026-06-19T22:17:13+00:00",
   "market": "top100",
-  "scanned": 100,
+  "scanned": 99,
   "enriched": 12,
   "universe_size": 100,
   "picks": [
@@ -23,20 +23,20 @@
       "rsi_rising": false,
       "macd_hist": 2.5862795156566682,
       "macd_positive": false,
-      "volume_ratio": 2.0692384739251937,
+      "volume_ratio": 2.0773090321264505,
       "volume_strong": true,
       "rs_vs_spy_30d": 1.52,
       "rs_leader": false,
       "weekly_uptrend": true,
       "pct_below_52w_high": -3.81,
       "near_52w_high": true,
-      "atr_14": 7.5875,
+      "atr_14": 7.5879,
       "atr_pct": 2.33,
       "breakout_recent": true,
       "breakout_days_since": 4,
       "consolidation_range_pct": 7.71,
       "news_count_7d": 10,
-      "news_score": 0.014670348167419434,
+      "news_score": 0.14356516003608705,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -47,8 +47,8 @@
       "x_mention_count": 0,
       "x_sentiment": 0.0,
       "x_source": "none",
-      "days_to_earnings": 26,
-      "composite_score": 18.3,
+      "days_to_earnings": 25,
+      "composite_score": 19.0,
       "reasons": [
         "In uptrend: price > MA20 > MA50, MA20 rising +2.20% over 5 sessions",
         "Fresh MA50 reclaim: price crossed above 11 sessions ago",
@@ -57,8 +57,9 @@
         "Weekly trend confirms: above 10-week MA and rising",
         "Near 52-week high (only 3.8% below)",
         "+4.75% above MA20 \u2014 moderate extension",
-        "Volume 2.07x 20-day average",
-        "Fresh breakout from 7.7% consolidation (4 sessions ago)"
+        "Volume 2.08x 20-day average",
+        "Fresh breakout from 7.7% consolidation (4 sessions ago)",
+        "10 headlines, mildly positive (FinBERT +0.14)"
       ],
       "chart_data": [
         {
@@ -655,14 +656,14 @@
           "time": "2026-06-18",
           "open": 336.95,
           "high": 338.09,
-          "low": 324.165,
+          "low": 324.16,
           "close": 325.22,
-          "volume": 20023850,
+          "volume": 20111000,
           "ma20": 310.4735,
           "ma50": 308.8646
         }
       ],
-      "stop_loss": 310.05,
+      "stop_loss": 310.04,
       "stop_distance_pct": 4.67,
       "target": 331.75,
       "target_distance_pct": 2.01,
@@ -680,7 +681,7 @@
       "roc_10d": 4.61,
       "roc_20d": 7.7,
       "roc_accelerating": true,
-      "volume_trend_ratio": 1.21,
+      "volume_trend_ratio": 1.22,
       "stage": "fresh"
     },
     {
@@ -701,20 +702,20 @@
       "rsi_rising": true,
       "macd_hist": 0.8089752679068063,
       "macd_positive": true,
-      "volume_ratio": 1.2646693847062411,
+      "volume_ratio": 1.2764037212769312,
       "volume_strong": false,
       "rs_vs_spy_30d": 13.62,
       "rs_leader": true,
       "weekly_uptrend": true,
       "pct_below_52w_high": -5.63,
       "near_52w_high": true,
-      "atr_14": 8.9437,
-      "atr_pct": 5.27,
+      "atr_14": 8.9555,
+      "atr_pct": 5.28,
       "breakout_recent": false,
       "breakout_days_since": null,
       "consolidation_range_pct": 33.06,
       "news_count_7d": 10,
-      "news_score": 0.3366194009780884,
+      "news_score": 0.3351412653923035,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -725,7 +726,7 @@
       "x_mention_count": 0,
       "x_sentiment": 0.0,
       "x_source": "none",
-      "days_to_earnings": 47,
+      "days_to_earnings": 46,
       "composite_score": 17.1,
       "reasons": [
         "In uptrend: price > MA20 > MA50, MA20 rising +3.91% over 5 sessions",
@@ -1333,16 +1334,16 @@
         {
           "time": "2026-06-18",
           "open": 171.2,
-          "high": 171.835,
+          "high": 172.0,
           "low": 167.585,
           "close": 169.67,
-          "volume": 11021168,
+          "volume": 11130400,
           "ma20": 161.1,
           "ma50": 158.535
         }
       ],
-      "stop_loss": 151.78,
-      "stop_distance_pct": 10.54,
+      "stop_loss": 151.76,
+      "stop_distance_pct": 10.56,
       "target": 171.21,
       "target_distance_pct": 0.91,
       "rr_ratio": 0.09,
@@ -1380,20 +1381,20 @@
       "rsi_rising": false,
       "macd_hist": 1.6900875266383424,
       "macd_positive": false,
-      "volume_ratio": 1.939114612808231,
+      "volume_ratio": 2.144679326406306,
       "volume_strong": true,
       "rs_vs_spy_30d": 3.85,
       "rs_leader": true,
       "weekly_uptrend": true,
       "pct_below_52w_high": -11.08,
       "near_52w_high": true,
-      "atr_14": 12.245,
+      "atr_14": 12.2457,
       "atr_pct": 2.71,
       "breakout_recent": false,
       "breakout_days_since": null,
       "consolidation_range_pct": 10.77,
       "news_count_7d": 10,
-      "news_score": 0.13515860140323638,
+      "news_score": 0.12440608441829681,
       "st_message_count": 0,
       "st_bullish_ratio": 0.5,
       "st_tagged": 0,
@@ -1404,7 +1405,7 @@
       "x_mention_count": 0,
       "x_sentiment": 0.0,
       "x_source": "none",
-      "days_to_earnings": 46,
+      "days_to_earnings": 45,
       "composite_score": 16.5,
       "reasons": [
         "In uptrend: price > MA20 > MA50, MA20 rising +0.80% over 5 sessions",
@@ -1414,8 +1415,8 @@
         "Weekly trend confirms: above 10-week MA and rising",
         "Near 52-week high (only 11.1% below)",
         "Healthy pullback: only +2.11% above MA20",
-        "Volume 1.94x 20-day average",
-        "10 headlines, mildly positive (FinBERT +0.14)"
+        "Volume 2.14x 20-day average",
+        "10 headlines, mildly positive (FinBERT +0.12)"
       ],
       "chart_data": [
         {
@@ -2010,11 +2011,11 @@
         },
         {
           "time": "2026-06-18",
-          "open": 462.49,
+          "open": 462.17,
           "high": 464.98,
-          "low": 450.4,
+          "low": 450.39,
           "close": 451.63,
-          "volume": 2675235,
+          "volume": 2992900,
           "ma20": 442.289,
           "ma50": 438.0624
         }
@@ -2037,7 +2038,7 @@
       "roc_10d": 2.24,
       "roc_20d": 4.92,
       "roc_accelerating": false,
-      "volume_trend_ratio": 1.17,
+      "volume_trend_ratio": 1.21,
       "stage": "fresh"
     }
   ],
@@ -2149,13 +2150,13 @@
     "defensive_avg": -0.22,
     "summary": "Cyclicals are leading defensives by +0.92%. Money is rotating into growth \u2014 favorable backdrop for trend setups.",
     "breadth": {
-      "pct_above_50dma": 49.0,
+      "pct_above_50dma": 49.5,
       "count_above": 49,
-      "total": 100
+      "total": 99
     },
     "vix": {
-      "level": 16.4,
-      "day_change_pct": -11.06,
+      "level": 16.78,
+      "day_change_pct": 2.32,
       "regime": "normal"
     },
     "hyg": {
@@ -2165,88 +2166,88 @@
       "month_return": 0.7
     },
     "fear_greed": {
-      "score": 37.5,
+      "score": 37.3,
       "rating": "fear",
-      "previous_close": 32.7,
-      "previous_1_week": 31.6,
-      "previous_1_month": 61.5,
+      "previous_close": 37.5,
+      "previous_1_week": 35.5,
+      "previous_1_month": 59.4,
       "previous_1_year": 54.3
     }
   },
   "market_news": {
     "items": [
       {
-        "title": "Court orders Ohio restrictions on kids\u2019 use of social media restored",
-        "summary": "Ohio's law requiring children under 16 to get parental consent to use social media apps must be restored, a divided panel of the Sixth Circuit Court of Appeals ruled Thursday.  The decision comes as a blow to NetChoice, which had won court victories against similar laws in other ",
-        "source": "Associated Press",
-        "url": "https://www.yahoo.com/news/us/articles/court-orders-ohio-restrictions-kids-225102946.html",
-        "publish_time": 1781823062
+        "title": "The Simplest Way to Own Bitcoin Inside Your Regular Brokerage Account",
+        "summary": "You believe in Bitcoin, you just don\u2019t believe in seed phrases, hardware wallets, sketchy exchange logins, or explaining to your spouse why a USB stick in the sock drawer is technically your retirement plan. You want spot Bitcoin exposure inside the same brokerage account that ho",
+        "source": "24/7 Wall St.",
+        "url": "https://247wallst.com/investing/2026/06/19/the-simplest-way-to-own-bitcoin-inside-your-regular-brokerage-account/",
+        "publish_time": 1781906495
       },
       {
-        "title": "2 Reasons Investors Should Not Short SpaceX Stock",
-        "summary": "Betting against Elon Musk can burn investors.",
+        "title": "Why Saia Stock Swooned This Week",
+        "summary": "An analyst advised hitting the brakes on the trucking company.",
         "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/06/18/2-reasons-investors-should-not-short-spacex-stock/",
-        "publish_time": 1781822700
+        "url": "https://www.fool.com/investing/2026/06/19/why-saia-stock-swooned-this-week/",
+        "publish_time": 1781906315
       },
       {
-        "title": "PLTR Stock: The Math Hidden In Its Price",
-        "summary": "Palantir Technologies (PLTR) stock trades at $130.63 per share, a market cap of $312.7B, and 137.1x trailing P/E. That is a meaningful premium. The question is not whether the stock is \"cheap\" or \"expensive\" in the abstract. It is what the market is implicitly assuming about the ",
-        "source": "Trefis",
-        "url": "https://www.trefis.com/articles/603578/pltr-stock-the-math-hidden-in-its-price-3/2026-06-18",
-        "publish_time": 1781822596
+        "title": "If You\u2019re 45 and Want Real Estate Income, Skip the Landlord Duties and Buy VNQ",
+        "summary": "You like the idea of owning real estate, but you don\u2019t like the idea of fielding 2 a.m. plumbing calls, chasing rent checks, or sinking your down payment savings into a single zip code. You want the income, the inflation hedge, and the diversification that property brings, withou",
+        "source": "24/7 Wall St.",
+        "url": "https://247wallst.com/investing/2026/06/19/if-youre-45-and-want-real-estate-income-skip-the-landlord-duties-and-buy-vnq/",
+        "publish_time": 1781906244
       },
       {
-        "title": "Dow Jones Futures: Nvidia Leads 5 Chips Near Buy Points; SpaceX Stock Needs This",
-        "summary": "The stock market rose in a wild week, led by AI. Nvidia leads five chips near buy points. SpaceX stock needs this.",
-        "source": "Investor's Business Daily",
-        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-nvidia-5-chips-buy-points-spacex-stock/?src=A00220&yptr=yahoo",
-        "publish_time": 1781822069
-      },
-      {
-        "title": "Prediction: This Will Be Micron's Next Big Move",
-        "summary": "Micron stock has soared during this AI boom.",
+        "title": "3 Things to Watch in the Stock Market Next Week",
+        "summary": "Two heavyweight earnings reports and a closely followed check on the banking system all land in the same few days.",
         "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/06/18/prediction-this-will-be-microns-next-big-move/",
-        "publish_time": 1781821800
+        "url": "https://www.fool.com/investing/2026/06/19/3-things-to-watch-in-the-stock-market-next-week/",
+        "publish_time": 1781905860
       },
       {
-        "title": "Does JPMorgan\u2019s Push To Expand Chase Digital Bank Across Europe Change The Bull Case For JPM (JPM)?",
-        "summary": "Earlier this week, JPMorgan Chase confirmed plans to extend its Chase digital bank beyond the U.S., aiming to operate across at least five major European markets, including France, Spain and Italy, building on existing operations in the U.K. and Germany. This push to broaden Chas",
-        "source": "Simply Wall St.",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/does-jpmorgan-push-expand-chase-221133518.html",
-        "publish_time": 1781820693
-      },
-      {
-        "title": "S&P 500, Nasdaq And Dow End Holiday-Shortened Week Higher As Investors Cheer US-Iran Peace Deal \u2014 SPCX, AMZN, ONDS, NFLX, TTWO In Focus",
-        "summary": "Donald Trump and Iranian President Masoud Pezeshkian signed a preliminary agreement on Wednesday in a bid to end the conflict between the two countries.",
-        "source": "Stocktwits",
-        "url": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-nasdaq-and-dow-end-holiday-shortened-week-higher-as-investors-cheer-us-iran-peace-deal-spcx-amzn-onds-nflx-ttwo-in-focus/cZKk181R77v",
-        "publish_time": 1781820468
-      },
-      {
-        "title": "Why I'm Watching the Crypto Fear and Greed Index for My Next Buy Signal",
-        "summary": "Extreme fear can signal opportunity. Here's one way to spot it in the crypto market.",
+        "title": "Broadcom Builds Custom Chips for Google, Meta, Anthropic, and OpenAI. At 25 Times Forward Earnings, It's the Cheapest Mega-Cap AI Stock Nobody Talks About.",
+        "summary": "The tech giant is one of the best long-term plays on the booming AI market.",
         "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/06/18/why-watch-crypto-fear-greed-index-for-buy-signals/",
-        "publish_time": 1781820180
+        "url": "https://www.fool.com/investing/2026/06/19/broadcom-builds-custom-chips-for-google-meta-anthr/",
+        "publish_time": 1781905800
       },
       {
-        "title": "Intel taps industry veteran Seok-Hee Lee to lead foundry packaging push",
-        "summary": "Intel on Thursday named Seok-Hee Lee executive vice president of its contract chip-manufacturing division \u200cas it sharpens focus on its advanced packaging business.  The \u200cAmerican chipmaker has been trying to reinvigorate its manufacturing business under CEO \u200bLip-Bu Tan, after mis",
-        "source": "Reuters",
-        "url": "https://finance.yahoo.com/technology/articles/intel-taps-industry-veteran-seok-220052428.html",
-        "publish_time": 1781820052
-      },
-      {
-        "title": "VOO vs. SCHD: Which Is the Smarter Buy When Inflation Is Running Hot?",
-        "summary": "The Vanguard S&P 500 ETF's heavy tech concentration could become a liability in an extended high-inflation environment.",
+        "title": "Beyond the Trillion-Dollar Club: 3 High-Growth Tech Stocks to Buy Right Now",
+        "summary": "The market is full of high-growth stocks that could move higher over the next year.",
         "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/06/18/voo-vs-schd-which-is-smarter-buy-inflation-hot/",
-        "publish_time": 1781819460
+        "url": "https://www.fool.com/investing/2026/06/19/beyond-the-trillion-dollar-club-3-high-growth-tech/",
+        "publish_time": 1781905260
+      },
+      {
+        "title": "The Memory Boom Has Been a Gift to Micron. For Apple, It's Becoming a Problem. Or Is It?",
+        "summary": "The same shortage delivering record profits to memory makers is now squeezing one of the world's most valuable companies -- and its CEO says customers will end up paying for it.",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/investing/2026/06/19/the-memory-boom-has-been-a-gift-to-micron-for-appl/",
+        "publish_time": 1781905073
+      },
+      {
+        "title": "Why Gildan Activewear Stock Tumbled by 11% This Week",
+        "summary": "A short-seller published a comprehensive -- and highly critical -- report on the company's conduct.",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/investing/2026/06/19/why-gildan-activewear-stock-tumbled-by-11-this-wee/",
+        "publish_time": 1781904795
+      },
+      {
+        "title": "Making Six Figures but Betting Everything on U.S. Stocks? AVUV Fixes That Problem",
+        "summary": "You check your portfolio and it looks like every other portfolio in America. Apple, Microsoft, NVIDIA, Amazon, Meta, Alphabet, and a heaping side of S&P 500 index fund that is, when you look under the hood, basically more of the same seven names. You are 38, you have 25-plus year",
+        "source": "24/7 Wall St.",
+        "url": "https://247wallst.com/investing/2026/06/19/making-six-figures-but-betting-everything-on-u-s-stocks-avuv-fixes-that-problem/",
+        "publish_time": 1781904635
+      },
+      {
+        "title": "After Being Called the Next Trillion-Dollar AI Stock and Joining the S&P 500, Marvell's CFO Just Filed to Dump $65 Million of Stock. Here's Why.",
+        "summary": "Marvell's CFO just filed paperwork with the SEC to offload a significant chunk of stock.",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/investing/2026/06/19/marvells-cfo-just-sold-65-million-of-stock-right-a/",
+        "publish_time": 1781904420
       }
     ],
-    "overall_mood": 0.17,
-    "fetched_at": "2026-06-18T23:14:21+00:00"
+    "overall_mood": -0.26,
+    "fetched_at": "2026-06-19T22:17:12+00:00"
   }
 }
