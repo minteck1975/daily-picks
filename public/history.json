@@ -22,7 +22,9 @@
       "return_1d": 2.91,
       "alpha_1d": 2.09,
       "return_5d": 4.22,
-      "alpha_5d": 1.95
+      "alpha_5d": 1.95,
+      "return_30d": -85.18,
+      "alpha_30d": -86.93
     },
     {
       "date": "2026-05-07",
@@ -46,7 +48,9 @@
       "return_1d": -0.13,
       "alpha_1d": -0.96,
       "return_5d": 0.61,
-      "alpha_5d": -1.66
+      "alpha_5d": -1.66,
+      "return_30d": 17.45,
+      "alpha_30d": 15.7
     },
     {
       "date": "2026-05-07",
@@ -70,7 +74,9 @@
       "return_1d": 3.23,
       "alpha_1d": 2.41,
       "return_5d": -0.31,
-      "alpha_5d": -2.58
+      "alpha_5d": -2.58,
+      "return_30d": -3.96,
+      "alpha_30d": -5.71
     },
     {
       "date": "2026-05-08",
@@ -2204,7 +2210,9 @@
         "rs_leader": true
       },
       "return_1d": -0.64,
-      "alpha_1d": -2.4
+      "alpha_1d": -2.4,
+      "return_5d": -2.52,
+      "alpha_5d": -2.87
     },
     {
       "date": "2026-06-12",
@@ -2226,7 +2234,9 @@
         "rs_leader": false
       },
       "return_1d": -2.07,
-      "alpha_1d": -3.83
+      "alpha_1d": -3.83,
+      "return_5d": -3.74,
+      "alpha_5d": -4.1
     },
     {
       "date": "2026-06-12",
@@ -2248,7 +2258,9 @@
         "rs_leader": false
       },
       "return_1d": -0.4,
-      "alpha_1d": -2.16
+      "alpha_1d": -2.16,
+      "return_5d": -1.31,
+      "alpha_5d": -1.67
     },
     {
       "date": "2026-06-15",
@@ -2466,7 +2478,9 @@
         "atr_pct": 2.33,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 1.92,
+      "alpha_1d": 2.24
     },
     {
       "date": "2026-06-18",
@@ -2486,7 +2500,9 @@
         "atr_pct": 5.27,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.88,
+      "alpha_1d": 3.2
     },
     {
       "date": "2026-06-18",
@@ -2506,7 +2522,9 @@
         "atr_pct": 2.71,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 3.36,
+      "alpha_1d": 3.67
     },
     {
       "date": "2026-06-19",
@@ -2526,7 +2544,9 @@
         "atr_pct": 2.33,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": 1.92,
+      "alpha_1d": 2.24
     },
     {
       "date": "2026-06-19",
@@ -2546,7 +2566,9 @@
         "atr_pct": 5.28,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.88,
+      "alpha_1d": 3.2
     },
     {
       "date": "2026-06-19",
@@ -2564,6 +2586,68 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.71,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 3.36,
+      "alpha_1d": 3.67
+    },
+    {
+      "date": "2026-06-22",
+      "ticker": "VRTX",
+      "name": "Vertex Pharmaceuticals Incorpor",
+      "sector": "Healthcare",
+      "entry_price": 466.7900085449219,
+      "score": 21.1,
+      "stop_loss": 442.01,
+      "target": 503.96,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 8.08,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.65,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "ticker": "ANET",
+      "name": "Arista Networks, Inc.",
+      "sector": "Technology",
+      "entry_price": 174.55999755859375,
+      "score": 18.0,
+      "stop_loss": 157.27,
+      "target": 176.76,
+      "rr_ratio": 0.13,
+      "key_signals": {
+        "rs_vs_spy_30d": 21.4,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 4.95,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "ticker": "JPM",
+      "name": "JP Morgan Chase & Co.",
+      "sector": "Financial Services",
+      "entry_price": 331.4800109863281,
+      "score": 17.8,
+      "stop_loss": 315.84,
+      "target": 337.77,
+      "rr_ratio": 0.4,
+      "key_signals": {
+        "rs_vs_spy_30d": 6.48,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.36,
         "insider_buy": false,
         "rs_leader": true
       }
