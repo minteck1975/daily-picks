@@ -100,7 +100,9 @@
       "return_1d": 3.11,
       "alpha_1d": 2.88,
       "return_5d": -4.56,
-      "alpha_5d": -4.77
+      "alpha_5d": -4.77,
+      "return_30d": -6.2,
+      "alpha_30d": -5.65
     },
     {
       "date": "2026-05-08",
@@ -124,7 +126,9 @@
       "return_1d": 0.49,
       "alpha_1d": 0.26,
       "return_5d": 1.23,
-      "alpha_5d": 1.02
+      "alpha_5d": 1.02,
+      "return_30d": 18.86,
+      "alpha_30d": 19.4
     },
     {
       "date": "2026-05-08",
@@ -148,7 +152,9 @@
       "return_1d": 8.72,
       "alpha_1d": 8.49,
       "return_5d": 23.56,
-      "alpha_5d": 23.35
+      "alpha_5d": 23.35,
+      "return_30d": 48.03,
+      "alpha_30d": 48.57
     },
     {
       "date": "2026-05-08",
@@ -172,7 +178,9 @@
       "return_1d": 3.75,
       "alpha_1d": 3.53,
       "return_5d": 6.53,
-      "alpha_5d": 6.32
+      "alpha_5d": 6.32,
+      "return_30d": -5.42,
+      "alpha_30d": -4.87
     },
     {
       "date": "2026-05-09",
@@ -196,7 +204,9 @@
       "return_1d": 1.97,
       "alpha_1d": 1.74,
       "return_5d": 4.7,
-      "alpha_5d": 4.49
+      "alpha_5d": 4.49,
+      "return_30d": -7.04,
+      "alpha_30d": -6.5
     },
     {
       "date": "2026-05-09",
@@ -220,7 +230,9 @@
       "return_1d": 0.36,
       "alpha_1d": 0.13,
       "return_5d": -7.11,
-      "alpha_5d": -7.32
+      "alpha_5d": -7.32,
+      "return_30d": -8.7,
+      "alpha_30d": -8.15
     },
     {
       "date": "2026-05-09",
@@ -244,7 +256,9 @@
       "return_1d": -1.03,
       "alpha_1d": -1.26,
       "return_5d": -0.3,
-      "alpha_5d": -0.51
+      "alpha_5d": -0.51,
+      "return_30d": 17.06,
+      "alpha_30d": 17.61
     },
     {
       "date": "2026-05-11",
@@ -2282,7 +2296,9 @@
         "rs_leader": false
       },
       "return_1d": -0.78,
-      "alpha_1d": -0.18
+      "alpha_1d": -0.18,
+      "return_5d": -0.74,
+      "alpha_5d": 2.07
     },
     {
       "date": "2026-06-15",
@@ -2304,7 +2320,9 @@
         "rs_leader": false
       },
       "return_1d": -0.63,
-      "alpha_1d": -0.04
+      "alpha_1d": -0.04,
+      "return_5d": -1.77,
+      "alpha_5d": 1.05
     },
     {
       "date": "2026-06-15",
@@ -2326,7 +2344,9 @@
         "rs_leader": false
       },
       "return_1d": -0.6,
-      "alpha_1d": -0.01
+      "alpha_1d": -0.01,
+      "return_5d": -1.78,
+      "alpha_5d": 1.03
     },
     {
       "date": "2026-06-16",
@@ -2610,7 +2630,9 @@
         "atr_pct": 2.65,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.35,
+      "alpha_1d": 1.8
     },
     {
       "date": "2026-06-22",
@@ -2630,7 +2652,9 @@
         "atr_pct": 4.95,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -7.08,
+      "alpha_1d": -5.63
     },
     {
       "date": "2026-06-22",
@@ -2649,6 +2673,68 @@
         "breakout_recent": true,
         "atr_pct": 2.36,
         "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 0.8,
+      "alpha_1d": 2.25
+    },
+    {
+      "date": "2026-06-23",
+      "ticker": "ABBV",
+      "name": "AbbVie Inc.",
+      "sector": "Healthcare",
+      "entry_price": 234.75999450683594,
+      "score": 20.6,
+      "stop_loss": 222.35,
+      "target": 253.37,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 17.03,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.64,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-23",
+      "ticker": "PGR",
+      "name": "Progressive Corporation (The)",
+      "sector": "Financial Services",
+      "entry_price": 215.69000244140625,
+      "score": 20.3,
+      "stop_loss": 204.57,
+      "target": 232.37,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.73,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": true,
+        "atr_pct": 2.58,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-23",
+      "ticker": "TJX",
+      "name": "TJX Companies, Inc. (The)",
+      "sector": "Consumer Cyclical",
+      "entry_price": 164.35000610351562,
+      "score": 16.5,
+      "stop_loss": 157.28,
+      "target": 165.82,
+      "rr_ratio": 0.21,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.71,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.15,
+        "insider_buy": true,
         "rs_leader": true
       }
     }
