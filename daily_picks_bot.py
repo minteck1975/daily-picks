@@ -1133,6 +1133,10 @@ def fetch_fear_greed() -> Optional[dict]:
 # ---------- New: performance tracking ----------
 HISTORY_PATH = "public/history.json"
 HISTORY_MAX_AGE_DAYS = 365  # prune older entries
+COOLDOWN_DAYS = 5             # don't re-pick a ticker within N calendar days
+HORIZON_DAYS = 30             # max holding days before forced "horizon" exit
+DEFAULT_STOP_PCT = 0.08       # 8% stop for legacy picks missing stop_loss
+DEFAULT_TARGET_PCT = 0.15     # 15% target for legacy picks missing target
 
 def load_history(path: str = HISTORY_PATH) -> dict:
     if not os.path.exists(path):
@@ -1153,9 +1157,10 @@ def save_history(history: dict, path: str = HISTORY_PATH):
 
 
 def update_history_returns(history: dict, spy_df: Optional[pd.DataFrame]) -> dict:
-    """For each unsettled pick, compute 1d/5d/30d returns + alpha vs SPY."""
+    """For each unsettled pick, compute 1d/3d/5d/30d returns + alpha vs SPY."""
     today = datetime.now(timezone.utc).date()
     picks = history.get("picks") or []
+    HORIZONS = [1, 3, 5, 30]
 
     # Identify picks needing updates
     needs_update = []
@@ -1167,10 +1172,8 @@ def update_history_returns(history: dict, spy_df: Optional[pd.DataFrame]) -> dic
         days_held = (today - entry_date).days
         if days_held < 1:
             continue
-        # Skip if all horizons settled
-        if all(p.get(f"return_{h}d") is not None for h in [1, 5, 30]):
+        if all(p.get(f"return_{h}d") is not None for h in HORIZONS):
             continue
-        # Skip very old picks already past 30d
         if days_held > 60 and p.get("return_30d") is not None:
             continue
         needs_update.append((i, entry_date, days_held))
@@ -1210,7 +1213,7 @@ def update_history_returns(history: dict, spy_df: Optional[pd.DataFrame]) -> dic
             entry_price = p.get("entry_price") or 0
             if not entry_price:
                 continue
-            for h in [1, 5, 30]:
+            for h in HORIZONS:
                 key = f"return_{h}d"
                 if p.get(key) is not None:
                     continue
@@ -1220,8 +1223,13 @@ def update_history_returns(history: dict, spy_df: Optional[pd.DataFrame]) -> dic
                     continue
                 price_then = float(after.iloc[h - 1])
                 ret = (price_then / entry_price - 1) * 100
+                # Sanity bound: a single pick > +200% or < -80% is almost certainly
+                # a yfinance adjustment glitch (stock split, dividend, delisting).
+                if ret < -80 or ret > 300:
+                    print(f"  ! {tk} {h}d return {ret:.1f}% looks like a data artifact, skipping",
+                          file=sys.stderr)
+                    continue
                 p[key] = round(ret, 2)
-                # SPY alpha
                 if spy_close is not None:
                     spy_at = spy_close[spy_close.index.date <= entry_date]
                     spy_after = spy_close[spy_close.index.date > entry_date]
@@ -1234,6 +1242,210 @@ def update_history_returns(history: dict, spy_df: Optional[pd.DataFrame]) -> dic
             print(f"  ! {tk}: history calc failed ({e})", file=sys.stderr)
 
     return history
+
+
+def update_history_realistic_entries(history: dict) -> dict:
+    """
+    Realistic entry prices: signal close → next-day open.
+    On pick day we only have signal_close. On next workflow run, fetch that
+    next session's OPEN and use it as the actual entry_price.
+    Cleans up the gap between "what the signal saw" and "what you could trade".
+    """
+    today = datetime.now(timezone.utc).date()
+    picks = history.get("picks") or []
+
+    needs_realistic = []
+    for i, p in enumerate(picks):
+        # Skip if entry has already been finalized (entry_realistic=True flag)
+        if p.get("entry_realistic"):
+            continue
+        try:
+            entry_date = datetime.fromisoformat(p["date"]).date()
+        except Exception:
+            continue
+        days_held = (today - entry_date).days
+        if days_held < 1:
+            continue
+        needs_realistic.append((i, entry_date))
+
+    if not needs_realistic:
+        return history
+
+    tickers = sorted({picks[i]["ticker"] for i, _ in needs_realistic})
+    print(f"Backfilling realistic entry prices for {len(needs_realistic)} picks...",
+          file=sys.stderr)
+
+    try:
+        if len(tickers) == 1:
+            raw = yf.Ticker(tickers[0]).history(period="2mo", interval="1d", auto_adjust=False)
+            data_dict = {tickers[0]: raw}
+        else:
+            raw = yf.download(tickers, period="2mo", interval="1d",
+                              group_by="ticker", auto_adjust=False,
+                              progress=False, threads=True)
+            data_dict = {t: raw[t] for t in tickers if t in raw.columns.get_level_values(0)}
+    except Exception as e:
+        print(f"  ! Realistic entry fetch failed: {e}", file=sys.stderr)
+        return history
+
+    for i, entry_date in needs_realistic:
+        p = picks[i]
+        tk = p["ticker"]
+        if tk not in data_dict:
+            continue
+        df = data_dict[tk]
+        if df is None or len(df) == 0:
+            continue
+        try:
+            after = df[df.index.date > entry_date]
+            if len(after) == 0:
+                continue
+            next_open = float(after["Open"].iloc[0])
+            if pd.isna(next_open) or next_open <= 0:
+                continue
+            # Preserve the original signal close
+            if "signal_close" not in p:
+                p["signal_close"] = p.get("entry_price")
+            p["entry_price"] = round(next_open, 2)
+            p["entry_realistic"] = True
+            # Now that entry_price changed, the previously-computed returns are
+            # based on signal_close. Clear them so update_history_returns recomputes.
+            for k in ("return_1d", "return_3d", "return_5d", "return_30d",
+                      "alpha_1d", "alpha_3d", "alpha_5d", "alpha_30d"):
+                if k in p:
+                    del p[k]
+        except Exception as e:
+            print(f"  ! {tk}: realistic entry calc failed ({e})", file=sys.stderr)
+
+    return history
+
+
+def update_history_exits(history: dict) -> dict:
+    """
+    Walk each historical pick's daily OHLC after entry. Apply the stop_loss
+    and target that were set at signal time. Record exit_price, exit_reason,
+    exit_return, days_held. This converts buy-and-hold returns into what
+    you'd have actually realized with disciplined stop/target execution.
+    """
+    today = datetime.now(timezone.utc).date()
+    picks = history.get("picks") or []
+
+    needs_exit = []
+    for i, p in enumerate(picks):
+        if p.get("exit_reason") is not None:
+            continue  # already exited
+        try:
+            entry_date = datetime.fromisoformat(p["date"]).date()
+        except Exception:
+            continue
+        days_held = (today - entry_date).days
+        if days_held < 1:
+            continue
+        entry = p.get("entry_price") or 0
+        if not entry:
+            continue
+        stop = p.get("stop_loss") or entry * (1 - DEFAULT_STOP_PCT)
+        target = p.get("target") or entry * (1 + DEFAULT_TARGET_PCT)
+        # Sanity: stop must be below entry, target above
+        if stop >= entry: stop = entry * (1 - DEFAULT_STOP_PCT)
+        if target <= entry: target = entry * (1 + DEFAULT_TARGET_PCT)
+        needs_exit.append((i, entry_date, entry, stop, target))
+
+    if not needs_exit:
+        return history
+
+    tickers = sorted({picks[i]["ticker"] for i, *_ in needs_exit})
+    print(f"Simulating stop/target exits for {len(needs_exit)} open picks...",
+          file=sys.stderr)
+
+    try:
+        if len(tickers) == 1:
+            raw = yf.Ticker(tickers[0]).history(period="3mo", interval="1d", auto_adjust=False)
+            data_dict = {tickers[0]: raw}
+        else:
+            raw = yf.download(tickers, period="3mo", interval="1d",
+                              group_by="ticker", auto_adjust=False,
+                              progress=False, threads=True)
+            data_dict = {t: raw[t] for t in tickers if t in raw.columns.get_level_values(0)}
+    except Exception as e:
+        print(f"  ! Exit simulation fetch failed: {e}", file=sys.stderr)
+        return history
+
+    for i, entry_date, entry, stop, target in needs_exit:
+        p = picks[i]
+        tk = p["ticker"]
+        if tk not in data_dict:
+            continue
+        df = data_dict[tk]
+        if df is None or len(df) == 0:
+            continue
+        try:
+            bars = df[df.index.date > entry_date]
+            if len(bars) == 0:
+                continue
+            for d_idx, (ts, row) in enumerate(bars.iterrows()):
+                day_open = float(row["Open"]) if not pd.isna(row["Open"]) else None
+                day_low  = float(row["Low"])  if not pd.isna(row["Low"])  else None
+                day_high = float(row["High"]) if not pd.isna(row["High"]) else None
+                if day_open is None or day_low is None or day_high is None:
+                    continue
+
+                exit_price = None
+                exit_reason = None
+
+                # Gap-down through stop: exit at the open
+                if day_open <= stop:
+                    exit_price = day_open
+                    exit_reason = "stop_gap"
+                # Stop hit intraday
+                elif day_low <= stop:
+                    exit_price = stop
+                    exit_reason = "stop"
+                # Gap-up through target: exit at the open (favorable)
+                elif day_open >= target:
+                    exit_price = day_open
+                    exit_reason = "target_gap"
+                # Target hit intraday
+                elif day_high >= target:
+                    exit_price = target
+                    exit_reason = "target"
+
+                if exit_price is not None:
+                    p["exit_date"] = ts.date().isoformat()
+                    p["exit_price"] = round(exit_price, 2)
+                    p["exit_return"] = round((exit_price / entry - 1) * 100, 2)
+                    p["exit_reason"] = exit_reason
+                    p["days_held"] = d_idx + 1
+                    break
+            else:
+                # Loop completed without exit. If we've held longer than horizon,
+                # mark as a horizon exit at that day's close.
+                if len(bars) >= HORIZON_DAYS:
+                    h_row = bars.iloc[HORIZON_DAYS - 1]
+                    h_close = float(h_row["Close"])
+                    p["exit_date"]   = bars.index[HORIZON_DAYS - 1].date().isoformat()
+                    p["exit_price"]  = round(h_close, 2)
+                    p["exit_return"] = round((h_close / entry - 1) * 100, 2)
+                    p["exit_reason"] = "horizon"
+                    p["days_held"]   = HORIZON_DAYS
+        except Exception as e:
+            print(f"  ! {tk}: exit simulation failed ({e})", file=sys.stderr)
+
+    return history
+
+
+def get_cooldown_tickers(history: dict, days: int = COOLDOWN_DAYS) -> set:
+    """Tickers picked within the last N calendar days — exclude from selection."""
+    today = datetime.now(timezone.utc).date()
+    out = set()
+    for p in history.get("picks") or []:
+        try:
+            d = datetime.fromisoformat(p["date"]).date()
+            if (today - d).days < days:
+                out.add(p["ticker"])
+        except Exception:
+            continue
+    return out
 
 
 def append_picks_to_history(history: dict, new_picks: list, today_iso: str) -> dict:
@@ -1262,7 +1474,9 @@ def append_picks_to_history(history: dict, new_picks: list, today_iso: str) -> d
             "ticker": s.ticker,
             "name": s.name,
             "sector": s.sector,
-            "entry_price": s.price,
+            "entry_price": s.price,         # signal close — will be replaced
+            "signal_close": s.price,        # immutable record of the signal price
+            "entry_realistic": False,       # flag: not yet backfilled to next-day open
             "score": s.composite_score,
             "stop_loss": s.stop_loss,
             "target": s.target,
@@ -1814,6 +2028,21 @@ def main():
         if full is not None:
             signals.append(full)
 
+    # Load history EARLY so cooldown can filter selection.
+    history = load_history()
+
+    # Apply ticker cooldown: don't re-pick anything we picked in the last COOLDOWN_DAYS days.
+    cooldown = get_cooldown_tickers(history, days=COOLDOWN_DAYS)
+    if cooldown:
+        before_n = len(signals)
+        excluded = [s for s in signals if s.ticker in cooldown]
+        signals = [s for s in signals if s.ticker not in cooldown]
+        if excluded:
+            print(f"Cooldown filter ({COOLDOWN_DAYS}d): excluded {len(excluded)} ticker(s) — "
+                  f"{', '.join(sorted(s.ticker for s in excluded))}",
+                  file=sys.stderr)
+        print(f"  {len(signals)}/{before_n} candidates remain after cooldown", file=sys.stderr)
+
     picks = select_top(signals, n=args.top)
 
     # Compute market breadth from the universe scan we already have
@@ -1838,10 +2067,15 @@ def main():
     regime["hyg"] = market_health.get("hyg")
     regime["fear_greed"] = fear_greed
 
-    # ----- Performance tracking: load history, update returns, append today's picks -----
+    # ----- Performance tracking pipeline -----
     today_iso = datetime.now(timezone.utc).date().isoformat()
-    history = load_history()
+    # 1. Backfill realistic entries (signal close → next-day open) for yesterday's picks.
+    history = update_history_realistic_entries(history)
+    # 2. Recompute raw returns at 1d / 3d / 5d / 30d.
     history = update_history_returns(history, spy_df)
+    # 3. Simulate stop & target exits using each pick's original setup.
+    history = update_history_exits(history)
+    # 4. Append today's new picks (entry_price = today's close; entry_realistic=False).
     history = append_picks_to_history(history, picks, today_iso)
     save_history(history)
 
