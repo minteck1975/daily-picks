@@ -669,6 +669,84 @@
   .track-table .ret-cell.up   { color: var(--gain); }
   .track-table .ret-cell.down { color: var(--warn); }
   .track-table .ret-cell.flat { color: var(--ink-dim); }
+  /* Exit column */
+  .track-table .exit-cell { text-align: right; padding-right: 18px; }
+  .track-table .exit-cell.up   { color: var(--gain); }
+  .track-table .exit-cell.down { color: var(--warn); }
+  .track-table .exit-cell .exit-pct { font-weight: 600; }
+  .track-table .exit-cell .exit-tag {
+    font-size: 9px;
+    color: var(--ink-faint);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  /* Entry tag — small marker when entry is still signal-close (not yet next-day-open) */
+  .entry-tag.pending { color: var(--ink-dim); }
+  .entry-tag { font-family: 'JetBrains Mono', monospace; }
+  /* Simulated execution panel */
+  .exec-panel {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 700px) {
+    .exec-panel { grid-template-columns: 1fr; }
+  }
+  .exec-card {
+    padding: 18px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--bg-elev);
+  }
+  .exec-breakdown {
+    padding: 18px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--bg-elev);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .exec-bar {
+    height: 24px;
+    display: flex;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    background: var(--rule);
+  }
+  .exec-seg { height: 100%; transition: flex 0.3s ease; }
+  .seg-stop    { background: var(--warn); }
+  .seg-horizon { background: var(--ink-dim); }
+  .seg-target  { background: var(--gain); }
+  .exec-legend {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-dim);
+  }
+  .exec-legend .dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    margin-right: 6px;
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+  .track-footnote {
+    padding: 14px 18px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
   /* News tab */
   .news-mood {
     margin-bottom: 32px;
@@ -1333,7 +1411,7 @@ async function renderTrack() {
     return `<div class="empty"><h2>No picks recorded yet.</h2></div>`;
   }
 
-  // Compute aggregate stats
+  // ---------- Raw buy-and-hold stats at 1d / 3d / 5d ----------
   function stats(horizonKey) {
     const settled = allPicks.filter(p => p[horizonKey] !== undefined && p[horizonKey] !== null);
     if (!settled.length) return null;
@@ -1349,9 +1427,9 @@ async function renderTrack() {
       avg_alpha: alphaSet.length ? alphaSum / alphaSet.length : null,
     };
   }
-  const s1  = stats('return_1d');
-  const s5  = stats('return_5d');
-  const s30 = stats('return_30d');
+  const s1 = stats('return_1d');
+  const s3 = stats('return_3d');
+  const s5 = stats('return_5d');
 
   function summaryCard(label, s) {
     if (!s) return `
@@ -1372,7 +1450,57 @@ async function renderTrack() {
       </div>`;
   }
 
-  // Recent picks list (last 50)
+  // ---------- Simulated execution (stop/target applied) ----------
+  const exited = allPicks.filter(p => p.exit_reason);
+  let execSection = '';
+  if (exited.length) {
+    const exitWins = exited.filter(p => (p.exit_return ?? 0) > 0).length;
+    const winRate = (exitWins / exited.length) * 100;
+    const avgRet = exited.reduce((a, p) => a + (p.exit_return || 0), 0) / exited.length;
+    const avgDays = exited.reduce((a, p) => a + (p.days_held || 0), 0) / exited.length;
+
+    const breakdown = { stop: 0, stop_gap: 0, target: 0, target_gap: 0, horizon: 0 };
+    exited.forEach(p => { if (p.exit_reason in breakdown) breakdown[p.exit_reason]++; });
+    const total = exited.length;
+    const pct = n => Math.round((n / total) * 100);
+    const stopAll = breakdown.stop + breakdown.stop_gap;
+    const targetAll = breakdown.target + breakdown.target_gap;
+
+    const winClass = winRate >= 50 ? 'gain' : winRate < 40 ? 'warn' : '';
+    const retClass = avgRet > 0 ? 'gain' : avgRet < 0 ? 'warn' : '';
+
+    execSection = `
+      <div class="sector-section-label" style="margin-top:36px;">
+        Simulated Execution — Stop &amp; Target Applied
+      </div>
+      <div class="exec-panel">
+        <div class="exec-card">
+          <div class="hlabel">Win rate · ${exited.length} closed trades</div>
+          <div class="hval ${winClass}">${num(winRate, 0)}%</div>
+          <div class="hsub">avg return <span class="${retClass}">${fmtPct(avgRet)}</span> · held ${avgDays.toFixed(1)}d on avg</div>
+        </div>
+        <div class="exec-breakdown">
+          <div class="exec-bar">
+            <div class="exec-seg seg-stop"   style="flex:${stopAll}"   title="Stopped out: ${stopAll}"></div>
+            <div class="exec-seg seg-horizon" style="flex:${breakdown.horizon}" title="Held to horizon: ${breakdown.horizon}"></div>
+            <div class="exec-seg seg-target" style="flex:${targetAll}" title="Target hit: ${targetAll}"></div>
+          </div>
+          <div class="exec-legend">
+            <span><span class="dot seg-stop"></span>Stopped ${pct(stopAll)}%</span>
+            <span><span class="dot seg-horizon"></span>Horizon ${pct(breakdown.horizon)}%</span>
+            <span><span class="dot seg-target"></span>Target ${pct(targetAll)}%</span>
+          </div>
+        </div>
+      </div>`;
+  } else {
+    execSection = `
+      <div class="sector-section-label" style="margin-top:36px;">Simulated Execution</div>
+      <div class="empty" style="padding:24px;border:1px solid var(--rule);border-radius:4px;">
+        <p>No closed trades yet — exit simulation populates once stops or targets are hit.</p>
+      </div>`;
+  }
+
+  // ---------- Recent picks table with EXIT column ----------
   const recent = allPicks.slice(0, 50);
   const rows = recent.map(p => {
     function cellRet(key) {
@@ -1381,35 +1509,55 @@ async function renderTrack() {
       const cls = v > 0 ? 'up' : v < 0 ? 'down' : 'flat';
       return `<td class="ret-cell ${cls}">${fmtPct(v)}</td>`;
     }
+    // Exit column
+    let exitCell = '<td class="exit-cell">—</td>';
+    if (p.exit_reason) {
+      const r = p.exit_return ?? 0;
+      const cls = r > 0 ? 'up' : r < 0 ? 'down' : 'flat';
+      const tag = p.exit_reason.startsWith('stop')   ? '⛔ stop'
+                : p.exit_reason.startsWith('target') ? '🎯 target'
+                : '⏱ horizon';
+      exitCell = `<td class="exit-cell ${cls}"><div class="exit-pct">${fmtPct(r)}</div><div class="exit-tag">${tag} · ${p.days_held}d</div></td>`;
+    }
+    // Entry marker — 'signal close' vs 'realistic open'
+    const entryTag = p.entry_realistic
+      ? `<span class="entry-tag" title="next-day open">${num(p.entry_price)}</span>`
+      : `<span class="entry-tag pending" title="signal close (next-day open not yet available)">${num(p.entry_price)}*</span>`;
     return `
       <tr>
         <td class="date-cell">${p.date}</td>
         <td class="ticker-cell">${p.ticker}</td>
-        <td class="entry-cell">${num(p.entry_price)}</td>
+        <td class="entry-cell">${entryTag}</td>
         ${cellRet('return_1d')}
+        ${cellRet('return_3d')}
         ${cellRet('return_5d')}
-        ${cellRet('return_30d')}
+        ${exitCell}
       </tr>`;
   }).join('');
 
   return `
-    <div class="sector-section-label">Performance Summary</div>
+    <div class="sector-section-label">Buy &amp; Hold Performance (raw returns)</div>
     <div class="health-grid">
       ${summaryCard('1-day win rate', s1)}
+      ${summaryCard('3-day win rate', s3)}
       ${summaryCard('5-day win rate', s5)}
-      ${summaryCard('30-day win rate', s30)}
     </div>
+    ${execSection}
     <div class="sector-section-label" style="margin-top:36px;">Recent Picks · ${recent.length} of ${allPicks.length}</div>
     <div class="track-table-wrap">
       <table class="track-table">
         <thead>
           <tr>
             <th>Date</th><th>Ticker</th><th>Entry</th>
-            <th>+1d</th><th>+5d</th><th>+30d</th>
+            <th>+1d</th><th>+3d</th><th>+5d</th><th>Exit</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>
       </table>
+      <div class="track-footnote">
+        * = signal close (entry not yet finalized to next-day open).
+        Exit column reflects simulated stop/target execution from each pick's original setup.
+      </div>
     </div>
   `;
 }
