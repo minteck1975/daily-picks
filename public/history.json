@@ -766,7 +766,9 @@
       "return_3d": -1.2,
       "alpha_3d": 0.73,
       "return_5d": 2.27,
-      "alpha_5d": 3.0
+      "alpha_5d": 3.0,
+      "return_30d": -8.52,
+      "alpha_30d": -7.56
     },
     {
       "date": "2026-05-14",
@@ -794,7 +796,14 @@
       "return_3d": -4.92,
       "alpha_3d": -2.99,
       "return_5d": 0.63,
-      "alpha_5d": 1.36
+      "alpha_5d": 1.36,
+      "return_30d": 52.07,
+      "alpha_30d": 53.03,
+      "exit_date": "2026-06-29",
+      "exit_price": 278.39,
+      "exit_return": 52.07,
+      "exit_reason": "horizon",
+      "days_held": 30
     },
     {
       "date": "2026-05-14",
@@ -827,7 +836,9 @@
       "return_3d": -2.22,
       "alpha_3d": -0.29,
       "return_5d": 3.42,
-      "alpha_5d": 4.15
+      "alpha_5d": 4.15,
+      "return_30d": 9.2,
+      "alpha_30d": 10.16
     },
     {
       "date": "2026-05-14",
@@ -860,7 +871,9 @@
       "return_3d": 4.28,
       "alpha_3d": 6.21,
       "return_5d": 0.1,
-      "alpha_5d": 0.83
+      "alpha_5d": 0.83,
+      "return_30d": -9.79,
+      "alpha_30d": -8.83
     },
     {
       "date": "2026-05-14",
@@ -893,7 +906,9 @@
       "return_3d": -5.22,
       "alpha_3d": -3.29,
       "return_5d": -3.19,
-      "alpha_5d": -2.46
+      "alpha_5d": -2.46,
+      "return_30d": -5.36,
+      "alpha_30d": -4.4
     },
     {
       "date": "2026-05-14",
@@ -926,7 +941,9 @@
       "return_3d": -3.98,
       "alpha_3d": -2.05,
       "return_5d": -4.46,
-      "alpha_5d": -3.73
+      "alpha_5d": -3.73,
+      "return_30d": -15.14,
+      "alpha_30d": -14.18
     },
     {
       "date": "2026-05-15",
@@ -1637,7 +1654,12 @@
       "return_3d": 4.82,
       "alpha_3d": 3.62,
       "return_5d": 0.67,
-      "alpha_5d": -1.06
+      "alpha_5d": -1.06,
+      "exit_date": "2026-06-29",
+      "exit_price": 1236.25,
+      "exit_return": 15.0,
+      "exit_reason": "target",
+      "days_held": 24
     },
     {
       "date": "2026-05-25",
@@ -1693,7 +1715,12 @@
       "return_3d": 4.82,
       "alpha_3d": 3.62,
       "return_5d": 0.67,
-      "alpha_5d": -1.06
+      "alpha_5d": -1.06,
+      "exit_date": "2026-06-29",
+      "exit_price": 1236.25,
+      "exit_return": 15.0,
+      "exit_reason": "target",
+      "days_held": 24
     },
     {
       "date": "2026-05-25",
@@ -2381,7 +2408,12 @@
       "return_3d": 0.26,
       "alpha_3d": 2.25,
       "return_5d": 1.1,
-      "alpha_5d": 4.92
+      "alpha_5d": 4.92,
+      "exit_date": "2026-06-29",
+      "exit_price": 255.87,
+      "exit_return": 15.0,
+      "exit_reason": "target",
+      "days_held": 17
     },
     {
       "date": "2026-06-03",
@@ -3593,7 +3625,9 @@
       "return_1d": -0.27,
       "alpha_1d": 1.19,
       "return_3d": 2.24,
-      "alpha_3d": 3.59
+      "alpha_3d": 3.59,
+      "return_5d": 6.38,
+      "alpha_5d": 6.84
     },
     {
       "date": "2026-06-22",
@@ -3624,7 +3658,9 @@
       "exit_price": 157.27,
       "exit_return": -4.93,
       "exit_reason": "stop",
-      "days_held": 4
+      "days_held": 4,
+      "return_5d": -0.8,
+      "alpha_5d": -0.35
     },
     {
       "date": "2026-06-22",
@@ -3655,7 +3691,9 @@
       "return_1d": 1.42,
       "alpha_1d": 2.87,
       "return_3d": 1.71,
-      "alpha_3d": 3.07
+      "alpha_3d": 3.07,
+      "return_5d": -0.02,
+      "alpha_5d": 0.43
     },
     {
       "date": "2026-06-23",
@@ -3681,7 +3719,12 @@
       "return_1d": -0.62,
       "alpha_1d": -0.57,
       "return_3d": 7.19,
-      "alpha_3d": 7.82
+      "alpha_3d": 7.82,
+      "exit_date": "2026-06-29",
+      "exit_price": 253.37,
+      "exit_return": 7.2,
+      "exit_reason": "target",
+      "days_held": 4
     },
     {
       "date": "2026-06-23",
@@ -3767,7 +3810,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_1d": 1.07,
-      "alpha_1d": 0.92
+      "alpha_1d": 0.92,
+      "return_3d": 5.17,
+      "alpha_3d": 4.11
     },
     {
       "date": "2026-06-24",
@@ -3791,7 +3836,9 @@
       "signal_close": 220.5,
       "entry_realistic": true,
       "return_1d": -1.47,
-      "alpha_1d": -1.62
+      "alpha_1d": -1.62,
+      "return_3d": 0.5,
+      "alpha_3d": -0.56
     },
     {
       "date": "2026-06-24",
@@ -3820,7 +3867,9 @@
       "exit_reason": "stop",
       "days_held": 1,
       "return_1d": -4.87,
-      "alpha_1d": -5.02
+      "alpha_1d": -5.02,
+      "return_3d": -7.3,
+      "alpha_3d": -8.36
     },
     {
       "date": "2026-06-25",
@@ -3904,9 +3953,9 @@
       "ticker": "JNJ",
       "name": "Johnson & Johnson",
       "sector": "Healthcare",
-      "entry_price": 254.66000366210938,
+      "entry_price": 253.19,
       "signal_close": 254.66000366210938,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.5,
       "stop_loss": 243.13,
       "target": 271.95,
@@ -3919,16 +3968,18 @@
         "atr_pct": 2.26,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.1,
+      "alpha_1d": 0.45
     },
     {
       "date": "2026-06-26",
       "ticker": "BRK-B",
       "name": "Berkshire Hathaway Inc. New",
       "sector": "Financial Services",
-      "entry_price": 498.6600036621094,
+      "entry_price": 497.79,
       "signal_close": 498.6600036621094,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.0,
       "stop_loss": 484.38,
       "target": 520.09,
@@ -3941,16 +3992,18 @@
         "atr_pct": 1.43,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.36,
+      "alpha_1d": -2.01
     },
     {
       "date": "2026-06-26",
       "ticker": "SNOW",
       "name": "Snowflake Inc.",
       "sector": "Technology",
-      "entry_price": 248.9600067138672,
+      "entry_price": 250.96,
       "signal_close": 248.9600067138672,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.3,
       "stop_loss": 220.64,
       "target": 253.01,
@@ -3961,6 +4014,79 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 5.69,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 0.27,
+      "alpha_1d": -1.37,
+      "exit_date": "2026-06-29",
+      "exit_price": 253.01,
+      "exit_return": 0.82,
+      "exit_reason": "target",
+      "days_held": 1
+    },
+    {
+      "date": "2026-06-29",
+      "ticker": "MRK",
+      "name": "Merck & Company, Inc.",
+      "sector": "Healthcare",
+      "entry_price": 129.3800048828125,
+      "signal_close": 129.3800048828125,
+      "entry_realistic": false,
+      "score": 20.0,
+      "stop_loss": 122.88,
+      "target": 139.12,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 15.04,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.51,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-29",
+      "ticker": "DE",
+      "name": "Deere & Company",
+      "sector": "Industrials",
+      "entry_price": 626.6300048828125,
+      "signal_close": 626.6300048828125,
+      "entry_realistic": false,
+      "score": 18.2,
+      "stop_loss": 591.97,
+      "target": 630.05,
+      "rr_ratio": 0.1,
+      "key_signals": {
+        "rs_vs_spy_30d": 10.01,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.77,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-29",
+      "ticker": "BKNG",
+      "name": "Booking Holdings Inc. Common St",
+      "sector": "Consumer Cyclical",
+      "entry_price": 182.41000366210938,
+      "signal_close": 182.41000366210938,
+      "entry_realistic": false,
+      "score": 17.5,
+      "stop_loss": 168.67,
+      "target": 184.89,
+      "rr_ratio": 0.18,
+      "key_signals": {
+        "rs_vs_spy_30d": 19.04,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.77,
         "insider_buy": false,
         "rs_leader": true
       }
