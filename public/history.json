@@ -976,7 +976,9 @@
       "return_3d": -2.78,
       "alpha_3d": -3.07,
       "return_5d": -6.33,
-      "alpha_5d": -7.2
+      "alpha_5d": -7.2,
+      "return_30d": -12.96,
+      "alpha_30d": -13.98
     },
     {
       "date": "2026-05-15",
@@ -1009,7 +1011,9 @@
       "return_3d": 3.63,
       "alpha_3d": 3.35,
       "return_5d": 5.17,
-      "alpha_5d": 4.29
+      "alpha_5d": 4.29,
+      "return_30d": 6.71,
+      "alpha_30d": 5.69
     },
     {
       "date": "2026-05-15",
@@ -1042,7 +1046,9 @@
       "return_3d": -0.51,
       "alpha_3d": -0.79,
       "return_5d": -8.55,
-      "alpha_5d": -9.43
+      "alpha_5d": -9.43,
+      "return_30d": -13.88,
+      "alpha_30d": -14.91
     },
     {
       "date": "2026-05-15",
@@ -1075,7 +1081,9 @@
       "return_3d": 1.35,
       "alpha_3d": 1.07,
       "return_5d": 0.3,
-      "alpha_5d": -0.57
+      "alpha_5d": -0.57,
+      "return_30d": -6.27,
+      "alpha_30d": -7.3
     },
     {
       "date": "2026-05-17",
@@ -1108,7 +1116,9 @@
       "return_3d": 2.29,
       "alpha_3d": 2.01,
       "return_5d": -2.07,
-      "alpha_5d": -2.95
+      "alpha_5d": -2.95,
+      "return_30d": -10.91,
+      "alpha_30d": -11.94
     },
     {
       "date": "2026-05-17",
@@ -1141,7 +1151,9 @@
       "return_3d": 1.07,
       "alpha_3d": 0.78,
       "return_5d": 0.47,
-      "alpha_5d": -0.41
+      "alpha_5d": -0.41,
+      "return_30d": -10.47,
+      "alpha_30d": -11.49
     },
     {
       "date": "2026-05-17",
@@ -1174,7 +1186,9 @@
       "return_3d": 1.82,
       "alpha_3d": 1.54,
       "return_5d": 6.44,
-      "alpha_5d": 5.56
+      "alpha_5d": 5.56,
+      "return_30d": 19.87,
+      "alpha_30d": 18.84
     },
     {
       "date": "2026-05-18",
@@ -3724,7 +3738,9 @@
       "exit_price": 253.37,
       "exit_return": 7.2,
       "exit_reason": "target",
-      "days_held": 4
+      "days_held": 4,
+      "return_5d": 6.47,
+      "alpha_5d": 4.67
     },
     {
       "date": "2026-06-23",
@@ -3750,7 +3766,9 @@
       "return_1d": 1.33,
       "alpha_1d": 1.38,
       "return_3d": 3.1,
-      "alpha_3d": 3.72
+      "alpha_3d": 3.72,
+      "return_5d": 0.39,
+      "alpha_5d": -1.41
     },
     {
       "date": "2026-06-23",
@@ -3781,7 +3799,9 @@
       "return_1d": 0.27,
       "alpha_1d": 0.31,
       "return_3d": -5.65,
-      "alpha_3d": -5.02
+      "alpha_3d": -5.02,
+      "return_5d": -8.03,
+      "alpha_5d": -9.83
     },
     {
       "date": "2026-06-24",
@@ -3898,7 +3918,9 @@
       "exit_price": 221.44,
       "exit_return": 1.35,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -0.02,
+      "alpha_3d": -1.72
     },
     {
       "date": "2026-06-25",
@@ -3922,7 +3944,9 @@
       "signal_close": 243.13999938964844,
       "entry_realistic": true,
       "return_1d": 3.3,
-      "alpha_1d": 4.02
+      "alpha_1d": 4.02,
+      "return_3d": 2.6,
+      "alpha_3d": 0.9
     },
     {
       "date": "2026-06-25",
@@ -3946,7 +3970,14 @@
       "signal_close": 419.8699951171875,
       "entry_realistic": true,
       "return_1d": -1.92,
-      "alpha_1d": -1.19
+      "alpha_1d": -1.19,
+      "return_3d": 3.79,
+      "alpha_3d": 2.09,
+      "exit_date": "2026-06-30",
+      "exit_price": 423.97,
+      "exit_return": 3.27,
+      "exit_reason": "target",
+      "days_held": 3
     },
     {
       "date": "2026-06-26",
@@ -4030,9 +4061,9 @@
       "ticker": "MRK",
       "name": "Merck & Company, Inc.",
       "sector": "Healthcare",
-      "entry_price": 129.3800048828125,
+      "entry_price": 129.21,
       "signal_close": 129.3800048828125,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.0,
       "stop_loss": 122.88,
       "target": 139.12,
@@ -4045,16 +4076,18 @@
         "atr_pct": 2.51,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.55,
+      "alpha_1d": -1.33
     },
     {
       "date": "2026-06-29",
       "ticker": "DE",
       "name": "Deere & Company",
       "sector": "Industrials",
-      "entry_price": 626.6300048828125,
+      "entry_price": 626.17,
       "signal_close": 626.6300048828125,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.2,
       "stop_loss": 591.97,
       "target": 630.05,
@@ -4067,16 +4100,23 @@
         "atr_pct": 2.77,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.3,
+      "alpha_1d": 0.52,
+      "exit_date": "2026-06-30",
+      "exit_price": 630.05,
+      "exit_return": 0.62,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-06-29",
       "ticker": "BKNG",
       "name": "Booking Holdings Inc. Common St",
       "sector": "Consumer Cyclical",
-      "entry_price": 182.41000366210938,
+      "entry_price": 180.31,
       "signal_close": 182.41000366210938,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.5,
       "stop_loss": 168.67,
       "target": 184.89,
@@ -4087,6 +4127,74 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 3.77,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -1.15,
+      "alpha_1d": -1.93
+    },
+    {
+      "date": "2026-06-30",
+      "ticker": "ETN",
+      "name": "Eaton Corporation, PLC",
+      "sector": "Industrials",
+      "entry_price": 426.1199951171875,
+      "signal_close": 426.1199951171875,
+      "entry_realistic": false,
+      "score": 18.5,
+      "stop_loss": 390.98,
+      "target": 429.31,
+      "rr_ratio": 0.09,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.65,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 4.12,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "ticker": "DHR",
+      "name": "Danaher Corporation",
+      "sector": "Healthcare",
+      "entry_price": 190.47999572753906,
+      "signal_close": 190.47999572753906,
+      "entry_realistic": false,
+      "score": 17.8,
+      "stop_loss": 180.16,
+      "target": 192.12,
+      "rr_ratio": 0.16,
+      "key_signals": {
+        "rs_vs_spy_30d": 16.62,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.71,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "ticker": "V",
+      "name": "Visa Inc.",
+      "sector": "Financial Services",
+      "entry_price": 343.0899963378906,
+      "signal_close": 343.0899963378906,
+      "entry_realistic": false,
+      "score": 15.8,
+      "stop_loss": 329.05,
+      "target": 345.81,
+      "rr_ratio": 0.19,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.29,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.05,
         "insider_buy": false,
         "rs_leader": true
       }
