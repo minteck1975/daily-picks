@@ -4428,6 +4428,50 @@
         "insider_buy": false,
         "rs_leader": true
       }
+    },
+    {
+      "date": "2026-07-03",
+      "ticker": "VRTX",
+      "name": "Vertex Pharmaceuticals Incorpor",
+      "sector": "Healthcare",
+      "entry_price": 528.0399780273438,
+      "signal_close": 528.0399780273438,
+      "entry_realistic": false,
+      "score": 16.7,
+      "stop_loss": 499.62,
+      "target": 570.67,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 20.08,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.69,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "ticker": "ABNB",
+      "name": "Airbnb, Inc.",
+      "sector": "Consumer Cyclical",
+      "entry_price": 148.92999267578125,
+      "signal_close": 148.92999267578125,
+      "entry_realistic": false,
+      "score": 16.0,
+      "stop_loss": 139.32,
+      "target": 150.07,
+      "rr_ratio": 0.12,
+      "key_signals": {
+        "rs_vs_spy_30d": 12.04,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.22,
+        "insider_buy": false,
+        "rs_leader": true
+      }
     }
   ]
 }
