@@ -1431,7 +1431,9 @@
       "return_3d": -5.69,
       "alpha_3d": -6.95,
       "return_5d": -6.41,
-      "alpha_5d": -8.22
+      "alpha_5d": -8.22,
+      "return_30d": -10.64,
+      "alpha_30d": -11.99
     },
     {
       "date": "2026-05-20",
@@ -1464,7 +1466,9 @@
       "return_3d": -1.02,
       "alpha_3d": -2.28,
       "return_5d": -1.48,
-      "alpha_5d": -3.28
+      "alpha_5d": -3.28,
+      "return_30d": 8.31,
+      "alpha_30d": 6.96
     },
     {
       "date": "2026-05-20",
@@ -1497,7 +1501,9 @@
       "return_3d": 2.7,
       "alpha_3d": 1.44,
       "return_5d": 4.72,
-      "alpha_5d": 2.92
+      "alpha_5d": 2.92,
+      "return_30d": -0.57,
+      "alpha_30d": -1.92
     },
     {
       "date": "2026-05-21",
@@ -4052,7 +4058,9 @@
       "return_1d": 2.1,
       "alpha_1d": 0.45,
       "return_3d": 0.31,
-      "alpha_3d": -1.99
+      "alpha_3d": -1.99,
+      "return_5d": 2.43,
+      "alpha_5d": -0.63
     },
     {
       "date": "2026-06-26",
@@ -4078,7 +4086,9 @@
       "return_1d": -0.36,
       "alpha_1d": -2.01,
       "return_3d": 0.39,
-      "alpha_3d": -1.91
+      "alpha_3d": -1.91,
+      "return_5d": 1.77,
+      "alpha_5d": -1.29
     },
     {
       "date": "2026-06-26",
@@ -4109,7 +4119,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": 4.08,
-      "alpha_3d": 1.78
+      "alpha_3d": 1.78,
+      "return_5d": 4.43,
+      "alpha_5d": 1.38
     },
     {
       "date": "2026-06-29",
@@ -4221,7 +4233,9 @@
         "rs_leader": true
       },
       "return_1d": -1.83,
-      "alpha_1d": -1.69
+      "alpha_1d": -1.69,
+      "return_3d": -1.56,
+      "alpha_3d": -2.17
     },
     {
       "date": "2026-06-30",
@@ -4250,7 +4264,9 @@
       "exit_price": 192.12,
       "exit_return": 0.08,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 0.86,
+      "alpha_3d": 0.26
     },
     {
       "date": "2026-06-30",
@@ -4279,7 +4295,9 @@
       "exit_price": 345.81,
       "exit_return": 0.36,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 3.68,
+      "alpha_3d": 3.08
     },
     {
       "date": "2026-07-01",
@@ -4368,9 +4386,9 @@
       "ticker": "AMGN",
       "name": "Amgen Inc.",
       "sector": "Healthcare",
-      "entry_price": 374.1499938964844,
+      "entry_price": 371.7,
       "signal_close": 374.1499938964844,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.5,
       "stop_loss": 357.88,
       "target": 398.56,
@@ -4383,16 +4401,18 @@
         "atr_pct": 2.17,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.42,
+      "alpha_1d": -2.29
     },
     {
       "date": "2026-07-02",
       "ticker": "LIN",
       "name": "Linde plc",
       "sector": "Basic Materials",
-      "entry_price": 546.6400146484375,
+      "entry_price": 543.72,
       "signal_close": 546.6400146484375,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.8,
       "stop_loss": 523.48,
       "target": 581.38,
@@ -4405,16 +4425,18 @@
         "atr_pct": 2.12,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.59,
+      "alpha_1d": -1.46
     },
     {
       "date": "2026-07-02",
       "ticker": "RTX",
       "name": "RTX Corporation",
       "sector": "Industrials",
-      "entry_price": 199.25,
+      "entry_price": 200.0,
       "signal_close": 199.25,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.5,
       "stop_loss": 189.76,
       "target": 202.82,
@@ -4427,16 +4449,18 @@
         "atr_pct": 2.38,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.68,
+      "alpha_1d": -0.19
     },
     {
       "date": "2026-07-03",
       "ticker": "VRTX",
       "name": "Vertex Pharmaceuticals Incorpor",
       "sector": "Healthcare",
-      "entry_price": 528.0399780273438,
+      "entry_price": 528.6,
       "signal_close": 528.0399780273438,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.7,
       "stop_loss": 499.62,
       "target": 570.67,
@@ -4449,16 +4473,18 @@
         "atr_pct": 2.69,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.19,
+      "alpha_1d": -0.69
     },
     {
       "date": "2026-07-03",
       "ticker": "ABNB",
       "name": "Airbnb, Inc.",
       "sector": "Consumer Cyclical",
-      "entry_price": 148.92999267578125,
+      "entry_price": 149.12,
       "signal_close": 148.92999267578125,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.0,
       "stop_loss": 139.32,
       "target": 150.07,
@@ -4469,6 +4495,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 3.22,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -0.99,
+      "alpha_1d": -1.86
+    },
+    {
+      "date": "2026-07-06",
+      "ticker": "UNP",
+      "name": "Union Pacific Corporation",
+      "sector": "Industrials",
+      "entry_price": 282.5899963378906,
+      "signal_close": 282.5899963378906,
+      "entry_realistic": false,
+      "score": 19.0,
+      "stop_loss": 270.14,
+      "target": 301.26,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.96,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.2,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-06",
+      "ticker": "MA",
+      "name": "Mastercard Incorporated",
+      "sector": "Financial Services",
+      "entry_price": 533.0999755859375,
+      "signal_close": 533.0999755859375,
+      "entry_realistic": false,
+      "score": 18.7,
+      "stop_loss": 507.53,
+      "target": 539.63,
+      "rr_ratio": 0.26,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.69,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.4,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-06",
+      "ticker": "ABT",
+      "name": "Abbott Laboratories",
+      "sector": "Healthcare",
+      "entry_price": 95.62999725341797,
+      "signal_close": 95.62999725341797,
+      "entry_realistic": false,
+      "score": 15.1,
+      "stop_loss": 90.31,
+      "target": 97.14,
+      "rr_ratio": 0.28,
+      "key_signals": {
+        "rs_vs_spy_30d": 6.85,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.78,
         "insider_buy": false,
         "rs_leader": true
       }
