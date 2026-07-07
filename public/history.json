@@ -1536,7 +1536,9 @@
       "exit_price": 1207.28,
       "exit_return": 15.0,
       "exit_reason": "target",
-      "days_held": 24
+      "days_held": 24,
+      "return_30d": 17.69,
+      "alpha_30d": 17.02
     },
     {
       "date": "2026-05-21",
@@ -1569,7 +1571,9 @@
       "return_3d": 4.19,
       "alpha_3d": 3.14,
       "return_5d": 3.1,
-      "alpha_5d": 1.25
+      "alpha_5d": 1.25,
+      "return_30d": -4.68,
+      "alpha_30d": -5.35
     },
     {
       "date": "2026-05-21",
@@ -1602,7 +1606,9 @@
       "return_3d": 0.54,
       "alpha_3d": -0.5,
       "return_5d": -2.67,
-      "alpha_5d": -4.53
+      "alpha_5d": -4.53,
+      "return_30d": 3.54,
+      "alpha_30d": 2.86
     },
     {
       "date": "2026-05-22",
@@ -3298,7 +3304,12 @@
       "return_3d": 0.4,
       "alpha_3d": 1.19,
       "return_5d": 1.03,
-      "alpha_5d": 3.31
+      "alpha_5d": 3.31,
+      "exit_date": "2026-07-07",
+      "exit_price": 60.33,
+      "exit_return": 5.58,
+      "exit_reason": "target",
+      "days_held": 13
     },
     {
       "date": "2026-06-16",
@@ -3811,7 +3822,12 @@
       "return_3d": 3.1,
       "alpha_3d": 3.72,
       "return_5d": 0.39,
-      "alpha_5d": -1.41
+      "alpha_5d": -1.41,
+      "exit_date": "2026-07-07",
+      "exit_price": 235.47,
+      "exit_return": 8.21,
+      "exit_reason": "target_gap",
+      "days_held": 9
     },
     {
       "date": "2026-06-23",
@@ -3905,7 +3921,12 @@
       "return_3d": 0.5,
       "alpha_3d": -0.56,
       "return_5d": 2.99,
-      "alpha_5d": 1.28
+      "alpha_5d": 1.28,
+      "exit_date": "2026-07-07",
+      "exit_price": 237.09,
+      "exit_return": 8.38,
+      "exit_reason": "target",
+      "days_held": 8
     },
     {
       "date": "2026-06-24",
@@ -4147,7 +4168,9 @@
       "return_1d": -0.55,
       "alpha_1d": -1.33,
       "return_3d": 0.27,
-      "alpha_3d": -0.24
+      "alpha_3d": -0.24,
+      "return_5d": -0.27,
+      "alpha_5d": -1.18
     },
     {
       "date": "2026-06-29",
@@ -4178,7 +4201,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": -0.78,
-      "alpha_3d": -1.29
+      "alpha_3d": -1.29,
+      "return_5d": -3.6,
+      "alpha_5d": -4.51
     },
     {
       "date": "2026-06-29",
@@ -4209,7 +4234,9 @@
       "exit_reason": "target",
       "days_held": 2,
       "return_3d": 2.36,
-      "alpha_3d": 1.85
+      "alpha_3d": 1.85,
+      "return_5d": 0.91,
+      "alpha_5d": 0.0
     },
     {
       "date": "2026-06-30",
@@ -4235,7 +4262,12 @@
       "return_1d": -1.83,
       "alpha_1d": -1.69,
       "return_3d": -1.56,
-      "alpha_3d": -2.17
+      "alpha_3d": -2.17,
+      "exit_date": "2026-07-07",
+      "exit_price": 390.98,
+      "exit_return": -6.91,
+      "exit_reason": "stop",
+      "days_held": 4
     },
     {
       "date": "2026-06-30",
@@ -4321,7 +4353,9 @@
         "rs_leader": true
       },
       "return_1d": 2.74,
-      "alpha_1d": 2.87
+      "alpha_1d": 2.87,
+      "return_3d": 2.21,
+      "alpha_3d": 1.95
     },
     {
       "date": "2026-07-01",
@@ -4350,7 +4384,9 @@
       "exit_price": 258.58,
       "exit_return": 1.09,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 4.48,
+      "alpha_3d": 4.22
     },
     {
       "date": "2026-07-01",
@@ -4379,7 +4415,9 @@
       "exit_price": 279.7,
       "exit_return": 0.25,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 1.48,
+      "alpha_3d": 1.22
     },
     {
       "date": "2026-07-02",
@@ -4451,7 +4489,12 @@
         "rs_leader": true
       },
       "return_1d": 0.68,
-      "alpha_1d": -0.19
+      "alpha_1d": -0.19,
+      "exit_date": "2026-07-07",
+      "exit_price": 203.54,
+      "exit_return": 1.77,
+      "exit_reason": "target_gap",
+      "days_held": 2
     },
     {
       "date": "2026-07-03",
@@ -4506,9 +4549,9 @@
       "ticker": "UNP",
       "name": "Union Pacific Corporation",
       "sector": "Industrials",
-      "entry_price": 282.5899963378906,
+      "entry_price": 284.43,
       "signal_close": 282.5899963378906,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.0,
       "stop_loss": 270.14,
       "target": 301.26,
@@ -4521,16 +4564,18 @@
         "atr_pct": 2.2,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.46,
+      "alpha_1d": 0.01
     },
     {
       "date": "2026-07-06",
       "ticker": "MA",
       "name": "Mastercard Incorporated",
       "sector": "Financial Services",
-      "entry_price": 533.0999755859375,
+      "entry_price": 533.84,
       "signal_close": 533.0999755859375,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.7,
       "stop_loss": 507.53,
       "target": 539.63,
@@ -4543,16 +4588,23 @@
         "atr_pct": 2.4,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.42,
+      "alpha_1d": 0.06,
+      "exit_date": "2026-07-07",
+      "exit_price": 539.63,
+      "exit_return": 1.08,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-06",
       "ticker": "ABT",
       "name": "Abbott Laboratories",
       "sector": "Healthcare",
-      "entry_price": 95.62999725341797,
+      "entry_price": 97.27,
       "signal_close": 95.62999725341797,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.1,
       "stop_loss": 90.31,
       "target": 97.14,
@@ -4563,6 +4615,74 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 2.78,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -1.47,
+      "alpha_1d": -0.99
+    },
+    {
+      "date": "2026-07-07",
+      "ticker": "SPGI",
+      "name": "S&P Global Inc.",
+      "sector": "Financial Services",
+      "entry_price": 443.4599914550781,
+      "signal_close": 443.4599914550781,
+      "entry_realistic": false,
+      "score": 19.3,
+      "stop_loss": 412.85,
+      "target": 447.7,
+      "rr_ratio": 0.14,
+      "key_signals": {
+        "rs_vs_spy_30d": 12.08,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": true,
+        "atr_pct": 3.45,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-07",
+      "ticker": "LMT",
+      "name": "Lockheed Martin Corporation",
+      "sector": "Industrials",
+      "entry_price": 535.3800048828125,
+      "signal_close": 535.3800048828125,
+      "entry_realistic": false,
+      "score": 19.1,
+      "stop_loss": 504.28,
+      "target": 538.5,
+      "rr_ratio": 0.1,
+      "key_signals": {
+        "rs_vs_spy_30d": 1.74,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.9,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-07-07",
+      "ticker": "PG",
+      "name": "Procter & Gamble Company (The)",
+      "sector": "Consumer Defensive",
+      "entry_price": 152.75,
+      "signal_close": 152.75,
+      "entry_realistic": false,
+      "score": 17.3,
+      "stop_loss": 146.27,
+      "target": 162.47,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.85,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.12,
         "insider_buy": false,
         "rs_leader": true
       }
