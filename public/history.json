@@ -1851,7 +1851,9 @@
       "return_3d": 2.98,
       "alpha_3d": 2.19,
       "return_5d": 6.9,
-      "alpha_5d": 5.7
+      "alpha_5d": 5.7,
+      "return_30d": 6.03,
+      "alpha_30d": 5.88
     },
     {
       "date": "2026-05-26",
@@ -1884,7 +1886,9 @@
       "return_3d": -1.6,
       "alpha_3d": -2.39,
       "return_5d": -4.32,
-      "alpha_5d": -5.52
+      "alpha_5d": -5.52,
+      "return_30d": -8.21,
+      "alpha_30d": -8.35
     },
     {
       "date": "2026-05-26",
@@ -1917,7 +1921,9 @@
       "return_3d": -2.58,
       "alpha_3d": -3.36,
       "return_5d": -3.32,
-      "alpha_5d": -4.51
+      "alpha_5d": -4.51,
+      "return_30d": 1.89,
+      "alpha_30d": 1.74
     },
     {
       "date": "2026-05-27",
@@ -4383,7 +4389,9 @@
       "return_1d": 2.74,
       "alpha_1d": 2.87,
       "return_3d": 2.21,
-      "alpha_3d": 1.95
+      "alpha_3d": 1.95,
+      "return_5d": -1.06,
+      "alpha_5d": -1.86
     },
     {
       "date": "2026-07-01",
@@ -4414,7 +4422,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": 4.48,
-      "alpha_3d": 4.22
+      "alpha_3d": 4.22,
+      "return_5d": 1.3,
+      "alpha_5d": 0.5
     },
     {
       "date": "2026-07-01",
@@ -4445,7 +4455,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": 1.48,
-      "alpha_3d": 1.22
+      "alpha_3d": 1.22,
+      "return_5d": 2.16,
+      "alpha_5d": 1.37
     },
     {
       "date": "2026-07-02",
@@ -4497,7 +4509,12 @@
       "return_1d": -0.59,
       "alpha_1d": -1.46,
       "return_3d": -2.95,
-      "alpha_3d": -3.04
+      "alpha_3d": -3.04,
+      "exit_date": "2026-07-09",
+      "exit_price": 523.48,
+      "exit_return": -3.72,
+      "exit_reason": "stop",
+      "days_held": 4
     },
     {
       "date": "2026-07-02",
@@ -4609,7 +4626,9 @@
         "rs_leader": true
       },
       "return_1d": -0.46,
-      "alpha_1d": 0.01
+      "alpha_1d": 0.01,
+      "return_3d": 0.21,
+      "alpha_3d": 0.16
     },
     {
       "date": "2026-07-06",
@@ -4638,7 +4657,9 @@
       "exit_price": 539.63,
       "exit_return": 1.08,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -1.99,
+      "alpha_3d": -2.05
     },
     {
       "date": "2026-07-06",
@@ -4662,7 +4683,9 @@
         "rs_leader": true
       },
       "return_1d": -1.47,
-      "alpha_1d": -0.99
+      "alpha_1d": -0.99,
+      "return_3d": -2.95,
+      "alpha_3d": -3.01
     },
     {
       "date": "2026-07-07",
@@ -4734,16 +4757,21 @@
         "rs_leader": true
       },
       "return_1d": -1.7,
-      "alpha_1d": -1.39
+      "alpha_1d": -1.39,
+      "exit_date": "2026-07-09",
+      "exit_price": 146.27,
+      "exit_return": -3.11,
+      "exit_reason": "stop",
+      "days_held": 2
     },
     {
       "date": "2026-07-08",
       "ticker": "ANET",
       "name": "Arista Networks, Inc.",
       "sector": "Technology",
-      "entry_price": 181.0500030517578,
+      "entry_price": 187.0,
       "signal_close": 181.0500030517578,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.3,
       "stop_loss": 159.55,
       "target": 213.3,
@@ -4756,16 +4784,18 @@
         "atr_pct": 5.94,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.24,
+      "alpha_1d": -2.08
     },
     {
       "date": "2026-07-08",
       "ticker": "SCHW",
       "name": "Charles Schwab Corporation (The",
       "sector": "Financial Services",
-      "entry_price": 101.69999694824219,
+      "entry_price": 101.42,
       "signal_close": 101.69999694824219,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.0,
       "stop_loss": 96.58,
       "target": 102.54,
@@ -4778,16 +4808,23 @@
         "atr_pct": 2.52,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.48,
+      "alpha_1d": -0.36,
+      "exit_date": "2026-07-09",
+      "exit_price": 102.54,
+      "exit_return": 1.1,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-08",
       "ticker": "AMGN",
       "name": "Amgen Inc.",
       "sector": "Healthcare",
-      "entry_price": 367.989990234375,
+      "entry_price": 367.82,
       "signal_close": 367.989990234375,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.0,
       "stop_loss": 350.4,
       "target": 371.42,
@@ -4798,6 +4835,74 @@
         "near_52w_high": true,
         "breakout_recent": true,
         "atr_pct": 2.39,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -1.14,
+      "alpha_1d": -1.99
+    },
+    {
+      "date": "2026-07-09",
+      "ticker": "WFC",
+      "name": "Wells Fargo & Company",
+      "sector": "Financial Services",
+      "entry_price": 86.91000366210938,
+      "signal_close": 86.91000366210938,
+      "entry_realistic": false,
+      "score": 17.3,
+      "stop_loss": 83.03,
+      "target": 87.45,
+      "rr_ratio": 0.14,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.96,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.23,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-09",
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "sector": "Technology",
+      "entry_price": 316.2200012207031,
+      "signal_close": 316.2200012207031,
+      "entry_realistic": false,
+      "score": 17.0,
+      "stop_loss": 298.3,
+      "target": 343.1,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 2.41,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.83,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-07-09",
+      "ticker": "BKNG",
+      "name": "Booking Holdings Inc. Common St",
+      "sector": "Consumer Cyclical",
+      "entry_price": 175.52000427246094,
+      "signal_close": 175.52000427246094,
+      "entry_realistic": false,
+      "score": 15.3,
+      "stop_loss": 161.71,
+      "target": 176.58,
+      "rr_ratio": 0.08,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.33,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.94,
         "insider_buy": false,
         "rs_leader": true
       }
