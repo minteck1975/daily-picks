@@ -2166,7 +2166,9 @@
       "return_3d": -2.13,
       "alpha_3d": -1.83,
       "return_5d": 2.03,
-      "alpha_5d": 4.53
+      "alpha_5d": 4.53,
+      "return_30d": 10.03,
+      "alpha_30d": 10.65
     },
     {
       "date": "2026-05-29",
@@ -2199,7 +2201,9 @@
       "return_3d": -7.19,
       "alpha_3d": -6.89,
       "return_5d": -8.35,
-      "alpha_5d": -5.85
+      "alpha_5d": -5.85,
+      "return_30d": 6.14,
+      "alpha_30d": 6.76
     },
     {
       "date": "2026-05-29",
@@ -2232,7 +2236,9 @@
       "return_3d": 1.22,
       "alpha_3d": 1.51,
       "return_5d": 2.08,
-      "alpha_5d": 4.58
+      "alpha_5d": 4.58,
+      "return_30d": 9.66,
+      "alpha_30d": 10.28
     },
     {
       "date": "2026-06-01",
@@ -4723,7 +4729,12 @@
       "return_3d": -2.95,
       "alpha_3d": -3.01,
       "return_5d": -5.3,
-      "alpha_5d": -5.02
+      "alpha_5d": -5.02,
+      "exit_date": "2026-07-14",
+      "exit_price": 90.31,
+      "exit_return": -7.16,
+      "exit_reason": "stop",
+      "days_held": 6
     },
     {
       "date": "2026-07-07",
@@ -4749,7 +4760,9 @@
       "return_1d": -2.53,
       "alpha_1d": -2.23,
       "return_3d": -2.6,
-      "alpha_3d": -3.57
+      "alpha_3d": -3.57,
+      "return_5d": -0.71,
+      "alpha_5d": -1.26
     },
     {
       "date": "2026-07-07",
@@ -4775,7 +4788,9 @@
       "return_1d": -1.8,
       "alpha_1d": -1.49,
       "return_3d": -2.68,
-      "alpha_3d": -3.65
+      "alpha_3d": -3.65,
+      "return_5d": -4.21,
+      "alpha_5d": -4.76
     },
     {
       "date": "2026-07-07",
@@ -4806,7 +4821,9 @@
       "exit_reason": "stop",
       "days_held": 2,
       "return_3d": -2.6,
-      "alpha_3d": -3.57
+      "alpha_3d": -3.57,
+      "return_5d": -3.23,
+      "alpha_5d": -3.78
     },
     {
       "date": "2026-07-08",
@@ -4913,7 +4930,9 @@
         "rs_leader": true
       },
       "return_1d": -0.39,
-      "alpha_1d": -0.82
+      "alpha_1d": -0.82,
+      "return_3d": -2.53,
+      "alpha_3d": -2.54
     },
     {
       "date": "2026-07-09",
@@ -4937,7 +4956,9 @@
         "rs_leader": false
       },
       "return_1d": 0.19,
-      "alpha_1d": -0.24
+      "alpha_1d": -0.24,
+      "return_3d": 0.04,
+      "alpha_3d": 0.03
     },
     {
       "date": "2026-07-09",
@@ -4966,7 +4987,9 @@
       "exit_price": 176.58,
       "exit_return": 0.27,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -0.71,
+      "alpha_3d": -0.73
     },
     {
       "date": "2026-07-10",
@@ -5048,16 +5071,21 @@
         "rs_leader": true
       },
       "return_1d": -0.09,
-      "alpha_1d": 0.67
+      "alpha_1d": 0.67,
+      "exit_date": "2026-07-14",
+      "exit_price": 226.37,
+      "exit_return": -22.08,
+      "exit_reason": "stop_gap",
+      "days_held": 2
     },
     {
       "date": "2026-07-13",
       "ticker": "SHOP",
       "name": "Shopify Inc.",
       "sector": "Technology",
-      "entry_price": 124.73999786376953,
+      "entry_price": 121.45,
       "signal_close": 124.73999786376953,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.5,
       "stop_loss": 112.87,
       "target": 125.94,
@@ -5070,16 +5098,23 @@
         "atr_pct": 4.76,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 3.48,
+      "alpha_1d": 3.13,
+      "exit_date": "2026-07-14",
+      "exit_price": 125.94,
+      "exit_return": 3.7,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-13",
       "ticker": "SBUX",
       "name": "Starbucks Corporation",
       "sector": "Consumer Cyclical",
-      "entry_price": 107.33999633789062,
+      "entry_price": 107.61,
       "signal_close": 107.33999633789062,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.0,
       "stop_loss": 101.97,
       "target": 107.88,
@@ -5092,16 +5127,23 @@
         "atr_pct": 2.5,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.34,
+      "alpha_1d": -1.69,
+      "exit_date": "2026-07-14",
+      "exit_price": 107.88,
+      "exit_return": 0.25,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-13",
       "ticker": "KO",
       "name": "Coca-Cola Company (The)",
       "sector": "Consumer Defensive",
-      "entry_price": 84.25,
+      "entry_price": 84.17,
       "signal_close": 84.25,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.5,
       "stop_loss": 80.75,
       "target": 84.68,
@@ -5112,6 +5154,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.08,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -1.29,
+      "alpha_1d": -1.65
+    },
+    {
+      "date": "2026-07-14",
+      "ticker": "TMO",
+      "name": "Thermo Fisher Scientific Inc",
+      "sector": "Healthcare",
+      "entry_price": 534.0700073242188,
+      "signal_close": 534.0700073242188,
+      "entry_realistic": false,
+      "score": 16.5,
+      "stop_loss": 502.58,
+      "target": 537.82,
+      "rr_ratio": 0.12,
+      "key_signals": {
+        "rs_vs_spy_30d": 9.05,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.95,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-14",
+      "ticker": "AXP",
+      "name": "American Express Company",
+      "sector": "Financial Services",
+      "entry_price": 355.05999755859375,
+      "signal_close": 355.05999755859375,
+      "entry_realistic": false,
+      "score": 16.3,
+      "stop_loss": 336.98,
+      "target": 357.59,
+      "rr_ratio": 0.14,
+      "key_signals": {
+        "rs_vs_spy_30d": 12.81,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.55,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-14",
+      "ticker": "ANET",
+      "name": "Arista Networks, Inc.",
+      "sector": "Technology",
+      "entry_price": 182.57000732421875,
+      "signal_close": 182.57000732421875,
+      "entry_realistic": false,
+      "score": 16.0,
+      "stop_loss": 161.65,
+      "target": 185.59,
+      "rr_ratio": 0.14,
+      "key_signals": {
+        "rs_vs_spy_30d": 15.1,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 5.73,
         "insider_buy": false,
         "rs_leader": true
       }
