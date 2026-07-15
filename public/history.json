@@ -2271,7 +2271,9 @@
       "return_3d": -3.57,
       "alpha_3d": -3.38,
       "return_5d": -8.58,
-      "alpha_5d": -6.03
+      "alpha_5d": -6.03,
+      "return_30d": -16.2,
+      "alpha_30d": -15.71
     },
     {
       "date": "2026-06-01",
@@ -2304,7 +2306,9 @@
       "return_3d": 1.44,
       "alpha_3d": 1.63,
       "return_5d": -0.3,
-      "alpha_5d": 2.25
+      "alpha_5d": 2.25,
+      "return_30d": 11.56,
+      "alpha_30d": 12.06
     },
     {
       "date": "2026-06-01",
@@ -2337,7 +2341,9 @@
       "return_3d": 5.42,
       "alpha_3d": 5.62,
       "return_5d": 7.66,
-      "alpha_5d": 10.21
+      "alpha_5d": 10.21,
+      "return_30d": 8.36,
+      "alpha_30d": 8.85
     },
     {
       "date": "2026-06-02",
@@ -4414,7 +4420,12 @@
       "return_3d": 2.21,
       "alpha_3d": 1.95,
       "return_5d": -1.06,
-      "alpha_5d": -1.86
+      "alpha_5d": -1.86,
+      "exit_date": "2026-07-15",
+      "exit_price": 337.32,
+      "exit_return": -4.05,
+      "exit_reason": "stop",
+      "days_held": 9
     },
     {
       "date": "2026-07-01",
@@ -4640,7 +4651,12 @@
       "return_3d": -4.14,
       "alpha_3d": -4.22,
       "return_5d": -0.34,
-      "alpha_5d": -1.7
+      "alpha_5d": -1.7,
+      "exit_date": "2026-07-15",
+      "exit_price": 150.07,
+      "exit_return": 0.64,
+      "exit_reason": "target",
+      "days_held": 8
     },
     {
       "date": "2026-07-06",
@@ -4762,7 +4778,12 @@
       "return_3d": -2.6,
       "alpha_3d": -3.57,
       "return_5d": -0.71,
-      "alpha_5d": -1.26
+      "alpha_5d": -1.26,
+      "exit_date": "2026-07-15",
+      "exit_price": 447.7,
+      "exit_return": 1.29,
+      "exit_reason": "target",
+      "days_held": 6
     },
     {
       "date": "2026-07-07",
@@ -4849,7 +4870,9 @@
       "return_1d": -1.24,
       "alpha_1d": -2.08,
       "return_3d": -3.13,
-      "alpha_3d": -3.63
+      "alpha_3d": -3.63,
+      "return_5d": -8.06,
+      "alpha_5d": -9.33
     },
     {
       "date": "2026-07-08",
@@ -4880,7 +4903,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": 0.95,
-      "alpha_3d": 0.44
+      "alpha_3d": 0.44,
+      "return_5d": 1.35,
+      "alpha_5d": 0.09
     },
     {
       "date": "2026-07-08",
@@ -4906,7 +4931,9 @@
       "return_1d": -1.14,
       "alpha_1d": -1.99,
       "return_3d": -2.0,
-      "alpha_3d": -2.51
+      "alpha_3d": -2.51,
+      "return_5d": -2.58,
+      "alpha_5d": -3.85
     },
     {
       "date": "2026-07-09",
@@ -5018,7 +5045,9 @@
       "exit_price": 352.95,
       "exit_return": 0.13,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -4.27,
+      "alpha_3d": -4.25
     },
     {
       "date": "2026-07-10",
@@ -5047,7 +5076,9 @@
       "exit_price": 200.5,
       "exit_return": 0.91,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 1.05,
+      "alpha_3d": 1.07
     },
     {
       "date": "2026-07-10",
@@ -5076,7 +5107,9 @@
       "exit_price": 226.37,
       "exit_return": -22.08,
       "exit_reason": "stop_gap",
-      "days_held": 2
+      "days_held": 2,
+      "return_3d": -27.3,
+      "alpha_3d": -27.28
     },
     {
       "date": "2026-07-13",
@@ -5165,9 +5198,9 @@
       "ticker": "TMO",
       "name": "Thermo Fisher Scientific Inc",
       "sector": "Healthcare",
-      "entry_price": 534.0700073242188,
+      "entry_price": 537.24,
       "signal_close": 534.0700073242188,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.5,
       "stop_loss": 502.58,
       "target": 537.82,
@@ -5180,16 +5213,23 @@
         "atr_pct": 2.95,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.36,
+      "alpha_1d": -0.76,
+      "exit_date": "2026-07-15",
+      "exit_price": 537.82,
+      "exit_return": 0.11,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-14",
       "ticker": "AXP",
       "name": "American Express Company",
       "sector": "Financial Services",
-      "entry_price": 355.05999755859375,
+      "entry_price": 356.14,
       "signal_close": 355.05999755859375,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.3,
       "stop_loss": 336.98,
       "target": 357.59,
@@ -5202,16 +5242,23 @@
         "atr_pct": 2.55,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.65,
+      "alpha_1d": 0.25,
+      "exit_date": "2026-07-15",
+      "exit_price": 357.59,
+      "exit_return": 0.41,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-14",
       "ticker": "ANET",
       "name": "Arista Networks, Inc.",
       "sector": "Technology",
-      "entry_price": 182.57000732421875,
+      "entry_price": 184.0,
       "signal_close": 182.57000732421875,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.0,
       "stop_loss": 161.65,
       "target": 185.59,
@@ -5222,6 +5269,79 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 5.73,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -6.57,
+      "alpha_1d": -6.96,
+      "exit_date": "2026-07-15",
+      "exit_price": 185.59,
+      "exit_return": 0.86,
+      "exit_reason": "target",
+      "days_held": 1
+    },
+    {
+      "date": "2026-07-15",
+      "ticker": "JPM",
+      "name": "JP Morgan Chase & Co.",
+      "sector": "Financial Services",
+      "entry_price": 346.9100036621094,
+      "signal_close": 346.9100036621094,
+      "entry_realistic": false,
+      "score": 17.7,
+      "stop_loss": 331.42,
+      "target": 351.24,
+      "rr_ratio": 0.28,
+      "key_signals": {
+        "rs_vs_spy_30d": 17.46,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.23,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-15",
+      "ticker": "BKNG",
+      "name": "Booking Holdings Inc. Common St",
+      "sector": "Consumer Cyclical",
+      "entry_price": 182.8000030517578,
+      "signal_close": 182.8000030517578,
+      "entry_realistic": false,
+      "score": 17.5,
+      "stop_loss": 170.04,
+      "target": 184.89,
+      "rr_ratio": 0.16,
+      "key_signals": {
+        "rs_vs_spy_30d": 8.5,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.49,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-15",
+      "ticker": "ETN",
+      "name": "Eaton Corporation, PLC",
+      "sector": "Industrials",
+      "entry_price": 412.8599853515625,
+      "signal_close": 412.8599853515625,
+      "entry_realistic": false,
+      "score": 16.3,
+      "stop_loss": 378.29,
+      "target": 415.62,
+      "rr_ratio": 0.08,
+      "key_signals": {
+        "rs_vs_spy_30d": 3.69,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 4.19,
         "insider_buy": false,
         "rs_leader": true
       }
