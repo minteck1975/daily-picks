@@ -2376,7 +2376,9 @@
       "return_3d": -3.06,
       "alpha_3d": -0.17,
       "return_5d": -8.29,
-      "alpha_5d": -5.33
+      "alpha_5d": -5.33,
+      "return_30d": -9.28,
+      "alpha_30d": -8.12
     },
     {
       "date": "2026-06-02",
@@ -2409,7 +2411,9 @@
       "return_3d": -1.11,
       "alpha_3d": 1.79,
       "return_5d": 0.03,
-      "alpha_5d": 2.99
+      "alpha_5d": 2.99,
+      "return_30d": -4.07,
+      "alpha_30d": -2.91
     },
     {
       "date": "2026-06-02",
@@ -2442,7 +2446,9 @@
       "return_3d": 6.79,
       "alpha_3d": 9.69,
       "return_5d": 8.04,
-      "alpha_5d": 11.0
+      "alpha_5d": 11.0,
+      "return_30d": 10.35,
+      "alpha_30d": 11.52
     },
     {
       "date": "2026-06-03",
@@ -4933,7 +4939,12 @@
       "return_3d": -2.0,
       "alpha_3d": -2.51,
       "return_5d": -2.58,
-      "alpha_5d": -3.85
+      "alpha_5d": -3.85,
+      "exit_date": "2026-07-16",
+      "exit_price": 371.42,
+      "exit_return": 0.98,
+      "exit_reason": "target",
+      "days_held": 6
     },
     {
       "date": "2026-07-09",
@@ -4959,7 +4970,9 @@
       "return_1d": -0.39,
       "alpha_1d": -0.82,
       "return_3d": -2.53,
-      "alpha_3d": -2.54
+      "alpha_3d": -2.54,
+      "return_5d": 0.65,
+      "alpha_5d": 0.78
     },
     {
       "date": "2026-07-09",
@@ -4985,7 +4998,9 @@
       "return_1d": 0.19,
       "alpha_1d": -0.24,
       "return_3d": 0.04,
-      "alpha_3d": 0.03
+      "alpha_3d": 0.03,
+      "return_5d": 5.89,
+      "alpha_5d": 6.02
     },
     {
       "date": "2026-07-09",
@@ -5016,7 +5031,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": -0.71,
-      "alpha_3d": -0.73
+      "alpha_3d": -0.73,
+      "return_5d": 4.83,
+      "alpha_5d": 4.96
     },
     {
       "date": "2026-07-10",
@@ -5138,7 +5155,9 @@
       "exit_price": 125.94,
       "exit_return": 3.7,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 2.97,
+      "alpha_3d": 2.77
     },
     {
       "date": "2026-07-13",
@@ -5167,7 +5186,9 @@
       "exit_price": 107.88,
       "exit_return": 0.25,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 0.71,
+      "alpha_3d": 0.5
     },
     {
       "date": "2026-07-13",
@@ -5191,7 +5212,14 @@
         "rs_leader": true
       },
       "return_1d": -1.29,
-      "alpha_1d": -1.65
+      "alpha_1d": -1.65,
+      "return_3d": 0.89,
+      "alpha_3d": 0.68,
+      "exit_date": "2026-07-16",
+      "exit_price": 84.68,
+      "exit_return": 0.61,
+      "exit_reason": "target",
+      "days_held": 3
     },
     {
       "date": "2026-07-14",
@@ -5285,9 +5313,9 @@
       "ticker": "JPM",
       "name": "JP Morgan Chase & Co.",
       "sector": "Financial Services",
-      "entry_price": 346.9100036621094,
+      "entry_price": 349.28,
       "signal_close": 346.9100036621094,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.7,
       "stop_loss": 331.42,
       "target": 351.24,
@@ -5300,16 +5328,18 @@
         "atr_pct": 2.23,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.76,
+      "alpha_1d": -1.21
     },
     {
       "date": "2026-07-15",
       "ticker": "BKNG",
       "name": "Booking Holdings Inc. Common St",
       "sector": "Consumer Cyclical",
-      "entry_price": 182.8000030517578,
+      "entry_price": 184.43,
       "signal_close": 182.8000030517578,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.5,
       "stop_loss": 170.04,
       "target": 184.89,
@@ -5322,16 +5352,23 @@
         "atr_pct": 3.49,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.1,
+      "alpha_1d": 0.64,
+      "exit_date": "2026-07-16",
+      "exit_price": 184.89,
+      "exit_return": 0.25,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-15",
       "ticker": "ETN",
       "name": "Eaton Corporation, PLC",
       "sector": "Industrials",
-      "entry_price": 412.8599853515625,
+      "entry_price": 401.79,
       "signal_close": 412.8599853515625,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.3,
       "stop_loss": 378.29,
       "target": 415.62,
@@ -5342,6 +5379,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 4.19,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -1.37,
+      "alpha_1d": -0.83
+    },
+    {
+      "date": "2026-07-16",
+      "ticker": "WFC",
+      "name": "Wells Fargo & Company",
+      "sector": "Financial Services",
+      "entry_price": 88.06999969482422,
+      "signal_close": 88.06999969482422,
+      "entry_realistic": false,
+      "score": 20.3,
+      "stop_loss": 83.88,
+      "target": 88.57,
+      "rr_ratio": 0.12,
+      "key_signals": {
+        "rs_vs_spy_30d": 12.03,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.38,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-16",
+      "ticker": "BMY",
+      "name": "Bristol-Myers Squibb Company",
+      "sector": "Healthcare",
+      "entry_price": 60.5099983215332,
+      "signal_close": 60.5099983215332,
+      "entry_realistic": false,
+      "score": 17.7,
+      "stop_loss": 57.18,
+      "target": 65.51,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 12.27,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.75,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-16",
+      "ticker": "HD",
+      "name": "Home Depot, Inc. (The)",
+      "sector": "Consumer Cyclical",
+      "entry_price": 348.0199890136719,
+      "signal_close": 348.0199890136719,
+      "entry_realistic": false,
+      "score": 15.5,
+      "stop_loss": 331.09,
+      "target": 350.5,
+      "rr_ratio": 0.15,
+      "key_signals": {
+        "rs_vs_spy_30d": 12.88,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.43,
         "insider_buy": false,
         "rs_leader": true
       }
