@@ -2481,7 +2481,9 @@
       "return_3d": -6.85,
       "alpha_3d": -4.86,
       "return_5d": -11.27,
-      "alpha_5d": -7.45
+      "alpha_5d": -7.45,
+      "return_30d": -9.8,
+      "alpha_30d": -8.35
     },
     {
       "date": "2026-06-03",
@@ -2514,7 +2516,9 @@
       "exit_price": 255.87,
       "exit_return": 15.0,
       "exit_reason": "target",
-      "days_held": 17
+      "days_held": 17,
+      "return_30d": 14.38,
+      "alpha_30d": 15.83
     },
     {
       "date": "2026-06-03",
@@ -2547,7 +2551,9 @@
       "return_3d": 1.7,
       "alpha_3d": 3.69,
       "return_5d": 0.64,
-      "alpha_5d": 4.46
+      "alpha_5d": 4.46,
+      "return_30d": 10.16,
+      "alpha_30d": 11.61
     },
     {
       "date": "2026-06-04",
@@ -4690,7 +4696,12 @@
       "return_3d": 0.21,
       "alpha_3d": 0.16,
       "return_5d": 1.65,
-      "alpha_5d": 1.93
+      "alpha_5d": 1.93,
+      "exit_date": "2026-07-17",
+      "exit_price": 301.26,
+      "exit_return": 5.92,
+      "exit_reason": "target",
+      "days_held": 9
     },
     {
       "date": "2026-07-06",
@@ -4878,7 +4889,12 @@
       "return_3d": -3.13,
       "alpha_3d": -3.63,
       "return_5d": -8.06,
-      "alpha_5d": -9.33
+      "alpha_5d": -9.33,
+      "exit_date": "2026-07-17",
+      "exit_price": 159.55,
+      "exit_return": -14.68,
+      "exit_reason": "stop",
+      "days_held": 7
     },
     {
       "date": "2026-07-08",
@@ -5064,7 +5080,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": -4.27,
-      "alpha_3d": -4.25
+      "alpha_3d": -4.25,
+      "return_5d": -0.1,
+      "alpha_5d": 1.45
     },
     {
       "date": "2026-07-10",
@@ -5095,7 +5113,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": 1.05,
-      "alpha_3d": 1.07
+      "alpha_3d": 1.07,
+      "return_5d": 2.58,
+      "alpha_5d": 4.13
     },
     {
       "date": "2026-07-10",
@@ -5126,7 +5146,9 @@
       "exit_reason": "stop_gap",
       "days_held": 2,
       "return_3d": -27.3,
-      "alpha_3d": -27.28
+      "alpha_3d": -27.28,
+      "return_5d": -26.79,
+      "alpha_5d": -25.25
     },
     {
       "date": "2026-07-13",
@@ -5248,7 +5270,9 @@
       "exit_price": 537.82,
       "exit_return": 0.11,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -0.89,
+      "alpha_3d": 0.25
     },
     {
       "date": "2026-07-14",
@@ -5277,7 +5301,9 @@
       "exit_price": 357.59,
       "exit_return": 0.41,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -0.22,
+      "alpha_3d": 0.91
     },
     {
       "date": "2026-07-14",
@@ -5306,7 +5332,9 @@
       "exit_price": 185.59,
       "exit_return": 0.86,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -8.36,
+      "alpha_3d": -7.23
     },
     {
       "date": "2026-07-15",
@@ -5390,9 +5418,9 @@
       "ticker": "WFC",
       "name": "Wells Fargo & Company",
       "sector": "Financial Services",
-      "entry_price": 88.06999969482422,
+      "entry_price": 87.74,
       "signal_close": 88.06999969482422,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.3,
       "stop_loss": 83.88,
       "target": 88.57,
@@ -5405,16 +5433,23 @@
         "atr_pct": 2.38,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.26,
+      "alpha_1d": 0.73,
+      "exit_date": "2026-07-17",
+      "exit_price": 88.57,
+      "exit_return": 0.95,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-16",
       "ticker": "BMY",
       "name": "Bristol-Myers Squibb Company",
       "sector": "Healthcare",
-      "entry_price": 60.5099983215332,
+      "entry_price": 60.87,
       "signal_close": 60.5099983215332,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.7,
       "stop_loss": 57.18,
       "target": 65.51,
@@ -5427,16 +5462,18 @@
         "atr_pct": 2.75,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.21,
+      "alpha_1d": 0.78
     },
     {
       "date": "2026-07-16",
       "ticker": "HD",
       "name": "Home Depot, Inc. (The)",
       "sector": "Consumer Cyclical",
-      "entry_price": 348.0199890136719,
+      "entry_price": 348.93,
       "signal_close": 348.0199890136719,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.5,
       "stop_loss": 331.09,
       "target": 350.5,
@@ -5447,6 +5484,79 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 2.43,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -2.88,
+      "alpha_1d": -1.89,
+      "exit_date": "2026-07-17",
+      "exit_price": 350.5,
+      "exit_return": 0.45,
+      "exit_reason": "target",
+      "days_held": 1
+    },
+    {
+      "date": "2026-07-17",
+      "ticker": "ABT",
+      "name": "Abbott Laboratories",
+      "sector": "Healthcare",
+      "entry_price": 100.68000030517578,
+      "signal_close": 100.68000030517578,
+      "entry_realistic": false,
+      "score": 15.8,
+      "stop_loss": 94.07,
+      "target": 101.87,
+      "rr_ratio": 0.18,
+      "key_signals": {
+        "rs_vs_spy_30d": 17.19,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.28,
+        "insider_buy": true,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "ticker": "SCHW",
+      "name": "Charles Schwab Corporation (The",
+      "sector": "Financial Services",
+      "entry_price": 101.55999755859375,
+      "signal_close": 101.55999755859375,
+      "entry_realistic": false,
+      "score": 15.0,
+      "stop_loss": 96.75,
+      "target": 102.54,
+      "rr_ratio": 0.2,
+      "key_signals": {
+        "rs_vs_spy_30d": 18.74,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.37,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "ticker": "RTX",
+      "name": "RTX Corporation",
+      "sector": "Industrials",
+      "entry_price": 193.50999450683594,
+      "signal_close": 193.50999450683594,
+      "entry_realistic": false,
+      "score": 15.0,
+      "stop_loss": 185.11,
+      "target": 195.83,
+      "rr_ratio": 0.28,
+      "key_signals": {
+        "rs_vs_spy_30d": 13.6,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.17,
         "insider_buy": false,
         "rs_leader": true
       }
