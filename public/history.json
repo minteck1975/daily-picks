@@ -2586,7 +2586,9 @@
       "return_3d": -8.25,
       "alpha_3d": -5.61,
       "return_5d": -15.61,
-      "alpha_5d": -13.06
+      "alpha_5d": -13.06,
+      "return_30d": -9.46,
+      "alpha_30d": -7.48
     },
     {
       "date": "2026-06-04",
@@ -2619,7 +2621,9 @@
       "return_3d": -0.5,
       "alpha_3d": 2.14,
       "return_5d": 1.96,
-      "alpha_5d": 4.52
+      "alpha_5d": 4.52,
+      "return_30d": -4.94,
+      "alpha_30d": -2.96
     },
     {
       "date": "2026-06-04",
@@ -2652,7 +2656,9 @@
       "return_3d": 1.08,
       "alpha_3d": 3.73,
       "return_5d": 1.79,
-      "alpha_5d": 4.35
+      "alpha_5d": 4.35,
+      "return_30d": 4.41,
+      "alpha_30d": 6.39
     },
     {
       "date": "2026-06-05",
@@ -5179,7 +5185,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": 2.97,
-      "alpha_3d": 2.77
+      "alpha_3d": 2.77,
+      "return_5d": 2.49,
+      "alpha_5d": 3.44
     },
     {
       "date": "2026-07-13",
@@ -5210,7 +5218,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": 0.71,
-      "alpha_3d": 0.5
+      "alpha_3d": 0.5,
+      "return_5d": -2.6,
+      "alpha_5d": -1.66
     },
     {
       "date": "2026-07-13",
@@ -5241,7 +5251,9 @@
       "exit_price": 84.68,
       "exit_return": 0.61,
       "exit_reason": "target",
-      "days_held": 3
+      "days_held": 3,
+      "return_5d": -2.44,
+      "alpha_5d": -1.49
     },
     {
       "date": "2026-07-14",
@@ -5358,7 +5370,9 @@
         "rs_leader": true
       },
       "return_1d": -1.76,
-      "alpha_1d": -1.21
+      "alpha_1d": -1.21,
+      "return_3d": -2.98,
+      "alpha_3d": -1.3
     },
     {
       "date": "2026-07-15",
@@ -5387,7 +5401,9 @@
       "exit_price": 184.89,
       "exit_return": 0.25,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -2.7,
+      "alpha_3d": -1.02
     },
     {
       "date": "2026-07-15",
@@ -5411,7 +5427,9 @@
         "rs_leader": true
       },
       "return_1d": -1.37,
-      "alpha_1d": -0.83
+      "alpha_1d": -0.83,
+      "return_3d": -0.09,
+      "alpha_3d": 1.59
     },
     {
       "date": "2026-07-16",
@@ -5500,9 +5518,9 @@
       "ticker": "ABT",
       "name": "Abbott Laboratories",
       "sector": "Healthcare",
-      "entry_price": 100.68000030517578,
+      "entry_price": 100.7,
       "signal_close": 100.68000030517578,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.8,
       "stop_loss": 94.07,
       "target": 101.87,
@@ -5515,16 +5533,23 @@
         "atr_pct": 3.28,
         "insider_buy": true,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.95,
+      "alpha_1d": 1.11,
+      "exit_date": "2026-07-20",
+      "exit_price": 101.87,
+      "exit_return": 1.16,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-17",
       "ticker": "SCHW",
       "name": "Charles Schwab Corporation (The",
       "sector": "Financial Services",
-      "entry_price": 101.55999755859375,
+      "entry_price": 100.61,
       "signal_close": 101.55999755859375,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.0,
       "stop_loss": 96.75,
       "target": 102.54,
@@ -5537,16 +5562,23 @@
         "atr_pct": 2.37,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.92,
+      "alpha_1d": 2.08,
+      "exit_date": "2026-07-20",
+      "exit_price": 102.54,
+      "exit_return": 1.92,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-17",
       "ticker": "RTX",
       "name": "RTX Corporation",
       "sector": "Industrials",
-      "entry_price": 193.50999450683594,
+      "entry_price": 194.63,
       "signal_close": 193.50999450683594,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.0,
       "stop_loss": 185.11,
       "target": 195.83,
@@ -5557,6 +5589,79 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.17,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -0.1,
+      "alpha_1d": 0.06,
+      "exit_date": "2026-07-20",
+      "exit_price": 195.83,
+      "exit_return": 0.62,
+      "exit_reason": "target",
+      "days_held": 1
+    },
+    {
+      "date": "2026-07-20",
+      "ticker": "TMO",
+      "name": "Thermo Fisher Scientific Inc",
+      "sector": "Healthcare",
+      "entry_price": 526.22998046875,
+      "signal_close": 526.22998046875,
+      "entry_realistic": false,
+      "score": 17.5,
+      "stop_loss": 499.55,
+      "target": 529.15,
+      "rr_ratio": 0.11,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.15,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.54,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-20",
+      "ticker": "AXP",
+      "name": "American Express Company",
+      "sector": "Financial Services",
+      "entry_price": 351.92999267578125,
+      "signal_close": 351.92999267578125,
+      "entry_realistic": false,
+      "score": 17.0,
+      "stop_loss": 334.07,
+      "target": 357.4,
+      "rr_ratio": 0.31,
+      "key_signals": {
+        "rs_vs_spy_30d": 14.59,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.54,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-20",
+      "ticker": "BKNG",
+      "name": "Booking Holdings Inc. Common St",
+      "sector": "Consumer Cyclical",
+      "entry_price": 179.4499969482422,
+      "signal_close": 179.4499969482422,
+      "entry_realistic": false,
+      "score": 17.0,
+      "stop_loss": 166.89,
+      "target": 180.5,
+      "rr_ratio": 0.08,
+      "key_signals": {
+        "rs_vs_spy_30d": 9.12,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.5,
         "insider_buy": false,
         "rs_leader": true
       }
