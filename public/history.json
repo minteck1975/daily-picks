@@ -2901,7 +2901,9 @@
       "return_3d": 0.23,
       "alpha_3d": -0.41,
       "return_5d": 1.4,
-      "alpha_5d": -0.4
+      "alpha_5d": -0.4,
+      "return_30d": 0.56,
+      "alpha_30d": 0.4
     },
     {
       "date": "2026-06-09",
@@ -2934,7 +2936,9 @@
       "return_3d": 1.76,
       "alpha_3d": 1.13,
       "return_5d": 6.75,
-      "alpha_5d": 4.95
+      "alpha_5d": 4.95,
+      "return_30d": 5.92,
+      "alpha_30d": 5.77
     },
     {
       "date": "2026-06-09",
@@ -2967,7 +2971,9 @@
       "return_3d": -0.52,
       "alpha_3d": -1.16,
       "return_5d": 1.32,
-      "alpha_5d": -0.48
+      "alpha_5d": -0.48,
+      "return_30d": 5.77,
+      "alpha_30d": 5.62
     },
     {
       "date": "2026-06-10",
@@ -3259,7 +3265,12 @@
       "return_3d": -0.62,
       "alpha_3d": -0.51,
       "return_5d": -0.45,
-      "alpha_5d": -0.81
+      "alpha_5d": -0.81,
+      "exit_date": "2026-07-23",
+      "exit_price": 502.43,
+      "exit_return": -3.21,
+      "exit_reason": "stop",
+      "days_held": 27
     },
     {
       "date": "2026-06-15",
@@ -5458,7 +5469,12 @@
       "return_3d": -0.09,
       "alpha_3d": 1.59,
       "return_5d": 1.27,
-      "alpha_5d": 2.25
+      "alpha_5d": 2.25,
+      "exit_date": "2026-07-23",
+      "exit_price": 415.62,
+      "exit_return": 3.44,
+      "exit_reason": "target",
+      "days_held": 6
     },
     {
       "date": "2026-07-16",
@@ -5489,7 +5505,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": -0.0,
-      "alpha_3d": 0.33
+      "alpha_3d": 0.33,
+      "return_5d": -1.77,
+      "alpha_5d": -0.1
     },
     {
       "date": "2026-07-16",
@@ -5515,7 +5533,9 @@
       "return_1d": -0.21,
       "alpha_1d": 0.78,
       "return_3d": 0.1,
-      "alpha_3d": 0.42
+      "alpha_3d": 0.42,
+      "return_5d": 1.05,
+      "alpha_5d": 2.72
     },
     {
       "date": "2026-07-16",
@@ -5546,7 +5566,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": -4.97,
-      "alpha_3d": -4.64
+      "alpha_3d": -4.64,
+      "return_5d": -6.94,
+      "alpha_5d": -5.27
     },
     {
       "date": "2026-07-17",
@@ -5668,7 +5690,9 @@
       "exit_price": 499.55,
       "exit_return": -1.49,
       "exit_reason": "stop",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 12.86,
+      "alpha_3d": 13.39
     },
     {
       "date": "2026-07-20",
@@ -5692,7 +5716,9 @@
         "rs_leader": true
       },
       "return_1d": -0.79,
-      "alpha_1d": -1.62
+      "alpha_1d": -1.62,
+      "return_3d": -3.6,
+      "alpha_3d": -3.07
     },
     {
       "date": "2026-07-20",
@@ -5721,7 +5747,9 @@
       "exit_price": 180.5,
       "exit_return": 0.85,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -3.44,
+      "alpha_3d": -2.91
     },
     {
       "date": "2026-07-21",
@@ -5800,9 +5828,9 @@
       "ticker": "ABT",
       "name": "Abbott Laboratories",
       "sector": "Healthcare",
-      "entry_price": 100.56999969482422,
+      "entry_price": 101.23,
       "signal_close": 100.56999969482422,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 22.2,
       "stop_loss": 94.24,
       "target": 101.83,
@@ -5815,16 +5843,23 @@
         "atr_pct": 3.15,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.47,
+      "alpha_1d": 0.76,
+      "exit_date": "2026-07-23",
+      "exit_price": 101.83,
+      "exit_return": 0.59,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-22",
       "ticker": "MA",
       "name": "Mastercard Incorporated",
       "sector": "Financial Services",
-      "entry_price": 531.97998046875,
+      "entry_price": 527.98,
       "signal_close": 531.97998046875,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.5,
       "stop_loss": 506.91,
       "target": 539.15,
@@ -5837,16 +5872,18 @@
         "atr_pct": 2.36,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.44,
+      "alpha_1d": 1.67
     },
     {
       "date": "2026-07-22",
       "ticker": "META",
       "name": "Meta Platforms, Inc.",
       "sector": "Communication Services",
-      "entry_price": 627.1699829101562,
+      "entry_price": 608.41,
       "signal_close": 627.1699829101562,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 12.5,
       "stop_loss": 572.24,
       "target": 633.27,
@@ -5857,6 +5894,74 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 4.38,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -0.38,
+      "alpha_1d": 0.86
+    },
+    {
+      "date": "2026-07-23",
+      "ticker": "CB",
+      "name": "Chubb Limited",
+      "sector": "Financial Services",
+      "entry_price": 353.25,
+      "signal_close": 353.25,
+      "entry_realistic": false,
+      "score": 19.6,
+      "stop_loss": 335.57,
+      "target": 355.52,
+      "rr_ratio": 0.13,
+      "key_signals": {
+        "rs_vs_spy_30d": 8.5,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.5,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-23",
+      "ticker": "MRK",
+      "name": "Merck & Company, Inc.",
+      "sector": "Healthcare",
+      "entry_price": 130.47999572753906,
+      "signal_close": 130.47999572753906,
+      "entry_realistic": false,
+      "score": 18.0,
+      "stop_loss": 123.31,
+      "target": 131.74,
+      "rr_ratio": 0.18,
+      "key_signals": {
+        "rs_vs_spy_30d": 8.94,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.75,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-23",
+      "ticker": "ANET",
+      "name": "Arista Networks, Inc.",
+      "sector": "Technology",
+      "entry_price": 176.61000061035156,
+      "signal_close": 176.61000061035156,
+      "entry_realistic": false,
+      "score": 17.3,
+      "stop_loss": 155.86,
+      "target": 177.88,
+      "rr_ratio": 0.06,
+      "key_signals": {
+        "rs_vs_spy_30d": 15.92,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 5.87,
         "insider_buy": false,
         "rs_leader": true
       }
