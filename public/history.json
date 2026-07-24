@@ -3006,7 +3006,9 @@
       "return_3d": -3.59,
       "alpha_3d": -7.64,
       "return_5d": -4.75,
-      "alpha_5d": -6.9
+      "alpha_5d": -6.9,
+      "return_30d": -1.99,
+      "alpha_30d": -3.85
     },
     {
       "date": "2026-06-10",
@@ -3039,7 +3041,9 @@
       "return_3d": 0.57,
       "alpha_3d": -3.48,
       "return_5d": -2.25,
-      "alpha_5d": -4.39
+      "alpha_5d": -4.39,
+      "return_30d": 2.94,
+      "alpha_30d": 1.08
     },
     {
       "date": "2026-06-10",
@@ -3072,7 +3076,9 @@
       "return_3d": 2.62,
       "alpha_3d": -1.44,
       "return_5d": 1.74,
-      "alpha_5d": -0.4
+      "alpha_5d": -0.4,
+      "return_30d": 2.5,
+      "alpha_30d": 0.63
     },
     {
       "date": "2026-06-11",
@@ -5408,7 +5414,12 @@
       "return_3d": -2.98,
       "alpha_3d": -1.3,
       "return_5d": -0.31,
-      "alpha_5d": 0.67
+      "alpha_5d": 0.67,
+      "exit_date": "2026-07-24",
+      "exit_price": 351.24,
+      "exit_return": 0.56,
+      "exit_reason": "target",
+      "days_held": 7
     },
     {
       "date": "2026-07-15",
@@ -5599,7 +5610,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": -0.13,
-      "alpha_3d": -0.68
+      "alpha_3d": -0.68,
+      "return_5d": 2.34,
+      "alpha_5d": 2.93
     },
     {
       "date": "2026-07-17",
@@ -5630,7 +5643,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": 0.19,
-      "alpha_3d": -0.37
+      "alpha_3d": -0.37,
+      "return_5d": 1.35,
+      "alpha_5d": 1.94
     },
     {
       "date": "2026-07-17",
@@ -5661,7 +5676,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": 0.13,
-      "alpha_3d": -0.43
+      "alpha_3d": -0.43,
+      "return_5d": 9.33,
+      "alpha_5d": 9.92
     },
     {
       "date": "2026-07-20",
@@ -5718,7 +5735,12 @@
       "return_1d": -0.79,
       "alpha_1d": -1.62,
       "return_3d": -3.6,
-      "alpha_3d": -3.07
+      "alpha_3d": -3.07,
+      "exit_date": "2026-07-24",
+      "exit_price": 326.12,
+      "exit_return": -7.76,
+      "exit_reason": "stop_gap",
+      "days_held": 4
     },
     {
       "date": "2026-07-20",
@@ -5773,7 +5795,9 @@
         "rs_leader": true
       },
       "return_1d": -1.04,
-      "alpha_1d": -0.93
+      "alpha_1d": -0.93,
+      "return_3d": 1.12,
+      "alpha_3d": 2.37
     },
     {
       "date": "2026-07-21",
@@ -5797,7 +5821,14 @@
         "rs_leader": true
       },
       "return_1d": -0.61,
-      "alpha_1d": -0.49
+      "alpha_1d": -0.49,
+      "return_3d": 1.57,
+      "alpha_3d": 2.82,
+      "exit_date": "2026-07-24",
+      "exit_price": 329.6,
+      "exit_return": 0.52,
+      "exit_reason": "target",
+      "days_held": 3
     },
     {
       "date": "2026-07-21",
@@ -5821,7 +5852,9 @@
         "rs_leader": true
       },
       "return_1d": -1.5,
-      "alpha_1d": -1.38
+      "alpha_1d": -1.38,
+      "return_3d": -2.11,
+      "alpha_3d": -0.86
     },
     {
       "date": "2026-07-22",
@@ -5874,7 +5907,12 @@
         "rs_leader": true
       },
       "return_1d": 0.44,
-      "alpha_1d": 1.67
+      "alpha_1d": 1.67,
+      "exit_date": "2026-07-24",
+      "exit_price": 539.15,
+      "exit_return": 2.12,
+      "exit_reason": "target",
+      "days_held": 2
     },
     {
       "date": "2026-07-22",
@@ -5905,9 +5943,9 @@
       "ticker": "CB",
       "name": "Chubb Limited",
       "sector": "Financial Services",
-      "entry_price": 353.25,
+      "entry_price": 355.63,
       "signal_close": 353.25,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.6,
       "stop_loss": 335.57,
       "target": 355.52,
@@ -5920,16 +5958,18 @@
         "atr_pct": 2.5,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.16,
+      "alpha_1d": 1.06
     },
     {
       "date": "2026-07-23",
       "ticker": "MRK",
       "name": "Merck & Company, Inc.",
       "sector": "Healthcare",
-      "entry_price": 130.47999572753906,
+      "entry_price": 131.44,
       "signal_close": 130.47999572753906,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.0,
       "stop_loss": 123.31,
       "target": 131.74,
@@ -5942,16 +5982,18 @@
         "atr_pct": 2.75,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.28,
+      "alpha_1d": -0.38
     },
     {
       "date": "2026-07-23",
       "ticker": "ANET",
       "name": "Arista Networks, Inc.",
       "sector": "Technology",
-      "entry_price": 176.61000061035156,
+      "entry_price": 174.0,
       "signal_close": 176.61000061035156,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.3,
       "stop_loss": 155.86,
       "target": 177.88,
@@ -5962,6 +6004,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 5.87,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -0.01,
+      "alpha_1d": -0.11
+    },
+    {
+      "date": "2026-07-24",
+      "ticker": "LMT",
+      "name": "Lockheed Martin Corporation",
+      "sector": "Industrials",
+      "entry_price": 582.5999755859375,
+      "signal_close": 582.5999755859375,
+      "entry_realistic": false,
+      "score": 20.8,
+      "stop_loss": 549.12,
+      "target": 588.41,
+      "rr_ratio": 0.17,
+      "key_signals": {
+        "rs_vs_spy_30d": 9.11,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.87,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-24",
+      "ticker": "AMGN",
+      "name": "Amgen Inc.",
+      "sector": "Healthcare",
+      "entry_price": 376.0400085449219,
+      "signal_close": 376.0400085449219,
+      "entry_realistic": false,
+      "score": 19.6,
+      "stop_loss": 358.98,
+      "target": 378.54,
+      "rr_ratio": 0.15,
+      "key_signals": {
+        "rs_vs_spy_30d": 9.48,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.27,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-24",
+      "ticker": "JPM",
+      "name": "JP Morgan Chase & Co.",
+      "sector": "Financial Services",
+      "entry_price": 353.2099914550781,
+      "signal_close": 353.2099914550781,
+      "entry_realistic": false,
+      "score": 13.5,
+      "stop_loss": 338.08,
+      "target": 375.9,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 12.39,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.14,
         "insider_buy": false,
         "rs_leader": true
       }
