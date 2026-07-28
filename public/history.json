@@ -3216,7 +3216,9 @@
       "return_3d": -2.53,
       "alpha_3d": -2.42,
       "return_5d": -2.51,
-      "alpha_5d": -2.86
+      "alpha_5d": -2.86,
+      "return_30d": -4.51,
+      "alpha_30d": -4.39
     },
     {
       "date": "2026-06-12",
@@ -3249,7 +3251,9 @@
       "return_3d": -1.42,
       "alpha_3d": -1.31,
       "return_5d": -1.91,
-      "alpha_5d": -2.27
+      "alpha_5d": -2.27,
+      "return_30d": 8.87,
+      "alpha_30d": 8.99
     },
     {
       "date": "2026-06-12",
@@ -3282,7 +3286,9 @@
       "exit_price": 502.43,
       "exit_return": -3.21,
       "exit_reason": "stop",
-      "days_held": 27
+      "days_held": 27,
+      "return_30d": -1.52,
+      "alpha_30d": -1.4
     },
     {
       "date": "2026-06-15",
@@ -4186,7 +4192,12 @@
       "return_3d": 0.31,
       "alpha_3d": -1.99,
       "return_5d": 2.43,
-      "alpha_5d": -0.63
+      "alpha_5d": -0.63,
+      "exit_date": "2026-07-28",
+      "exit_price": 271.95,
+      "exit_return": 7.41,
+      "exit_reason": "target",
+      "days_held": 21
     },
     {
       "date": "2026-06-26",
@@ -5715,7 +5726,9 @@
       "exit_reason": "stop",
       "days_held": 1,
       "return_3d": 12.86,
-      "alpha_3d": 13.39
+      "alpha_3d": 13.39,
+      "return_5d": 10.34,
+      "alpha_5d": 10.74
     },
     {
       "date": "2026-07-20",
@@ -5807,7 +5820,9 @@
       "return_1d": -1.04,
       "alpha_1d": -0.93,
       "return_3d": 1.12,
-      "alpha_3d": 2.37
+      "alpha_3d": 2.37,
+      "return_5d": 3.58,
+      "alpha_5d": 4.57
     },
     {
       "date": "2026-07-21",
@@ -5838,7 +5853,9 @@
       "exit_price": 329.6,
       "exit_return": 0.52,
       "exit_reason": "target",
-      "days_held": 3
+      "days_held": 3,
+      "return_5d": 3.72,
+      "alpha_5d": 4.71
     },
     {
       "date": "2026-07-21",
@@ -5869,7 +5886,9 @@
       "exit_price": 439.71,
       "exit_return": 0.95,
       "exit_reason": "target",
-      "days_held": 4
+      "days_held": 4,
+      "return_5d": -2.58,
+      "alpha_5d": -1.59
     },
     {
       "date": "2026-07-22",
@@ -5981,7 +6000,9 @@
         "rs_leader": true
       },
       "return_1d": 1.16,
-      "alpha_1d": 1.06
+      "alpha_1d": 1.06,
+      "return_3d": 2.21,
+      "alpha_3d": 1.85
     },
     {
       "date": "2026-07-23",
@@ -6010,7 +6031,9 @@
       "exit_price": 131.74,
       "exit_return": 0.23,
       "exit_reason": "target",
-      "days_held": 2
+      "days_held": 2,
+      "return_3d": 0.29,
+      "alpha_3d": -0.07
     },
     {
       "date": "2026-07-23",
@@ -6034,7 +6057,9 @@
         "rs_leader": true
       },
       "return_1d": -0.01,
-      "alpha_1d": -0.11
+      "alpha_1d": -0.11,
+      "return_3d": -2.47,
+      "alpha_3d": -2.83
     },
     {
       "date": "2026-07-24",
@@ -6058,7 +6083,12 @@
         "rs_leader": true
       },
       "return_1d": -0.32,
-      "alpha_1d": -0.34
+      "alpha_1d": -0.34,
+      "exit_date": "2026-07-28",
+      "exit_price": 589.0,
+      "exit_return": 1.22,
+      "exit_reason": "target_gap",
+      "days_held": 2
     },
     {
       "date": "2026-07-24",
@@ -6113,9 +6143,9 @@
       "ticker": "SHOP",
       "name": "Shopify Inc.",
       "sector": "Technology",
-      "entry_price": 126.87999725341797,
+      "entry_price": 127.99,
       "signal_close": 126.87999725341797,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.6,
       "stop_loss": 113.98,
       "target": 127.59,
@@ -6128,16 +6158,18 @@
         "atr_pct": 5.08,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.79,
+      "alpha_1d": 1.55
     },
     {
       "date": "2026-07-27",
       "ticker": "NEE",
       "name": "NextEra Energy, Inc.",
       "sector": "Utilities",
-      "entry_price": 88.83000183105469,
+      "entry_price": 89.39,
       "signal_close": 88.83000183105469,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.5,
       "stop_loss": 85.73,
       "target": 89.42,
@@ -6150,16 +6182,23 @@
         "atr_pct": 1.74,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.12,
+      "alpha_1d": -0.36,
+      "exit_date": "2026-07-28",
+      "exit_price": 89.42,
+      "exit_return": 0.03,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-27",
       "ticker": "TMO",
       "name": "Thermo Fisher Scientific Inc",
       "sector": "Healthcare",
-      "entry_price": 559.530029296875,
+      "entry_price": 572.0,
       "signal_close": 559.530029296875,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.0,
       "stop_loss": 525.25,
       "target": 568.35,
@@ -6170,6 +6209,52 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 3.06,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 0.77,
+      "alpha_1d": 0.53
+    },
+    {
+      "date": "2026-07-28",
+      "ticker": "JNJ",
+      "name": "Johnson & Johnson",
+      "sector": "Healthcare",
+      "entry_price": 266.7300109863281,
+      "signal_close": 266.7300109863281,
+      "entry_realistic": false,
+      "score": 18.6,
+      "stop_loss": 254.23,
+      "target": 268.6,
+      "rr_ratio": 0.15,
+      "key_signals": {
+        "rs_vs_spy_30d": 10.86,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.34,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-28",
+      "ticker": "CB",
+      "name": "Chubb Limited",
+      "sector": "Financial Services",
+      "entry_price": 363.5,
+      "signal_close": 363.5,
+      "entry_realistic": false,
+      "score": 17.8,
+      "stop_loss": 346.52,
+      "target": 388.98,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 10.9,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.34,
         "insider_buy": false,
         "rs_leader": true
       }
