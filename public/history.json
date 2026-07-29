@@ -3321,7 +3321,9 @@
       "return_3d": -2.17,
       "alpha_3d": -1.1,
       "return_5d": -1.04,
-      "alpha_5d": 1.78
+      "alpha_5d": 1.78,
+      "return_30d": 9.77,
+      "alpha_30d": 13.13
     },
     {
       "date": "2026-06-15",
@@ -3354,7 +3356,9 @@
       "return_3d": -1.62,
       "alpha_3d": -0.54,
       "return_5d": -1.59,
-      "alpha_5d": 1.22
+      "alpha_5d": 1.22,
+      "return_30d": -1.8,
+      "alpha_30d": 1.56
     },
     {
       "date": "2026-06-15",
@@ -3387,7 +3391,9 @@
       "return_3d": -2.24,
       "alpha_3d": -1.17,
       "return_5d": -1.92,
-      "alpha_5d": 0.89
+      "alpha_5d": 0.89,
+      "return_30d": -3.54,
+      "alpha_30d": -0.18
     },
     {
       "date": "2026-06-16",
@@ -5073,7 +5079,12 @@
       "return_3d": 0.04,
       "alpha_3d": 0.03,
       "return_5d": 5.89,
-      "alpha_5d": 6.02
+      "alpha_5d": 6.02,
+      "exit_date": "2026-07-29",
+      "exit_price": 343.1,
+      "exit_return": 9.02,
+      "exit_reason": "target",
+      "days_held": 14
     },
     {
       "date": "2026-07-09",
@@ -5919,7 +5930,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": 3.22,
-      "alpha_3d": 4.33
+      "alpha_3d": 4.33,
+      "return_5d": 6.69,
+      "alpha_5d": 9.09
     },
     {
       "date": "2026-07-22",
@@ -5950,7 +5963,9 @@
       "exit_reason": "target",
       "days_held": 2,
       "return_3d": 4.49,
-      "alpha_3d": 5.61
+      "alpha_3d": 5.61,
+      "return_5d": 6.69,
+      "alpha_5d": 9.1
     },
     {
       "date": "2026-07-22",
@@ -5976,7 +5991,9 @@
       "return_1d": -0.38,
       "alpha_1d": 0.86,
       "return_3d": -2.39,
-      "alpha_3d": -1.28
+      "alpha_3d": -1.28,
+      "return_5d": -3.75,
+      "alpha_5d": -1.35
     },
     {
       "date": "2026-07-23",
@@ -6088,7 +6105,9 @@
       "exit_price": 589.0,
       "exit_return": 1.22,
       "exit_reason": "target_gap",
-      "days_held": 2
+      "days_held": 2,
+      "return_3d": -2.18,
+      "alpha_3d": -0.9
     },
     {
       "date": "2026-07-24",
@@ -6112,7 +6131,9 @@
         "rs_leader": true
       },
       "return_1d": -0.6,
-      "alpha_1d": -0.63
+      "alpha_1d": -0.63,
+      "return_3d": 2.4,
+      "alpha_3d": 3.68
     },
     {
       "date": "2026-07-24",
@@ -6136,7 +6157,9 @@
         "rs_leader": true
       },
       "return_1d": -0.47,
-      "alpha_1d": -0.49
+      "alpha_1d": -0.49,
+      "return_3d": -3.68,
+      "alpha_3d": -2.4
     },
     {
       "date": "2026-07-27",
@@ -6220,9 +6243,9 @@
       "ticker": "JNJ",
       "name": "Johnson & Johnson",
       "sector": "Healthcare",
-      "entry_price": 266.7300109863281,
+      "entry_price": 268.5,
       "signal_close": 266.7300109863281,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.6,
       "stop_loss": 254.23,
       "target": 268.6,
@@ -6235,16 +6258,23 @@
         "atr_pct": 2.34,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.11,
+      "alpha_1d": 0.43,
+      "exit_date": "2026-07-29",
+      "exit_price": 268.6,
+      "exit_return": 0.04,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-28",
       "ticker": "CB",
       "name": "Chubb Limited",
       "sector": "Financial Services",
-      "entry_price": 363.5,
+      "entry_price": 365.0,
       "signal_close": 363.5,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.8,
       "stop_loss": 346.52,
       "target": 388.98,
@@ -6255,6 +6285,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.34,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -0.85,
+      "alpha_1d": 0.69
+    },
+    {
+      "date": "2026-07-29",
+      "ticker": "KO",
+      "name": "Coca-Cola Company (The)",
+      "sector": "Consumer Defensive",
+      "entry_price": 89.08000183105469,
+      "signal_close": 89.08000183105469,
+      "entry_realistic": false,
+      "score": 21.8,
+      "stop_loss": 84.96,
+      "target": 90.22,
+      "rr_ratio": 0.28,
+      "key_signals": {
+        "rs_vs_spy_30d": 13.46,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.31,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-29",
+      "ticker": "NOW",
+      "name": "ServiceNow, Inc.",
+      "sector": "Technology",
+      "entry_price": 115.76000213623047,
+      "signal_close": 115.76000213623047,
+      "entry_realistic": false,
+      "score": 21.7,
+      "stop_loss": 102.54,
+      "target": 118.36,
+      "rr_ratio": 0.2,
+      "key_signals": {
+        "rs_vs_spy_30d": 14.51,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 5.71,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-29",
+      "ticker": "LMT",
+      "name": "Lockheed Martin Corporation",
+      "sector": "Industrials",
+      "entry_price": 569.2000122070312,
+      "signal_close": 569.2000122070312,
+      "entry_realistic": false,
+      "score": 21.3,
+      "stop_loss": 535.02,
+      "target": 576.0,
+      "rr_ratio": 0.2,
+      "key_signals": {
+        "rs_vs_spy_30d": 10.68,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.0,
         "insider_buy": false,
         "rs_leader": true
       }
