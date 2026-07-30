@@ -3426,7 +3426,9 @@
       "exit_price": 60.33,
       "exit_return": 5.58,
       "exit_reason": "target",
-      "days_held": 13
+      "days_held": 13,
+      "return_30d": 8.03,
+      "alpha_30d": 9.18
     },
     {
       "date": "2026-06-16",
@@ -3459,7 +3461,9 @@
       "return_3d": -0.95,
       "alpha_3d": -0.16,
       "return_5d": -0.34,
-      "alpha_5d": 1.93
+      "alpha_5d": 1.93,
+      "return_30d": -3.91,
+      "alpha_30d": -2.76
     },
     {
       "date": "2026-06-16",
@@ -3487,7 +3491,14 @@
       "return_3d": 2.75,
       "alpha_3d": 3.54,
       "return_5d": -4.8,
-      "alpha_5d": -2.52
+      "alpha_5d": -2.52,
+      "return_30d": 0.67,
+      "alpha_30d": 1.82,
+      "exit_date": "2026-07-30",
+      "exit_price": 171.02,
+      "exit_return": 0.67,
+      "exit_reason": "horizon",
+      "days_held": 30
     },
     {
       "date": "2026-06-17",
@@ -5574,7 +5585,12 @@
       "return_3d": 0.1,
       "alpha_3d": 0.42,
       "return_5d": 1.05,
-      "alpha_5d": 2.72
+      "alpha_5d": 2.72,
+      "exit_date": "2026-07-30",
+      "exit_price": 65.51,
+      "exit_return": 7.62,
+      "exit_reason": "target",
+      "days_held": 10
     },
     {
       "date": "2026-07-16",
@@ -5993,7 +6009,12 @@
       "return_3d": -2.39,
       "alpha_3d": -1.28,
       "return_5d": -3.75,
-      "alpha_5d": -1.35
+      "alpha_5d": -1.35,
+      "exit_date": "2026-07-30",
+      "exit_price": 525.74,
+      "exit_return": -13.59,
+      "exit_reason": "stop_gap",
+      "days_held": 6
     },
     {
       "date": "2026-07-23",
@@ -6019,7 +6040,9 @@
       "return_1d": 1.16,
       "alpha_1d": 1.06,
       "return_3d": 2.21,
-      "alpha_3d": 1.85
+      "alpha_3d": 1.85,
+      "return_5d": -1.54,
+      "alpha_5d": -2.02
     },
     {
       "date": "2026-07-23",
@@ -6050,7 +6073,9 @@
       "exit_reason": "target",
       "days_held": 2,
       "return_3d": 0.29,
-      "alpha_3d": -0.07
+      "alpha_3d": -0.07,
+      "return_5d": -1.26,
+      "alpha_5d": -1.73
     },
     {
       "date": "2026-07-23",
@@ -6076,7 +6101,9 @@
       "return_1d": -0.01,
       "alpha_1d": -0.11,
       "return_3d": -2.47,
-      "alpha_3d": -2.83
+      "alpha_3d": -2.83,
+      "return_5d": -1.71,
+      "alpha_5d": -2.19
     },
     {
       "date": "2026-07-24",
@@ -6183,7 +6210,9 @@
         "rs_leader": true
       },
       "return_1d": 1.79,
-      "alpha_1d": 1.55
+      "alpha_1d": 1.55,
+      "return_3d": -4.37,
+      "alpha_3d": -4.72
     },
     {
       "date": "2026-07-27",
@@ -6212,7 +6241,9 @@
       "exit_price": 89.42,
       "exit_return": 0.03,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -1.63,
+      "alpha_3d": -1.99
     },
     {
       "date": "2026-07-27",
@@ -6236,7 +6267,9 @@
         "rs_leader": true
       },
       "return_1d": 0.77,
-      "alpha_1d": 0.53
+      "alpha_1d": 0.53,
+      "return_3d": 0.83,
+      "alpha_3d": 0.48
     },
     {
       "date": "2026-07-28",
@@ -6296,9 +6329,9 @@
       "ticker": "KO",
       "name": "Coca-Cola Company (The)",
       "sector": "Consumer Defensive",
-      "entry_price": 89.08000183105469,
+      "entry_price": 87.63,
       "signal_close": 89.08000183105469,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 21.8,
       "stop_loss": 84.96,
       "target": 90.22,
@@ -6311,16 +6344,18 @@
         "atr_pct": 2.31,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.98,
+      "alpha_1d": -0.7
     },
     {
       "date": "2026-07-29",
       "ticker": "NOW",
       "name": "ServiceNow, Inc.",
       "sector": "Technology",
-      "entry_price": 115.76000213623047,
+      "entry_price": 110.5,
       "signal_close": 115.76000213623047,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 21.7,
       "stop_loss": 102.54,
       "target": 118.36,
@@ -6333,16 +6368,18 @@
         "atr_pct": 5.71,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.39,
+      "alpha_1d": -2.07
     },
     {
       "date": "2026-07-29",
       "ticker": "LMT",
       "name": "Lockheed Martin Corporation",
       "sector": "Industrials",
-      "entry_price": 569.2000122070312,
+      "entry_price": 565.76,
       "signal_close": 569.2000122070312,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 21.3,
       "stop_loss": 535.02,
       "target": 576.0,
@@ -6353,6 +6390,74 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 3.0,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 1.48,
+      "alpha_1d": -0.2
+    },
+    {
+      "date": "2026-07-30",
+      "ticker": "ABNB",
+      "name": "Airbnb, Inc.",
+      "sector": "Consumer Cyclical",
+      "entry_price": 152.0800018310547,
+      "signal_close": 152.0800018310547,
+      "entry_realistic": false,
+      "score": 19.3,
+      "stop_loss": 143.48,
+      "target": 153.19,
+      "rr_ratio": 0.13,
+      "key_signals": {
+        "rs_vs_spy_30d": 8.86,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.83,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-30",
+      "ticker": "AMGN",
+      "name": "Amgen Inc.",
+      "sector": "Healthcare",
+      "entry_price": 387.6400146484375,
+      "signal_close": 387.6400146484375,
+      "entry_realistic": false,
+      "score": 18.5,
+      "stop_loss": 367.39,
+      "target": 397.88,
+      "rr_ratio": 0.51,
+      "key_signals": {
+        "rs_vs_spy_30d": 12.59,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.61,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-07-30",
+      "ticker": "EOG",
+      "name": "EOG Resources, Inc.",
+      "sector": "Energy",
+      "entry_price": 145.50999450683594,
+      "signal_close": 145.50999450683594,
+      "entry_realistic": false,
+      "score": 17.5,
+      "stop_loss": 137.64,
+      "target": 147.45,
+      "rr_ratio": 0.25,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.34,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.7,
         "insider_buy": false,
         "rs_leader": true
       }
