@@ -3636,7 +3636,9 @@
       "return_3d": 1.14,
       "alpha_3d": 2.95,
       "return_5d": -0.2,
-      "alpha_5d": 2.18
+      "alpha_5d": 2.18,
+      "return_30d": 6.96,
+      "alpha_30d": 5.49
     },
     {
       "date": "2026-06-18",
@@ -3669,7 +3671,9 @@
       "return_3d": -4.92,
       "alpha_3d": -3.11,
       "return_5d": -7.35,
-      "alpha_5d": -4.98
+      "alpha_5d": -4.98,
+      "return_30d": 8.69,
+      "alpha_30d": 7.22
     },
     {
       "date": "2026-06-18",
@@ -3702,7 +3706,9 @@
       "exit_price": 524.0,
       "exit_return": 15.0,
       "exit_reason": "target",
-      "days_held": 9
+      "days_held": 9,
+      "return_30d": 3.31,
+      "alpha_30d": 1.84
     },
     {
       "date": "2026-06-19",
@@ -3735,7 +3741,9 @@
       "return_3d": 1.14,
       "alpha_3d": 2.95,
       "return_5d": -0.2,
-      "alpha_5d": 2.18
+      "alpha_5d": 2.18,
+      "return_30d": 6.96,
+      "alpha_30d": 5.49
     },
     {
       "date": "2026-06-19",
@@ -3768,7 +3776,9 @@
       "return_3d": -4.92,
       "alpha_3d": -3.11,
       "return_5d": -7.35,
-      "alpha_5d": -4.98
+      "alpha_5d": -4.98,
+      "return_30d": 8.69,
+      "alpha_30d": 7.22
     },
     {
       "date": "2026-06-19",
@@ -3801,7 +3811,9 @@
       "exit_price": 524.0,
       "exit_return": 15.0,
       "exit_reason": "target",
-      "days_held": 9
+      "days_held": 9,
+      "return_30d": 3.31,
+      "alpha_30d": 1.84
     },
     {
       "date": "2026-06-22",
@@ -4253,7 +4265,12 @@
       "return_3d": 0.39,
       "alpha_3d": -1.91,
       "return_5d": 1.77,
-      "alpha_5d": -1.29
+      "alpha_5d": -1.29,
+      "exit_date": "2026-08-03",
+      "exit_price": 520.09,
+      "exit_return": 4.48,
+      "exit_reason": "target",
+      "days_held": 25
     },
     {
       "date": "2026-06-26",
@@ -6234,7 +6251,9 @@
       "return_1d": 1.79,
       "alpha_1d": 1.55,
       "return_3d": -4.37,
-      "alpha_3d": -4.72
+      "alpha_3d": -4.72,
+      "return_5d": -8.58,
+      "alpha_5d": -11.09
     },
     {
       "date": "2026-07-27",
@@ -6265,7 +6284,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": -1.63,
-      "alpha_3d": -1.99
+      "alpha_3d": -1.99,
+      "return_5d": -3.18,
+      "alpha_5d": -5.69
     },
     {
       "date": "2026-07-27",
@@ -6291,7 +6312,9 @@
       "return_1d": 0.77,
       "alpha_1d": 0.53,
       "return_3d": 0.83,
-      "alpha_3d": 0.48
+      "alpha_3d": 0.48,
+      "return_5d": 0.35,
+      "alpha_5d": -2.16
     },
     {
       "date": "2026-07-28",
@@ -6372,7 +6395,9 @@
         "rs_leader": true
       },
       "return_1d": 0.98,
-      "alpha_1d": -0.7
+      "alpha_1d": -0.7,
+      "return_3d": -0.88,
+      "alpha_3d": -4.75
     },
     {
       "date": "2026-07-29",
@@ -6396,7 +6421,14 @@
         "rs_leader": true
       },
       "return_1d": -0.39,
-      "alpha_1d": -2.07
+      "alpha_1d": -2.07,
+      "return_3d": 3.34,
+      "alpha_3d": -0.53,
+      "exit_date": "2026-08-03",
+      "exit_price": 118.36,
+      "exit_return": 7.11,
+      "exit_reason": "target",
+      "days_held": 3
     },
     {
       "date": "2026-07-29",
@@ -6425,7 +6457,9 @@
       "exit_price": 576.0,
       "exit_return": 1.81,
       "exit_reason": "target",
-      "days_held": 2
+      "days_held": 2,
+      "return_3d": 3.63,
+      "alpha_3d": -0.24
     },
     {
       "date": "2026-07-30",
@@ -6449,7 +6483,12 @@
         "rs_leader": true
       },
       "return_1d": 0.45,
-      "alpha_1d": -0.27
+      "alpha_1d": -0.27,
+      "exit_date": "2026-08-03",
+      "exit_price": 153.49,
+      "exit_return": 1.76,
+      "exit_reason": "target_gap",
+      "days_held": 2
     },
     {
       "date": "2026-07-30",
@@ -6509,9 +6548,9 @@
       "ticker": "ANET",
       "name": "Arista Networks, Inc.",
       "sector": "Technology",
-      "entry_price": 180.35000610351562,
+      "entry_price": 174.42,
       "signal_close": 180.35000610351562,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.6,
       "stop_loss": 159.51,
       "target": 181.27,
@@ -6524,16 +6563,23 @@
         "atr_pct": 5.78,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 6.0,
+      "alpha_1d": 4.58,
+      "exit_date": "2026-08-03",
+      "exit_price": 181.27,
+      "exit_return": 3.93,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-31",
       "ticker": "MA",
       "name": "Mastercard Incorporated",
       "sector": "Financial Services",
-      "entry_price": 573.0999755859375,
+      "entry_price": 580.0,
       "signal_close": 573.0999755859375,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.8,
       "stop_loss": 548.04,
       "target": 582.62,
@@ -6546,16 +6592,23 @@
         "atr_pct": 2.19,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.56,
+      "alpha_1d": -2.98,
+      "exit_date": "2026-08-03",
+      "exit_price": 582.62,
+      "exit_return": 0.45,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-07-31",
       "ticker": "ABT",
       "name": "Abbott Laboratories",
       "sector": "Healthcare",
-      "entry_price": 105.69999694824219,
+      "entry_price": 107.85,
       "signal_close": 105.69999694824219,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.5,
       "stop_loss": 98.44,
       "target": 106.39,
@@ -6566,6 +6619,74 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 3.44,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -0.68,
+      "alpha_1d": -2.1
+    },
+    {
+      "date": "2026-08-03",
+      "ticker": "BLK",
+      "name": "BlackRock, Inc.",
+      "sector": "Financial Services",
+      "entry_price": 1126.6300048828125,
+      "signal_close": 1126.6300048828125,
+      "entry_realistic": false,
+      "score": 20.0,
+      "stop_loss": 1060.28,
+      "target": 1226.16,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.83,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.94,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-03",
+      "ticker": "BMY",
+      "name": "Bristol-Myers Squibb Company",
+      "sector": "Healthcare",
+      "entry_price": 65.47000122070312,
+      "signal_close": 65.47000122070312,
+      "entry_realistic": false,
+      "score": 20.0,
+      "stop_loss": 61.67,
+      "target": 68.1,
+      "rr_ratio": 0.69,
+      "key_signals": {
+        "rs_vs_spy_30d": 19.78,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.91,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-03",
+      "ticker": "KO",
+      "name": "Coca-Cola Company (The)",
+      "sector": "Consumer Defensive",
+      "entry_price": 86.86000061035156,
+      "signal_close": 86.86000061035156,
+      "entry_realistic": false,
+      "score": 19.6,
+      "stop_loss": 82.55,
+      "target": 88.0,
+      "rr_ratio": 0.26,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.95,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.48,
         "insider_buy": false,
         "rs_leader": true
       }
