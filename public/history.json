@@ -3846,7 +3846,9 @@
       "exit_price": 503.96,
       "exit_return": 7.3,
       "exit_reason": "target",
-      "days_held": 8
+      "days_held": 8,
+      "return_30d": 1.92,
+      "alpha_30d": -1.7
     },
     {
       "date": "2026-06-22",
@@ -3879,7 +3881,9 @@
       "exit_reason": "stop",
       "days_held": 4,
       "return_5d": -0.8,
-      "alpha_5d": -0.35
+      "alpha_5d": -0.35,
+      "return_30d": 15.16,
+      "alpha_30d": 11.54
     },
     {
       "date": "2026-06-22",
@@ -3912,7 +3916,9 @@
       "return_3d": 1.71,
       "alpha_3d": 3.07,
       "return_5d": -0.02,
-      "alpha_5d": 0.43
+      "alpha_5d": 0.43,
+      "return_30d": 8.51,
+      "alpha_30d": 4.89
     },
     {
       "date": "2026-06-23",
@@ -6345,7 +6351,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "return_3d": -4.53,
-      "alpha_3d": -5.36
+      "alpha_3d": -5.36,
+      "return_5d": -5.05,
+      "alpha_5d": -9.17
     },
     {
       "date": "2026-07-28",
@@ -6371,7 +6379,14 @@
       "return_1d": -0.85,
       "alpha_1d": 0.69,
       "return_3d": -3.92,
-      "alpha_3d": -4.76
+      "alpha_3d": -4.76,
+      "return_5d": -4.58,
+      "alpha_5d": -8.69,
+      "exit_date": "2026-08-04",
+      "exit_price": 344.44,
+      "exit_return": -5.63,
+      "exit_reason": "stop_gap",
+      "days_held": 5
     },
     {
       "date": "2026-07-29",
@@ -6488,7 +6503,9 @@
       "exit_price": 153.49,
       "exit_return": 1.76,
       "exit_reason": "target_gap",
-      "days_held": 2
+      "days_held": 2,
+      "return_3d": -0.61,
+      "alpha_3d": -4.61
     },
     {
       "date": "2026-07-30",
@@ -6512,7 +6529,9 @@
         "rs_leader": true
       },
       "return_1d": 0.83,
-      "alpha_1d": 0.11
+      "alpha_1d": 0.11,
+      "return_3d": 2.1,
+      "alpha_3d": -1.9
     },
     {
       "date": "2026-07-30",
@@ -6541,7 +6560,9 @@
       "exit_price": 147.45,
       "exit_return": 0.42,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -2.26,
+      "alpha_3d": -6.26
     },
     {
       "date": "2026-07-31",
@@ -6630,9 +6651,9 @@
       "ticker": "BLK",
       "name": "BlackRock, Inc.",
       "sector": "Financial Services",
-      "entry_price": 1126.6300048828125,
+      "entry_price": 1138.5,
       "signal_close": 1126.6300048828125,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.0,
       "stop_loss": 1060.28,
       "target": 1226.16,
@@ -6645,16 +6666,18 @@
         "atr_pct": 2.94,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.65,
+      "alpha_1d": -2.45
     },
     {
       "date": "2026-08-03",
       "ticker": "BMY",
       "name": "Bristol-Myers Squibb Company",
       "sector": "Healthcare",
-      "entry_price": 65.47000122070312,
+      "entry_price": 64.89,
       "signal_close": 65.47000122070312,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.0,
       "stop_loss": 61.67,
       "target": 68.1,
@@ -6667,16 +6690,18 @@
         "atr_pct": 2.91,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.54,
+      "alpha_1d": -0.26
     },
     {
       "date": "2026-08-03",
       "ticker": "KO",
       "name": "Coca-Cola Company (The)",
       "sector": "Consumer Defensive",
-      "entry_price": 86.86000061035156,
+      "entry_price": 85.79,
       "signal_close": 86.86000061035156,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.6,
       "stop_loss": 82.55,
       "target": 88.0,
@@ -6687,6 +6712,52 @@
         "near_52w_high": true,
         "breakout_recent": true,
         "atr_pct": 2.48,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 0.9,
+      "alpha_1d": -0.91
+    },
+    {
+      "date": "2026-08-04",
+      "ticker": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "sector": "Consumer Cyclical",
+      "entry_price": 277.4200134277344,
+      "signal_close": 277.4200134277344,
+      "entry_realistic": false,
+      "score": 20.0,
+      "stop_loss": 257.47,
+      "target": 281.07,
+      "rr_ratio": 0.18,
+      "key_signals": {
+        "rs_vs_spy_30d": 15.55,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.6,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-04",
+      "ticker": "CVX",
+      "name": "Chevron Corporation",
+      "sector": "Energy",
+      "entry_price": 190.39999389648438,
+      "signal_close": 190.39999389648438,
+      "entry_realistic": false,
+      "score": 17.3,
+      "stop_loss": 181.36,
+      "target": 191.47,
+      "rr_ratio": 0.12,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.14,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.38,
         "insider_buy": false,
         "rs_leader": true
       }
