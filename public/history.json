@@ -3951,7 +3951,9 @@
       "exit_reason": "target",
       "days_held": 4,
       "return_5d": 6.47,
-      "alpha_5d": 4.67
+      "alpha_5d": 4.67,
+      "return_30d": 4.17,
+      "alpha_30d": -0.77
     },
     {
       "date": "2026-06-23",
@@ -3984,7 +3986,9 @@
       "exit_price": 235.47,
       "exit_return": 8.21,
       "exit_reason": "target_gap",
-      "days_held": 9
+      "days_held": 9,
+      "return_30d": -2.22,
+      "alpha_30d": -7.16
     },
     {
       "date": "2026-06-23",
@@ -4017,7 +4021,9 @@
       "return_3d": -5.65,
       "alpha_3d": -5.02,
       "return_5d": -8.03,
-      "alpha_5d": -9.83
+      "alpha_5d": -9.83,
+      "return_30d": -2.92,
+      "alpha_30d": -7.86
     },
     {
       "date": "2026-06-24",
@@ -6259,7 +6265,12 @@
       "return_3d": -4.37,
       "alpha_3d": -4.72,
       "return_5d": -8.58,
-      "alpha_5d": -11.09
+      "alpha_5d": -11.09,
+      "exit_date": "2026-08-05",
+      "exit_price": 150.12,
+      "exit_return": 17.29,
+      "exit_reason": "target_gap",
+      "days_held": 7
     },
     {
       "date": "2026-07-27",
@@ -6412,7 +6423,9 @@
       "return_1d": 0.98,
       "alpha_1d": -0.7,
       "return_3d": -0.88,
-      "alpha_3d": -4.75
+      "alpha_3d": -4.75,
+      "return_5d": -0.91,
+      "alpha_5d": -6.44
     },
     {
       "date": "2026-07-29",
@@ -6443,7 +6456,9 @@
       "exit_price": 118.36,
       "exit_return": 7.11,
       "exit_reason": "target",
-      "days_held": 3
+      "days_held": 3,
+      "return_5d": 6.08,
+      "alpha_5d": 0.55
     },
     {
       "date": "2026-07-29",
@@ -6474,7 +6489,9 @@
       "exit_reason": "target",
       "days_held": 2,
       "return_3d": 3.63,
-      "alpha_3d": -0.24
+      "alpha_3d": -0.24,
+      "return_5d": 2.09,
+      "alpha_5d": -3.44
     },
     {
       "date": "2026-07-30",
@@ -6531,7 +6548,12 @@
       "return_1d": 0.83,
       "alpha_1d": 0.11,
       "return_3d": 2.1,
-      "alpha_3d": -1.9
+      "alpha_3d": -1.9,
+      "exit_date": "2026-08-05",
+      "exit_price": 397.88,
+      "exit_return": 4.16,
+      "exit_reason": "target",
+      "days_held": 4
     },
     {
       "date": "2026-07-30",
@@ -6591,7 +6613,9 @@
       "exit_price": 181.27,
       "exit_return": 3.93,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 13.12,
+      "alpha_3d": 10.08
     },
     {
       "date": "2026-07-31",
@@ -6620,7 +6644,9 @@
       "exit_price": 582.62,
       "exit_return": 0.45,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": -1.64,
+      "alpha_3d": -4.69
     },
     {
       "date": "2026-07-31",
@@ -6644,7 +6670,9 @@
         "rs_leader": true
       },
       "return_1d": -0.68,
-      "alpha_1d": -2.1
+      "alpha_1d": -2.1,
+      "return_3d": -1.98,
+      "alpha_3d": -5.03
     },
     {
       "date": "2026-08-03",
@@ -6723,9 +6751,9 @@
       "ticker": "AMZN",
       "name": "Amazon.com, Inc.",
       "sector": "Consumer Cyclical",
-      "entry_price": 277.4200134277344,
+      "entry_price": 281.59,
       "signal_close": 277.4200134277344,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.0,
       "stop_loss": 257.47,
       "target": 281.07,
@@ -6738,16 +6766,18 @@
         "atr_pct": 3.6,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -3.17,
+      "alpha_1d": -2.98
     },
     {
       "date": "2026-08-04",
       "ticker": "CVX",
       "name": "Chevron Corporation",
       "sector": "Energy",
-      "entry_price": 190.39999389648438,
+      "entry_price": 191.19,
       "signal_close": 190.39999389648438,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.3,
       "stop_loss": 181.36,
       "target": 191.47,
@@ -6760,6 +6790,74 @@
         "atr_pct": 2.38,
         "insider_buy": false,
         "rs_leader": true
+      },
+      "return_1d": -2.5,
+      "alpha_1d": -2.3
+    },
+    {
+      "date": "2026-08-05",
+      "ticker": "ANET",
+      "name": "Arista Networks, Inc.",
+      "sector": "Technology",
+      "entry_price": 197.30999755859375,
+      "signal_close": 197.30999755859375,
+      "entry_realistic": false,
+      "score": 22.2,
+      "stop_loss": 175.17,
+      "target": 214.84,
+      "rr_ratio": 0.79,
+      "key_signals": {
+        "rs_vs_spy_30d": 16.71,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 5.61,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-05",
+      "ticker": "ETN",
+      "name": "Eaton Corporation, PLC",
+      "sector": "Industrials",
+      "entry_price": 447.2799987792969,
+      "signal_close": 447.2799987792969,
+      "entry_realistic": false,
+      "score": 20.7,
+      "stop_loss": 407.35,
+      "target": 451.96,
+      "rr_ratio": 0.12,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.43,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 4.46,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-05",
+      "ticker": "SBUX",
+      "name": "Starbucks Corporation",
+      "sector": "Consumer Cyclical",
+      "entry_price": 106.0,
+      "signal_close": 106.0,
+      "entry_realistic": false,
+      "score": 19.8,
+      "stop_loss": 99.84,
+      "target": 106.65,
+      "rr_ratio": 0.11,
+      "key_signals": {
+        "rs_vs_spy_30d": -0.04,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.9,
+        "insider_buy": false,
+        "rs_leader": false
       }
     }
   ]
