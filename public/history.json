@@ -4266,7 +4266,9 @@
       "exit_price": 271.95,
       "exit_return": 7.41,
       "exit_reason": "target",
-      "days_held": 21
+      "days_held": 21,
+      "return_30d": 3.4,
+      "alpha_30d": -2.64
     },
     {
       "date": "2026-06-26",
@@ -4299,7 +4301,9 @@
       "exit_price": 520.09,
       "exit_return": 4.48,
       "exit_reason": "target",
-      "days_held": 25
+      "days_held": 25,
+      "return_30d": 6.35,
+      "alpha_30d": 0.31
     },
     {
       "date": "2026-06-26",
@@ -4332,7 +4336,9 @@
       "return_3d": 4.08,
       "alpha_3d": 1.78,
       "return_5d": 4.43,
-      "alpha_5d": 1.38
+      "alpha_5d": 1.38,
+      "return_30d": 33.37,
+      "alpha_30d": 27.33
     },
     {
       "date": "2026-06-29",
@@ -6727,7 +6733,9 @@
       "return_1d": -0.65,
       "alpha_1d": -2.45,
       "return_3d": -0.81,
-      "alpha_3d": -2.25
+      "alpha_3d": -2.25,
+      "return_5d": -0.62,
+      "alpha_5d": -2.65
     },
     {
       "date": "2026-08-03",
@@ -6753,7 +6761,9 @@
       "return_1d": 1.54,
       "alpha_1d": -0.26,
       "return_3d": -1.14,
-      "alpha_3d": -2.58
+      "alpha_3d": -2.58,
+      "return_5d": -0.08,
+      "alpha_5d": -2.1
     },
     {
       "date": "2026-08-03",
@@ -6779,7 +6789,9 @@
       "return_1d": 0.9,
       "alpha_1d": -0.91,
       "return_3d": 1.24,
-      "alpha_3d": -0.2
+      "alpha_3d": -0.2,
+      "return_5d": 1.26,
+      "alpha_5d": -0.77
     },
     {
       "date": "2026-08-04",
@@ -6831,7 +6843,12 @@
       "return_1d": -2.5,
       "alpha_1d": -2.3,
       "return_3d": -2.42,
-      "alpha_3d": -2.67
+      "alpha_3d": -2.67,
+      "exit_date": "2026-08-10",
+      "exit_price": 191.47,
+      "exit_return": 0.15,
+      "exit_reason": "target",
+      "days_held": 4
     },
     {
       "date": "2026-08-05",
@@ -6855,7 +6872,9 @@
         "rs_leader": true
       },
       "return_1d": -0.05,
-      "alpha_1d": 0.11
+      "alpha_1d": 0.11,
+      "return_3d": -0.46,
+      "alpha_3d": -0.88
     },
     {
       "date": "2026-08-05",
@@ -6884,7 +6903,9 @@
       "exit_price": 451.96,
       "exit_return": 1.58,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 0.0,
+      "alpha_3d": -0.42
     },
     {
       "date": "2026-08-05",
@@ -6913,16 +6934,18 @@
       "exit_price": 106.65,
       "exit_return": 0.48,
       "exit_reason": "target",
-      "days_held": 2
+      "days_held": 2,
+      "return_3d": -1.4,
+      "alpha_3d": -1.82
     },
     {
       "date": "2026-08-07",
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "sector": "Technology",
-      "entry_price": 218.99000549316406,
+      "entry_price": 223.45,
       "signal_close": 218.99000549316406,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.2,
       "stop_loss": 203.41,
       "target": 221.01,
@@ -6935,16 +6958,18 @@
         "atr_pct": 3.56,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -2.64,
+      "alpha_1d": -2.61
     },
     {
       "date": "2026-08-07",
       "ticker": "SCHW",
       "name": "Charles Schwab Corporation (The",
       "sector": "Financial Services",
-      "entry_price": 107.66000366210938,
+      "entry_price": 107.51,
       "signal_close": 107.66000366210938,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.5,
       "stop_loss": 103.09,
       "target": 108.55,
@@ -6957,16 +6982,23 @@
         "atr_pct": 2.12,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.45,
+      "alpha_1d": 0.48,
+      "exit_date": "2026-08-10",
+      "exit_price": 108.55,
+      "exit_return": 0.97,
+      "exit_reason": "target",
+      "days_held": 1
     },
     {
       "date": "2026-08-07",
       "ticker": "CMCSA",
       "name": "Comcast Corporation",
       "sector": "Communication Services",
-      "entry_price": 25.170000076293945,
+      "entry_price": 25.16,
       "signal_close": 25.170000076293945,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.8,
       "stop_loss": 23.27,
       "target": 25.34,
@@ -6979,16 +7011,18 @@
         "atr_pct": 3.77,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.16,
+      "alpha_1d": 0.19
     },
     {
       "date": "2026-08-07",
       "ticker": "PLTR",
       "name": "Palantir Technologies Inc.",
       "sector": "Technology",
-      "entry_price": 172.00999450683594,
+      "entry_price": 171.08,
       "signal_close": 172.00999450683594,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 22.0,
       "stop_loss": 153.47,
       "target": 199.81,
@@ -7001,16 +7035,18 @@
         "atr_pct": 5.39,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.43,
+      "alpha_1d": 2.46
     },
     {
       "date": "2026-08-07",
       "ticker": "PFE",
       "name": "Pfizer, Inc.",
       "sector": "Healthcare",
-      "entry_price": 26.760000228881836,
+      "entry_price": 26.58,
       "signal_close": 26.760000228881836,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 21.5,
       "stop_loss": 25.71,
       "target": 28.34,
@@ -7023,16 +7059,18 @@
         "atr_pct": 1.97,
         "insider_buy": true,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.77,
+      "alpha_1d": 1.8
     },
     {
       "date": "2026-08-07",
       "ticker": "HD",
       "name": "Home Depot, Inc. (The)",
       "sector": "Consumer Cyclical",
-      "entry_price": 355.6199951171875,
+      "entry_price": 352.1,
       "signal_close": 355.6199951171875,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.3,
       "stop_loss": 338.77,
       "target": 358.19,
@@ -7043,6 +7081,74 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 2.37,
+        "insider_buy": false,
+        "rs_leader": false
+      },
+      "return_1d": -0.37,
+      "alpha_1d": -0.35
+    },
+    {
+      "date": "2026-08-10",
+      "ticker": "COP",
+      "name": "ConocoPhillips",
+      "sector": "Energy",
+      "entry_price": 123.02999877929688,
+      "signal_close": 123.02999877929688,
+      "entry_realistic": false,
+      "score": 20.0,
+      "stop_loss": 115.51,
+      "target": 124.41,
+      "rr_ratio": 0.18,
+      "key_signals": {
+        "rs_vs_spy_30d": 10.07,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.06,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "ticker": "INTU",
+      "name": "Intuit Inc.",
+      "sector": "Technology",
+      "entry_price": 334.42999267578125,
+      "signal_close": 334.42999267578125,
+      "entry_realistic": false,
+      "score": 19.5,
+      "stop_loss": 304.39,
+      "target": 336.3,
+      "rr_ratio": 0.06,
+      "key_signals": {
+        "rs_vs_spy_30d": 18.88,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 4.49,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "ticker": "DHR",
+      "name": "Danaher Corporation",
+      "sector": "Healthcare",
+      "entry_price": 209.3699951171875,
+      "signal_close": 209.3699951171875,
+      "entry_realistic": false,
+      "score": 17.0,
+      "stop_loss": 194.69,
+      "target": 231.38,
+      "rr_ratio": 1.5,
+      "key_signals": {
+        "rs_vs_spy_30d": 0.68,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.5,
         "insider_buy": false,
         "rs_leader": false
       }
