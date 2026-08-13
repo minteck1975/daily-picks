@@ -4476,7 +4476,9 @@
       "exit_reason": "stop",
       "days_held": 4,
       "return_5d": -4.86,
-      "alpha_5d": -4.68
+      "alpha_5d": -4.68,
+      "return_30d": 9.52,
+      "alpha_30d": 6.07
     },
     {
       "date": "2026-06-30",
@@ -4612,7 +4614,9 @@
       "return_3d": 4.48,
       "alpha_3d": 4.22,
       "return_5d": 1.3,
-      "alpha_5d": 0.5
+      "alpha_5d": 0.5,
+      "return_30d": 2.46,
+      "alpha_30d": -1.84
     },
     {
       "date": "2026-07-01",
@@ -7156,7 +7160,9 @@
       "exit_price": 124.41,
       "exit_return": 1.35,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 1.44,
+      "alpha_3d": 0.81
     },
     {
       "date": "2026-08-10",
@@ -7185,7 +7191,9 @@
       "exit_price": 336.3,
       "exit_return": 1.21,
       "exit_reason": "target",
-      "days_held": 1
+      "days_held": 1,
+      "return_3d": 7.83,
+      "alpha_3d": 7.2
     },
     {
       "date": "2026-08-10",
@@ -7209,7 +7217,9 @@
         "rs_leader": false
       },
       "return_1d": -0.29,
-      "alpha_1d": 0.03
+      "alpha_1d": 0.03,
+      "return_3d": -2.0,
+      "alpha_3d": -2.63
     },
     {
       "date": "2026-08-11",
@@ -7233,7 +7243,12 @@
         "rs_leader": true
       },
       "return_1d": -0.88,
-      "alpha_1d": -1.13
+      "alpha_1d": -1.13,
+      "exit_date": "2026-08-13",
+      "exit_price": 153.88,
+      "exit_return": 1.41,
+      "exit_reason": "target",
+      "days_held": 2
     },
     {
       "date": "2026-08-11",
@@ -7257,7 +7272,12 @@
         "rs_leader": true
       },
       "return_1d": 0.71,
-      "alpha_1d": 0.46
+      "alpha_1d": 0.46,
+      "exit_date": "2026-08-13",
+      "exit_price": 197.69,
+      "exit_return": 1.27,
+      "exit_reason": "target",
+      "days_held": 2
     },
     {
       "date": "2026-08-11",
@@ -7293,9 +7313,9 @@
       "ticker": "GILD",
       "name": "Gilead Sciences, Inc.",
       "sector": "Healthcare",
-      "entry_price": 135.8699951171875,
+      "entry_price": 136.95,
       "signal_close": 135.8699951171875,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 21.0,
       "stop_loss": 127.56,
       "target": 136.6,
@@ -7308,16 +7328,18 @@
         "atr_pct": 3.06,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.87,
+      "alpha_1d": 0.17
     },
     {
       "date": "2026-08-12",
       "ticker": "MDLZ",
       "name": "Mondelez International, Inc.",
       "sector": "Consumer Defensive",
-      "entry_price": 62.18000030517578,
+      "entry_price": 62.71,
       "signal_close": 62.18000030517578,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.5,
       "stop_loss": 58.69,
       "target": 62.52,
@@ -7330,16 +7352,18 @@
         "atr_pct": 2.8,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.31,
+      "alpha_1d": 0.61
     },
     {
       "date": "2026-08-12",
       "ticker": "EOG",
       "name": "EOG Resources, Inc.",
       "sector": "Energy",
-      "entry_price": 143.13999938964844,
+      "entry_price": 141.02,
       "signal_close": 143.13999938964844,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.3,
       "stop_loss": 133.65,
       "target": 144.0,
@@ -7350,6 +7374,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 3.31,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 0.28,
+      "alpha_1d": -0.42
+    },
+    {
+      "date": "2026-08-13",
+      "ticker": "PFE",
+      "name": "Pfizer, Inc.",
+      "sector": "Healthcare",
+      "entry_price": 26.799999237060547,
+      "signal_close": 26.799999237060547,
+      "entry_realistic": false,
+      "score": 19.5,
+      "stop_loss": 25.62,
+      "target": 26.95,
+      "rr_ratio": 0.13,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.92,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.2,
+        "insider_buy": true,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-13",
+      "ticker": "CME",
+      "name": "CME Group Inc.",
+      "sector": "Financial Services",
+      "entry_price": 267.2099914550781,
+      "signal_close": 267.2099914550781,
+      "entry_realistic": false,
+      "score": 19.0,
+      "stop_loss": 255.32,
+      "target": 269.0,
+      "rr_ratio": 0.15,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.37,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.22,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-13",
+      "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "sector": "Technology",
+      "entry_price": 225.3000030517578,
+      "signal_close": 225.3000030517578,
+      "entry_realistic": false,
+      "score": 17.7,
+      "stop_loss": 210.14,
+      "target": 227.23,
+      "rr_ratio": 0.13,
+      "key_signals": {
+        "rs_vs_spy_30d": 9.72,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.36,
         "insider_buy": false,
         "rs_leader": true
       }
