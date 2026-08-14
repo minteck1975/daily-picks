@@ -4989,7 +4989,9 @@
       "exit_reason": "stop",
       "days_held": 4,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -11.22,
+      "alpha_30d": -15.45
     },
     {
       "date": "2026-07-02",
@@ -5024,7 +5026,9 @@
       "exit_reason": "target_gap",
       "days_held": 14,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 11.49,
+      "alpha_30d": 7.25
     },
     {
       "date": "2026-07-03",
@@ -5094,7 +5098,9 @@
       "exit_reason": "stop_gap",
       "days_held": 14,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 23.43,
+      "alpha_30d": 19.19
     },
     {
       "date": "2026-07-06",
@@ -7360,7 +7366,9 @@
       "return_1d": -2.64,
       "alpha_1d": -2.61,
       "return_3d": 0.29,
-      "alpha_3d": 0.39
+      "alpha_3d": 0.39,
+      "return_5d": 0.77,
+      "alpha_5d": 0.37
     },
     {
       "date": "2026-08-07",
@@ -7393,7 +7401,9 @@
       "exit_reason": "target",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": 3.33,
+      "alpha_5d": 2.93
     },
     {
       "date": "2026-08-07",
@@ -7426,7 +7436,9 @@
       "exit_reason": "target",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": 4.05,
+      "alpha_5d": 3.66
     },
     {
       "date": "2026-08-07",
@@ -7452,7 +7464,9 @@
       "return_1d": 2.43,
       "alpha_1d": 2.46,
       "return_3d": -0.02,
-      "alpha_3d": 0.08
+      "alpha_3d": 0.08,
+      "return_5d": 1.73,
+      "alpha_5d": 1.33
     },
     {
       "date": "2026-08-07",
@@ -7478,7 +7492,9 @@
       "return_1d": 1.77,
       "alpha_1d": 1.8,
       "return_3d": -1.02,
-      "alpha_3d": -0.92
+      "alpha_3d": -0.92,
+      "return_5d": 0.79,
+      "alpha_5d": 0.39
     },
     {
       "date": "2026-08-07",
@@ -7504,7 +7520,16 @@
       "return_1d": -0.37,
       "alpha_1d": -0.35,
       "return_3d": -2.46,
-      "alpha_3d": -2.36
+      "alpha_3d": -2.36,
+      "return_5d": -3.76,
+      "alpha_5d": -4.16,
+      "exit_date": "2026-08-14",
+      "exit_price": 338.43,
+      "exit_return": -3.88,
+      "exit_reason": "stop",
+      "days_held": 5,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-10",
@@ -7627,7 +7652,9 @@
       "exit_reason": "target",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": 1.7,
+      "alpha_3d": 0.95
     },
     {
       "date": "2026-08-11",
@@ -7658,7 +7685,9 @@
       "exit_reason": "target",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": 2.45,
+      "alpha_3d": 1.7
     },
     {
       "date": "2026-08-11",
@@ -7689,7 +7718,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": 2.22,
+      "alpha_3d": 1.47
     },
     {
       "date": "2026-08-12",
@@ -7768,9 +7799,9 @@
       "ticker": "PFE",
       "name": "Pfizer, Inc.",
       "sector": "Healthcare",
-      "entry_price": 26.799999237060547,
+      "entry_price": 26.66,
       "signal_close": 26.799999237060547,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.5,
       "stop_loss": 25.62,
       "target": 26.95,
@@ -7783,16 +7814,18 @@
         "atr_pct": 2.2,
         "insider_buy": true,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.49,
+      "alpha_1d": 0.69
     },
     {
       "date": "2026-08-13",
       "ticker": "CME",
       "name": "CME Group Inc.",
       "sector": "Financial Services",
-      "entry_price": 267.2099914550781,
+      "entry_price": 266.88,
       "signal_close": 267.2099914550781,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.0,
       "stop_loss": 255.32,
       "target": 269.0,
@@ -7805,16 +7838,25 @@
         "atr_pct": 2.22,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.09,
+      "alpha_1d": 1.29,
+      "exit_date": "2026-08-14",
+      "exit_price": 268.73,
+      "exit_return": 0.69,
+      "exit_reason": "target",
+      "days_held": 1,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-13",
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "sector": "Technology",
-      "entry_price": 225.3000030517578,
+      "entry_price": 226.8,
       "signal_close": 225.3000030517578,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.7,
       "stop_loss": 210.14,
       "target": 227.23,
@@ -7827,7 +7869,9 @@
         "atr_pct": 3.36,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.72,
+      "alpha_1d": -0.53
     },
     {
       "date": "2026-08-14",
@@ -7869,6 +7913,72 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 3.81,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-14",
+      "ticker": "XOM",
+      "name": "ExxonMobil Holdings Corporation",
+      "sector": "Energy",
+      "entry_price": 160.10000610351562,
+      "signal_close": 160.10000610351562,
+      "entry_realistic": false,
+      "score": 18.7,
+      "stop_loss": 152.18,
+      "target": 175.94,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 12.55,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.47,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-14",
+      "ticker": "T",
+      "name": "AT&T Inc.",
+      "sector": "Communication Services",
+      "entry_price": 24.889999389648438,
+      "signal_close": 24.889999389648438,
+      "entry_realistic": false,
+      "score": 17.7,
+      "stop_loss": 23.63,
+      "target": 27.41,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 16.71,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.53,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-14",
+      "ticker": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "sector": "Consumer Cyclical",
+      "entry_price": 262.6499938964844,
+      "signal_close": 262.6499938964844,
+      "entry_realistic": false,
+      "score": 16.5,
+      "stop_loss": 243.0,
+      "target": 301.95,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.0,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.74,
         "insider_buy": false,
         "rs_leader": true
       }
