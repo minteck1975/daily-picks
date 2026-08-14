@@ -1,6 +1,6 @@
 # The Tape — Daily Stock Picks
 
-A trend-following screener for US large-caps that runs nightly on GitHub Actions, scoring stocks across 15+ signals (technicals, fundamentals, freshness, sentiment, insider activity, market context). Publishes up to 3 picks to a public dashboard with stop/target setups, realistic entry tracking, simulated-execution stats, and a running track record.
+A trend-following screener for US large-caps that runs nightly on GitHub Actions, scoring stocks across 15+ signals (technicals, fundamentals, freshness, sentiment, insider activity, market context). Publishes up to 3 picks to a public dashboard with stop/target setups enforcing 2:1 minimum risk-reward, realistic entry tracking, honest simulated-execution stats (close-based target confirmation + slippage modeled), and a running track record.
 
 **Live dashboard:** `https://minteck1975.github.io/daily-picks/`
 
@@ -15,9 +15,9 @@ Each weekday at 5:21 AM Singapore time (just after the US close), the bot:
 3. **Enriches the top ~12 candidates** with fundamentals, sentiment, insider data, weekly trend, earnings calendar, and trend-stage classification
 4. **Applies a 5-day ticker cooldown** — won't re-pick names selected in the last 5 days, forcing fresh setups instead of doubling down
 5. **Selects up to 3 picks** — at most one per sector, none with earnings in the next 3 days, none with weekly-down trends
-6. **Computes a full trade setup per pick** — ATR-based stop, nearest-resistance target, risk-reward ratio
+6. **Computes a trade setup enforcing 2:1 minimum RR** — ATR-based stop, target chosen from resistance levels that satisfy the RR floor (synthesized to exactly 2:1 if no natural resistance qualifies)
 7. **Snapshots the broader regime** — sector breadth, VIX, junk-credit (HYG), Fear & Greed Index
-8. **Maintains a persistent track record** that auto-computes returns at 1/3/5/30 days, backfills realistic entries (next-day open), and simulates stop-loss/target execution
+8. **Maintains a persistent track record** that auto-computes returns at 1/3/5/30 days, backfills realistic entries (next-day open), and simulates stop/target execution with close-based target confirmation and slippage
 9. **Commits everything back to the repo**, triggering an automatic Pages redeploy
 
 ---
@@ -90,6 +90,22 @@ Each pick is tagged with a stage chip on the dashboard:
 
 ---
 
+## Trade setup — enforced 2:1 minimum RR
+
+`compute_trade_setup()` guarantees every pick meets a minimum risk-reward floor:
+
+1. **Stop:** 2× ATR below entry (14-day ATR)
+2. **Target selection:** walks resistance levels (distinct daily highs from last 60 sessions above entry) from nearest to farthest
+3. **Picks the first level that satisfies** RR ≥ 2.0 (target distance ≥ 2× stop distance)
+4. **Synthesizes exactly 2:1 target** if no natural resistance level within 25% of price gives enough room
+5. **Records target source** — either `"resistance"` (natural level) or `"synthesized"` (forced to meet RR floor)
+
+**Why the RR minimum matters:** the previous version took nearest resistance regardless of distance, producing RR ratios around 0.15 — a 1% target with a 7% stop. This led to lots of trivial 0.5% "target hit on day 1" phantom exits, and one bad stop wiped out many small wins. Requiring RR ≥ 2.0 forces the system to only take trades where the reward justifies the risk.
+
+**Consequence:** the win rate on target hits will be lower (targets are further away), but each win is more meaningful. Picks where no reasonable resistance level gives RR ≥ 2.0 are still generated (with `target_source = "synthesized"`), but they're candidates for future filtering.
+
+---
+
 ## Architecture
 
 ```
@@ -141,12 +157,12 @@ Fix: `pages.yml` uses a `workflow_run` trigger that fires the moment `daily-pick
    ├─ insider buying (OpenInsider)
    ├─ earnings calendar
    └─ weekly trend confirmation
-7. Compute trade setup (stop/target/RR) for each
+7. Compute trade setup — enforce 2:1 minimum RR
 8. Apply selection filters (sector cap, earnings, weekly)
 9. History pipeline:
    ├─ Backfill realistic entries (signal close → next-day open)
    ├─ Recompute returns at 1d/3d/5d/30d horizons
-   ├─ Simulate stop/target exits on all unsettled picks
+   ├─ Simulate exits (v2: close-based target + slippage)
    └─ Append today's new picks
 10. Fetch regime: VIX, HYG, breadth %, Fear & Greed
 11. Fetch top 10 market headlines + FinBERT mood
@@ -162,12 +178,12 @@ Fix: `pages.yml` uses a `workflow_run` trigger that fires the moment `daily-pick
 ├── .github/workflows/
 │   ├── daily-picks.yml          # cron job (5:21 AM SGT, post-US-close)
 │   └── pages.yml                # auto-deploy via workflow_run chaining
-├── daily_picks_bot.py           # the screener (~2100 lines)
+├── daily_picks_bot.py           # the screener (~2160 lines)
 ├── requirements.txt             # yfinance, pandas, numpy, requests, transformers, torch
 ├── public/
 │   ├── index.html               # editorial dashboard (5 tabs)
 │   ├── picks.json               # today's picks + sector data + regime + news
-│   ├── history.json             # full pick history with computed returns + exits
+│   ├── history.json             # full pick history with returns + simulated exits
 │   ├── favicon.svg              # SVG icon for browser tabs
 │   ├── favicon-32.png           # PNG fallback
 │   ├── apple-touch-icon.png     # iOS home screen
@@ -245,20 +261,29 @@ US market closes 21:00 UTC (winter) or 20:00 UTC (summer). A 21:21 UTC run lands
 In `daily_picks_bot.py`:
 
 ```python
-HISTORY_MAX_AGE_DAYS = 365   # auto-prune old history
-COOLDOWN_DAYS = 5             # don't re-pick a ticker within N days
-HORIZON_DAYS = 30             # max holding period for exit simulation
-DEFAULT_STOP_PCT = 0.08       # 8% fallback stop for legacy picks
-DEFAULT_TARGET_PCT = 0.15     # 15% fallback target for legacy picks
+HISTORY_MAX_AGE_DAYS = 365    # auto-prune old history
+COOLDOWN_DAYS       = 5       # don't re-pick a ticker within N days
+HORIZON_DAYS        = 30      # max holding period for exit simulation
+DEFAULT_STOP_PCT    = 0.08    # 8% fallback stop for legacy picks
+DEFAULT_TARGET_PCT  = 0.15    # 15% fallback target for legacy picks
+EXIT_SLIPPAGE_PCT   = 0.10    # 0.10% haircut on all exit fills (bid/ask + commission)
+EXIT_SIM_VERSION    = 2       # bump when sim logic changes → forces resim of old exits
 ```
 
 Signal weights live inside `evaluate()` — search for `score +=` and `score -=` to find every contribution and tune.
 
+Trade setup parameters live in `compute_trade_setup()`:
+
+```python
+min_rr          = 2.0     # minimum risk-reward ratio (target_dist / stop_dist)
+max_target_pct  = 25.0    # walk resistance up to 25% above entry, then synthesize
+```
+
 In `select_top()`:
 
 ```python
-max_per_sector = 1     # at most 1 pick per GICS sector
-earnings_window = 3    # skip tickers with earnings in next N days
+max_per_sector  = 1       # at most 1 pick per GICS sector
+earnings_window = 3       # skip tickers with earnings in next N days
 ```
 
 ---
@@ -308,15 +333,26 @@ On day +1, the bot fetches the next session's OPEN for yesterday's picks and rep
 ### Stage 2: Raw return computation
 Returns at 1d / 3d / 5d / 30d are computed once each and stored permanently. Sanity bounds clip anything outside −80% to +300% (yfinance occasionally returns split-adjusted glitches that would otherwise contaminate stats).
 
-### Stage 3: Simulated stop/target execution
-For each pick, the bot walks daily OHLC after entry:
-- If next-day **open** ≤ stop → exit at the open (`stop_gap`)
-- Else if intraday **low** ≤ stop → exit at stop (`stop`)
-- Else if next-day **open** ≥ target → exit at the open (`target_gap`)
-- Else if intraday **high** ≥ target → exit at target (`target`)
-- If 30 days elapse with no exit → close at day-30 price (`horizon`)
+### Stage 3: Simulated stop/target execution (v2)
 
-This converts buy-and-hold theoretical returns into what disciplined execution would actually have realized.
+For each pick, the bot walks daily OHLC after entry:
+
+**Stop logic (intraday touch — realistic for stop-market orders):**
+- Next-day **open** ≤ stop → exit at open (`stop_gap`)
+- Intraday **low** ≤ stop → exit at stop (`stop`)
+
+**Target logic (requires close-based confirmation):**
+- Next-day **open** ≥ target AND close ≥ target → exit at open (`target_gap`)
+- Intraday **high** ≥ target AND close ≥ target → exit at target (`target`)
+
+**Horizon exit:**
+- If 30 days elapse without a stop or target trigger → close at day-30 price (`horizon`)
+
+**Slippage:** every exit fill is haircut by `EXIT_SLIPPAGE_PCT` (default 0.10%). Real bid/ask spread + commissions.
+
+**Why target hits require CLOSE confirmation:** intraday spikes that touch a target level for 30 seconds aren't reliable fills — stop-limit orders often miss, and by close the stock has usually retraced. Requiring the daily close to be at or above the target eliminates phantom "target hit for +0.5% on day 1" exits that inflate win rates in unrealistic ways.
+
+**Versioning:** `EXIT_SIM_VERSION` bumps when exit logic changes. Historical picks with a stale `sim_version` field get re-simulated automatically under the new rules on the next cron. This means dashboard stats always reflect current logic — no stale numbers from earlier versions.
 
 ---
 
@@ -347,7 +383,8 @@ This is a **screener**, not a portfolio system. It tells you what to look at, wh
 - **StockTwits/Reddit** skew retail and can be gamed by coordinated posting.
 - **FinBERT** is accurate on financial text but not magical — it can misread sarcasm or context.
 - **CNN Fear & Greed endpoint** is unofficial. Stable for years but could change without notice.
-- **Simulated execution does not model slippage.** Real stop-market orders fill below the stop on gap-downs; the simulation assumes you fill at the stop level. Real-world returns would be slightly worse — typically 10–20% lower win rate, 0.1–0.2% lower avg return.
+- **Slippage is modeled at a flat 0.10% haircut.** This is a reasonable large-cap approximation but understates real slippage on gap-downs through stops (which can be 1–3% worse on volatile names). If your track record looks great but you can't reproduce it live, this gap is the most likely culprit — measure your actual fills against the simulated exit prices for a few trades to calibrate.
+- **Position sizing is not modeled.** All "avg return" stats treat every trade as equal-dollar. In practice you'd size larger on tighter-stop setups. Real portfolio return per unit of risk would differ from what the dashboard shows.
 - **No backtest** has been run on this exact configuration. The signal stack is well-established in trend-following literature; *that is not the same as proven on this implementation*. The Track Record tab is your real-time validation.
 
 ---
@@ -356,8 +393,9 @@ This is a **screener**, not a portfolio system. It tells you what to look at, wh
 
 - **Backtester** — run the full signal stack through 1–2 years of historical data, report hit rates and alpha distribution at each horizon. Until this exists, the system is design-validated but not statistically validated.
 - **Notifications** — Telegram/Discord webhook step so picks come to your phone instead of you opening the dashboard.
-- **Slippage modeling** — apply a realistic fill assumption (e.g., +0.1% on entries, −0.2% on stop-gaps) to the exit simulation.
-- **Wider targets / better RR** — current setups have RR ~0.15 (small targets, high win rate). Adjusting `compute_trade_setup` to use wider resistance levels would give better RR but lower win rate. Trade-off worth experimenting with.
+- **Position sizing / risk-normalized returns** — treat every trade as risking a fixed dollar amount (e.g., 1% of capital) with position size = risk / stop distance. Track record then shows portfolio-level PnL that's actually meaningful.
+- **Reject picks with synthesized targets** — currently picks where no natural resistance gives RR ≥ 2.0 get a forced 2:1 target. Consider filtering them out entirely for higher-quality selection: `signals = [s for s in signals if s.target_source == "resistance"]`.
+- **Stage-conditional performance stats** — split Track Record win rates by trend stage (fresh vs mature). Reveals whether the freshness rebalancing is actually delivering the intended edge or whether mature picks are hidden performers.
 - **Pre-market gap detection** — separate 7am ET workflow that flags watchlist tickers gapping >3%.
 - **Watchlist tier** — display picks ranked 4–10 on no-pick days.
 
