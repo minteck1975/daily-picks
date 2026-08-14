@@ -889,32 +889,60 @@ def fetch_news_sentiment_finbert(tk: yf.Ticker) -> tuple[int, float]:
 
 
 # ---------- New: trade setup ----------
-def compute_trade_setup(df: pd.DataFrame, entry: float, atr: float) -> dict:
-    """ATR-based stop + nearest-resistance target."""
+def compute_trade_setup(df: pd.DataFrame, entry: float, atr: float,
+                        min_rr: float = 2.0, max_target_pct: float = 25.0) -> dict:
+    """
+    ATR-based stop + target that enforces a minimum risk-reward ratio.
+
+    Old behavior: nearest resistance became the target, giving RR ~0.15 and
+    trivial "target hit on day 1 for +0.5%" phantom exits.
+
+    New behavior: walk resistance levels from nearest to farthest, take the
+    first one that gives RR >= min_rr. If none qualify within max_target_pct
+    of price, synthesize a target at exactly min_rr * stop_distance so RR
+    stays honest even without natural overhead resistance.
+    """
     stop = entry - 2 * atr
     stop_dist = entry - stop
     if stop_dist <= 0:
         stop_dist = entry * 0.05  # safety: 5% stop minimum
         stop = entry - stop_dist
 
-    # Target: nearest resistance from last 60 days above current price
+    # Candidate resistance levels: distinct daily highs from last 60 sessions
+    # sitting meaningfully above entry. Sort ascending — try closest first.
     recent_highs = df["High"].iloc[-60:]
-    above_entry = recent_highs[recent_highs > entry * 1.005]
-    if len(above_entry) > 0:
-        target = float(above_entry.min())
-    else:
-        # No overhead resistance — default to 1.5x stop distance
-        target = entry + stop_dist * 1.5
+    max_target_price = entry * (1 + max_target_pct / 100)
+    candidates = sorted({
+        round(float(h), 4)
+        for h in recent_highs
+        if entry * 1.005 < h <= max_target_price
+    })
+
+    target = None
+    target_source = "synthesized"
+    for lvl in candidates:
+        rr_here = (lvl - entry) / stop_dist
+        if rr_here >= min_rr:
+            target = lvl
+            target_source = "resistance"
+            break
+
+    if target is None:
+        # No natural resistance gave enough RR — synthesize exactly min_rr
+        target = entry + stop_dist * min_rr
 
     target_dist = target - entry
     rr = target_dist / stop_dist if stop_dist > 0 else 0.0
+    rr_rounded = round(rr, 2)
 
     return {
         "stop_loss": round(stop, 2),
         "stop_distance_pct": round((stop_dist / entry) * 100, 2),
         "target": round(target, 2),
         "target_distance_pct": round((target_dist / entry) * 100, 2),
-        "rr_ratio": round(rr, 2),
+        "rr_ratio": rr_rounded,
+        "target_source": target_source,               # 'resistance' or 'synthesized'
+        "rr_meets_minimum": bool(rr_rounded >= min_rr - 1e-9),  # sanity flag
     }
 
 
@@ -1137,6 +1165,8 @@ COOLDOWN_DAYS = 5             # don't re-pick a ticker within N calendar days
 HORIZON_DAYS = 30             # max holding days before forced "horizon" exit
 DEFAULT_STOP_PCT = 0.08       # 8% stop for legacy picks missing stop_loss
 DEFAULT_TARGET_PCT = 0.15     # 15% target for legacy picks missing target
+EXIT_SLIPPAGE_PCT = 0.10      # 0.10% haircut on all exit fills (realistic bid/ask + commission)
+EXIT_SIM_VERSION = 2          # bump when sim logic changes so old exits get resimulated
 
 def load_history(path: str = HISTORY_PATH) -> dict:
     if not os.path.exists(path):
@@ -1324,16 +1354,27 @@ def update_history_exits(history: dict) -> dict:
     """
     Walk each historical pick's daily OHLC after entry. Apply the stop_loss
     and target that were set at signal time. Record exit_price, exit_reason,
-    exit_return, days_held. This converts buy-and-hold returns into what
-    you'd have actually realized with disciplined stop/target execution.
+    exit_return, days_held, exit_slippage_pct.
+
+    v2 changes (August 2026): more honest exit sim.
+    - Target hit now requires daily CLOSE > target (not just intraday touch).
+      Rationale: an intraday spike touching target for 30 seconds isn't a
+      real fill — stop-limit orders often miss, and by close the stock has
+      typically retraced. Only counting closes eliminates phantom exits.
+    - Stops keep intraday-touch semantics (real stop-market orders DO fill
+      on intraday touches — that's their whole point).
+    - 0.10% slippage haircut applied to all fills. Real bid/ask + commission.
+    - Bumps EXIT_SIM_VERSION so existing sim_version < 2 gets re-simulated.
     """
     today = datetime.now(timezone.utc).date()
     picks = history.get("picks") or []
 
     needs_exit = []
     for i, p in enumerate(picks):
-        if p.get("exit_reason") is not None:
-            continue  # already exited
+        # v2 change: pick re-simulation if it was closed under an old sim version
+        already_sim_v = p.get("sim_version", 1) if p.get("exit_reason") else None
+        if already_sim_v is not None and already_sim_v >= EXIT_SIM_VERSION:
+            continue  # already exited under current sim logic
         try:
             entry_date = datetime.fromisoformat(p["date"]).date()
         except Exception:
@@ -1346,16 +1387,19 @@ def update_history_exits(history: dict) -> dict:
             continue
         stop = p.get("stop_loss") or entry * (1 - DEFAULT_STOP_PCT)
         target = p.get("target") or entry * (1 + DEFAULT_TARGET_PCT)
-        # Sanity: stop must be below entry, target above
         if stop >= entry: stop = entry * (1 - DEFAULT_STOP_PCT)
         if target <= entry: target = entry * (1 + DEFAULT_TARGET_PCT)
+        # Clear stale exit fields so re-simulation writes fresh values
+        for k in ("exit_date", "exit_price", "exit_return",
+                  "exit_reason", "days_held", "exit_slippage_pct"):
+            p.pop(k, None)
         needs_exit.append((i, entry_date, entry, stop, target))
 
     if not needs_exit:
         return history
 
     tickers = sorted({picks[i]["ticker"] for i, *_ in needs_exit})
-    print(f"Simulating stop/target exits for {len(needs_exit)} open picks...",
+    print(f"Simulating stop/target exits for {len(needs_exit)} picks (v{EXIT_SIM_VERSION})...",
           file=sys.stderr)
 
     try:
@@ -1371,6 +1415,8 @@ def update_history_exits(history: dict) -> dict:
         print(f"  ! Exit simulation fetch failed: {e}", file=sys.stderr)
         return history
 
+    slip = EXIT_SLIPPAGE_PCT / 100.0
+
     for i, entry_date, entry, stop, target in needs_exit:
         p = picks[i]
         tk = p["ticker"]
@@ -1384,50 +1430,59 @@ def update_history_exits(history: dict) -> dict:
             if len(bars) == 0:
                 continue
             for d_idx, (ts, row) in enumerate(bars.iterrows()):
-                day_open = float(row["Open"]) if not pd.isna(row["Open"]) else None
-                day_low  = float(row["Low"])  if not pd.isna(row["Low"])  else None
-                day_high = float(row["High"]) if not pd.isna(row["High"]) else None
-                if day_open is None or day_low is None or day_high is None:
+                day_open  = float(row["Open"])  if not pd.isna(row["Open"])  else None
+                day_low   = float(row["Low"])   if not pd.isna(row["Low"])   else None
+                day_high  = float(row["High"])  if not pd.isna(row["High"])  else None
+                day_close = float(row["Close"]) if not pd.isna(row["Close"]) else None
+                if None in (day_open, day_low, day_high, day_close):
                     continue
 
-                exit_price = None
+                raw_exit_price = None
                 exit_reason = None
 
+                # --- STOP LOGIC (intraday touch — realistic for stop-market orders) ---
                 # Gap-down through stop: exit at the open
                 if day_open <= stop:
-                    exit_price = day_open
+                    raw_exit_price = day_open
                     exit_reason = "stop_gap"
                 # Stop hit intraday
                 elif day_low <= stop:
-                    exit_price = stop
+                    raw_exit_price = stop
                     exit_reason = "stop"
-                # Gap-up through target: exit at the open (favorable)
-                elif day_open >= target:
-                    exit_price = day_open
+                # --- TARGET LOGIC (v2: requires CLOSE, not just intraday touch) ---
+                # Gap-up open above target AND closed there: honest target hit at open
+                elif day_open >= target and day_close >= target:
+                    raw_exit_price = day_open
                     exit_reason = "target_gap"
-                # Target hit intraday
-                elif day_high >= target:
-                    exit_price = target
+                # Intraday touch of target AND closed above: honest target hit
+                elif day_high >= target and day_close >= target:
+                    raw_exit_price = target
                     exit_reason = "target"
 
-                if exit_price is not None:
-                    p["exit_date"] = ts.date().isoformat()
-                    p["exit_price"] = round(exit_price, 2)
-                    p["exit_return"] = round((exit_price / entry - 1) * 100, 2)
-                    p["exit_reason"] = exit_reason
-                    p["days_held"] = d_idx + 1
+                if raw_exit_price is not None:
+                    # Apply slippage: sells fill worse than the raw level
+                    exit_price = raw_exit_price * (1 - slip)
+                    p["exit_date"]         = ts.date().isoformat()
+                    p["exit_price"]        = round(exit_price, 2)
+                    p["exit_return"]       = round((exit_price / entry - 1) * 100, 2)
+                    p["exit_reason"]       = exit_reason
+                    p["days_held"]         = d_idx + 1
+                    p["exit_slippage_pct"] = EXIT_SLIPPAGE_PCT
+                    p["sim_version"]       = EXIT_SIM_VERSION
                     break
             else:
-                # Loop completed without exit. If we've held longer than horizon,
-                # mark as a horizon exit at that day's close.
+                # No exit within available bars. If held longer than horizon,
+                # force horizon exit at day-30 close (with slippage).
                 if len(bars) >= HORIZON_DAYS:
-                    h_row = bars.iloc[HORIZON_DAYS - 1]
-                    h_close = float(h_row["Close"])
-                    p["exit_date"]   = bars.index[HORIZON_DAYS - 1].date().isoformat()
-                    p["exit_price"]  = round(h_close, 2)
-                    p["exit_return"] = round((h_close / entry - 1) * 100, 2)
-                    p["exit_reason"] = "horizon"
-                    p["days_held"]   = HORIZON_DAYS
+                    h_close = float(bars["Close"].iloc[HORIZON_DAYS - 1])
+                    exit_price = h_close * (1 - slip)
+                    p["exit_date"]         = bars.index[HORIZON_DAYS - 1].date().isoformat()
+                    p["exit_price"]        = round(exit_price, 2)
+                    p["exit_return"]       = round((exit_price / entry - 1) * 100, 2)
+                    p["exit_reason"]       = "horizon"
+                    p["days_held"]         = HORIZON_DAYS
+                    p["exit_slippage_pct"] = EXIT_SLIPPAGE_PCT
+                    p["sim_version"]       = EXIT_SIM_VERSION
         except Exception as e:
             print(f"  ! {tk}: exit simulation failed ({e})", file=sys.stderr)
 
