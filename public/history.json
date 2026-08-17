@@ -4954,7 +4954,9 @@
       "exit_reason": "stop",
       "days_held": 6,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 11.71,
+      "alpha_30d": 7.47
     },
     {
       "date": "2026-07-02",
@@ -5063,7 +5065,9 @@
       "exit_reason": "stop",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -4.32,
+      "alpha_30d": -8.56
     },
     {
       "date": "2026-07-03",
@@ -5135,7 +5139,9 @@
       "exit_reason": "target",
       "days_held": 9,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 5.44,
+      "alpha_30d": 2.59
     },
     {
       "date": "2026-07-06",
@@ -5170,7 +5176,9 @@
       "exit_reason": "target_gap",
       "days_held": 8,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 5.32,
+      "alpha_30d": 2.48
     },
     {
       "date": "2026-07-06",
@@ -5205,7 +5213,9 @@
       "exit_reason": "stop",
       "days_held": 6,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 13.47,
+      "alpha_30d": 10.62
     },
     {
       "date": "2026-07-07",
@@ -7562,7 +7572,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": 3.92,
+      "alpha_5d": 3.97
     },
     {
       "date": "2026-08-10",
@@ -7595,7 +7607,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": 1.0,
+      "alpha_5d": 1.05
     },
     {
       "date": "2026-08-10",
@@ -7621,7 +7635,9 @@
       "return_1d": -0.29,
       "alpha_1d": 0.03,
       "return_3d": -2.0,
-      "alpha_3d": -2.63
+      "alpha_3d": -2.63,
+      "return_5d": -2.61,
+      "alpha_5d": -2.56
     },
     {
       "date": "2026-08-11",
@@ -7744,7 +7760,9 @@
         "rs_leader": true
       },
       "return_1d": 0.87,
-      "alpha_1d": 0.17
+      "alpha_1d": 0.17,
+      "return_3d": 1.44,
+      "alpha_3d": 1.42
     },
     {
       "date": "2026-08-12",
@@ -7768,7 +7786,9 @@
         "rs_leader": true
       },
       "return_1d": 1.31,
-      "alpha_1d": 0.61
+      "alpha_1d": 0.61,
+      "return_3d": -0.85,
+      "alpha_3d": -0.87
     },
     {
       "date": "2026-08-12",
@@ -7792,7 +7812,16 @@
         "rs_leader": true
       },
       "return_1d": 0.28,
-      "alpha_1d": -0.42
+      "alpha_1d": -0.42,
+      "return_3d": 3.64,
+      "alpha_3d": 3.61,
+      "exit_date": "2026-08-17",
+      "exit_price": 143.86,
+      "exit_return": 2.01,
+      "exit_reason": "target",
+      "days_held": 3,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-13",
@@ -7878,9 +7907,9 @@
       "ticker": "BLK",
       "name": "BlackRock, Inc.",
       "sector": "Financial Services",
-      "entry_price": 1182.8399658203125,
+      "entry_price": 1167.31,
       "signal_close": 1182.8399658203125,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.5,
       "stop_loss": 1134.49,
       "target": 1279.54,
@@ -7893,16 +7922,18 @@
         "atr_pct": 2.04,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.73,
+      "alpha_1d": -1.26
     },
     {
       "date": "2026-08-14",
       "ticker": "AVGO",
       "name": "Broadcom Inc.",
       "sector": "Technology",
-      "entry_price": 417.82000732421875,
+      "entry_price": 397.08,
       "signal_close": 417.82000732421875,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.2,
       "stop_loss": 385.98,
       "target": 488.82,
@@ -7915,16 +7946,18 @@
         "atr_pct": 3.81,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.17,
+      "alpha_1d": -0.7
     },
     {
       "date": "2026-08-14",
       "ticker": "XOM",
       "name": "ExxonMobil Holdings Corporation",
       "sector": "Energy",
-      "entry_price": 160.10000610351562,
+      "entry_price": 160.1,
       "signal_close": 160.10000610351562,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.7,
       "stop_loss": 152.18,
       "target": 175.94,
@@ -7937,16 +7970,18 @@
         "atr_pct": 2.47,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.85,
+      "alpha_1d": 1.32
     },
     {
       "date": "2026-08-14",
       "ticker": "T",
       "name": "AT&T Inc.",
       "sector": "Communication Services",
-      "entry_price": 24.889999389648438,
+      "entry_price": 24.75,
       "signal_close": 24.889999389648438,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.7,
       "stop_loss": 23.63,
       "target": 27.41,
@@ -7959,16 +7994,18 @@
         "atr_pct": 2.53,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.28,
+      "alpha_1d": 0.19
     },
     {
       "date": "2026-08-14",
       "ticker": "AMZN",
       "name": "Amazon.com, Inc.",
       "sector": "Consumer Cyclical",
-      "entry_price": 262.6499938964844,
+      "entry_price": 265.44,
       "signal_close": 262.6499938964844,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.5,
       "stop_loss": 243.0,
       "target": 301.95,
@@ -7979,6 +8016,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 3.74,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -1.56,
+      "alpha_1d": -1.08
+    },
+    {
+      "date": "2026-08-17",
+      "ticker": "CVX",
+      "name": "Chevron Corporation",
+      "sector": "Energy",
+      "entry_price": 202.6999969482422,
+      "signal_close": 202.6999969482422,
+      "entry_realistic": false,
+      "score": 21.3,
+      "stop_loss": 193.26,
+      "target": 221.58,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 17.74,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.33,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-17",
+      "ticker": "ETN",
+      "name": "Eaton Corporation, PLC",
+      "sector": "Industrials",
+      "entry_price": 455.3999938964844,
+      "signal_close": 455.3999938964844,
+      "entry_realistic": false,
+      "score": 19.0,
+      "stop_loss": 420.42,
+      "target": 525.36,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.31,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.84,
+        "insider_buy": true,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-17",
+      "ticker": "GILD",
+      "name": "Gilead Sciences, Inc.",
+      "sector": "Healthcare",
+      "entry_price": 138.9199981689453,
+      "signal_close": 138.9199981689453,
+      "entry_realistic": false,
+      "score": 17.0,
+      "stop_loss": 131.23,
+      "target": 154.31,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.34,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.77,
         "insider_buy": false,
         "rs_leader": true
       }
