@@ -5250,7 +5250,9 @@
       "exit_reason": "target",
       "days_held": 7,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -5.42,
+      "alpha_30d": -8.06
     },
     {
       "date": "2026-07-07",
@@ -5285,7 +5287,9 @@
       "exit_reason": "stop_gap",
       "days_held": 10,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 12.93,
+      "alpha_30d": 10.29
     },
     {
       "date": "2026-07-07",
@@ -5320,7 +5324,9 @@
       "exit_reason": "stop",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -4.97,
+      "alpha_30d": -7.61
     },
     {
       "date": "2026-07-08",
@@ -7189,7 +7195,14 @@
       "return_3d": 1.24,
       "alpha_3d": -0.2,
       "return_5d": 1.26,
-      "alpha_5d": -0.77
+      "alpha_5d": -0.77,
+      "exit_date": "2026-08-18",
+      "exit_price": 88.31,
+      "exit_return": 2.94,
+      "exit_reason": "target_gap",
+      "days_held": 11,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-04",
@@ -7670,7 +7683,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_3d": 1.7,
-      "alpha_3d": 0.95
+      "alpha_3d": 0.95,
+      "return_5d": -3.4,
+      "alpha_5d": -3.0
     },
     {
       "date": "2026-08-11",
@@ -7703,7 +7718,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_3d": 2.45,
-      "alpha_3d": 1.7
+      "alpha_3d": 1.7,
+      "return_5d": 5.39,
+      "alpha_5d": 5.79
     },
     {
       "date": "2026-08-11",
@@ -7736,7 +7753,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_3d": 2.22,
-      "alpha_3d": 1.47
+      "alpha_3d": 1.47,
+      "return_5d": 1.96,
+      "alpha_5d": 2.37
     },
     {
       "date": "2026-08-12",
@@ -7845,7 +7864,16 @@
         "rs_leader": true
       },
       "return_1d": 0.49,
-      "alpha_1d": 0.69
+      "alpha_1d": 0.69,
+      "return_3d": 2.21,
+      "alpha_3d": 3.55,
+      "exit_date": "2026-08-18",
+      "exit_price": 27.12,
+      "exit_return": 1.74,
+      "exit_reason": "target_gap",
+      "days_held": 3,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-13",
@@ -7876,7 +7904,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": 1.75,
+      "alpha_3d": 3.09
     },
     {
       "date": "2026-08-13",
@@ -7900,7 +7930,9 @@
         "rs_leader": true
       },
       "return_1d": -0.72,
-      "alpha_1d": -0.53
+      "alpha_1d": -0.53,
+      "return_3d": -3.11,
+      "alpha_3d": -1.77
     },
     {
       "date": "2026-08-14",
@@ -7948,7 +7980,14 @@
         "rs_leader": true
       },
       "return_1d": -1.17,
-      "alpha_1d": -0.7
+      "alpha_1d": -0.7,
+      "exit_date": "2026-08-18",
+      "exit_price": 383.93,
+      "exit_return": -3.31,
+      "exit_reason": "stop_gap",
+      "days_held": 2,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-14",
@@ -8027,9 +8066,9 @@
       "ticker": "CVX",
       "name": "Chevron Corporation",
       "sector": "Energy",
-      "entry_price": 202.6999969482422,
+      "entry_price": 205.03,
       "signal_close": 202.6999969482422,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 21.3,
       "stop_loss": 193.26,
       "target": 221.58,
@@ -8042,16 +8081,18 @@
         "atr_pct": 2.33,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.35,
+      "alpha_1d": 1.02
     },
     {
       "date": "2026-08-17",
       "ticker": "ETN",
       "name": "Eaton Corporation, PLC",
       "sector": "Industrials",
-      "entry_price": 455.3999938964844,
+      "entry_price": 444.19,
       "signal_close": 455.3999938964844,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.0,
       "stop_loss": 420.42,
       "target": 525.36,
@@ -8064,16 +8105,18 @@
         "atr_pct": 3.84,
         "insider_buy": true,
         "rs_leader": true
-      }
+      },
+      "return_1d": -2.9,
+      "alpha_1d": -2.22
     },
     {
       "date": "2026-08-17",
       "ticker": "GILD",
       "name": "Gilead Sciences, Inc.",
       "sector": "Healthcare",
-      "entry_price": 138.9199981689453,
+      "entry_price": 140.0,
       "signal_close": 138.9199981689453,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.0,
       "stop_loss": 131.23,
       "target": 154.31,
@@ -8084,6 +8127,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.77,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 2.46,
+      "alpha_1d": 3.13
+    },
+    {
+      "date": "2026-08-18",
+      "ticker": "EOG",
+      "name": "EOG Resources, Inc.",
+      "sector": "Energy",
+      "entry_price": 148.6999969482422,
+      "signal_close": 148.6999969482422,
+      "entry_realistic": false,
+      "score": 20.8,
+      "stop_loss": 140.58,
+      "target": 164.94,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.88,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.73,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-18",
+      "ticker": "PFE",
+      "name": "Pfizer, Inc.",
+      "sector": "Healthcare",
+      "entry_price": 27.25,
+      "signal_close": 27.25,
+      "entry_realistic": false,
+      "score": 17.5,
+      "stop_loss": 26.09,
+      "target": 29.58,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 10.57,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.14,
+        "insider_buy": true,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-18",
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "sector": "Technology",
+      "entry_price": 481.6300048828125,
+      "signal_close": 481.6300048828125,
+      "entry_realistic": false,
+      "score": 15.5,
+      "stop_loss": 447.68,
+      "target": 549.52,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 21.22,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.52,
         "insider_buy": false,
         "rs_leader": true
       }
