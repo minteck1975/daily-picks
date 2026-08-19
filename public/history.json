@@ -5361,7 +5361,9 @@
       "exit_reason": "stop",
       "days_held": 7,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -0.29,
+      "alpha_30d": -3.47
     },
     {
       "date": "2026-07-08",
@@ -5396,7 +5398,9 @@
       "exit_reason": "target_gap",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 9.33,
+      "alpha_30d": 6.15
     },
     {
       "date": "2026-07-08",
@@ -6621,7 +6625,14 @@
       "return_3d": 2.4,
       "alpha_3d": 3.68,
       "return_5d": 1.75,
-      "alpha_5d": 0.65
+      "alpha_5d": 0.65,
+      "exit_date": "2026-08-19",
+      "exit_price": 434.9,
+      "exit_return": 14.88,
+      "exit_reason": "target",
+      "days_held": 18,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-07-24",
@@ -6845,7 +6856,14 @@
       "return_3d": -0.88,
       "alpha_3d": -4.75,
       "return_5d": -0.91,
-      "alpha_5d": -6.44
+      "alpha_5d": -6.44,
+      "exit_date": "2026-08-19",
+      "exit_price": 90.13,
+      "exit_return": 2.85,
+      "exit_reason": "target",
+      "days_held": 15,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-07-29",
@@ -7781,7 +7799,9 @@
       "return_1d": 0.87,
       "alpha_1d": 0.17,
       "return_3d": 1.44,
-      "alpha_3d": 1.42
+      "alpha_3d": 1.42,
+      "return_5d": 7.78,
+      "alpha_5d": 8.22
     },
     {
       "date": "2026-08-12",
@@ -7807,7 +7827,9 @@
       "return_1d": 1.31,
       "alpha_1d": 0.61,
       "return_3d": -0.85,
-      "alpha_3d": -0.87
+      "alpha_3d": -0.87,
+      "return_5d": 2.31,
+      "alpha_5d": 2.76
     },
     {
       "date": "2026-08-12",
@@ -7840,7 +7862,9 @@
       "exit_reason": "target",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": 6.0,
+      "alpha_5d": 6.44
     },
     {
       "date": "2026-08-13",
@@ -7956,7 +7980,9 @@
         "rs_leader": true
       },
       "return_1d": -1.73,
-      "alpha_1d": -1.26
+      "alpha_1d": -1.26,
+      "return_3d": -0.72,
+      "alpha_3d": 0.22
     },
     {
       "date": "2026-08-14",
@@ -7987,7 +8013,9 @@
       "exit_reason": "stop_gap",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": -8.71,
+      "alpha_3d": -7.78
     },
     {
       "date": "2026-08-14",
@@ -8011,7 +8039,9 @@
         "rs_leader": true
       },
       "return_1d": 0.85,
-      "alpha_1d": 1.32
+      "alpha_1d": 1.32,
+      "return_3d": 2.92,
+      "alpha_3d": 3.85
     },
     {
       "date": "2026-08-14",
@@ -8035,7 +8065,9 @@
         "rs_leader": true
       },
       "return_1d": -0.28,
-      "alpha_1d": 0.19
+      "alpha_1d": 0.19,
+      "return_3d": 1.49,
+      "alpha_3d": 2.43
     },
     {
       "date": "2026-08-14",
@@ -8059,7 +8091,9 @@
         "rs_leader": true
       },
       "return_1d": -1.56,
-      "alpha_1d": -1.08
+      "alpha_1d": -1.08,
+      "return_3d": 0.15,
+      "alpha_3d": 1.09
     },
     {
       "date": "2026-08-17",
@@ -8107,7 +8141,14 @@
         "rs_leader": true
       },
       "return_1d": -2.9,
-      "alpha_1d": -2.22
+      "alpha_1d": -2.22,
+      "exit_date": "2026-08-19",
+      "exit_price": 420.0,
+      "exit_return": -5.45,
+      "exit_reason": "stop",
+      "days_held": 2,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-17",
@@ -8138,9 +8179,9 @@
       "ticker": "EOG",
       "name": "EOG Resources, Inc.",
       "sector": "Energy",
-      "entry_price": 148.6999969482422,
+      "entry_price": 149.86,
       "signal_close": 148.6999969482422,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.8,
       "stop_loss": 140.58,
       "target": 164.94,
@@ -8153,16 +8194,18 @@
         "atr_pct": 2.73,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.25,
+      "alpha_1d": -0.46
     },
     {
       "date": "2026-08-18",
       "ticker": "PFE",
       "name": "Pfizer, Inc.",
       "sector": "Healthcare",
-      "entry_price": 27.25,
+      "entry_price": 27.6,
       "signal_close": 27.25,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.5,
       "stop_loss": 26.09,
       "target": 29.58,
@@ -8175,16 +8218,18 @@
         "atr_pct": 2.14,
         "insider_buy": true,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.32,
+      "alpha_1d": 2.11
     },
     {
       "date": "2026-08-18",
       "ticker": "MSFT",
       "name": "Microsoft Corporation",
       "sector": "Technology",
-      "entry_price": 481.6300048828125,
+      "entry_price": 479.81,
       "signal_close": 481.6300048828125,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.5,
       "stop_loss": 447.68,
       "target": 549.52,
@@ -8195,6 +8240,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 3.52,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 0.94,
+      "alpha_1d": 0.73
+    },
+    {
+      "date": "2026-08-19",
+      "ticker": "MDLZ",
+      "name": "Mondelez International, Inc.",
+      "sector": "Consumer Defensive",
+      "entry_price": 64.16000366210938,
+      "signal_close": 64.16000366210938,
+      "entry_realistic": false,
+      "score": 18.5,
+      "stop_loss": 61.43,
+      "target": 69.62,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.69,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.13,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-19",
+      "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "sector": "Healthcare",
+      "entry_price": 1280.3399658203125,
+      "signal_close": 1280.3399658203125,
+      "entry_realistic": false,
+      "score": 18.1,
+      "stop_loss": 1188.36,
+      "target": 1464.31,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 2.13,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.59,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-08-19",
+      "ticker": "DIS",
+      "name": "Walt Disney Company (The)",
+      "sector": "Communication Services",
+      "entry_price": 106.93000030517578,
+      "signal_close": 106.93000030517578,
+      "entry_realistic": false,
+      "score": 17.7,
+      "stop_loss": 102.37,
+      "target": 116.04,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.4,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.13,
         "insider_buy": false,
         "rs_leader": true
       }
