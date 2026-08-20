@@ -5435,7 +5435,9 @@
       "exit_reason": "target",
       "days_held": 6,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 20.27,
+      "alpha_30d": 17.09
     },
     {
       "date": "2026-07-09",
@@ -5463,7 +5465,16 @@
       "return_3d": -2.53,
       "alpha_3d": -2.54,
       "return_5d": 0.65,
-      "alpha_5d": 0.78
+      "alpha_5d": 0.78,
+      "return_30d": -4.34,
+      "alpha_30d": -5.79,
+      "exit_date": "2026-08-20",
+      "exit_price": 83.62,
+      "exit_return": -4.44,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-07-09",
@@ -5491,7 +5502,16 @@
       "return_3d": 0.04,
       "alpha_3d": 0.03,
       "return_5d": 5.89,
-      "alpha_5d": 6.02
+      "alpha_5d": 6.02,
+      "return_30d": -1.09,
+      "alpha_30d": -2.54,
+      "exit_date": "2026-08-20",
+      "exit_price": 310.99,
+      "exit_return": -1.19,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-07-09",
@@ -5526,7 +5546,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 19.18,
+      "alpha_30d": 17.73
     },
     {
       "date": "2026-07-10",
@@ -7897,7 +7919,9 @@
       "exit_reason": "target_gap",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": 4.24,
+      "alpha_5d": 6.2
     },
     {
       "date": "2026-08-13",
@@ -7930,7 +7954,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_3d": 1.75,
-      "alpha_3d": 3.09
+      "alpha_3d": 3.09,
+      "return_5d": 1.5,
+      "alpha_5d": 3.46
     },
     {
       "date": "2026-08-13",
@@ -7956,7 +7982,9 @@
       "return_1d": -0.72,
       "alpha_1d": -0.53,
       "return_3d": -3.11,
-      "alpha_3d": -1.77
+      "alpha_3d": -1.77,
+      "return_5d": -4.39,
+      "alpha_5d": -2.42
     },
     {
       "date": "2026-08-14",
@@ -8117,7 +8145,9 @@
         "rs_leader": true
       },
       "return_1d": 0.35,
-      "alpha_1d": 1.02
+      "alpha_1d": 1.02,
+      "return_3d": 0.36,
+      "alpha_3d": 1.66
     },
     {
       "date": "2026-08-17",
@@ -8148,7 +8178,9 @@
       "exit_reason": "stop",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": -6.51,
+      "alpha_3d": -5.2
     },
     {
       "date": "2026-08-17",
@@ -8172,7 +8204,9 @@
         "rs_leader": true
       },
       "return_1d": 2.46,
-      "alpha_1d": 3.13
+      "alpha_1d": 3.13,
+      "return_3d": 2.46,
+      "alpha_3d": 3.76
     },
     {
       "date": "2026-08-18",
@@ -8251,9 +8285,9 @@
       "ticker": "MDLZ",
       "name": "Mondelez International, Inc.",
       "sector": "Consumer Defensive",
-      "entry_price": 64.16000366210938,
+      "entry_price": 63.81,
       "signal_close": 64.16000366210938,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.5,
       "stop_loss": 61.43,
       "target": 69.62,
@@ -8266,16 +8300,18 @@
         "atr_pct": 2.13,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.52,
+      "alpha_1d": 1.36
     },
     {
       "date": "2026-08-19",
       "ticker": "LLY",
       "name": "Eli Lilly and Company",
       "sector": "Healthcare",
-      "entry_price": 1280.3399658203125,
+      "entry_price": 1274.13,
       "signal_close": 1280.3399658203125,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.1,
       "stop_loss": 1188.36,
       "target": 1464.31,
@@ -8288,16 +8324,18 @@
         "atr_pct": 3.59,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -2.33,
+      "alpha_1d": -1.49
     },
     {
       "date": "2026-08-19",
       "ticker": "DIS",
       "name": "Walt Disney Company (The)",
       "sector": "Communication Services",
-      "entry_price": 106.93000030517578,
+      "entry_price": 106.88,
       "signal_close": 106.93000030517578,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.7,
       "stop_loss": 102.37,
       "target": 116.04,
@@ -8308,6 +8346,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.13,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 0.41,
+      "alpha_1d": 1.25
+    },
+    {
+      "date": "2026-08-20",
+      "ticker": "XOM",
+      "name": "ExxonMobil Holdings Corporation",
+      "sector": "Energy",
+      "entry_price": 166.14999389648438,
+      "signal_close": 166.14999389648438,
+      "entry_realistic": false,
+      "score": 20.2,
+      "stop_loss": 158.71,
+      "target": 181.04,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 19.42,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.24,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-20",
+      "ticker": "BSX",
+      "name": "Boston Scientific Corporation",
+      "sector": "Healthcare",
+      "entry_price": 49.369998931884766,
+      "signal_close": 49.369998931884766,
+      "entry_realistic": false,
+      "score": 18.0,
+      "stop_loss": 45.95,
+      "target": 56.22,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 8.29,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.47,
+        "insider_buy": true,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-20",
+      "ticker": "UBER",
+      "name": "Uber Technologies, Inc.",
+      "sector": "Technology",
+      "entry_price": 78.55000305175781,
+      "signal_close": 78.55000305175781,
+      "entry_realistic": false,
+      "score": 17.7,
+      "stop_loss": 72.7,
+      "target": 90.26,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.2,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.73,
         "insider_buy": false,
         "rs_leader": true
       }
