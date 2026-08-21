@@ -5583,7 +5583,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -3.27,
+      "alpha_30d": -4.69
     },
     {
       "date": "2026-07-10",
@@ -5618,7 +5620,9 @@
       "exit_reason": "target",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 10.14,
+      "alpha_30d": 8.71
     },
     {
       "date": "2026-07-10",
@@ -5653,7 +5657,9 @@
       "exit_reason": "stop_gap",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -18.87,
+      "alpha_30d": -20.3
     },
     {
       "date": "2026-07-13",
@@ -7270,7 +7276,14 @@
       "return_3d": -2.52,
       "alpha_3d": -2.78,
       "return_5d": -3.31,
-      "alpha_5d": -3.21
+      "alpha_5d": -3.21,
+      "exit_date": "2026-08-21",
+      "exit_price": 257.21,
+      "exit_return": -8.66,
+      "exit_reason": "stop",
+      "days_held": 13,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-04",
@@ -8010,7 +8023,9 @@
       "return_1d": -1.73,
       "alpha_1d": -1.26,
       "return_3d": -0.72,
-      "alpha_3d": 0.22
+      "alpha_3d": 0.22,
+      "return_5d": -0.92,
+      "alpha_5d": 0.45
     },
     {
       "date": "2026-08-14",
@@ -8043,7 +8058,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_3d": -8.71,
-      "alpha_3d": -7.78
+      "alpha_3d": -7.78,
+      "return_5d": -7.21,
+      "alpha_5d": -5.84
     },
     {
       "date": "2026-08-14",
@@ -8069,7 +8086,9 @@
       "return_1d": 0.85,
       "alpha_1d": 1.32,
       "return_3d": 2.92,
-      "alpha_3d": 3.85
+      "alpha_3d": 3.85,
+      "return_5d": 3.13,
+      "alpha_5d": 4.5
     },
     {
       "date": "2026-08-14",
@@ -8095,7 +8114,9 @@
       "return_1d": -0.28,
       "alpha_1d": 0.19,
       "return_3d": 1.49,
-      "alpha_3d": 2.43
+      "alpha_3d": 2.43,
+      "return_5d": 2.18,
+      "alpha_5d": 3.55
     },
     {
       "date": "2026-08-14",
@@ -8121,7 +8142,9 @@
       "return_1d": -1.56,
       "alpha_1d": -1.08,
       "return_3d": 0.15,
-      "alpha_3d": 1.09
+      "alpha_3d": 1.09,
+      "return_5d": -2.57,
+      "alpha_5d": -1.2
     },
     {
       "date": "2026-08-17",
@@ -8230,7 +8253,9 @@
         "rs_leader": true
       },
       "return_1d": -0.25,
-      "alpha_1d": -0.46
+      "alpha_1d": -0.46,
+      "return_3d": 2.13,
+      "alpha_3d": 2.35
     },
     {
       "date": "2026-08-18",
@@ -8254,7 +8279,9 @@
         "rs_leader": true
       },
       "return_1d": 2.32,
-      "alpha_1d": 2.11
+      "alpha_1d": 2.11,
+      "return_3d": 1.7,
+      "alpha_3d": 1.93
     },
     {
       "date": "2026-08-18",
@@ -8278,7 +8305,9 @@
         "rs_leader": true
       },
       "return_1d": 0.94,
-      "alpha_1d": 0.73
+      "alpha_1d": 0.73,
+      "return_3d": 0.71,
+      "alpha_3d": 0.94
     },
     {
       "date": "2026-08-19",
@@ -8357,9 +8386,9 @@
       "ticker": "XOM",
       "name": "ExxonMobil Holdings Corporation",
       "sector": "Energy",
-      "entry_price": 166.14999389648438,
+      "entry_price": 166.54,
       "signal_close": 166.14999389648438,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.2,
       "stop_loss": 158.71,
       "target": 181.04,
@@ -8372,16 +8401,18 @@
         "atr_pct": 2.24,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.86,
+      "alpha_1d": -1.27
     },
     {
       "date": "2026-08-20",
       "ticker": "BSX",
       "name": "Boston Scientific Corporation",
       "sector": "Healthcare",
-      "entry_price": 49.369998931884766,
+      "entry_price": 49.22,
       "signal_close": 49.369998931884766,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.0,
       "stop_loss": 45.95,
       "target": 56.22,
@@ -8394,16 +8425,18 @@
         "atr_pct": 3.47,
         "insider_buy": true,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.34,
+      "alpha_1d": 1.93
     },
     {
       "date": "2026-08-20",
       "ticker": "UBER",
       "name": "Uber Technologies, Inc.",
       "sector": "Technology",
-      "entry_price": 78.55000305175781,
+      "entry_price": 79.72,
       "signal_close": 78.55000305175781,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.7,
       "stop_loss": 72.7,
       "target": 90.26,
@@ -8414,6 +8447,74 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 3.73,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -1.15,
+      "alpha_1d": -1.56
+    },
+    {
+      "date": "2026-08-21",
+      "ticker": "ABT",
+      "name": "Abbott Laboratories",
+      "sector": "Healthcare",
+      "entry_price": 116.63999938964844,
+      "signal_close": 116.63999938964844,
+      "entry_realistic": false,
+      "score": 17.5,
+      "stop_loss": 111.94,
+      "target": 126.03,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 22.75,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.01,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-21",
+      "ticker": "ADBE",
+      "name": "Adobe Inc.",
+      "sector": "Technology",
+      "entry_price": 275.29998779296875,
+      "signal_close": 275.29998779296875,
+      "entry_realistic": false,
+      "score": 15.0,
+      "stop_loss": 254.16,
+      "target": 317.57,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 21.67,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.84,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-21",
+      "ticker": "CME",
+      "name": "CME Group Inc.",
+      "sector": "Financial Services",
+      "entry_price": 274.9800109863281,
+      "signal_close": 274.9800109863281,
+      "entry_realistic": false,
+      "score": 15.0,
+      "stop_loss": 262.97,
+      "target": 298.99,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 13.02,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.18,
         "insider_buy": false,
         "rs_leader": true
       }
