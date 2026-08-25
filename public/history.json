@@ -5805,7 +5805,9 @@
       "exit_reason": "target",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 16.92,
+      "alpha_30d": 15.05
     },
     {
       "date": "2026-07-14",
@@ -5840,7 +5842,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -5.67,
+      "alpha_30d": -7.54
     },
     {
       "date": "2026-07-14",
@@ -5875,7 +5879,9 @@
       "exit_reason": "stop",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 3.77,
+      "alpha_30d": 1.9
     },
     {
       "date": "2026-07-15",
@@ -7583,7 +7589,14 @@
       "return_3d": -1.02,
       "alpha_3d": -0.92,
       "return_5d": 0.79,
-      "alpha_5d": 0.39
+      "alpha_5d": 0.39,
+      "exit_date": "2026-08-25",
+      "exit_price": 28.31,
+      "exit_return": 6.51,
+      "exit_reason": "target",
+      "days_held": 12,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-07",
@@ -8281,7 +8294,9 @@
       "return_1d": -0.25,
       "alpha_1d": -0.46,
       "return_3d": 2.13,
-      "alpha_3d": 2.35
+      "alpha_3d": 2.35,
+      "return_5d": -2.02,
+      "alpha_5d": -1.82
     },
     {
       "date": "2026-08-18",
@@ -8307,7 +8322,9 @@
       "return_1d": 2.32,
       "alpha_1d": 2.11,
       "return_3d": 1.7,
-      "alpha_3d": 1.93
+      "alpha_3d": 1.93,
+      "return_5d": 3.51,
+      "alpha_5d": 3.72
     },
     {
       "date": "2026-08-18",
@@ -8333,7 +8350,9 @@
       "return_1d": 0.94,
       "alpha_1d": 0.73,
       "return_3d": 0.71,
-      "alpha_3d": 0.94
+      "alpha_3d": 0.94,
+      "return_5d": 2.48,
+      "alpha_5d": 2.68
     },
     {
       "date": "2026-08-19",
@@ -8435,7 +8454,9 @@
         "rs_leader": true
       },
       "return_1d": -0.86,
-      "alpha_1d": -1.27
+      "alpha_1d": -1.27,
+      "return_3d": -3.54,
+      "alpha_3d": -3.98
     },
     {
       "date": "2026-08-20",
@@ -8459,7 +8480,9 @@
         "rs_leader": true
       },
       "return_1d": 2.34,
-      "alpha_1d": 1.93
+      "alpha_1d": 1.93,
+      "return_3d": 1.3,
+      "alpha_3d": 0.87
     },
     {
       "date": "2026-08-20",
@@ -8483,7 +8506,9 @@
         "rs_leader": true
       },
       "return_1d": -1.15,
-      "alpha_1d": -1.56
+      "alpha_1d": -1.56,
+      "return_3d": 0.79,
+      "alpha_3d": 0.36
     },
     {
       "date": "2026-08-21",
@@ -8562,9 +8587,9 @@
       "ticker": "COST",
       "name": "Costco Wholesale Corporation",
       "sector": "Consumer Defensive",
-      "entry_price": 971.4000244140625,
+      "entry_price": 966.3,
       "signal_close": 971.4000244140625,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 21.6,
       "stop_loss": 935.43,
       "target": 1043.34,
@@ -8577,16 +8602,18 @@
         "atr_pct": 1.85,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -0.65,
+      "alpha_1d": -0.97
     },
     {
       "date": "2026-08-24",
       "ticker": "T",
       "name": "AT&T Inc.",
       "sector": "Communication Services",
-      "entry_price": 25.690000534057617,
+      "entry_price": 25.58,
       "signal_close": 25.690000534057617,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.0,
       "stop_loss": 24.66,
       "target": 27.74,
@@ -8599,16 +8626,18 @@
         "atr_pct": 2.0,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.74,
+      "alpha_1d": 0.42
     },
     {
       "date": "2026-08-24",
       "ticker": "COP",
       "name": "ConocoPhillips",
       "sector": "Energy",
-      "entry_price": 133.35000610351562,
+      "entry_price": 131.09,
       "signal_close": 133.35000610351562,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.5,
       "stop_loss": 126.47,
       "target": 147.11,
@@ -8619,6 +8648,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.58,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 0.57,
+      "alpha_1d": 0.25
+    },
+    {
+      "date": "2026-08-25",
+      "ticker": "PFE",
+      "name": "Pfizer, Inc.",
+      "sector": "Healthcare",
+      "entry_price": 28.56999969482422,
+      "signal_close": 28.56999969482422,
+      "entry_realistic": false,
+      "score": 20.2,
+      "stop_loss": 27.32,
+      "target": 31.06,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 15.94,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.18,
+        "insider_buy": true,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-25",
+      "ticker": "NFLX",
+      "name": "Netflix, Inc.",
+      "sector": "Communication Services",
+      "entry_price": 82.2300033569336,
+      "signal_close": 82.2300033569336,
+      "entry_realistic": false,
+      "score": 19.5,
+      "stop_loss": 77.65,
+      "target": 91.39,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 9.96,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.79,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-25",
+      "ticker": "PEP",
+      "name": "Pepsico, Inc.",
+      "sector": "Consumer Defensive",
+      "entry_price": 142.27000427246094,
+      "signal_close": 142.27000427246094,
+      "entry_realistic": false,
+      "score": 19.1,
+      "stop_loss": 137.58,
+      "target": 151.66,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 3.16,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 1.65,
         "insider_buy": false,
         "rs_leader": true
       }
