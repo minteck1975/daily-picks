@@ -5916,7 +5916,9 @@
       "exit_reason": "target",
       "days_held": 7,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 2.07,
+      "alpha_30d": 0.57
     },
     {
       "date": "2026-07-15",
@@ -5951,7 +5953,9 @@
       "exit_reason": "target",
       "days_held": 8,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 13.26,
+      "alpha_30d": 11.77
     },
     {
       "date": "2026-07-15",
@@ -5986,7 +5990,9 @@
       "exit_reason": "stop",
       "days_held": 9,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 4.39,
+      "alpha_30d": 2.9
     },
     {
       "date": "2026-07-16",
@@ -8378,7 +8384,9 @@
       "return_1d": 0.52,
       "alpha_1d": 1.36,
       "return_3d": 1.39,
-      "alpha_3d": 2.12
+      "alpha_3d": 2.12,
+      "return_5d": -1.25,
+      "alpha_5d": -0.87
     },
     {
       "date": "2026-08-19",
@@ -8404,7 +8412,16 @@
       "return_1d": -2.33,
       "alpha_1d": -1.49,
       "return_3d": -2.13,
-      "alpha_3d": -1.41
+      "alpha_3d": -1.41,
+      "return_5d": -6.65,
+      "alpha_5d": -6.26,
+      "exit_date": "2026-08-26",
+      "exit_price": 1187.17,
+      "exit_return": -6.82,
+      "exit_reason": "stop",
+      "days_held": 5,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-19",
@@ -8430,7 +8447,9 @@
       "return_1d": 0.41,
       "alpha_1d": 1.25,
       "return_3d": 3.49,
-      "alpha_3d": 4.22
+      "alpha_3d": 4.22,
+      "return_5d": 2.57,
+      "alpha_5d": 2.96
     },
     {
       "date": "2026-08-20",
@@ -8456,7 +8475,14 @@
       "return_1d": -0.86,
       "alpha_1d": -1.27,
       "return_3d": -3.54,
-      "alpha_3d": -3.98
+      "alpha_3d": -3.98,
+      "exit_date": "2026-08-26",
+      "exit_price": 157.84,
+      "exit_return": -5.22,
+      "exit_reason": "stop_gap",
+      "days_held": 4,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-20",
@@ -8532,7 +8558,9 @@
         "rs_leader": true
       },
       "return_1d": 0.34,
-      "alpha_1d": 0.63
+      "alpha_1d": 0.63,
+      "return_3d": -1.87,
+      "alpha_3d": -1.92
     },
     {
       "date": "2026-08-21",
@@ -8556,7 +8584,9 @@
         "rs_leader": true
       },
       "return_1d": 0.47,
-      "alpha_1d": 0.77
+      "alpha_1d": 0.77,
+      "return_3d": -0.55,
+      "alpha_3d": -0.59
     },
     {
       "date": "2026-08-21",
@@ -8580,7 +8610,9 @@
         "rs_leader": true
       },
       "return_1d": 1.1,
-      "alpha_1d": 1.4
+      "alpha_1d": 1.4,
+      "return_3d": 1.76,
+      "alpha_3d": 1.71
     },
     {
       "date": "2026-08-24",
@@ -8659,9 +8691,9 @@
       "ticker": "PFE",
       "name": "Pfizer, Inc.",
       "sector": "Healthcare",
-      "entry_price": 28.56999969482422,
+      "entry_price": 28.44,
       "signal_close": 28.56999969482422,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.2,
       "stop_loss": 27.32,
       "target": 31.06,
@@ -8674,16 +8706,18 @@
         "atr_pct": 2.18,
         "insider_buy": true,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.49,
+      "alpha_1d": -0.51
     },
     {
       "date": "2026-08-25",
       "ticker": "NFLX",
       "name": "Netflix, Inc.",
       "sector": "Communication Services",
-      "entry_price": 82.2300033569336,
+      "entry_price": 81.88,
       "signal_close": 82.2300033569336,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.5,
       "stop_loss": 77.65,
       "target": 91.39,
@@ -8696,16 +8730,18 @@
         "atr_pct": 2.79,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.51,
+      "alpha_1d": -0.54
     },
     {
       "date": "2026-08-25",
       "ticker": "PEP",
       "name": "Pepsico, Inc.",
       "sector": "Consumer Defensive",
-      "entry_price": 142.27000427246094,
+      "entry_price": 142.67,
       "signal_close": 142.27000427246094,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.1,
       "stop_loss": 137.58,
       "target": 151.66,
@@ -8716,6 +8752,74 @@
         "near_52w_high": false,
         "breakout_recent": false,
         "atr_pct": 1.65,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -0.34,
+      "alpha_1d": -0.36
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "CME",
+      "name": "CME Group Inc.",
+      "sector": "Financial Services",
+      "entry_price": 280.9800109863281,
+      "signal_close": 280.9800109863281,
+      "entry_realistic": false,
+      "score": 20.2,
+      "stop_loss": 269.28,
+      "target": 304.39,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 13.11,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.08,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "CRM",
+      "name": "Salesforce, Inc.",
+      "sector": "Technology",
+      "entry_price": 205.6199951171875,
+      "signal_close": 205.6199951171875,
+      "entry_realistic": false,
+      "score": 17.8,
+      "stop_loss": 190.64,
+      "target": 235.59,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 21.63,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 3.64,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "ticker": "SLB",
+      "name": "SLB Limited",
+      "sector": "Energy",
+      "entry_price": 53.599998474121094,
+      "signal_close": 53.599998474121094,
+      "entry_realistic": false,
+      "score": 16.5,
+      "stop_loss": 50.77,
+      "target": 59.27,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.23,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.64,
         "insider_buy": false,
         "rs_leader": true
       }
