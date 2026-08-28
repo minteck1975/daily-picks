@@ -6027,7 +6027,9 @@
       "exit_reason": "stop",
       "days_held": 9,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -3.16,
+      "alpha_30d": -5.87
     },
     {
       "date": "2026-07-16",
@@ -6062,7 +6064,9 @@
       "exit_reason": "target",
       "days_held": 13,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 9.99,
+      "alpha_30d": 7.27
     },
     {
       "date": "2026-07-16",
@@ -6097,7 +6101,9 @@
       "exit_reason": "stop",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -5.82,
+      "alpha_30d": -8.54
     },
     {
       "date": "2026-07-17",
@@ -8482,7 +8488,9 @@
       "exit_reason": "stop_gap",
       "days_held": 4,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": -6.06,
+      "alpha_5d": -7.18
     },
     {
       "date": "2026-08-20",
@@ -8508,7 +8516,9 @@
       "return_1d": 2.34,
       "alpha_1d": 1.93,
       "return_3d": 1.3,
-      "alpha_3d": 0.87
+      "alpha_3d": 0.87,
+      "return_5d": -5.18,
+      "alpha_5d": -6.3
     },
     {
       "date": "2026-08-20",
@@ -8534,7 +8544,9 @@
       "return_1d": -1.15,
       "alpha_1d": -1.56,
       "return_3d": 0.79,
-      "alpha_3d": 0.36
+      "alpha_3d": 0.36,
+      "return_5d": -3.47,
+      "alpha_5d": -4.59
     },
     {
       "date": "2026-08-21",
@@ -8560,7 +8572,14 @@
       "return_1d": 0.34,
       "alpha_1d": 0.63,
       "return_3d": -1.87,
-      "alpha_3d": -1.92
+      "alpha_3d": -1.92,
+      "exit_date": "2026-08-27",
+      "exit_price": 111.83,
+      "exit_return": -3.83,
+      "exit_reason": "stop",
+      "days_held": 4,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-21",
@@ -8636,7 +8655,16 @@
         "rs_leader": false
       },
       "return_1d": -0.65,
-      "alpha_1d": -0.97
+      "alpha_1d": -0.97,
+      "return_3d": -3.27,
+      "alpha_3d": -4.27,
+      "exit_date": "2026-08-27",
+      "exit_price": 934.49,
+      "exit_return": -3.29,
+      "exit_reason": "stop",
+      "days_held": 3,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-24",
@@ -8660,7 +8688,9 @@
         "rs_leader": true
       },
       "return_1d": 0.74,
-      "alpha_1d": 0.42
+      "alpha_1d": 0.42,
+      "return_3d": -0.59,
+      "alpha_3d": -1.59
     },
     {
       "date": "2026-08-24",
@@ -8684,7 +8714,9 @@
         "rs_leader": true
       },
       "return_1d": 0.57,
-      "alpha_1d": 0.25
+      "alpha_1d": 0.25,
+      "return_3d": -1.2,
+      "alpha_3d": -2.2
     },
     {
       "date": "2026-08-25",
@@ -8820,6 +8852,50 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.64,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-28",
+      "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "sector": "Technology",
+      "entry_price": 227.97999572753906,
+      "signal_close": 227.97999572753906,
+      "entry_realistic": false,
+      "score": 18.3,
+      "stop_loss": 214.95,
+      "target": 254.03,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.21,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.86,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-08-28",
+      "ticker": "DIS",
+      "name": "Walt Disney Company (The)",
+      "sector": "Communication Services",
+      "entry_price": 106.81999969482422,
+      "signal_close": 106.81999969482422,
+      "entry_realistic": false,
+      "score": 16.0,
+      "stop_loss": 102.26,
+      "target": 115.93,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.42,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.13,
         "insider_buy": false,
         "rs_leader": true
       }
