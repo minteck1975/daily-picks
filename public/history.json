@@ -6353,7 +6353,16 @@
       "return_3d": 1.12,
       "alpha_3d": 2.37,
       "return_5d": 3.58,
-      "alpha_5d": 4.57
+      "alpha_5d": 4.57,
+      "return_30d": 8.99,
+      "alpha_30d": 7.19,
+      "exit_date": "2026-09-01",
+      "exit_price": 66.85,
+      "exit_return": 8.88,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-07-21",
@@ -6388,7 +6397,9 @@
       "exit_reason": "target",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -0.84,
+      "alpha_30d": -2.64
     },
     {
       "date": "2026-07-21",
@@ -6423,7 +6434,9 @@
       "exit_reason": "target",
       "days_held": 4,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 1.06,
+      "alpha_30d": -0.74
     },
     {
       "date": "2026-07-22",
@@ -8082,7 +8095,14 @@
       "return_3d": -0.72,
       "alpha_3d": 0.22,
       "return_5d": -0.92,
-      "alpha_5d": 0.45
+      "alpha_5d": 0.45,
+      "exit_date": "2026-09-01",
+      "exit_price": 1133.36,
+      "exit_return": -2.91,
+      "exit_reason": "stop",
+      "days_held": 12,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-14",
@@ -8404,7 +8424,14 @@
       "return_3d": 1.39,
       "alpha_3d": 2.12,
       "return_5d": -1.25,
-      "alpha_5d": -0.87
+      "alpha_5d": -0.87,
+      "exit_date": "2026-09-01",
+      "exit_price": 61.37,
+      "exit_return": -3.83,
+      "exit_reason": "stop",
+      "days_held": 9,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-19",
@@ -8792,7 +8819,9 @@
       "return_1d": -0.51,
       "alpha_1d": -0.54,
       "return_3d": -0.2,
-      "alpha_3d": -0.64
+      "alpha_3d": -0.64,
+      "return_5d": -1.31,
+      "alpha_5d": -0.77
     },
     {
       "date": "2026-08-25",
@@ -8866,7 +8895,9 @@
         "rs_leader": true
       },
       "return_1d": 2.21,
-      "alpha_1d": 2.43
+      "alpha_1d": 2.43,
+      "return_3d": 3.05,
+      "alpha_3d": 4.26
     },
     {
       "date": "2026-08-27",
@@ -9083,6 +9114,72 @@
         "atr_pct": 4.0,
         "insider_buy": false,
         "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-01",
+      "ticker": "PFE",
+      "name": "Pfizer, Inc.",
+      "sector": "Healthcare",
+      "entry_price": 28.549999237060547,
+      "signal_close": 28.549999237060547,
+      "entry_realistic": false,
+      "score": 18.8,
+      "stop_loss": 27.29,
+      "target": 31.06,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 13.55,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.2,
+        "insider_buy": true,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-01",
+      "ticker": "NFLX",
+      "name": "Netflix, Inc.",
+      "sector": "Communication Services",
+      "entry_price": 80.80999755859375,
+      "signal_close": 80.80999755859375,
+      "entry_realistic": false,
+      "score": 17.0,
+      "stop_loss": 76.3,
+      "target": 89.83,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 15.87,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.79,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-01",
+      "ticker": "SPGI",
+      "name": "S&P Global Inc.",
+      "sector": "Financial Services",
+      "entry_price": 440.2099914550781,
+      "signal_close": 440.2099914550781,
+      "entry_realistic": false,
+      "score": 16.8,
+      "stop_loss": 418.18,
+      "target": 484.27,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": -3.62,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.5,
+        "insider_buy": false,
+        "rs_leader": false
       }
     }
   ]
