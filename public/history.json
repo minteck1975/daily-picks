@@ -6541,7 +6541,9 @@
       "exit_reason": "stop_gap",
       "days_held": 6,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -2.56,
+      "alpha_30d": -4.93
     },
     {
       "date": "2026-07-23",
@@ -8793,7 +8795,9 @@
       "return_1d": -0.49,
       "alpha_1d": -0.51,
       "return_3d": -1.69,
-      "alpha_3d": -2.14
+      "alpha_3d": -2.14,
+      "return_5d": 2.04,
+      "alpha_5d": 2.58
     },
     {
       "date": "2026-08-25",
@@ -8847,7 +8851,9 @@
       "return_1d": -0.34,
       "alpha_1d": -0.36,
       "return_3d": -1.12,
-      "alpha_3d": -1.57
+      "alpha_3d": -1.57,
+      "return_5d": -1.51,
+      "alpha_5d": -0.97
     },
     {
       "date": "2026-08-27",
@@ -8871,7 +8877,9 @@
         "rs_leader": true
       },
       "return_1d": 1.59,
-      "alpha_1d": 1.82
+      "alpha_1d": 1.82,
+      "return_3d": -1.26,
+      "alpha_3d": -0.05
     },
     {
       "date": "2026-08-27",
@@ -8928,7 +8936,9 @@
       "exit_reason": "target",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": 6.06,
+      "alpha_3d": 7.27
     },
     {
       "date": "2026-08-28",
@@ -8952,7 +8962,9 @@
         "rs_leader": true
       },
       "return_1d": 0.88,
-      "alpha_1d": 1.18
+      "alpha_1d": 1.18,
+      "return_3d": 2.54,
+      "alpha_3d": 3.08
     },
     {
       "date": "2026-08-28",
@@ -8976,7 +8988,9 @@
         "rs_leader": true
       },
       "return_1d": -0.21,
-      "alpha_1d": 0.09
+      "alpha_1d": 0.09,
+      "return_3d": 0.19,
+      "alpha_3d": 0.73
     },
     {
       "date": "2026-08-29",
@@ -9000,7 +9014,9 @@
         "rs_leader": true
       },
       "return_1d": 0.38,
-      "alpha_1d": 0.68
+      "alpha_1d": 0.68,
+      "return_3d": -1.06,
+      "alpha_3d": -0.52
     },
     {
       "date": "2026-08-29",
@@ -9024,7 +9040,16 @@
         "rs_leader": true
       },
       "return_1d": -0.6,
-      "alpha_1d": -0.3
+      "alpha_1d": -0.3,
+      "return_3d": -2.65,
+      "alpha_3d": -2.1,
+      "exit_date": "2026-09-02",
+      "exit_price": 493.5,
+      "exit_return": -3.3,
+      "exit_reason": "stop",
+      "days_held": 3,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-29",
@@ -9048,16 +9073,18 @@
         "rs_leader": true
       },
       "return_1d": -0.78,
-      "alpha_1d": -0.48
+      "alpha_1d": -0.48,
+      "return_3d": -0.07,
+      "alpha_3d": 0.47
     },
     {
       "date": "2026-09-01",
       "ticker": "DE",
       "name": "Deere & Company",
       "sector": "Industrials",
-      "entry_price": 654.9099731445312,
+      "entry_price": 678.06,
       "signal_close": 654.9099731445312,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.8,
       "stop_loss": 613.56,
       "target": 737.62,
@@ -9070,16 +9097,18 @@
         "atr_pct": 3.16,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 3.0,
+      "alpha_1d": 2.55
     },
     {
       "date": "2026-09-01",
       "ticker": "SLB",
       "name": "SLB Limited",
       "sector": "Energy",
-      "entry_price": 60.099998474121094,
+      "entry_price": 56.65,
       "signal_close": 60.099998474121094,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.0,
       "stop_loss": 56.75,
       "target": 66.79,
@@ -9092,16 +9121,18 @@
         "atr_pct": 2.78,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.61,
+      "alpha_1d": 2.17
     },
     {
       "date": "2026-09-01",
       "ticker": "ORCL",
       "name": "Oracle Corporation",
       "sector": "Technology",
-      "entry_price": 149.1199951171875,
+      "entry_price": 140.26,
       "signal_close": 149.1199951171875,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.7,
       "stop_loss": 137.18,
       "target": 174.33,
@@ -9114,16 +9145,18 @@
         "atr_pct": 4.0,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 3.91,
+      "alpha_1d": 3.47
     },
     {
       "date": "2026-09-01",
       "ticker": "PFE",
       "name": "Pfizer, Inc.",
       "sector": "Healthcare",
-      "entry_price": 28.549999237060547,
+      "entry_price": 28.79,
       "signal_close": 28.549999237060547,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.8,
       "stop_loss": 27.29,
       "target": 31.06,
@@ -9136,16 +9169,18 @@
         "atr_pct": 2.2,
         "insider_buy": true,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.8,
+      "alpha_1d": 0.36
     },
     {
       "date": "2026-09-01",
       "ticker": "NFLX",
       "name": "Netflix, Inc.",
       "sector": "Communication Services",
-      "entry_price": 80.80999755859375,
+      "entry_price": 80.54,
       "signal_close": 80.80999755859375,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.0,
       "stop_loss": 76.3,
       "target": 89.83,
@@ -9158,16 +9193,18 @@
         "atr_pct": 2.79,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.72,
+      "alpha_1d": 2.28
     },
     {
       "date": "2026-09-01",
       "ticker": "SPGI",
       "name": "S&P Global Inc.",
       "sector": "Financial Services",
-      "entry_price": 440.2099914550781,
+      "entry_price": 438.0,
       "signal_close": 440.2099914550781,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.8,
       "stop_loss": 418.18,
       "target": 484.27,
@@ -9180,6 +9217,74 @@
         "atr_pct": 2.5,
         "insider_buy": false,
         "rs_leader": false
+      },
+      "return_1d": -1.44,
+      "alpha_1d": -1.88
+    },
+    {
+      "date": "2026-09-02",
+      "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "sector": "Technology",
+      "entry_price": 224.41000366210938,
+      "signal_close": 224.41000366210938,
+      "entry_realistic": false,
+      "score": 22.1,
+      "stop_loss": 210.06,
+      "target": 253.1,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 3.45,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.2,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-02",
+      "ticker": "DIS",
+      "name": "Walt Disney Company (The)",
+      "sector": "Communication Services",
+      "entry_price": 107.9800033569336,
+      "signal_close": 107.9800033569336,
+      "entry_realistic": false,
+      "score": 18.5,
+      "stop_loss": 103.17,
+      "target": 117.61,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 9.94,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.23,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-02",
+      "ticker": "CME",
+      "name": "CME Group Inc.",
+      "sector": "Financial Services",
+      "entry_price": 277.7699890136719,
+      "signal_close": 277.7699890136719,
+      "entry_realistic": false,
+      "score": 16.8,
+      "stop_loss": 265.25,
+      "target": 302.81,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 14.64,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.25,
+        "insider_buy": false,
+        "rs_leader": true
       }
     }
   ]
