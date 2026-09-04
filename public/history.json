@@ -6693,7 +6693,9 @@
       "exit_reason": "target",
       "days_held": 7,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -9.73,
+      "alpha_30d": -13.96
     },
     {
       "date": "2026-07-24",
@@ -6728,7 +6730,9 @@
       "exit_reason": "target",
       "days_held": 18,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 15.5,
+      "alpha_30d": 11.27
     },
     {
       "date": "2026-07-24",
@@ -6756,7 +6760,16 @@
       "return_3d": -3.68,
       "alpha_3d": -2.4,
       "return_5d": -1.7,
-      "alpha_5d": -2.8
+      "alpha_5d": -2.8,
+      "return_30d": 0.21,
+      "alpha_30d": -4.02,
+      "exit_date": "2026-09-04",
+      "exit_price": 358.28,
+      "exit_return": 0.11,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-07-27",
@@ -8870,7 +8883,14 @@
       "return_3d": -1.12,
       "alpha_3d": -1.57,
       "return_5d": -1.51,
-      "alpha_5d": -0.97
+      "alpha_5d": -0.97,
+      "exit_date": "2026-09-04",
+      "exit_price": 137.44,
+      "exit_return": -3.66,
+      "exit_reason": "stop",
+      "days_held": 8,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-27",
@@ -8987,7 +9007,9 @@
       "return_1d": 0.88,
       "alpha_1d": 1.18,
       "return_3d": 2.54,
-      "alpha_3d": 3.08
+      "alpha_3d": 3.08,
+      "return_5d": 5.25,
+      "alpha_5d": 5.15
     },
     {
       "date": "2026-08-28",
@@ -9013,7 +9035,9 @@
       "return_1d": -0.21,
       "alpha_1d": 0.09,
       "return_3d": 0.19,
-      "alpha_3d": 0.73
+      "alpha_3d": 0.73,
+      "return_5d": -2.29,
+      "alpha_5d": -2.4
     },
     {
       "date": "2026-08-29",
@@ -9039,7 +9063,9 @@
       "return_1d": 0.38,
       "alpha_1d": 0.68,
       "return_3d": -1.06,
-      "alpha_3d": -0.52
+      "alpha_3d": -0.52,
+      "return_5d": -0.1,
+      "alpha_5d": -0.21
     },
     {
       "date": "2026-08-29",
@@ -9072,7 +9098,9 @@
       "exit_reason": "stop",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": -2.08,
+      "alpha_5d": -2.19
     },
     {
       "date": "2026-08-29",
@@ -9098,7 +9126,9 @@
       "return_1d": -0.78,
       "alpha_1d": -0.48,
       "return_3d": -0.07,
-      "alpha_3d": 0.47
+      "alpha_3d": 0.47,
+      "return_5d": -1.27,
+      "alpha_5d": -1.38
     },
     {
       "date": "2026-09-01",
@@ -9122,7 +9152,9 @@
         "rs_leader": true
       },
       "return_1d": 3.0,
-      "alpha_1d": 2.55
+      "alpha_1d": 2.55,
+      "return_3d": 2.28,
+      "alpha_3d": 1.18
     },
     {
       "date": "2026-09-01",
@@ -9146,7 +9178,9 @@
         "rs_leader": true
       },
       "return_1d": 2.61,
-      "alpha_1d": 2.17
+      "alpha_1d": 2.17,
+      "return_3d": 1.52,
+      "alpha_3d": 0.41
     },
     {
       "date": "2026-09-01",
@@ -9170,7 +9204,9 @@
         "rs_leader": true
       },
       "return_1d": 3.91,
-      "alpha_1d": 3.47
+      "alpha_1d": 3.47,
+      "return_3d": 13.2,
+      "alpha_3d": 12.1
     },
     {
       "date": "2026-09-01",
@@ -9194,7 +9230,9 @@
         "rs_leader": true
       },
       "return_1d": 0.8,
-      "alpha_1d": 0.36
+      "alpha_1d": 0.36,
+      "return_3d": -1.18,
+      "alpha_3d": -2.28
     },
     {
       "date": "2026-09-01",
@@ -9218,7 +9256,9 @@
         "rs_leader": true
       },
       "return_1d": 2.72,
-      "alpha_1d": 2.28
+      "alpha_1d": 2.28,
+      "return_3d": -2.84,
+      "alpha_3d": -3.95
     },
     {
       "date": "2026-09-01",
@@ -9242,7 +9282,9 @@
         "rs_leader": false
       },
       "return_1d": -1.44,
-      "alpha_1d": -1.88
+      "alpha_1d": -1.88,
+      "return_3d": 1.26,
+      "alpha_3d": 0.15
     },
     {
       "date": "2026-09-02",
@@ -9321,9 +9363,9 @@
       "ticker": "VZ",
       "name": "Verizon Communications Inc.",
       "sector": "Communication Services",
-      "entry_price": 50.59000015258789,
+      "entry_price": 50.55,
       "signal_close": 50.59000015258789,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.8,
       "stop_loss": 49.06,
       "target": 53.65,
@@ -9336,16 +9378,18 @@
         "atr_pct": 1.51,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.81,
+      "alpha_1d": -0.43
     },
     {
       "date": "2026-09-03",
       "ticker": "MSFT",
       "name": "Microsoft Corporation",
       "sector": "Technology",
-      "entry_price": 510.1199951171875,
+      "entry_price": 510.0,
       "signal_close": 510.1199951171875,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.3,
       "stop_loss": 489.17,
       "target": 552.02,
@@ -9358,16 +9402,18 @@
         "atr_pct": 2.05,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -2.02,
+      "alpha_1d": -1.63
     },
     {
       "date": "2026-09-03",
       "ticker": "GILD",
       "name": "Gilead Sciences, Inc.",
       "sector": "Healthcare",
-      "entry_price": 151.22000122070312,
+      "entry_price": 149.23,
       "signal_close": 151.22000122070312,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 14.2,
       "stop_loss": 143.7,
       "target": 166.25,
@@ -9378,6 +9424,52 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.49,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": 1.18,
+      "alpha_1d": 1.57
+    },
+    {
+      "date": "2026-09-04",
+      "ticker": "SMCI",
+      "name": "Super Micro Computer, Inc.",
+      "sector": "Technology",
+      "entry_price": 39.59000015258789,
+      "signal_close": 39.59000015258789,
+      "entry_realistic": false,
+      "score": 16.2,
+      "stop_loss": 35.13,
+      "target": 48.51,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 27.3,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 5.63,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-04",
+      "ticker": "CMCSA",
+      "name": "Comcast Corporation",
+      "sector": "Communication Services",
+      "entry_price": 26.489999771118164,
+      "signal_close": 26.489999771118164,
+      "entry_realistic": false,
+      "score": 13.5,
+      "stop_loss": 25.3,
+      "target": 28.87,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 14.56,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.24,
         "insider_buy": false,
         "rs_leader": true
       }
