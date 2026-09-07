@@ -9473,6 +9473,72 @@
         "insider_buy": false,
         "rs_leader": true
       }
+    },
+    {
+      "date": "2026-09-07",
+      "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "sector": "Technology",
+      "entry_price": 230.36000061035156,
+      "signal_close": 230.36000061035156,
+      "entry_realistic": false,
+      "score": 17.6,
+      "stop_loss": 215.12,
+      "target": 260.84,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.14,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.31,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-07",
+      "ticker": "SLB",
+      "name": "SLB Limited",
+      "sector": "Energy",
+      "entry_price": 57.5099983215332,
+      "signal_close": 57.5099983215332,
+      "entry_realistic": false,
+      "score": 15.5,
+      "stop_loss": 53.64,
+      "target": 65.26,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.48,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.37,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-07",
+      "ticker": "SPGI",
+      "name": "S&P Global Inc.",
+      "sector": "Financial Services",
+      "entry_price": 443.510009765625,
+      "signal_close": 443.510009765625,
+      "entry_realistic": false,
+      "score": 15.5,
+      "stop_loss": 419.77,
+      "target": 491.0,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": -0.22,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.68,
+        "insider_buy": false,
+        "rs_leader": false
+      }
     }
   ]
 }
