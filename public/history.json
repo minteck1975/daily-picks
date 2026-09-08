@@ -6804,7 +6804,9 @@
       "exit_reason": "target",
       "days_held": 8,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 4.77,
+      "alpha_30d": 1.14
     },
     {
       "date": "2026-07-27",
@@ -6839,7 +6841,9 @@
       "exit_reason": "stop",
       "days_held": 5,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -6.22,
+      "alpha_30d": -9.86
     },
     {
       "date": "2026-07-27",
@@ -6867,7 +6871,16 @@
       "return_3d": 0.83,
       "alpha_3d": 0.48,
       "return_5d": 0.35,
-      "alpha_5d": -2.16
+      "alpha_5d": -2.16,
+      "return_30d": 5.42,
+      "alpha_30d": 1.79,
+      "exit_date": "2026-09-08",
+      "exit_price": 602.42,
+      "exit_return": 5.32,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-07-28",
@@ -8589,7 +8602,14 @@
       "return_3d": 1.3,
       "alpha_3d": 0.87,
       "return_5d": -5.18,
-      "alpha_5d": -6.3
+      "alpha_5d": -6.3,
+      "exit_date": "2026-09-08",
+      "exit_price": 45.9,
+      "exit_return": -6.74,
+      "exit_reason": "stop",
+      "days_held": 12,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-20",
@@ -8855,7 +8875,14 @@
       "return_3d": -0.2,
       "alpha_3d": -0.64,
       "return_5d": -1.31,
-      "alpha_5d": -0.77
+      "alpha_5d": -0.77,
+      "exit_date": "2026-09-08",
+      "exit_price": 77.43,
+      "exit_return": -5.43,
+      "exit_reason": "stop_gap",
+      "days_held": 9,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-25",
@@ -9258,7 +9285,14 @@
       "return_1d": 2.72,
       "alpha_1d": 2.28,
       "return_3d": -2.84,
-      "alpha_3d": -3.95
+      "alpha_3d": -3.95,
+      "exit_date": "2026-09-08",
+      "exit_price": 76.22,
+      "exit_return": -5.36,
+      "exit_reason": "stop",
+      "days_held": 4,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-01",
@@ -9308,7 +9342,9 @@
         "rs_leader": true
       },
       "return_1d": 1.08,
-      "alpha_1d": 0.03
+      "alpha_1d": 0.03,
+      "return_3d": -0.13,
+      "alpha_3d": -0.23
     },
     {
       "date": "2026-09-02",
@@ -9332,7 +9368,9 @@
         "rs_leader": true
       },
       "return_1d": -1.34,
-      "alpha_1d": -2.39
+      "alpha_1d": -2.39,
+      "return_3d": -3.28,
+      "alpha_3d": -3.38
     },
     {
       "date": "2026-09-02",
@@ -9356,7 +9394,9 @@
         "rs_leader": true
       },
       "return_1d": 0.38,
-      "alpha_1d": -0.67
+      "alpha_1d": -0.67,
+      "return_3d": -0.98,
+      "alpha_3d": -1.08
     },
     {
       "date": "2026-09-03",
@@ -9435,9 +9475,9 @@
       "ticker": "SMCI",
       "name": "Super Micro Computer, Inc.",
       "sector": "Technology",
-      "entry_price": 39.59000015258789,
+      "entry_price": 39.73,
       "signal_close": 39.59000015258789,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.2,
       "stop_loss": 35.13,
       "target": 48.51,
@@ -9450,16 +9490,18 @@
         "atr_pct": 5.63,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.33,
+      "alpha_1d": 1.88
     },
     {
       "date": "2026-09-04",
       "ticker": "CMCSA",
       "name": "Comcast Corporation",
       "sector": "Communication Services",
-      "entry_price": 26.489999771118164,
+      "entry_price": 26.31,
       "signal_close": 26.489999771118164,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 13.5,
       "stop_loss": 25.3,
       "target": 28.87,
@@ -9472,16 +9514,18 @@
         "atr_pct": 2.24,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.08,
+      "alpha_1d": 0.63
     },
     {
       "date": "2026-09-07",
       "ticker": "NVDA",
       "name": "NVIDIA Corporation",
       "sector": "Technology",
-      "entry_price": 230.36000061035156,
+      "entry_price": 233.21,
       "signal_close": 230.36000061035156,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.6,
       "stop_loss": 215.12,
       "target": 260.84,
@@ -9494,16 +9538,18 @@
         "atr_pct": 3.31,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -3.21,
+      "alpha_1d": -2.66
     },
     {
       "date": "2026-09-07",
       "ticker": "SLB",
       "name": "SLB Limited",
       "sector": "Energy",
-      "entry_price": 57.5099983215332,
+      "entry_price": 57.81,
       "signal_close": 57.5099983215332,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.5,
       "stop_loss": 53.64,
       "target": 65.26,
@@ -9516,16 +9562,18 @@
         "atr_pct": 3.37,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.23,
+      "alpha_1d": -0.68
     },
     {
       "date": "2026-09-07",
       "ticker": "SPGI",
       "name": "S&P Global Inc.",
       "sector": "Financial Services",
-      "entry_price": 443.510009765625,
+      "entry_price": 440.06,
       "signal_close": 443.510009765625,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.5,
       "stop_loss": 419.77,
       "target": 491.0,
@@ -9538,6 +9586,74 @@
         "atr_pct": 2.68,
         "insider_buy": false,
         "rs_leader": false
+      },
+      "return_1d": -2.44,
+      "alpha_1d": -1.89
+    },
+    {
+      "date": "2026-09-08",
+      "ticker": "MU",
+      "name": "Micron Technology, Inc.",
+      "sector": "Technology",
+      "entry_price": 1000.260009765625,
+      "signal_close": 1000.260009765625,
+      "entry_realistic": false,
+      "score": 17.5,
+      "stop_loss": 912.86,
+      "target": 1198.71,
+      "rr_ratio": 2.27,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.48,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 4.37,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-08",
+      "ticker": "CVX",
+      "name": "Chevron Corporation",
+      "sector": "Energy",
+      "entry_price": 209.8000030517578,
+      "signal_close": 209.8000030517578,
+      "entry_realistic": false,
+      "score": 14.8,
+      "stop_loss": 202.33,
+      "target": 224.75,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 6.79,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.78,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-08",
+      "ticker": "CME",
+      "name": "CME Group Inc.",
+      "sector": "Financial Services",
+      "entry_price": 278.2300109863281,
+      "signal_close": 278.2300109863281,
+      "entry_realistic": false,
+      "score": 14.5,
+      "stop_loss": 266.27,
+      "target": 302.16,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.32,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.15,
+        "insider_buy": false,
+        "rs_leader": true
       }
     }
   ]
