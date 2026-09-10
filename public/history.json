@@ -6989,7 +6989,9 @@
       "exit_reason": "target",
       "days_held": 15,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 0.23,
+      "alpha_30d": -3.66
     },
     {
       "date": "2026-07-29",
@@ -7024,7 +7026,9 @@
       "exit_reason": "target_gap",
       "days_held": 7,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 18.71,
+      "alpha_30d": 14.82
     },
     {
       "date": "2026-07-29",
@@ -7059,7 +7063,9 @@
       "exit_reason": "target",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -6.3,
+      "alpha_30d": -10.19
     },
     {
       "date": "2026-07-30",
@@ -8711,7 +8717,14 @@
       "return_3d": -0.55,
       "alpha_3d": -0.59,
       "return_5d": 6.02,
-      "alpha_5d": 5.54
+      "alpha_5d": 5.54,
+      "exit_date": "2026-09-10",
+      "exit_price": 251.21,
+      "exit_return": -8.64,
+      "exit_reason": "stop_gap",
+      "days_held": 13,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-21",
@@ -9348,7 +9361,14 @@
       "return_3d": 1.26,
       "alpha_3d": 0.15,
       "return_5d": -4.48,
-      "alpha_5d": -4.57
+      "alpha_5d": -4.57,
+      "exit_date": "2026-09-10",
+      "exit_price": 416.55,
+      "exit_return": -4.9,
+      "exit_reason": "stop_gap",
+      "days_held": 6,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-02",
@@ -9374,7 +9394,9 @@
       "return_1d": 1.08,
       "alpha_1d": 0.03,
       "return_3d": -0.13,
-      "alpha_3d": -0.23
+      "alpha_3d": -0.23,
+      "return_5d": -3.39,
+      "alpha_5d": -2.43
     },
     {
       "date": "2026-09-02",
@@ -9407,7 +9429,9 @@
       "exit_reason": "stop",
       "days_held": 4,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": -2.58,
+      "alpha_5d": -1.62
     },
     {
       "date": "2026-09-02",
@@ -9433,7 +9457,9 @@
       "return_1d": 0.38,
       "alpha_1d": -0.67,
       "return_3d": -0.98,
-      "alpha_3d": -1.08
+      "alpha_3d": -1.08,
+      "return_5d": -2.46,
+      "alpha_5d": -1.5
     },
     {
       "date": "2026-09-03",
@@ -9492,7 +9518,14 @@
       "return_1d": -2.02,
       "alpha_1d": -1.63,
       "return_3d": -3.6,
-      "alpha_3d": -2.21
+      "alpha_3d": -2.21,
+      "exit_date": "2026-09-10",
+      "exit_price": 487.83,
+      "exit_return": -4.35,
+      "exit_reason": "stop_gap",
+      "days_held": 4,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-03",
@@ -9518,7 +9551,14 @@
       "return_1d": 1.18,
       "alpha_1d": 1.57,
       "return_3d": -2.4,
-      "alpha_3d": -1.01
+      "alpha_3d": -1.01,
+      "exit_date": "2026-09-10",
+      "exit_price": 143.56,
+      "exit_return": -3.8,
+      "exit_reason": "stop",
+      "days_held": 4,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-04",
@@ -9542,7 +9582,9 @@
         "rs_leader": true
       },
       "return_1d": 1.33,
-      "alpha_1d": 1.88
+      "alpha_1d": 1.88,
+      "return_3d": -5.91,
+      "alpha_3d": -4.31
     },
     {
       "date": "2026-09-04",
@@ -9573,7 +9615,9 @@
       "exit_reason": "stop",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": -4.33,
+      "alpha_3d": -2.73
     },
     {
       "date": "2026-09-07",
@@ -9597,7 +9641,9 @@
         "rs_leader": true
       },
       "return_1d": -3.21,
-      "alpha_1d": -2.66
+      "alpha_1d": -2.66,
+      "return_3d": -6.37,
+      "alpha_3d": -4.76
     },
     {
       "date": "2026-09-07",
@@ -9621,7 +9667,9 @@
         "rs_leader": true
       },
       "return_1d": -1.23,
-      "alpha_1d": -0.68
+      "alpha_1d": -0.68,
+      "return_3d": -3.11,
+      "alpha_3d": -1.51
     },
     {
       "date": "2026-09-07",
@@ -9652,7 +9700,9 @@
       "exit_reason": "stop",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": -6.74,
+      "alpha_3d": -5.13
     },
     {
       "date": "2026-09-08",
@@ -9731,9 +9781,9 @@
       "ticker": "SNOW",
       "name": "Snowflake Inc.",
       "sector": "Technology",
-      "entry_price": 331.4800109863281,
+      "entry_price": 329.7,
       "signal_close": 331.4800109863281,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.3,
       "stop_loss": 296.0,
       "target": 402.44,
@@ -9746,16 +9796,18 @@
         "atr_pct": 5.35,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.01,
+      "alpha_1d": 0.61
     },
     {
       "date": "2026-09-09",
       "ticker": "WFC",
       "name": "Wells Fargo & Company",
       "sector": "Financial Services",
-      "entry_price": 89.66999816894531,
+      "entry_price": 89.65,
       "signal_close": 89.66999816894531,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 14.9,
       "stop_loss": 85.99,
       "target": 97.03,
@@ -9768,16 +9820,18 @@
         "atr_pct": 2.05,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -0.22,
+      "alpha_1d": 0.38
     },
     {
       "date": "2026-09-09",
       "ticker": "XOM",
       "name": "ExxonMobil Holdings Corporation",
       "sector": "Energy",
-      "entry_price": 164.22999572753906,
+      "entry_price": 167.0,
       "signal_close": 164.22999572753906,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 14.8,
       "stop_loss": 157.41,
       "target": 177.86,
@@ -9788,6 +9842,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.08,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -1.06,
+      "alpha_1d": -0.46
+    },
+    {
+      "date": "2026-09-10",
+      "ticker": "T",
+      "name": "AT&T Inc.",
+      "sector": "Communication Services",
+      "entry_price": 25.549999237060547,
+      "signal_close": 25.549999237060547,
+      "entry_realistic": false,
+      "score": 15.9,
+      "stop_loss": 24.54,
+      "target": 27.57,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 2.84,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.98,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-09-10",
+      "ticker": "EOG",
+      "name": "EOG Resources, Inc.",
+      "sector": "Energy",
+      "entry_price": 147.4600067138672,
+      "signal_close": 147.4600067138672,
+      "entry_realistic": false,
+      "score": 14.6,
+      "stop_loss": 140.83,
+      "target": 160.71,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": -2.85,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.25,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-09-10",
+      "ticker": "DE",
+      "name": "Deere & Company",
+      "sector": "Industrials",
+      "entry_price": 677.9400024414062,
+      "signal_close": 677.9400024414062,
+      "entry_realistic": false,
+      "score": 11.7,
+      "stop_loss": 638.62,
+      "target": 756.58,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.08,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.9,
         "insider_buy": false,
         "rs_leader": true
       }
