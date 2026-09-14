@@ -7211,7 +7211,9 @@
       "exit_reason": "target",
       "days_held": 1,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 7.68,
+      "alpha_30d": 5.82
     },
     {
       "date": "2026-07-31",
@@ -7246,7 +7248,9 @@
       "exit_reason": "target_gap",
       "days_held": 16,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -0.96,
+      "alpha_30d": -2.82
     },
     {
       "date": "2026-07-31",
@@ -7274,7 +7278,16 @@
       "return_3d": -1.98,
       "alpha_3d": -5.03,
       "return_5d": -0.04,
-      "alpha_5d": -3.55
+      "alpha_5d": -3.55,
+      "return_30d": -4.41,
+      "alpha_30d": -6.27,
+      "exit_date": "2026-09-14",
+      "exit_price": 102.99,
+      "exit_return": -4.51,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-03",
@@ -7302,7 +7315,14 @@
       "return_3d": -0.81,
       "alpha_3d": -2.25,
       "return_5d": -0.62,
-      "alpha_5d": -2.65
+      "alpha_5d": -2.65,
+      "exit_date": "2026-09-14",
+      "exit_price": 1059.22,
+      "exit_return": -6.96,
+      "exit_reason": "stop",
+      "days_held": 29,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-03",
@@ -9066,7 +9086,14 @@
       "return_3d": 2.54,
       "alpha_3d": 3.08,
       "return_5d": 5.25,
-      "alpha_5d": 5.15
+      "alpha_5d": 5.15,
+      "exit_date": "2026-09-14",
+      "exit_price": 210.87,
+      "exit_return": -3.65,
+      "exit_reason": "stop_gap",
+      "days_held": 10,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-28",
@@ -9402,7 +9429,14 @@
       "return_3d": -0.13,
       "alpha_3d": -0.23,
       "return_5d": -3.39,
-      "alpha_5d": -2.43
+      "alpha_5d": -2.43,
+      "exit_date": "2026-09-14",
+      "exit_price": 209.85,
+      "exit_return": -7.15,
+      "exit_reason": "stop",
+      "days_held": 7,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-02",
@@ -9596,7 +9630,9 @@
       "return_1d": 1.33,
       "alpha_1d": 1.88,
       "return_3d": -5.91,
-      "alpha_3d": -4.31
+      "alpha_3d": -4.31,
+      "return_5d": -7.53,
+      "alpha_5d": -6.32
     },
     {
       "date": "2026-09-04",
@@ -9629,7 +9665,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_3d": -4.33,
-      "alpha_3d": -2.73
+      "alpha_3d": -2.73,
+      "return_5d": -5.44,
+      "alpha_5d": -4.23
     },
     {
       "date": "2026-09-07",
@@ -9655,7 +9693,16 @@
       "return_1d": -3.21,
       "alpha_1d": -2.66,
       "return_3d": -6.37,
-      "alpha_3d": -4.76
+      "alpha_3d": -4.76,
+      "return_5d": -9.54,
+      "alpha_5d": -8.33,
+      "exit_date": "2026-09-14",
+      "exit_price": 210.87,
+      "exit_return": -9.58,
+      "exit_reason": "stop_gap",
+      "days_held": 5,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-07",
@@ -9681,7 +9728,16 @@
       "return_1d": -1.23,
       "alpha_1d": -0.68,
       "return_3d": -3.11,
-      "alpha_3d": -1.51
+      "alpha_3d": -1.51,
+      "return_5d": -7.77,
+      "alpha_5d": -6.56,
+      "exit_date": "2026-09-14",
+      "exit_price": 53.59,
+      "exit_return": -7.31,
+      "exit_reason": "stop",
+      "days_held": 5,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-07",
@@ -9714,7 +9770,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_3d": -6.74,
-      "alpha_3d": -5.13
+      "alpha_3d": -5.13,
+      "return_5d": -4.89,
+      "alpha_5d": -3.68
     },
     {
       "date": "2026-09-08",
@@ -9740,7 +9798,14 @@
       "return_1d": 2.84,
       "alpha_1d": 3.31,
       "return_3d": -2.41,
-      "alpha_3d": -2.19
+      "alpha_3d": -2.19,
+      "exit_date": "2026-09-14",
+      "exit_price": 905.84,
+      "exit_return": -9.36,
+      "exit_reason": "stop_gap",
+      "days_held": 4,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-08",
@@ -9816,7 +9881,9 @@
         "rs_leader": true
       },
       "return_1d": 0.01,
-      "alpha_1d": 0.61
+      "alpha_1d": 0.61,
+      "return_3d": 0.8,
+      "alpha_3d": 1.0
     },
     {
       "date": "2026-09-09",
@@ -9840,7 +9907,9 @@
         "rs_leader": false
       },
       "return_1d": -0.22,
-      "alpha_1d": 0.38
+      "alpha_1d": 0.38,
+      "return_3d": -1.05,
+      "alpha_3d": -0.85
     },
     {
       "date": "2026-09-09",
@@ -9864,7 +9933,9 @@
         "rs_leader": true
       },
       "return_1d": -1.06,
-      "alpha_1d": -0.46
+      "alpha_1d": -0.46,
+      "return_3d": -1.15,
+      "alpha_3d": -0.95
     },
     {
       "date": "2026-09-10",
@@ -9943,9 +10014,9 @@
       "ticker": "ORCL",
       "name": "Oracle Corporation",
       "sector": "Technology",
-      "entry_price": 150.27999877929688,
+      "entry_price": 141.42,
       "signal_close": 150.27999877929688,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 21.0,
       "stop_loss": 135.3,
       "target": 184.58,
@@ -9958,16 +10029,18 @@
         "atr_pct": 4.98,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.38,
+      "alpha_1d": 2.83
     },
     {
       "date": "2026-09-11",
       "ticker": "VZ",
       "name": "Verizon Communications Inc.",
       "sector": "Communication Services",
-      "entry_price": 50.61000061035156,
+      "entry_price": 50.94,
       "signal_close": 50.61000061035156,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 14.7,
       "stop_loss": 48.92,
       "target": 54.0,
@@ -9980,6 +10053,74 @@
         "atr_pct": 1.67,
         "insider_buy": false,
         "rs_leader": true
+      },
+      "return_1d": 0.69,
+      "alpha_1d": 1.13
+    },
+    {
+      "date": "2026-09-14",
+      "ticker": "NFLX",
+      "name": "Netflix, Inc.",
+      "sector": "Communication Services",
+      "entry_price": 80.31999969482422,
+      "signal_close": 80.31999969482422,
+      "entry_realistic": false,
+      "score": 16.8,
+      "stop_loss": 75.83,
+      "target": 89.29,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 10.15,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.79,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-14",
+      "ticker": "XOM",
+      "name": "ExxonMobil Holdings Corporation",
+      "sector": "Energy",
+      "entry_price": 165.0800018310547,
+      "signal_close": 165.0800018310547,
+      "entry_realistic": false,
+      "score": 15.8,
+      "stop_loss": 157.92,
+      "target": 179.39,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.35,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.17,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-14",
+      "ticker": "ABBV",
+      "name": "AbbVie Inc.",
+      "sector": "Healthcare",
+      "entry_price": 261.7699890136719,
+      "signal_close": 261.7699890136719,
+      "entry_realistic": false,
+      "score": 12.6,
+      "stop_loss": 250.49,
+      "target": 284.33,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 2.46,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.15,
+        "insider_buy": false,
+        "rs_leader": false
       }
     }
   ]
