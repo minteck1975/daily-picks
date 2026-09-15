@@ -7322,7 +7322,9 @@
       "exit_reason": "stop",
       "days_held": 29,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -7.01,
+      "alpha_30d": -6.98
     },
     {
       "date": "2026-08-03",
@@ -7350,7 +7352,16 @@
       "return_3d": -1.14,
       "alpha_3d": -2.58,
       "return_5d": -0.08,
-      "alpha_5d": -2.1
+      "alpha_5d": -2.1,
+      "return_30d": -1.79,
+      "alpha_30d": -1.75,
+      "exit_date": "2026-09-15",
+      "exit_price": 63.67,
+      "exit_return": -1.89,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-03",
@@ -7385,7 +7396,9 @@
       "exit_reason": "target_gap",
       "days_held": 11,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 3.4,
+      "alpha_30d": 3.44
     },
     {
       "date": "2026-08-04",
@@ -8897,7 +8910,14 @@
       "return_3d": -1.69,
       "alpha_3d": -2.14,
       "return_5d": 2.04,
-      "alpha_5d": 2.58
+      "alpha_5d": 2.58,
+      "exit_date": "2026-09-15",
+      "exit_price": 27.29,
+      "exit_return": -4.03,
+      "exit_reason": "stop",
+      "days_held": 14,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-25",
@@ -9331,7 +9351,14 @@
       "return_3d": -1.18,
       "alpha_3d": -2.28,
       "return_5d": -3.51,
-      "alpha_5d": -3.59
+      "alpha_5d": -3.59,
+      "exit_date": "2026-09-15",
+      "exit_price": 27.26,
+      "exit_return": -5.3,
+      "exit_reason": "stop",
+      "days_held": 9,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-01",
@@ -9805,7 +9832,9 @@
       "exit_reason": "stop_gap",
       "days_held": 4,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": -7.18,
+      "alpha_5d": -6.06
     },
     {
       "date": "2026-09-08",
@@ -9831,7 +9860,9 @@
       "return_1d": 0.44,
       "alpha_1d": 0.9,
       "return_3d": 0.55,
-      "alpha_3d": 0.77
+      "alpha_3d": 0.77,
+      "return_5d": 2.3,
+      "alpha_5d": 3.42
     },
     {
       "date": "2026-09-08",
@@ -9857,7 +9888,9 @@
       "return_1d": -0.98,
       "alpha_1d": -0.52,
       "return_3d": -0.68,
-      "alpha_3d": -0.46
+      "alpha_3d": -0.46,
+      "return_5d": -0.84,
+      "alpha_5d": 0.28
     },
     {
       "date": "2026-09-09",
@@ -9959,7 +9992,9 @@
         "rs_leader": false
       },
       "return_1d": 1.13,
-      "alpha_1d": 0.27
+      "alpha_1d": 0.27,
+      "return_3d": 3.69,
+      "alpha_3d": 3.74
     },
     {
       "date": "2026-09-10",
@@ -9983,7 +10018,9 @@
         "rs_leader": false
       },
       "return_1d": 0.36,
-      "alpha_1d": -0.49
+      "alpha_1d": -0.49,
+      "return_3d": 4.71,
+      "alpha_3d": 4.76
     },
     {
       "date": "2026-09-10",
@@ -10007,7 +10044,9 @@
         "rs_leader": true
       },
       "return_1d": -1.48,
-      "alpha_1d": -2.34
+      "alpha_1d": -2.34,
+      "return_3d": -0.27,
+      "alpha_3d": -0.22
     },
     {
       "date": "2026-09-11",
@@ -10062,9 +10101,9 @@
       "ticker": "NFLX",
       "name": "Netflix, Inc.",
       "sector": "Communication Services",
-      "entry_price": 80.31999969482422,
+      "entry_price": 79.32,
       "signal_close": 80.31999969482422,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.8,
       "stop_loss": 75.83,
       "target": 89.29,
@@ -10077,16 +10116,18 @@
         "atr_pct": 2.79,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.79,
+      "alpha_1d": -1.33
     },
     {
       "date": "2026-09-14",
       "ticker": "XOM",
       "name": "ExxonMobil Holdings Corporation",
       "sector": "Energy",
-      "entry_price": 165.0800018310547,
+      "entry_price": 165.36,
       "signal_close": 165.0800018310547,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.8,
       "stop_loss": 157.92,
       "target": 179.39,
@@ -10099,16 +10140,18 @@
         "atr_pct": 2.17,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.39,
+      "alpha_1d": 2.85
     },
     {
       "date": "2026-09-14",
       "ticker": "ABBV",
       "name": "AbbVie Inc.",
       "sector": "Healthcare",
-      "entry_price": 261.7699890136719,
+      "entry_price": 260.0,
       "signal_close": 261.7699890136719,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 12.6,
       "stop_loss": 250.49,
       "target": 284.33,
@@ -10121,6 +10164,74 @@
         "atr_pct": 2.15,
         "insider_buy": false,
         "rs_leader": false
+      },
+      "return_1d": 1.17,
+      "alpha_1d": 1.63
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "WFC",
+      "name": "Wells Fargo & Company",
+      "sector": "Financial Services",
+      "entry_price": 89.72000122070312,
+      "signal_close": 89.72000122070312,
+      "entry_realistic": false,
+      "score": 20.6,
+      "stop_loss": 85.57,
+      "target": 98.02,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 2.12,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.31,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "EOG",
+      "name": "EOG Resources, Inc.",
+      "sector": "Energy",
+      "entry_price": 153.74000549316406,
+      "signal_close": 153.74000549316406,
+      "entry_realistic": false,
+      "score": 19.6,
+      "stop_loss": 146.66,
+      "target": 167.91,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.57,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.3,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-15",
+      "ticker": "T",
+      "name": "AT&T Inc.",
+      "sector": "Communication Services",
+      "entry_price": 26.719999313354492,
+      "signal_close": 26.719999313354492,
+      "entry_realistic": false,
+      "score": 15.6,
+      "stop_loss": 25.64,
+      "target": 28.89,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 13.31,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.03,
+        "insider_buy": false,
+        "rs_leader": true
       }
     }
   ]
