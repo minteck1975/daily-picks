@@ -7433,7 +7433,9 @@
       "exit_reason": "stop",
       "days_held": 13,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -12.65,
+      "alpha_30d": -10.41
     },
     {
       "date": "2026-08-04",
@@ -7468,7 +7470,9 @@
       "exit_reason": "target",
       "days_held": 4,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 10.64,
+      "alpha_30d": 12.88
     },
     {
       "date": "2026-08-05",
@@ -9169,7 +9173,14 @@
       "return_3d": -1.06,
       "alpha_3d": -0.52,
       "return_5d": -0.1,
-      "alpha_5d": -0.21
+      "alpha_5d": -0.21,
+      "exit_date": "2026-09-16",
+      "exit_price": 105.51,
+      "exit_return": -3.55,
+      "exit_reason": "stop",
+      "days_held": 12,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-29",
@@ -9295,7 +9306,14 @@
       "return_3d": 1.52,
       "alpha_3d": 0.41,
       "return_5d": 0.71,
-      "alpha_5d": 0.62
+      "alpha_5d": 0.62,
+      "exit_date": "2026-09-16",
+      "exit_price": 52.07,
+      "exit_return": -8.09,
+      "exit_reason": "stop",
+      "days_held": 10,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-01",
@@ -9916,7 +9934,9 @@
       "return_1d": 0.01,
       "alpha_1d": 0.61,
       "return_3d": 0.8,
-      "alpha_3d": 1.0
+      "alpha_3d": 1.0,
+      "return_5d": 0.4,
+      "alpha_5d": 1.5
     },
     {
       "date": "2026-09-09",
@@ -9942,7 +9962,9 @@
       "return_1d": -0.22,
       "alpha_1d": 0.38,
       "return_3d": -1.05,
-      "alpha_3d": -0.85
+      "alpha_3d": -0.85,
+      "return_5d": -2.9,
+      "alpha_5d": -1.8
     },
     {
       "date": "2026-09-09",
@@ -9968,7 +9990,9 @@
       "return_1d": -1.06,
       "alpha_1d": -0.46,
       "return_3d": -1.15,
-      "alpha_3d": -0.95
+      "alpha_3d": -0.95,
+      "return_5d": -2.2,
+      "alpha_5d": -1.11
     },
     {
       "date": "2026-09-10",
@@ -10070,7 +10094,9 @@
         "rs_leader": true
       },
       "return_1d": 2.38,
-      "alpha_1d": 2.83
+      "alpha_1d": 2.83,
+      "return_3d": 1.23,
+      "alpha_3d": 2.57
     },
     {
       "date": "2026-09-11",
@@ -10094,7 +10120,9 @@
         "rs_leader": true
       },
       "return_1d": 0.69,
-      "alpha_1d": 1.13
+      "alpha_1d": 1.13,
+      "return_3d": -2.32,
+      "alpha_3d": -0.98
     },
     {
       "date": "2026-09-14",
@@ -10173,9 +10201,9 @@
       "ticker": "WFC",
       "name": "Wells Fargo & Company",
       "sector": "Financial Services",
-      "entry_price": 89.72000122070312,
+      "entry_price": 89.72,
       "signal_close": 89.72000122070312,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.6,
       "stop_loss": 85.57,
       "target": 98.02,
@@ -10188,16 +10216,18 @@
         "atr_pct": 2.31,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -2.98,
+      "alpha_1d": -2.53
     },
     {
       "date": "2026-09-15",
       "ticker": "EOG",
       "name": "EOG Resources, Inc.",
       "sector": "Energy",
-      "entry_price": 153.74000549316406,
+      "entry_price": 149.99,
       "signal_close": 153.74000549316406,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.6,
       "stop_loss": 146.66,
       "target": 167.91,
@@ -10210,16 +10240,25 @@
         "atr_pct": 2.3,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -3.37,
+      "alpha_1d": -2.93,
+      "exit_date": "2026-09-16",
+      "exit_price": 146.51,
+      "exit_return": -2.32,
+      "exit_reason": "stop",
+      "days_held": 1,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-15",
       "ticker": "T",
       "name": "AT&T Inc.",
       "sector": "Communication Services",
-      "entry_price": 26.719999313354492,
+      "entry_price": 26.61,
       "signal_close": 26.719999313354492,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.6,
       "stop_loss": 25.64,
       "target": 28.89,
@@ -10230,6 +10269,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.03,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -2.82,
+      "alpha_1d": -2.38
+    },
+    {
+      "date": "2026-09-16",
+      "ticker": "TMO",
+      "name": "Thermo Fisher Scientific Inc",
+      "sector": "Healthcare",
+      "entry_price": 648.4299926757812,
+      "signal_close": 648.4299926757812,
+      "entry_realistic": false,
+      "score": 19.3,
+      "stop_loss": 618.16,
+      "target": 708.97,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 17.06,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.33,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-16",
+      "ticker": "BRK-B",
+      "name": "Berkshire Hathaway Inc. New",
+      "sector": "Financial Services",
+      "entry_price": 519.7999877929688,
+      "signal_close": 519.7999877929688,
+      "entry_realistic": false,
+      "score": 17.6,
+      "stop_loss": 508.81,
+      "target": 541.78,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 2.74,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.06,
+        "insider_buy": false,
+        "rs_leader": false
+      }
+    },
+    {
+      "date": "2026-09-16",
+      "ticker": "NOW",
+      "name": "ServiceNow, Inc.",
+      "sector": "Technology",
+      "entry_price": 139.82000732421875,
+      "signal_close": 139.82000732421875,
+      "entry_realistic": false,
+      "score": 13.3,
+      "stop_loss": 125.2,
+      "target": 169.05,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 20.59,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 5.23,
         "insider_buy": false,
         "rs_leader": true
       }
