@@ -8062,7 +8062,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 9.3,
+      "alpha_30d": 9.99
     },
     {
       "date": "2026-08-12",
@@ -8097,7 +8099,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -2.95,
+      "alpha_30d": -2.26
     },
     {
       "date": "2026-08-12",
@@ -8132,7 +8136,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_5d": 6.0,
-      "alpha_5d": 6.44
+      "alpha_5d": 6.44,
+      "return_30d": 1.3,
+      "alpha_30d": 1.99
     },
     {
       "date": "2026-08-13",
@@ -8167,7 +8173,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_5d": 4.24,
-      "alpha_5d": 6.2
+      "alpha_5d": 6.2,
+      "return_30d": 7.54,
+      "alpha_30d": 8.38
     },
     {
       "date": "2026-08-13",
@@ -8202,7 +8210,9 @@
       "return_3d": 1.75,
       "alpha_3d": 3.09,
       "return_5d": 1.5,
-      "alpha_5d": 3.46
+      "alpha_5d": 3.46,
+      "return_30d": -0.9,
+      "alpha_30d": -0.06
     },
     {
       "date": "2026-08-13",
@@ -8237,7 +8247,9 @@
       "exit_reason": "stop",
       "days_held": 7,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -0.76,
+      "alpha_30d": 0.08
     },
     {
       "date": "2026-08-14",
@@ -8874,7 +8886,14 @@
       "return_3d": 1.76,
       "alpha_3d": 1.71,
       "return_5d": 3.51,
-      "alpha_5d": 3.03
+      "alpha_5d": 3.03,
+      "exit_date": "2026-09-25",
+      "exit_price": 262.71,
+      "exit_return": -4.86,
+      "exit_reason": "stop",
+      "days_held": 24,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-24",
@@ -9644,7 +9663,14 @@
       "return_3d": -0.98,
       "alpha_3d": -1.08,
       "return_5d": -2.46,
-      "alpha_5d": -1.5
+      "alpha_5d": -1.5,
+      "exit_date": "2026-09-25",
+      "exit_price": 264.98,
+      "exit_return": -5.69,
+      "exit_reason": "stop",
+      "days_held": 16,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-03",
@@ -10015,7 +10041,14 @@
       "return_3d": -0.68,
       "alpha_3d": -0.46,
       "return_5d": -0.84,
-      "alpha_5d": 0.28
+      "alpha_5d": 0.28,
+      "exit_date": "2026-09-25",
+      "exit_price": 266.0,
+      "exit_return": -4.12,
+      "exit_reason": "stop",
+      "days_held": 13,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-09",
@@ -10622,7 +10655,9 @@
       "return_1d": -0.39,
       "alpha_1d": -0.27,
       "return_3d": 3.97,
-      "alpha_3d": 2.56
+      "alpha_3d": 2.56,
+      "return_5d": 5.23,
+      "alpha_5d": 4.63
     },
     {
       "date": "2026-09-17",
@@ -10655,7 +10690,9 @@
       "exit_reason": "stop_gap",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": -2.58,
+      "alpha_5d": -3.18
     },
     {
       "date": "2026-09-18",
@@ -10681,7 +10718,9 @@
       "return_1d": 0.3,
       "alpha_1d": -1.25,
       "return_3d": -0.28,
-      "alpha_3d": -1.08
+      "alpha_3d": -1.08,
+      "return_5d": 0.55,
+      "alpha_5d": -0.72
     },
     {
       "date": "2026-09-18",
@@ -10707,7 +10746,9 @@
       "return_1d": 0.96,
       "alpha_1d": -0.59,
       "return_3d": 1.1,
-      "alpha_3d": 0.29
+      "alpha_3d": 0.29,
+      "return_5d": 1.51,
+      "alpha_5d": 0.25
     },
     {
       "date": "2026-09-18",
@@ -10733,7 +10774,9 @@
       "return_1d": -0.2,
       "alpha_1d": -1.75,
       "return_3d": 1.29,
-      "alpha_3d": 0.48
+      "alpha_3d": 0.48,
+      "return_5d": 0.63,
+      "alpha_5d": -0.64
     },
     {
       "date": "2026-09-22",
@@ -10757,7 +10800,9 @@
         "rs_leader": true
       },
       "return_1d": -0.47,
-      "alpha_1d": 0.25
+      "alpha_1d": 0.25,
+      "return_3d": -0.07,
+      "alpha_3d": 0.19
     },
     {
       "date": "2026-09-22",
@@ -10781,7 +10826,9 @@
         "rs_leader": false
       },
       "return_1d": -0.64,
-      "alpha_1d": 0.08
+      "alpha_1d": 0.08,
+      "return_3d": 1.07,
+      "alpha_3d": 1.34
     },
     {
       "date": "2026-09-23",
@@ -10836,9 +10883,9 @@
       "ticker": "MU",
       "name": "Micron Technology, Inc.",
       "sector": "Technology",
-      "entry_price": 1080.530029296875,
+      "entry_price": 1095.47,
       "signal_close": 1080.530029296875,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.0,
       "stop_loss": 987.98,
       "target": 1265.64,
@@ -10851,16 +10898,18 @@
         "atr_pct": 4.28,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -1.2,
+      "alpha_1d": -1.75
     },
     {
       "date": "2026-09-24",
       "ticker": "META",
       "name": "Meta Platforms, Inc.",
       "sector": "Communication Services",
-      "entry_price": 777.5900268554688,
+      "entry_price": 768.84,
       "signal_close": 777.5900268554688,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.2,
       "stop_loss": 721.12,
       "target": 890.53,
@@ -10871,6 +10920,52 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 3.63,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -2.23,
+      "alpha_1d": -2.78
+    },
+    {
+      "date": "2026-09-25",
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "sector": "Technology",
+      "entry_price": 516.1699829101562,
+      "signal_close": 516.1699829101562,
+      "entry_realistic": false,
+      "score": 18.5,
+      "stop_loss": 494.29,
+      "target": 559.94,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.72,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.12,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-09-25",
+      "ticker": "DHR",
+      "name": "Danaher Corporation",
+      "sector": "Healthcare",
+      "entry_price": 224.49000549316406,
+      "signal_close": 224.49000549316406,
+      "entry_realistic": false,
+      "score": 13.8,
+      "stop_loss": 213.71,
+      "target": 246.04,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 10.94,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.4,
         "insider_buy": false,
         "rs_leader": true
       }
