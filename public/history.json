@@ -8347,7 +8347,14 @@
       "return_3d": 2.92,
       "alpha_3d": 3.85,
       "return_5d": 3.13,
-      "alpha_5d": 4.5
+      "alpha_5d": 4.5,
+      "exit_date": "2026-09-28",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-14",
@@ -8375,7 +8382,14 @@
       "return_3d": 1.49,
       "alpha_3d": 2.43,
       "return_5d": 2.18,
-      "alpha_5d": 3.55
+      "alpha_5d": 3.55,
+      "exit_date": "2026-09-28",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-14",
@@ -8403,7 +8417,14 @@
       "return_3d": 0.15,
       "alpha_3d": 1.09,
       "return_5d": -2.57,
-      "alpha_5d": -1.2
+      "alpha_5d": -1.2,
+      "exit_date": "2026-09-28",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-17",
@@ -10931,9 +10952,9 @@
       "ticker": "MSFT",
       "name": "Microsoft Corporation",
       "sector": "Technology",
-      "entry_price": 516.1699829101562,
+      "entry_price": 505.42,
       "signal_close": 516.1699829101562,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.5,
       "stop_loss": 494.29,
       "target": 559.94,
@@ -10953,9 +10974,9 @@
       "ticker": "DHR",
       "name": "Danaher Corporation",
       "sector": "Healthcare",
-      "entry_price": 224.49000549316406,
+      "entry_price": 223.4,
       "signal_close": 224.49000549316406,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 13.8,
       "stop_loss": 213.71,
       "target": 246.04,
