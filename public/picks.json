@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T01:03:07+00:00",
+  "generated_at": "2026-09-30T00:33:37+00:00",
   "market": "top100",
   "scanned": 0,
   "enriched": 0,
@@ -118,8 +118,8 @@
       "total": 0
     },
     "vix": {
-      "level": 16.07,
-      "day_change_pct": 8.07,
+      "level": 16.04,
+      "day_change_pct": -0.19,
       "regime": "normal"
     },
     "hyg": {
@@ -129,88 +129,17 @@
       "month_return": NaN
     },
     "fear_greed": {
-      "score": 33.9,
+      "score": 31.6,
       "rating": "fear",
-      "previous_close": 37.0,
-      "previous_1_week": 34.2,
+      "previous_close": 33.8,
+      "previous_1_week": 35.0,
       "previous_1_month": 53.7,
-      "previous_1_year": 51.3
+      "previous_1_year": 51.0
     }
   },
   "market_news": {
-    "items": [
-      {
-        "title": "Can Cloudflare (NET) Become the Gatekeeper of the AI Web?",
-        "summary": "On September 15, Cloudflare, Inc. (NYSE:NET) announced its new Accountable designation for AI crawling alongside the launch of \u201cDisallow AI Training.\u201d This tool allows website owners to block AI models from scraping their content for training purposes while remaining fully indexa",
-        "source": "Insider Monkey",
-        "url": "https://finance.yahoo.com/technology/ai/articles/cloudflare-net-become-gatekeeper-ai-005555662.html",
-        "publish_time": 1790643355
-      },
-      {
-        "title": "Samsung, affiliates to invest $1 billion in AI infrastructure firm Helix",
-        "summary": "Investing.com -- Samsung Electronics (KS:005930) and five affiliates will invest a combined $1 billion in Helix Digital Infrastructure, an AI infrastructure company established by investment firm KKR, as the South Korean technology group expands its exposure beyond semiconductors",
-        "source": "Investing.com",
-        "url": "https://finance.yahoo.com/technology/ai/articles/samsung-affiliates-invest-1-billion-005118034.html",
-        "publish_time": 1790643078
-      },
-      {
-        "title": "Dow Jones Futures: Trump Sparks Stock Market Losses; Elon Musk-Led SpaceX, Tesla In Focus",
-        "summary": "Dow Jones Futures: Trump rejected Iran's proposal, sending the stock market lower. Elon Musk-led SpaceX and Tesla fell sharply.",
-        "source": "Investor's Business Daily",
-        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-trump-stock-market-losses-elon-musk-spacex-tesla/?src=A00220&yptr=yahoo",
-        "publish_time": 1790643055
-      },
-      {
-        "title": "Palo Alto Networks (PANW) Stock Trades Up, Here Is Why",
-        "summary": "Shares of cybersecurity platform provider Palo Alto Networks (NASDAQ:PANW) jumped 5.1% in the afternoon session after BTIG raised its price target on the cybersecurity provider to $425 from $404 and reiterated a Buy rating following discussions with management.",
-        "source": "StockStory",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/palo-alto-networks-panw-stock-004636834.html",
-        "publish_time": 1790642796
-      },
-      {
-        "title": "Prediction: Rocket Lab Stock Trades Above $100 Again Before 2029",
-        "summary": "The needed gain is roughly 14% a year -- and most of it rests on a rocket that hasn't flown yet.",
-        "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/09/28/prediction-rocket-lab-stock-trades-above-usd100-again-before-2029/",
-        "publish_time": 1790642761
-      },
-      {
-        "title": "Conagra Brands's Next Earnings Report on Sep. 30 2026 Could Send the Stock Soaring. Here's Why.",
-        "summary": "After all, expectations aren't particularly high for the storied food company.",
-        "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/09/28/conagra-brands-s-next-earnings-report-on-sep-30-2026-could-send-the-stock-soaring-here-s-why/",
-        "publish_time": 1790642005
-      },
-      {
-        "title": "Why Atlassian (TEAM) Stock Is Down Today",
-        "summary": "Shares of collaboration software company Atlassian (NASDAQ:TEAM) fell 4.6% in the afternoon session after Meta launched Meta Enterprise Platform, adding competitive pressure for business software just as higher yields hit rate-sensitive software stocks.",
-        "source": "StockStory",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/why-atlassian-team-stock-down-001436323.html",
-        "publish_time": 1790640876
-      },
-      {
-        "title": "Should Microsoft (MSFT) Investors Worry About A $3 Trillion Hidden AI Risk?",
-        "summary": "On 28 September 2026, Michael Burry warned that Microsoft (NasdaqGS:MSFT) and other AI firms face about US$3t in hidden investment risks. Burry argued that large AI data center projects are heavily funded through off balance sheet structures that do not appear as conventional deb",
-        "source": "Simply Wall St.",
-        "url": "https://finance.yahoo.com/technology/ai/articles/microsoft-msft-investors-worry-3-000824730.html",
-        "publish_time": 1790640504
-      },
-      {
-        "title": "I Tried Meta\u2019s Muse AI Agent. It\u2019s Helpful and Scary at the Same Time.",
-        "summary": "The avatar for Nicole\u2019s agent is a hybrid between Muse\u2019s cute, fluffy mascot\u2026and the Terminator.  When I connected my inbox and calendar, my little Terminator found unpaid bills and suggested a recipe based on an incoming produce delivery.  After a week with the Terminator, I beg",
-        "source": "The Wall Street Journal",
-        "url": "https://www.wsj.com/tech/personal-tech/meta-muse-ai-agent-review-ab956101?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1790640000
-      },
-      {
-        "title": "Is Shopify (SHOP)\u2019s AI Opportunity Bigger Than it Looks?",
-        "summary": "On September 23, Mizuho reiterated an Outperform rating and $180 price target on Shopify Inc. (NASDAQ:SHOP), viewing a recent stock pullback as a compelling buying opportunity. The weakness occurred after reports surfaced that Meta Platforms is planning a Meta Pay wallet for its ",
-        "source": "Insider Monkey",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/shopify-shop-ai-opportunity-bigger-235943704.html",
-        "publish_time": 1790639983
-      }
-    ],
-    "overall_mood": 0.06,
-    "fetched_at": "2026-09-29T01:03:05+00:00"
+    "items": [],
+    "overall_mood": 0.0,
+    "fetched_at": "2026-09-30T00:33:35+00:00"
   }
 }

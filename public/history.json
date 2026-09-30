@@ -8284,7 +8284,9 @@
       "exit_reason": "stop",
       "days_held": 12,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -8.23,
+      "alpha_30d": -6.85
     },
     {
       "date": "2026-08-14",
@@ -8319,7 +8321,9 @@
       "return_3d": -8.71,
       "alpha_3d": -7.78,
       "return_5d": -7.21,
-      "alpha_5d": -5.84
+      "alpha_5d": -5.84,
+      "return_30d": -11.96,
+      "alpha_30d": -10.58
     },
     {
       "date": "2026-08-14",
@@ -8354,7 +8358,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 1.51,
+      "alpha_30d": 2.89
     },
     {
       "date": "2026-08-14",
@@ -8389,7 +8395,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 0.61,
+      "alpha_30d": 1.99
     },
     {
       "date": "2026-08-14",
@@ -8424,7 +8432,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -7.27,
+      "alpha_30d": -5.89
     },
     {
       "date": "2026-08-17",
@@ -8452,7 +8462,14 @@
       "return_3d": 0.36,
       "alpha_3d": 1.66,
       "return_5d": -0.95,
-      "alpha_5d": 0.24
+      "alpha_5d": 0.24,
+      "exit_date": "2026-09-29",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-17",
@@ -8515,7 +8532,14 @@
       "return_3d": 2.46,
       "alpha_3d": 3.76,
       "return_5d": 4.81,
-      "alpha_5d": 6.0
+      "alpha_5d": 6.0,
+      "exit_date": "2026-09-29",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-18",
@@ -10873,7 +10897,9 @@
         "rs_leader": true
       },
       "return_1d": -1.18,
-      "alpha_1d": -1.1
+      "alpha_1d": -1.1,
+      "return_3d": -4.63,
+      "alpha_3d": -4.34
     },
     {
       "date": "2026-09-23",
@@ -10897,7 +10923,9 @@
         "rs_leader": true
       },
       "return_1d": -0.79,
-      "alpha_1d": -0.71
+      "alpha_1d": -0.71,
+      "return_3d": 0.88,
+      "alpha_3d": 1.17
     },
     {
       "date": "2026-09-24",
@@ -10945,7 +10973,14 @@
         "rs_leader": true
       },
       "return_1d": -2.23,
-      "alpha_1d": -2.78
+      "alpha_1d": -2.78,
+      "exit_date": "2026-09-28",
+      "exit_price": 720.4,
+      "exit_return": -6.3,
+      "exit_reason": "stop",
+      "days_held": 2,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-25",
@@ -10967,7 +11002,9 @@
         "atr_pct": 2.12,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.75,
+      "alpha_1d": 1.5
     },
     {
       "date": "2026-09-25",
@@ -10989,7 +11026,9 @@
         "atr_pct": 2.4,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.76,
+      "alpha_1d": 2.5
     }
   ]
 }
