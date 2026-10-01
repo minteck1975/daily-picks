@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T00:33:37+00:00",
+  "generated_at": "2026-10-01T00:36:46+00:00",
   "market": "top100",
   "scanned": 0,
   "enriched": 0,
@@ -118,8 +118,8 @@
       "total": 0
     },
     "vix": {
-      "level": 16.04,
-      "day_change_pct": -0.19,
+      "level": 16.34,
+      "day_change_pct": 1.87,
       "regime": "normal"
     },
     "hyg": {
@@ -129,17 +129,88 @@
       "month_return": NaN
     },
     "fear_greed": {
-      "score": 31.6,
+      "score": 30.8,
       "rating": "fear",
-      "previous_close": 33.8,
-      "previous_1_week": 35.0,
+      "previous_close": 31.6,
+      "previous_1_week": 32.5,
       "previous_1_month": 53.7,
-      "previous_1_year": 51.0
+      "previous_1_year": 51.4
     }
   },
   "market_news": {
-    "items": [],
-    "overall_mood": 0.0,
-    "fetched_at": "2026-09-30T00:33:35+00:00"
+    "items": [
+      {
+        "title": "Dow Jones Futures: Micron Earnings Crush Views, S&P 500 At Critical Level As Treasury Yields Rise",
+        "summary": "The Nasdaq faded while the S&P 500 fell to its 50-day as Treasury yields keep running. Micron earnings easily beat views.",
+        "source": "Investor's Business Daily",
+        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-micron-rises-earnings-treasury-yields/?src=A00220&yptr=yahoo",
+        "publish_time": 1790813587
+      },
+      {
+        "title": "Forget Waiting Three Months for SPY\u2019s Dividend. Invesco\u2019s High-Dividend Fund Pays Every Month",
+        "summary": "Monthly bills don't care about quarterly dividend schedules, and one S&P 500 ETF built its entire identity around solving that mismatch. But the convenience of a monthly paycheck comes with a cost that decade-long performance data makes impossible to ignore.",
+        "source": "24/7 Wall St.",
+        "url": "https://247wallst.com/investing/etf/2026/09/30/forget-waiting-three-months-for-spys-dividend-invescos-high-dividend-fund-pays-every-month/",
+        "publish_time": 1790809589
+      },
+      {
+        "title": "Tech CEOs Privately Questioned Amodei for Sounding AI Alarm Bells",
+        "summary": "Nvidia CEO Jensen Huang was among the executives at Tuesday\u2019s White House event who called out the Anthropic leader for his warnings about the technology\u2019s capabilities.",
+        "source": "The Wall Street Journal",
+        "url": "https://www.wsj.com/tech/ai/tech-ceos-privately-questioned-amodei-for-sounding-ai-alarm-bells-aaa47df3?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1790807880
+      },
+      {
+        "title": "VIG Cannot Own Meta\u2019s or Alphabet\u2019s Dividends Until 2035 at the Earliest: The 10-Year Rule Written Into Its Index",
+        "summary": "VIG promises exposure to America's greatest dividend growers, but a single rule in its index methodology keeps two of the biggest new payers completely locked out for the next decade.",
+        "source": "24/7 Wall St.",
+        "url": "https://247wallst.com/investing/etf/2026/09/30/vig-cannot-own-metas-or-alphabets-dividends-until-2035-at-the-earliest-the-10-year-rule-written-into-its-index/",
+        "publish_time": 1790807721
+      },
+      {
+        "title": "Tech CEOs questioned Anthropic leader over AI safety warnings, WSJ reports",
+        "summary": "Investing.com -- Top artificial intelligence executives confronted Anthropic (NASDAQ:ANTP) Chief Executive Dario Amodei during a high-stakes White House gathering, exposing deep strategic fractures across Silicon Valley even as leaders publicly aligned around new safety protocols",
+        "source": "Investing.com",
+        "url": "https://finance.yahoo.com/technology/ai/articles/tech-ceos-questioned-anthropic-leader-223321385.html",
+        "publish_time": 1790807601
+      },
+      {
+        "title": "In AI Race, Software Is Now Winning Alongside Chips",
+        "summary": "Services like Meta\u2019s Muse AI just increase demand for chips. But they\u2019re also a big win for software",
+        "source": "Barrons.com",
+        "url": "https://www.barrons.com/articles/ai-agents-meta-muse-stocks-chips-cb06386a?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1790805900
+      },
+      {
+        "title": "Google Unveils New AI Model Gemini 4 Argon, Sending Alphabet Stock Higher",
+        "summary": "Google is rolling out the new model to a set of cybersecurity companies before making it available to developers, customers, and consumers at a later date.",
+        "source": "Barrons.com",
+        "url": "https://www.barrons.com/articles/google-ai-gemini-4-argon-alphabet-stock-d3df631c?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1790804100
+      },
+      {
+        "title": "Apple Predicted To Sell 6 Million iPhone Duo Handsets This Year",
+        "summary": "Apple is poised to sell 6 million units of the iPhone Duo, its first folding-screen smartphone, Counterpoint Research says. Apple stock rose.",
+        "source": "Investor's Business Daily",
+        "url": "https://www.investors.com/news/technology/apple-stock-aapl-iphone-duo-2026-sales-forecast/?src=A00220&yptr=yahoo",
+        "publish_time": 1790802375
+      },
+      {
+        "title": "Google Stock Rises On Gemini 4 Argon Release After New AI Model Delays",
+        "summary": "Alphabet released its most powerful, artificial intelligence model called Gemini 4 Argon. Google stock climbed on the news.",
+        "source": "Investor's Business Daily",
+        "url": "https://www.investors.com/news/technology/google-stock-rises-on-gemini-4-argon-release-after-new-ai-model-delays/?src=A00220&yptr=yahoo",
+        "publish_time": 1790802266
+      },
+      {
+        "title": "Stock Market Today: Dow Knocked Down, Nasdaq Pares Gain; Micron Holds Firm After Earnings Soar",
+        "summary": "Stock Market Today: The Dow Jones index rises Wednesday on surprise inflation data. Micron earnings are due after the close.",
+        "source": "Investor's Business Daily",
+        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-inflation-data-micron-earnings-mu-stock/?src=A00220&yptr=yahoo",
+        "publish_time": 1790801662
+      }
+    ],
+    "overall_mood": -0.03,
+    "fetched_at": "2026-10-01T00:36:44+00:00"
   }
 }
