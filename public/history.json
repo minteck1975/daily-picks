@@ -8580,7 +8580,9 @@
       "exit_reason": "stop",
       "days_held": 23,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -8.07,
+      "alpha_30d": -7.45
     },
     {
       "date": "2026-08-18",
@@ -8615,7 +8617,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 3.33,
+      "alpha_30d": 3.96
     },
     {
       "date": "2026-08-18",
@@ -8650,7 +8654,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 6.9,
+      "alpha_30d": 7.52
     },
     {
       "date": "2026-08-19",
@@ -8748,7 +8754,14 @@
       "return_3d": 3.49,
       "alpha_3d": 4.22,
       "return_5d": 2.57,
-      "alpha_5d": 2.96
+      "alpha_5d": 2.96,
+      "exit_date": "2026-10-01",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-20",
@@ -10937,7 +10950,9 @@
       "return_1d": -1.18,
       "alpha_1d": -1.1,
       "return_3d": -4.63,
-      "alpha_3d": -4.34
+      "alpha_3d": -4.34,
+      "return_5d": -6.38,
+      "alpha_5d": -5.7
     },
     {
       "date": "2026-09-23",
@@ -10963,7 +10978,9 @@
       "return_1d": -0.79,
       "alpha_1d": -0.71,
       "return_3d": 0.88,
-      "alpha_3d": 1.17
+      "alpha_3d": 1.17,
+      "return_5d": -1.21,
+      "alpha_5d": -0.54
     },
     {
       "date": "2026-09-24",
@@ -11046,7 +11063,9 @@
         "rs_leader": true
       },
       "return_1d": 0.75,
-      "alpha_1d": 1.5
+      "alpha_1d": 1.5,
+      "return_3d": 1.48,
+      "alpha_3d": 2.61
     },
     {
       "date": "2026-09-25",
@@ -11070,7 +11089,9 @@
         "rs_leader": true
       },
       "return_1d": 1.76,
-      "alpha_1d": 2.5
+      "alpha_1d": 2.5,
+      "return_3d": -0.83,
+      "alpha_3d": 0.3
     }
   ]
 }
