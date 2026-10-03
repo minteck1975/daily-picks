@@ -8691,7 +8691,9 @@
       "exit_reason": "stop",
       "days_held": 9,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -9.48,
+      "alpha_30d": -8.82
     },
     {
       "date": "2026-08-19",
@@ -8726,7 +8728,9 @@
       "exit_reason": "stop",
       "days_held": 5,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -9.75,
+      "alpha_30d": -9.09
     },
     {
       "date": "2026-08-19",
@@ -8761,7 +8765,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -5.19,
+      "alpha_30d": -4.53
     },
     {
       "date": "2026-08-20",
@@ -9342,7 +9348,14 @@
       "return_3d": 0.19,
       "alpha_3d": 0.73,
       "return_5d": -2.29,
-      "alpha_5d": -2.4
+      "alpha_5d": -2.4,
+      "exit_date": "2026-10-01",
+      "exit_price": 102.16,
+      "exit_return": -5.22,
+      "exit_reason": "stop",
+      "days_held": 23,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-08-29",
@@ -10868,7 +10881,14 @@
       "return_3d": 1.29,
       "alpha_3d": 0.48,
       "return_5d": 0.63,
-      "alpha_5d": -0.64
+      "alpha_5d": -0.64,
+      "exit_date": "2026-10-01",
+      "exit_price": 649.33,
+      "exit_return": -5.36,
+      "exit_reason": "stop",
+      "days_held": 9,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-22",
@@ -11006,7 +11026,9 @@
       "return_1d": -1.2,
       "alpha_1d": -1.75,
       "return_3d": -2.77,
-      "alpha_3d": -2.39
+      "alpha_3d": -2.39,
+      "return_5d": 0.18,
+      "alpha_5d": 0.59
     },
     {
       "date": "2026-09-24",
@@ -11039,7 +11061,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_3d": -3.91,
-      "alpha_3d": -3.52
+      "alpha_3d": -3.52,
+      "return_5d": -5.58,
+      "alpha_5d": -5.17
     },
     {
       "date": "2026-09-25",
@@ -11091,7 +11115,14 @@
       "return_1d": 1.76,
       "alpha_1d": 2.5,
       "return_3d": -0.83,
-      "alpha_3d": 0.3
+      "alpha_3d": 0.3,
+      "exit_date": "2026-10-01",
+      "exit_price": 213.5,
+      "exit_return": -4.43,
+      "exit_reason": "stop",
+      "days_held": 4,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     }
   ]
 }
