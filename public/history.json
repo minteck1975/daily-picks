@@ -9135,7 +9135,9 @@
       "exit_reason": "stop",
       "days_held": 14,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -1.55,
+      "alpha_30d": -3.02
     },
     {
       "date": "2026-08-25",
@@ -9170,7 +9172,9 @@
       "exit_reason": "stop_gap",
       "days_held": 9,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -14.88,
+      "alpha_30d": -16.35
     },
     {
       "date": "2026-08-25",
@@ -9205,7 +9209,9 @@
       "exit_reason": "stop",
       "days_held": 8,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -13.28,
+      "alpha_30d": -14.75
     },
     {
       "date": "2026-08-27",
@@ -10997,7 +11003,14 @@
       "return_3d": -4.63,
       "alpha_3d": -4.34,
       "return_5d": -6.38,
-      "alpha_5d": -5.7
+      "alpha_5d": -5.7,
+      "exit_date": "2026-10-07",
+      "exit_price": 177.62,
+      "exit_return": -9.64,
+      "exit_reason": "stop",
+      "days_held": 10,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-23",
@@ -11180,7 +11193,9 @@
         "atr_pct": 2.25,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.09,
+      "alpha_1d": 0.15
     },
     {
       "date": "2026-10-06",
@@ -11202,7 +11217,9 @@
         "atr_pct": 2.95,
         "insider_buy": false,
         "rs_leader": false
-      }
+      },
+      "return_1d": -0.87,
+      "alpha_1d": -0.63
     },
     {
       "date": "2026-10-06",
@@ -11224,16 +11241,18 @@
         "atr_pct": 2.79,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.29,
+      "alpha_1d": 2.53
     },
     {
       "date": "2026-10-07",
       "ticker": "TXN",
       "name": "Texas Instruments Incorporated",
       "sector": "Technology",
-      "entry_price": 297.2300109863281,
+      "entry_price": 285.46,
       "signal_close": 297.2300109863281,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.5,
       "stop_loss": 282.49,
       "target": 326.7,
@@ -11253,9 +11272,9 @@
       "ticker": "TSLA",
       "name": "Tesla, Inc.",
       "sector": "Consumer Cyclical",
-      "entry_price": 380.67999267578125,
+      "entry_price": 374.12,
       "signal_close": 380.67999267578125,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 15.3,
       "stop_loss": 357.33,
       "target": 427.37,
