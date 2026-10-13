@@ -9246,7 +9246,9 @@
       "exit_reason": "stop",
       "days_held": 17,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -0.27,
+      "alpha_30d": -1.24
     },
     {
       "date": "2026-08-27",
@@ -9281,7 +9283,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -8.52,
+      "alpha_30d": -9.49
     },
     {
       "date": "2026-08-27",
@@ -9316,7 +9320,9 @@
       "return_3d": 6.06,
       "alpha_3d": 7.27,
       "return_5d": 4.74,
-      "alpha_5d": 4.48
+      "alpha_5d": 4.48,
+      "return_30d": -10.69,
+      "alpha_30d": -11.66
     },
     {
       "date": "2026-08-28",
@@ -9351,7 +9357,9 @@
       "exit_reason": "stop_gap",
       "days_held": 10,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 3.41,
+      "alpha_30d": 2.27
     },
     {
       "date": "2026-08-28",
@@ -9386,7 +9394,9 @@
       "exit_reason": "stop",
       "days_held": 23,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 0.66,
+      "alpha_30d": -0.48
     },
     {
       "date": "2026-08-29",
@@ -9421,7 +9431,9 @@
       "exit_reason": "stop",
       "days_held": 12,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -11.28,
+      "alpha_30d": -12.42
     },
     {
       "date": "2026-08-29",
@@ -9456,7 +9468,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_5d": -2.08,
-      "alpha_5d": -2.19
+      "alpha_5d": -2.19,
+      "return_30d": 6.04,
+      "alpha_30d": 4.9
     },
     {
       "date": "2026-08-29",
@@ -9491,7 +9505,9 @@
       "exit_reason": "stop",
       "days_held": 7,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -22.92,
+      "alpha_30d": -24.06
     },
     {
       "date": "2026-09-01",
@@ -11087,7 +11103,14 @@
       "return_3d": -2.77,
       "alpha_3d": -2.39,
       "return_5d": 0.18,
-      "alpha_5d": 0.59
+      "alpha_5d": 0.59,
+      "exit_date": "2026-10-12",
+      "exit_price": 986.99,
+      "exit_return": -9.9,
+      "exit_reason": "stop",
+      "days_held": 12,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-24",
@@ -11209,7 +11232,16 @@
         "rs_leader": true
       },
       "return_1d": -0.09,
-      "alpha_1d": 0.15
+      "alpha_1d": 0.15,
+      "return_3d": -3.53,
+      "alpha_3d": -3.47,
+      "exit_date": "2026-10-12",
+      "exit_price": 227.92,
+      "exit_return": -4.11,
+      "exit_reason": "stop",
+      "days_held": 4,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-06",
@@ -11233,7 +11265,9 @@
         "rs_leader": false
       },
       "return_1d": -0.87,
-      "alpha_1d": -0.63
+      "alpha_1d": -0.63,
+      "return_3d": -1.25,
+      "alpha_3d": -1.19
     },
     {
       "date": "2026-10-06",
@@ -11257,7 +11291,9 @@
         "rs_leader": true
       },
       "return_1d": 2.29,
-      "alpha_1d": 2.53
+      "alpha_1d": 2.53,
+      "return_3d": 4.62,
+      "alpha_3d": 4.69
     },
     {
       "date": "2026-10-07",
@@ -11281,7 +11317,16 @@
         "rs_leader": true
       },
       "return_1d": 0.96,
-      "alpha_1d": 1.38
+      "alpha_1d": 1.38,
+      "return_3d": -1.3,
+      "alpha_3d": -1.42,
+      "exit_date": "2026-10-09",
+      "exit_price": 282.21,
+      "exit_return": -1.14,
+      "exit_reason": "stop",
+      "days_held": 2,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-07",
@@ -11305,7 +11350,75 @@
         "rs_leader": true
       },
       "return_1d": 0.24,
-      "alpha_1d": 0.66
+      "alpha_1d": 0.66,
+      "return_3d": 1.05,
+      "alpha_3d": 0.93
+    },
+    {
+      "date": "2026-10-13",
+      "ticker": "PG",
+      "name": "Procter & Gamble Company (The)",
+      "sector": "Consumer Defensive",
+      "entry_price": 153.1999969482422,
+      "signal_close": 153.1999969482422,
+      "entry_realistic": false,
+      "score": 20.3,
+      "stop_loss": 148.17,
+      "target": 163.26,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.41,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 1.64,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "ticker": "ABBV",
+      "name": "AbbVie Inc.",
+      "sector": "Healthcare",
+      "entry_price": 281.1199951171875,
+      "signal_close": 281.1199951171875,
+      "entry_realistic": false,
+      "score": 18.1,
+      "stop_loss": 269.49,
+      "target": 304.39,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 8.9,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 2.07,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "ticker": "META",
+      "name": "Meta Platforms, Inc.",
+      "sector": "Communication Services",
+      "entry_price": 742.9600219726562,
+      "signal_close": 742.9600219726562,
+      "entry_realistic": false,
+      "score": 17.6,
+      "stop_loss": 698.04,
+      "target": 832.79,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 27.4,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.02,
+        "insider_buy": false,
+        "rs_leader": true
+      }
     }
   ]
 }
