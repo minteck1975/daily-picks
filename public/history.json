@@ -9535,7 +9535,14 @@
       "return_3d": 2.28,
       "alpha_3d": 1.18,
       "return_5d": -0.13,
-      "alpha_5d": -0.21
+      "alpha_5d": -0.21,
+      "exit_date": "2026-10-14",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-01",
@@ -11241,7 +11248,9 @@
       "exit_reason": "stop",
       "days_held": 4,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": -3.85,
+      "alpha_5d": -3.72
     },
     {
       "date": "2026-10-06",
@@ -11267,7 +11276,9 @@
       "return_1d": -0.87,
       "alpha_1d": -0.63,
       "return_3d": -1.25,
-      "alpha_3d": -1.19
+      "alpha_3d": -1.19,
+      "return_5d": -1.56,
+      "alpha_5d": -1.42
     },
     {
       "date": "2026-10-06",
@@ -11293,7 +11304,9 @@
       "return_1d": 2.29,
       "alpha_1d": 2.53,
       "return_3d": 4.62,
-      "alpha_3d": 4.69
+      "alpha_3d": 4.69,
+      "return_5d": 4.15,
+      "alpha_5d": 4.29
     },
     {
       "date": "2026-10-07",
@@ -11359,9 +11372,9 @@
       "ticker": "PG",
       "name": "Procter & Gamble Company (The)",
       "sector": "Consumer Defensive",
-      "entry_price": 153.1999969482422,
+      "entry_price": 154.64,
       "signal_close": 153.1999969482422,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.3,
       "stop_loss": 148.17,
       "target": 163.26,
@@ -11381,9 +11394,9 @@
       "ticker": "ABBV",
       "name": "AbbVie Inc.",
       "sector": "Healthcare",
-      "entry_price": 281.1199951171875,
+      "entry_price": 277.0,
       "signal_close": 281.1199951171875,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.1,
       "stop_loss": 269.49,
       "target": 304.39,
@@ -11403,9 +11416,9 @@
       "ticker": "META",
       "name": "Meta Platforms, Inc.",
       "sector": "Communication Services",
-      "entry_price": 742.9600219726562,
+      "entry_price": 760.75,
       "signal_close": 742.9600219726562,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.6,
       "stop_loss": 698.04,
       "target": 832.79,
@@ -11418,6 +11431,72 @@
         "atr_pct": 3.02,
         "insider_buy": false,
         "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "ticker": "V",
+      "name": "Visa Inc.",
+      "sector": "Financial Services",
+      "entry_price": 391.42999267578125,
+      "signal_close": 391.42999267578125,
+      "entry_realistic": false,
+      "score": 20.1,
+      "stop_loss": 378.4,
+      "target": 417.5,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.01,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 1.66,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "sector": "Technology",
+      "entry_price": 342.9599914550781,
+      "signal_close": 342.9599914550781,
+      "entry_realistic": false,
+      "score": 16.6,
+      "stop_loss": 329.8,
+      "target": 369.28,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 4.46,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.92,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "ticker": "GILD",
+      "name": "Gilead Sciences, Inc.",
+      "sector": "Healthcare",
+      "entry_price": 153.5399932861328,
+      "signal_close": 153.5399932861328,
+      "entry_realistic": false,
+      "score": 15.1,
+      "stop_loss": 146.41,
+      "target": 167.8,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 1.39,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.32,
+        "insider_buy": false,
+        "rs_leader": false
       }
     }
   ]
