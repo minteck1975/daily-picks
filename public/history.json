@@ -9986,7 +9986,9 @@
       "exit_reason": "stop_gap",
       "days_held": 28,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -19.2,
+      "alpha_30d": -18.72
     },
     {
       "date": "2026-09-04",
@@ -10021,7 +10023,9 @@
       "return_3d": -4.33,
       "alpha_3d": -2.73,
       "return_5d": -5.44,
-      "alpha_5d": -4.23
+      "alpha_5d": -4.23,
+      "return_30d": -16.76,
+      "alpha_30d": -16.28
     },
     {
       "date": "2026-09-07",
@@ -10056,7 +10060,9 @@
       "exit_reason": "stop_gap",
       "days_held": 5,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -6.91,
+      "alpha_30d": -6.43
     },
     {
       "date": "2026-09-07",
@@ -10091,7 +10097,9 @@
       "exit_reason": "stop",
       "days_held": 5,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -15.08,
+      "alpha_30d": -14.6
     },
     {
       "date": "2026-09-07",
@@ -10126,7 +10134,9 @@
       "return_3d": -6.74,
       "alpha_3d": -5.13,
       "return_5d": -4.89,
-      "alpha_5d": -3.68
+      "alpha_5d": -3.68,
+      "return_30d": -2.78,
+      "alpha_30d": -2.3
     },
     {
       "date": "2026-09-08",
@@ -10161,7 +10171,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_5d": -7.18,
-      "alpha_5d": -6.06
+      "alpha_5d": -6.06,
+      "return_30d": -10.33,
+      "alpha_30d": -10.74
     },
     {
       "date": "2026-09-08",
@@ -10196,7 +10208,9 @@
       "exit_reason": "stop_gap",
       "days_held": 10,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 6.03,
+      "alpha_30d": 5.62
     },
     {
       "date": "2026-09-08",
@@ -10231,7 +10245,9 @@
       "exit_reason": "stop",
       "days_held": 13,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 6.44,
+      "alpha_30d": 6.04
     },
     {
       "date": "2026-09-09",
@@ -11461,7 +11477,9 @@
       "return_1d": 1.22,
       "alpha_1d": 2.3,
       "return_3d": 3.05,
-      "alpha_3d": 4.94
+      "alpha_3d": 4.94,
+      "return_5d": 3.03,
+      "alpha_5d": 4.18
     },
     {
       "date": "2026-10-13",
@@ -11487,7 +11505,9 @@
       "return_1d": 2.34,
       "alpha_1d": 3.42,
       "return_3d": 3.04,
-      "alpha_3d": 4.94
+      "alpha_3d": 4.94,
+      "return_5d": 4.36,
+      "alpha_5d": 5.51
     },
     {
       "date": "2026-10-13",
@@ -11513,7 +11533,16 @@
       "return_1d": -3.05,
       "alpha_1d": -1.97,
       "return_3d": -6.76,
-      "alpha_3d": -4.86
+      "alpha_3d": -4.86,
+      "return_5d": -8.74,
+      "alpha_5d": -7.59,
+      "exit_date": "2026-10-19",
+      "exit_price": 697.34,
+      "exit_return": -8.33,
+      "exit_reason": "stop",
+      "days_held": 4,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-15",
@@ -11537,7 +11566,9 @@
         "rs_leader": true
       },
       "return_1d": 0.03,
-      "alpha_1d": 1.13
+      "alpha_1d": 1.13,
+      "return_3d": 1.01,
+      "alpha_3d": 1.37
     },
     {
       "date": "2026-10-15",
@@ -11561,7 +11592,9 @@
         "rs_leader": true
       },
       "return_1d": -0.76,
-      "alpha_1d": 0.35
+      "alpha_1d": 0.35,
+      "return_3d": -1.9,
+      "alpha_3d": -1.55
     },
     {
       "date": "2026-10-15",
@@ -11585,7 +11618,9 @@
         "rs_leader": false
       },
       "return_1d": -0.72,
-      "alpha_1d": 0.39
+      "alpha_1d": 0.39,
+      "return_3d": -0.51,
+      "alpha_3d": -0.16
     },
     {
       "date": "2026-10-15",
@@ -11609,7 +11644,9 @@
         "rs_leader": true
       },
       "return_1d": 0.57,
-      "alpha_1d": 1.67
+      "alpha_1d": 1.67,
+      "return_3d": -0.25,
+      "alpha_3d": 0.11
     },
     {
       "date": "2026-10-15",
@@ -11633,7 +11670,9 @@
         "rs_leader": true
       },
       "return_1d": 0.46,
-      "alpha_1d": 1.57
+      "alpha_1d": 1.57,
+      "return_3d": 1.93,
+      "alpha_3d": 2.29
     },
     {
       "date": "2026-10-15",
@@ -11657,7 +11696,9 @@
         "rs_leader": true
       },
       "return_1d": -0.4,
-      "alpha_1d": 0.7
+      "alpha_1d": 0.7,
+      "return_3d": 2.23,
+      "alpha_3d": 2.59
     },
     {
       "date": "2026-10-16",
@@ -11679,7 +11720,9 @@
         "atr_pct": 1.65,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.79,
+      "alpha_1d": 0.36
     },
     {
       "date": "2026-10-16",
@@ -11701,7 +11744,9 @@
         "atr_pct": 1.94,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.44,
+      "alpha_1d": 0.02
     },
     {
       "date": "2026-10-16",
@@ -11721,6 +11766,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 4.49,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -0.56,
+      "alpha_1d": -0.99
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "BRK-B",
+      "name": "Berkshire Hathaway Inc. New",
+      "sector": "Financial Services",
+      "entry_price": 539.8200073242188,
+      "signal_close": 539.8200073242188,
+      "entry_realistic": false,
+      "score": 20.1,
+      "stop_loss": 527.87,
+      "target": 563.72,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 6.32,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 1.11,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "AMGN",
+      "name": "Amgen Inc.",
+      "sector": "Healthcare",
+      "entry_price": 438.94000244140625,
+      "signal_close": 438.94000244140625,
+      "entry_realistic": false,
+      "score": 19.5,
+      "stop_loss": 416.65,
+      "target": 483.51,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.24,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.54,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "KO",
+      "name": "Coca-Cola Company (The)",
+      "sector": "Consumer Defensive",
+      "entry_price": 93.48999786376953,
+      "signal_close": 93.48999786376953,
+      "entry_realistic": false,
+      "score": 17.3,
+      "stop_loss": 90.5,
+      "target": 99.46,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 5.4,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": true,
+        "atr_pct": 1.6,
         "insider_buy": false,
         "rs_leader": true
       }
