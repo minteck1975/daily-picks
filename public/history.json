@@ -10282,7 +10282,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -2.11,
+      "alpha_30d": -3.52
     },
     {
       "date": "2026-09-09",
@@ -10317,7 +10319,9 @@
       "exit_reason": "stop",
       "days_held": 6,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -8.06,
+      "alpha_30d": -9.47
     },
     {
       "date": "2026-09-09",
@@ -10352,7 +10356,9 @@
       "exit_reason": "stop",
       "days_held": 9,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 6.64,
+      "alpha_30d": 5.24
     },
     {
       "date": "2026-09-10",
@@ -11705,7 +11711,14 @@
       "return_1d": -0.4,
       "alpha_1d": 0.7,
       "return_3d": 2.23,
-      "alpha_3d": 2.59
+      "alpha_3d": 2.59,
+      "exit_date": "2026-10-21",
+      "exit_price": 402.1,
+      "exit_return": -6.15,
+      "exit_reason": "stop_gap",
+      "days_held": 4,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-16",
@@ -11729,7 +11742,9 @@
         "rs_leader": true
       },
       "return_1d": 0.79,
-      "alpha_1d": 0.36
+      "alpha_1d": 0.36,
+      "return_3d": 0.21,
+      "alpha_3d": -1.08
     },
     {
       "date": "2026-10-16",
@@ -11753,7 +11768,9 @@
         "rs_leader": true
       },
       "return_1d": 0.44,
-      "alpha_1d": 0.02
+      "alpha_1d": 0.02,
+      "return_3d": 1.84,
+      "alpha_3d": 0.55
     },
     {
       "date": "2026-10-16",
@@ -11777,7 +11794,9 @@
         "rs_leader": true
       },
       "return_1d": -0.56,
-      "alpha_1d": -0.99
+      "alpha_1d": -0.99,
+      "return_3d": 1.31,
+      "alpha_3d": 0.02
     },
     {
       "date": "2026-10-20",
@@ -11799,7 +11818,9 @@
         "atr_pct": 1.11,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.09,
+      "alpha_1d": -0.62
     },
     {
       "date": "2026-10-20",
@@ -11821,7 +11842,9 @@
         "atr_pct": 2.54,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.6,
+      "alpha_1d": -1.13
     },
     {
       "date": "2026-10-20",
@@ -11843,7 +11866,9 @@
         "atr_pct": 1.6,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.46,
+      "alpha_1d": -0.99
     }
   ]
 }

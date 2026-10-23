@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T00:02:50+00:00",
+  "generated_at": "2026-10-23T00:01:39+00:00",
   "market": "top100",
   "scanned": 0,
   "enriched": 0,
@@ -118,8 +118,8 @@
       "total": 0
     },
     "vix": {
-      "level": 16.68,
-      "day_change_pct": -3.64,
+      "level": 19.03,
+      "day_change_pct": 14.09,
       "regime": "normal"
     },
     "hyg": {
@@ -129,17 +129,17 @@
       "month_return": NaN
     },
     "fear_greed": {
-      "score": 31.4,
-      "rating": "fear",
-      "previous_close": 27.2,
-      "previous_1_week": 26.7,
-      "previous_1_month": 34.2,
-      "previous_1_year": 28.5
+      "score": 19.8,
+      "rating": "extreme fear",
+      "previous_close": 31.4,
+      "previous_1_week": 30.3,
+      "previous_1_month": 35.0,
+      "previous_1_year": 26.4
     }
   },
   "market_news": {
     "items": [],
     "overall_mood": 0.0,
-    "fetched_at": "2026-10-22T00:02:49+00:00"
+    "fetched_at": "2026-10-23T00:01:37+00:00"
   }
 }
