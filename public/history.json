@@ -10689,7 +10689,9 @@
       "exit_reason": "stop",
       "days_held": 5,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -7.87,
+      "alpha_30d": -9.49
     },
     {
       "date": "2026-09-15",
@@ -10724,7 +10726,9 @@
       "return_3d": -3.84,
       "alpha_3d": -4.41,
       "return_5d": -6.98,
-      "alpha_5d": -9.09
+      "alpha_5d": -9.09,
+      "return_30d": 7.41,
+      "alpha_30d": 5.79
     },
     {
       "date": "2026-09-15",
@@ -10759,7 +10763,9 @@
       "return_3d": -4.55,
       "alpha_3d": -5.11,
       "return_5d": -5.67,
-      "alpha_5d": -7.79
+      "alpha_5d": -7.79,
+      "return_30d": -21.31,
+      "alpha_30d": -22.93
     },
     {
       "date": "2026-09-16",
@@ -10787,7 +10793,14 @@
       "return_3d": 0.31,
       "alpha_3d": -2.27,
       "return_5d": 3.3,
-      "alpha_5d": 1.47
+      "alpha_5d": 1.47,
+      "exit_date": "2026-10-28",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-16",
@@ -10850,7 +10863,14 @@
       "return_3d": -1.0,
       "alpha_3d": -3.58,
       "return_5d": 1.23,
-      "alpha_5d": -0.6
+      "alpha_5d": -0.6,
+      "exit_date": "2026-10-28",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-17",
@@ -11884,7 +11904,9 @@
       "return_1d": -0.09,
       "alpha_1d": -0.62,
       "return_3d": 0.5,
-      "alpha_3d": 1.68
+      "alpha_3d": 1.68,
+      "return_5d": 0.65,
+      "alpha_5d": 0.57
     },
     {
       "date": "2026-10-20",
@@ -11910,7 +11932,9 @@
       "return_1d": -0.6,
       "alpha_1d": -1.13,
       "return_3d": -0.39,
-      "alpha_3d": 0.79
+      "alpha_3d": 0.79,
+      "return_5d": 1.58,
+      "alpha_5d": 1.5
     },
     {
       "date": "2026-10-20",
@@ -11936,7 +11960,9 @@
       "return_1d": -0.46,
       "alpha_1d": -0.99,
       "return_3d": -0.43,
-      "alpha_3d": 0.75
+      "alpha_3d": 0.75,
+      "return_5d": -2.07,
+      "alpha_5d": -2.15
     },
     {
       "date": "2026-10-23",
