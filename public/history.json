@@ -10800,7 +10800,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 7.22,
+      "alpha_30d": 4.8
     },
     {
       "date": "2026-09-16",
@@ -10835,7 +10837,9 @@
       "return_3d": -3.26,
       "alpha_3d": -5.84,
       "return_5d": -2.65,
-      "alpha_5d": -4.48
+      "alpha_5d": -4.48,
+      "return_30d": 4.12,
+      "alpha_30d": 1.7
     },
     {
       "date": "2026-09-16",
@@ -10870,7 +10874,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 7.95,
+      "alpha_30d": 5.53
     },
     {
       "date": "2026-09-17",
@@ -10898,7 +10904,14 @@
       "return_3d": 0.52,
       "alpha_3d": -0.89,
       "return_5d": -0.61,
-      "alpha_5d": -1.21
+      "alpha_5d": -1.21,
+      "exit_date": "2026-10-29",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-17",
@@ -10926,7 +10939,14 @@
       "return_3d": 3.97,
       "alpha_3d": 2.56,
       "return_5d": 5.23,
-      "alpha_5d": 4.63
+      "alpha_5d": 4.63,
+      "exit_date": "2026-10-29",
+      "exit_price": NaN,
+      "exit_return": NaN,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-09-17",
@@ -11986,7 +12006,9 @@
         "rs_leader": true
       },
       "return_1d": -0.07,
-      "alpha_1d": -0.78
+      "alpha_1d": -0.78,
+      "return_3d": -1.71,
+      "alpha_3d": -3.34
     },
     {
       "date": "2026-10-23",
@@ -12010,7 +12032,9 @@
         "rs_leader": true
       },
       "return_1d": 3.18,
-      "alpha_1d": 2.47
+      "alpha_1d": 2.47,
+      "return_3d": 7.24,
+      "alpha_3d": 5.61
     },
     {
       "date": "2026-10-23",
@@ -12034,7 +12058,9 @@
         "rs_leader": true
       },
       "return_1d": -0.21,
-      "alpha_1d": -0.92
+      "alpha_1d": -0.92,
+      "return_3d": -0.09,
+      "alpha_3d": -1.71
     }
   ]
 }
