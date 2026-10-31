@@ -10911,7 +10911,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 3.23,
+      "alpha_30d": 2.34
     },
     {
       "date": "2026-09-17",
@@ -10946,7 +10948,9 @@
       "exit_reason": "horizon",
       "days_held": 30,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 11.45,
+      "alpha_30d": 10.56
     },
     {
       "date": "2026-09-17",
@@ -10981,7 +10985,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_5d": -2.58,
-      "alpha_5d": -3.18
+      "alpha_5d": -3.18,
+      "return_30d": 9.65,
+      "alpha_30d": 8.76
     },
     {
       "date": "2026-09-18",
