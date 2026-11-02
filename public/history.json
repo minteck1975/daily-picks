@@ -11022,7 +11022,9 @@
       "exit_reason": "stop_gap",
       "days_held": 11,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 13.7,
+      "alpha_30d": 14.49
     },
     {
       "date": "2026-09-18",
@@ -11057,7 +11059,9 @@
       "exit_reason": "stop",
       "days_held": 19,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -17.01,
+      "alpha_30d": -16.23
     },
     {
       "date": "2026-09-18",
@@ -11092,7 +11096,9 @@
       "exit_reason": "stop",
       "days_held": 9,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -1.55,
+      "alpha_30d": -0.77
     },
     {
       "date": "2026-09-22",
@@ -11722,7 +11728,14 @@
       "return_3d": -0.51,
       "alpha_3d": -0.16,
       "return_5d": -0.08,
-      "alpha_5d": 0.93
+      "alpha_5d": 0.93,
+      "exit_date": "2026-10-30",
+      "exit_price": 170.08,
+      "exit_return": 8.11,
+      "exit_reason": "target_gap",
+      "days_held": 11,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-15",
@@ -11904,7 +11917,14 @@
       "return_3d": 1.31,
       "alpha_3d": 0.02,
       "return_5d": -1.95,
-      "alpha_5d": -1.52
+      "alpha_5d": -1.52,
+      "exit_date": "2026-10-30",
+      "exit_price": 154.16,
+      "exit_return": -10.39,
+      "exit_reason": "stop",
+      "days_held": 10,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-20",
@@ -12014,7 +12034,9 @@
       "return_1d": -0.07,
       "alpha_1d": -0.78,
       "return_3d": -1.71,
-      "alpha_3d": -3.34
+      "alpha_3d": -3.34,
+      "return_5d": -4.41,
+      "alpha_5d": -3.85
     },
     {
       "date": "2026-10-23",
@@ -12040,7 +12062,9 @@
       "return_1d": 3.18,
       "alpha_1d": 2.47,
       "return_3d": 7.24,
-      "alpha_3d": 5.61
+      "alpha_3d": 5.61,
+      "return_5d": 4.13,
+      "alpha_5d": 4.68
     },
     {
       "date": "2026-10-23",
@@ -12066,7 +12090,75 @@
       "return_1d": -0.21,
       "alpha_1d": -0.92,
       "return_3d": -0.09,
-      "alpha_3d": -1.71
+      "alpha_3d": -1.71,
+      "return_5d": 1.11,
+      "alpha_5d": 1.67
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "TXN",
+      "name": "Texas Instruments Incorporated",
+      "sector": "Technology",
+      "entry_price": 300.8399963378906,
+      "signal_close": 300.8399963378906,
+      "entry_realistic": false,
+      "score": 19.8,
+      "stop_loss": 279.53,
+      "target": 343.47,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 13.61,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.54,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "sector": "Healthcare",
+      "entry_price": 1417.5400390625,
+      "signal_close": 1417.5400390625,
+      "entry_realistic": false,
+      "score": 19.5,
+      "stop_loss": 1321.06,
+      "target": 1610.51,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 23.73,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.4,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "MDLZ",
+      "name": "Mondelez International, Inc.",
+      "sector": "Consumer Defensive",
+      "entry_price": 64.94000244140625,
+      "signal_close": 64.94000244140625,
+      "entry_realistic": false,
+      "score": 18.5,
+      "stop_loss": 61.98,
+      "target": 70.85,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 7.51,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.28,
+        "insider_buy": false,
+        "rs_leader": true
+      }
     }
   ]
 }
