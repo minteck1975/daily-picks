@@ -11133,7 +11133,9 @@
       "exit_reason": "stop_gap",
       "days_held": 17,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -34.39,
+      "alpha_30d": -31.93
     },
     {
       "date": "2026-09-22",
@@ -11168,7 +11170,9 @@
       "exit_reason": "target",
       "days_held": 23,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 9.95,
+      "alpha_30d": 12.41
     },
     {
       "date": "2026-09-23",
@@ -11707,7 +11711,14 @@
       "return_3d": -1.9,
       "alpha_3d": -1.55,
       "return_5d": 0.62,
-      "alpha_5d": 1.63
+      "alpha_5d": 1.63,
+      "exit_date": "2026-11-03",
+      "exit_price": 325.25,
+      "exit_return": -6.02,
+      "exit_reason": "stop_gap",
+      "days_held": 13,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-15",
@@ -12121,7 +12132,9 @@
         "atr_pct": 3.54,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.86,
+      "alpha_1d": 0.56
     },
     {
       "date": "2026-11-02",
@@ -12143,7 +12156,9 @@
         "atr_pct": 3.4,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.7,
+      "alpha_1d": 0.4
     },
     {
       "date": "2026-11-02",
@@ -12165,16 +12180,18 @@
         "atr_pct": 2.28,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.91,
+      "alpha_1d": -1.21
     },
     {
       "date": "2026-11-03",
       "ticker": "V",
       "name": "Visa Inc.",
       "sector": "Financial Services",
-      "entry_price": 425.510009765625,
+      "entry_price": 427.42,
       "signal_close": 425.510009765625,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.8,
       "stop_loss": 409.77,
       "target": 456.99,
@@ -12194,9 +12211,9 @@
       "ticker": "UNH",
       "name": "UnitedHealth Group Incorporated",
       "sector": "Healthcare",
-      "entry_price": 400.44000244140625,
+      "entry_price": 396.6,
       "signal_close": 400.44000244140625,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.5,
       "stop_loss": 376.36,
       "target": 448.61,
@@ -12216,9 +12233,9 @@
       "ticker": "COST",
       "name": "Costco Wholesale Corporation",
       "sector": "Consumer Defensive",
-      "entry_price": 1040.550048828125,
+      "entry_price": 1036.83,
       "signal_close": 1040.550048828125,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.3,
       "stop_loss": 1002.97,
       "target": 1115.7,
