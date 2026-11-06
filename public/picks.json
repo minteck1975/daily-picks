@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T01:33:09+00:00",
+  "generated_at": "2026-11-06T01:37:05+00:00",
   "market": "top100",
   "scanned": 0,
   "enriched": 0,
@@ -118,9 +118,9 @@
       "total": 0
     },
     "vix": {
-      "level": 16.61,
-      "day_change_pct": -20.26,
-      "regime": "normal"
+      "level": 28.18,
+      "day_change_pct": 69.66,
+      "regime": "stressed"
     },
     "hyg": {
       "price": NaN,
@@ -129,88 +129,88 @@
       "month_return": NaN
     },
     "fear_greed": {
-      "score": 27.3,
-      "rating": "fear",
-      "previous_close": 19.1,
-      "previous_1_week": 34.4,
-      "previous_1_month": 38.2,
-      "previous_1_year": 20.9
+      "score": 19.9,
+      "rating": "extreme fear",
+      "previous_close": 27.3,
+      "previous_1_week": 30.8,
+      "previous_1_month": 43.1,
+      "previous_1_year": 23.1
     }
   },
   "market_news": {
     "items": [
       {
-        "title": "Dow Jones Futures Rise, But Techs Tumble; Apple, Microsoft, Amazon Flash Buy Signals In Postelection Rally",
-        "summary": "Elections and diving oil prices sparked a stock market surge. Stocks from many sectors flash buy signals, but avoid this area.",
+        "title": "Dow Jones Futures Fall, Techs Bounce After Nasdaq Dives 5.5%; Nvidia, Sandisk, CoreWeave, SpaceX Plunge",
+        "summary": "Nvidia, CoreWeave, SpaceX plunged, but the stock market sell-off spread far beyond AI. The October jobs report looms.",
         "source": "Investor's Business Daily",
-        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-elections-oil-apple-microsoft-amazon-buy-signals-coreweave-spacex-skid/?src=A00220&yptr=yahoo",
-        "publish_time": 1793842085
+        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-nasdaq-dives-55-nvidia-sandisk-coreweave-spacex-plunge-jobs/?src=A00220&yptr=yahoo",
+        "publish_time": 1793928385
       },
       {
-        "title": "Is the AI Bubble Popping?",
-        "summary": "Is the AI boom running out of steam, or is the market simply taking a breather?",
-        "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/11/04/is-the-ai-bubble-popping/",
-        "publish_time": 1793841398
-      },
-      {
-        "title": "Top 3 Founder Led Stocks To Watch In November 2026",
-        "summary": "Elon Musk planning to spend US$100b on a new wireless network built for AI devices, drones and robots highlights how much personal conviction can reshape entire sectors. When founders still have skin in the game, they tend to think in decades, not quarters. This article looks at ",
-        "source": "Simply Wall St.",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/top-3-founder-led-stocks-011204704.html",
-        "publish_time": 1793841124
-      },
-      {
-        "title": "At 68, He Will Sell the S&P 500 Fund He Bought in 1996 to Move Into Bonds. The $310,000 Gain Will Push Him Into a Higher Medicare Premium Bracket in 2028",
-        "summary": "Selling a decades-old index fund to shift into bonds sounds like a straightforward retirement move, but a capital gains windfall can quietly trigger a Medicare surcharge that arrives two years later and costs far more than most retirees ever anticipate.",
+        "title": "Cathie Wood Sells $12.8 Million Of Alphabet, Days After The Stock Suffered Its Worst Day Since Its 2004 IPO, Losing Nearly Half A Trillion Dollars In Market Value",
+        "summary": "Cathie Wood\u2019s ARK Invest reduced its stake in Alphabet (NASDAQ:GOOGL) on Wednesday, Nov. 4. According to CoinCentral\u2019s report of ARK\u2019s daily trades, the firm sold 46,164 shares worth $12.8 million through the ARK Innovation ETF (CBOE:ARKK) and the ARK Autonomous Technology & Robo",
         "source": "24/7 Wall St.",
-        "url": "https://247wallst.com/personal-finance/2026/11/04/at-68-he-will-sell-the-sp-500-fund-he-bought-in-1996-to-move-into-bonds-the-310000-gain-will-push-him-into-a-higher-medicare-premium-bracket-in-2028/",
-        "publish_time": 1793840704
+        "url": "https://247wallst.com/investing/2026/11/05/cathie-wood-sells-12-8-million-of-alphabet-days-after-the-stock-suffered-its-worst-day-since-its-2004-ipo-losing-nearly-half-a-trillion-dollars-in-market-value/",
+        "publish_time": 1793928015
       },
       {
-        "title": "Why Horace Mann Educators Stock Soared Today",
-        "summary": "The niche financial services company delivered an estimates-crushing third quarter.",
+        "title": "Prediction: This Is How Much XRP Will Be Worth by the End of 2030",
+        "summary": "It's time for investors to ratchet down their future growth expectations for XRP.",
         "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/11/04/why-horace-mann-educators-stock-soared-today/",
-        "publish_time": 1793840663
+        "url": "https://www.fool.com/investing/2026/11/05/prediction-this-is-how-much-xrp-will-be-worth-by-t/",
+        "publish_time": 1793928000
       },
       {
-        "title": "Here's What $10,000 Invested in SpaceX and Nvidia Could Be Worth by 2030",
-        "summary": "These AI stocks have serious room for growth.",
+        "title": "3 Value Stocks With Up To 38% Discount To Fair Value",
+        "summary": "Chip stocks recently faced heavy selling as investors questioned future data center and AI spending. When markets punish entire sectors in a rush, solid technology businesses can get marked down alongside weaker peers. That creates room for patient buyers who care about price pai",
+        "source": "Simply Wall St.",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/3-value-stocks-38-discount-011948981.html",
+        "publish_time": 1793927988
+      },
+      {
+        "title": "Prediction: This Will Be SpaceX's Stock Price by the End of 2029",
+        "summary": "SpaceX stock has the potential to quadruple in the next three years.",
         "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/11/04/heres-what-10000-invested-in-spacex-and-nvidia-cou/",
-        "publish_time": 1793839740
+        "url": "https://www.fool.com/investing/2026/11/05/prediction-this-will-be-spacexs-stock-price-by-the/",
+        "publish_time": 1793927700
       },
       {
-        "title": "Did IBM Just Tell the Truth About AI?",
-        "summary": "Lam Research is a semiconductor machine business that\u2019s breaking records, but its stock price has been cut nearly in half from highs in 2026. Is it a good stock to buy right now?",
+        "title": "Chatham Lodging Trust (CLDT) (Q3 2026) Earnings Call Highlights: Silicon Valley Surge Drives ...",
+        "summary": "Chatham Lodging Trust (CLDT) posted 8% RevPAR growth and a 190-basis-point hotel EBITDA margin expansion in Q3 2026, prompting a 28% hike to its full-year adjusted FFO per share guidance midpoint.",
+        "source": "GuruFocus.com",
+        "url": "https://finance.yahoo.com/real-estate/articles/chatham-lodging-trust-cldt-q3-011124012.html",
+        "publish_time": 1793927484
+      },
+      {
+        "title": "The Nasdaq Composite Just Shattered Its Single-Session Point-Loss Record: 3 Reasons These Elevator-Down Moves May Be Just Beginning",
+        "summary": "The artificial intelligence (AI)-driven Nasdaq Composite plunged 1,422 points on Nov. 5.",
         "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/11/04/did-ibm-just-tell-the-truth-about-ai/",
-        "publish_time": 1793839599
+        "url": "https://www.fool.com/investing/2026/11/05/nasdaq-composite-shattered-single-session-point-loss-record-3-reasons-elevator-down-moves-just-beginning/",
+        "publish_time": 1793927402
       },
       {
-        "title": "Arista Networks stock gets fresh backing from Jim Cramer and Wall Street",
-        "summary": "The networking company beat earnings estimates and gave Wall Street a stronger-than-expected outlook for 2027.",
-        "source": "TheStreet",
-        "url": "https://www.thestreet.com/investing/stocks/arista-networks-stock-gets-fresh-backing-from-jim-cramer-and-wall-street-anet",
-        "publish_time": 1793839505
+        "title": "Purple Innovation Inc (PRPL) Q3 2026 Earnings Call Highlights: Cash Flow Turns Positive as ...",
+        "summary": "Purple Innovation Inc (PRPL) posted a 19% revenue decline and cut its EBITDA outlook, but three straight quarters of positive operating cash flow and a major product launch offer a path to recovery.",
+        "source": "GuruFocus.com",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/purple-innovation-inc-prpl-q3-010759073.html",
+        "publish_time": 1793927279
       },
       {
-        "title": "Amazon\u2019s Zoox Plans to Start Testing in Europe and Asia",
-        "summary": "Amazon-owned Zoox plans to send a test-fleet of data-collection vehicles to Europe and Asia as the first step of a global expansion, the autonomous vehicle company\u2019s chief executive, Aicha Evans, announced Wednesday at the WSJ Tech Live event.",
-        "source": "The Wall Street Journal",
-        "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-04-2026/card/amazon-s-zoox-plans-to-start-testing-in-europe-and-asia-XkIzzESnTYdydJ5WGb6f?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1793839280
+        "title": "S&P 500, Nasdaq, Dow Futures Dip As Investors Step Back From AI And Tech With Nasdaq In Correction Territory \u2014  NVDA, AAPL, UBER, SOXX In Focus",
+        "summary": "The iShares Semiconductor ETF is on track for its worst week in over 18 months.",
+        "source": "Stocktwits",
+        "url": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-nasdaq-dow-futures-dip-as-investors-step-back-from-ai-and-tech-with-nasdaq-in-correction-territory-nvda-aapl-uber-soxx-in-focus/cNGlIylR94A",
+        "publish_time": 1793926830
       },
       {
-        "title": "What Is Going On With Zoom Stock?",
-        "summary": "For questions about this article or underlying research, email help@trefis.com.",
-        "source": "Trefis",
-        "url": "https://www.trefis.com/stock/zm/articles/622277/what-is-going-on-with-zoom-stock/2026-11-04",
-        "publish_time": 1793839141
+        "title": "Zero To Sixty: Fort Worth Gets Tesla Robotaxi While UBS Upgrades Rivian And Citigroup Shuffles EV Holdings",
+        "summary": "Tesla expanded unsupervised Robotaxi service to Fort Worth this week while UBS upgraded Rivian and Citigroup boosted stakes in Rivian, Lucid and Tesla as BYD and XPeng posted strong October deliveries.",
+        "source": "Stocktwits",
+        "url": "https://stocktwits.com/news-articles/markets/equity/zero-to-sixty-fort-worth-gets-tesla-robotaxi-while-ubs-upgrades-rivian-and-citigroup-shuffles-ev-holdings/cNGl4ABR94q",
+        "publish_time": 1793926464
       }
     ],
-    "overall_mood": 0.04,
-    "fetched_at": "2026-11-05T01:33:07+00:00"
+    "overall_mood": -0.36,
+    "fetched_at": "2026-11-06T01:37:03+00:00"
   }
 }

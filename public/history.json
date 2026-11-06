@@ -11207,7 +11207,9 @@
       "exit_reason": "stop",
       "days_held": 10,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -11.9,
+      "alpha_30d": -11.77
     },
     {
       "date": "2026-09-23",
@@ -11242,7 +11244,9 @@
       "exit_reason": "stop",
       "days_held": 7,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 15.64,
+      "alpha_30d": 15.77
     },
     {
       "date": "2026-09-24",
@@ -11781,7 +11785,14 @@
       "return_3d": -0.25,
       "alpha_3d": 0.11,
       "return_5d": 2.52,
-      "alpha_5d": 3.54
+      "alpha_5d": 3.54,
+      "exit_date": "2026-11-04",
+      "exit_price": 128.03,
+      "exit_return": 8.37,
+      "exit_reason": "target",
+      "days_held": 14,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-15",
@@ -11970,7 +11981,14 @@
       "return_3d": 0.5,
       "alpha_3d": 1.68,
       "return_5d": 0.65,
-      "alpha_5d": 0.57
+      "alpha_5d": 0.57,
+      "exit_date": "2026-11-04",
+      "exit_price": 565.73,
+      "exit_return": 4.86,
+      "exit_reason": "target_gap",
+      "days_held": 11,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-20",
@@ -12204,7 +12222,9 @@
         "atr_pct": 1.85,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.14,
+      "alpha_1d": 0.49
     },
     {
       "date": "2026-11-03",
@@ -12226,7 +12246,9 @@
         "atr_pct": 3.01,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 3.22,
+      "alpha_1d": 1.57
     },
     {
       "date": "2026-11-03",
@@ -12248,7 +12270,9 @@
         "atr_pct": 1.81,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.93,
+      "alpha_1d": -0.72
     }
   ]
 }
