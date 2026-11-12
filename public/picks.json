@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T01:18:02+00:00",
+  "generated_at": "2026-11-12T02:18:45+00:00",
   "market": "top100",
   "scanned": 0,
   "enriched": 0,
@@ -118,8 +118,8 @@
       "total": 0
     },
     "vix": {
-      "level": 19.46,
-      "day_change_pct": -2.31,
+      "level": 17.49,
+      "day_change_pct": -10.12,
       "regime": "normal"
     },
     "hyg": {
@@ -129,88 +129,88 @@
       "month_return": NaN
     },
     "fear_greed": {
-      "score": 33.5,
+      "score": 37.0,
       "rating": "fear",
-      "previous_close": 31.7,
-      "previous_1_week": 23.5,
+      "previous_close": 33.5,
+      "previous_1_week": 34.2,
       "previous_1_month": 43.5,
-      "previous_1_year": 29.9
+      "previous_1_year": 30.5
     }
   },
   "market_news": {
     "items": [
       {
-        "title": "U.S. stock futures tick higher after Wall St slips on hot CPI, Nvidia losses",
-        "summary": "Investing.com-- U.S. stock futures edged higher on Tuesday evening after Wall Street ended modestly lower, as hotter-than-expected inflation data reinforced expectations of another Federal Reserve rate hike, while weakness in Nvidia weighed on technology shares.",
-        "source": "Investing.com",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/u-stock-futures-tick-higher-011241932.html",
-        "publish_time": 1794359561
-      },
-      {
-        "title": "Dow Jones Futures Rise, CoreWave Jumps After Stocks Fall On Nvidia, Surging Treasury Yields",
-        "summary": "The stock market fell Tuesday as Fed rate-hike fears sent Treasury yields soaring while Nvidia kept falling. Indexes did come off lows though. CoreWeave retreated late on results.",
+        "title": "Dow Jones Futures Rise, Techs Fall As Nvidia May Oust CEO Huang After CoreWave Leads Rally",
+        "summary": "Techs fell as Nvidia dived on news that it may oust CEO Jensen Huang. AMD extended gains. Will that spoil Wednesday's rally?",
         "source": "Investor's Business Daily",
-        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-treasury-yields-nvidia-coreweave/?src=A00220&yptr=yahoo",
-        "publish_time": 1794358981
+        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-coreweave-sandisk-nvidia-amd-nebius-bloom/?src=A00220&yptr=yahoo",
+        "publish_time": 1794449703
       },
       {
-        "title": "Nvidia's trillion-dollar bind: Can it afford to lose Jensen Huang?",
-        "summary": "Other CEOs have been ousted over undisclosed relationships, but Nvidia's inquiry shines a spotlight on how closely the chipmaker's fortunes are tied to its co-founder.",
-        "source": "CBS News",
-        "url": "https://www.cbsnews.com/news/jensen-huang-affair-nvidia-ceo-dilemma/",
-        "publish_time": 1794358972
+        "title": "Top Democrats Target Trump Administration\u2019s Nvidia-China Records",
+        "summary": "Sens. Elizabeth Warren and Chris Coons asked for documents to be preserved, often an initial step before formal congressional investigations.",
+        "source": "The Wall Street Journal",
+        "url": "https://www.wsj.com/politics/policy/top-democrats-target-trump-administrations-nvidia-china-records-0c212746?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1794448800
       },
       {
-        "title": "Amazon\u2019s Cloud Computing Business Already Brings in More Revenue Than 476 Companies in the S&P 500. Here\u2019s What It Would Take to Reach $1 Trillion.",
-        "summary": "CEO Andy Jassy thinks Amazon Web Services could reach $1 trillion in five to 10 years.",
-        "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/11/10/amazon-cloud-computing-brings-in-more-revenue-than-476-companies-in-the-sp-500/",
-        "publish_time": 1794358262
+        "title": "Huang\u2019s Coziness With Trump Wasn\u2019t Enough to Save Him From Spying Scandal",
+        "summary": "U.S. officials have repeatedly raised concerns about the Nvidia CEO\u2019s influence with the president and his posture toward China.",
+        "source": "The Wall Street Journal",
+        "url": "https://www.wsj.com/politics/national-security/huangs-coziness-with-trump-wasnt-enough-to-save-him-from-spying-scandal-85ce06f4?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1794448800
       },
       {
-        "title": "What Should Snap Stock Holders Take From Its Third-Quarter Report?",
-        "summary": "For questions about this article or underlying research, email help@trefis.com.",
-        "source": "Trefis",
-        "url": "https://www.trefis.com/stock/snap/articles/623978/what-should-snap-stock-holders-take-from-its-third-quarter-report/2026-11-10",
-        "publish_time": 1794357858
+        "title": "Alphabet Kicks Off Asia Bond Sale as AI Firms Face Scrutiny",
+        "summary": "Alphabet Inc. began marketing its inaugural Hong Kong and Singapore dollar bond sale, testing investor interest at a time of increasing volatility for companies focused on artificial intelligence.",
+        "source": "Bloomberg",
+        "url": "https://finance.yahoo.com/technology/ai/articles/alphabet-kicks-off-asia-bond-011249415.html",
+        "publish_time": 1794445969
       },
       {
-        "title": "What Could Lift Netflix Stock From Here?",
-        "summary": "For questions about this article or underlying research, email help@trefis.com.",
-        "source": "Trefis",
-        "url": "https://www.trefis.com/stock/nflx/articles/623989/what-could-lift-netflix-stock-from-here/2026-11-10",
-        "publish_time": 1794353669
-      },
-      {
-        "title": "Bullish\u2019s New President Backs Issuer-First Model for Tokenized Stocks",
-        "summary": "Digital asset platform Bullish (NYSE: $BLSH) plans to build its tokenized stock business around the companies that ...",
-        "source": "CryptoProwl",
-        "url": "https://www.cryptoprowl.com/releases/bullishs-new-president-backs-issuer-first-model-for-tokenized-stocks-7830",
-        "publish_time": 1794353580
-      },
-      {
-        "title": "What Nebius Group Buyers Were Betting On",
-        "summary": "If you had simply held your nerve with Nebius Group through a year of eye catching headlines and sharp swings, the scorecard now looks very different. Holding Nebius Group from the start of the year would have returned 49.0%, including dividends. If that outcome rests on a $17.4b",
+        "title": "Applied Digital (APLD) Could Be 71% Undervalued After CoreWeave Lifted AI Sentiment",
+        "summary": "Applied Digital (APLD) jumped after CoreWeave reported strong AI hardware demand, raised its revenue outlook and showed pricing power, which lifted sentiment toward data center and AI infrastructure peers. Applied Digital\u2019s sharp 1-day share price return of 7.4% sits against a to",
         "source": "Simply Wall St.",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/nebius-group-buyers-were-betting-231720905.html",
-        "publish_time": 1794352640
+        "url": "https://finance.yahoo.com/markets/stocks/articles/applied-digital-apld-could-71-011156493.html",
+        "publish_time": 1794445916
       },
       {
-        "title": "HIMS Stock Faces Dual Blow From Expanded FTC Privacy Lawsuit After Selloff Driven By Q3 Subscriber Loss",
-        "summary": "The Federal Trade Commission on Tuesday filed an amended complaint in the U.S. District Court for the Northern District of California, adding Arizona, Florida, Nebraska, Ohio, and Wisconsin as co-plaintiffs.",
-        "source": "Stocktwits",
-        "url": "https://stocktwits.com/news-articles/markets/equity/hims-stock-faces-dual-blow-from-expanded-ftc-privacy-lawsuit-after-selloff-driven-by-q3-subscriber-loss/cNGuUbdR9Ji",
-        "publish_time": 1794352226
+        "title": "How Investors May Respond To Shopify (SHOP) Mixed Earnings And AI Push",
+        "summary": "Shopify reported third quarter 2026 revenue of US$3.74b and net income of US$462m, issued guidance for low 30% revenue growth in the fourth quarter, and filed an omnibus shelf registration covering equity, debt, warrants and units. The quarter highlighted Shopify\u2019s heavier tilt t",
+        "source": "Simply Wall St.",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/investors-may-respond-shopify-shop-011010918.html",
+        "publish_time": 1794445810
       },
       {
-        "title": "CoreWeave Earnings Were Strong. Investors Remain Antsy as Stock Edges Up.",
-        "summary": "The AI cloud provider\u2019s rapid expansion is paying off as the company handily beat analyst expectations.",
+        "title": "Nvidia Stock Tumbles. Jensen Huang Could Be Out Soon.",
+        "summary": "The stock was down about 8% in after-hours trading.",
         "source": "Barrons.com",
-        "url": "https://www.barrons.com/articles/coreweave-earnings-stock-price-7c0a24d8?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1794351780
+        "url": "https://www.barrons.com/articles/nvidia-stock-price-huang-affair-ceo-ouster-26c99dad?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1794445560
+      },
+      {
+        "title": "Nasdaq 100 Futures Drop As Reports Relating To Jensen Huang\u2019s Ousting Outweigh CoreWeave\u2019s Strong Outlook \u2014  NVDA, TSLA, SNDK, CAPR, CRWV In Focus",
+        "summary": "Nvidia\u2019s board is preparing to meet as soon as today to determine Jensen Huang\u2019s future as the chipmaker\u2019s chief executive, WSJ reported.",
+        "source": "Stocktwits",
+        "url": "https://stocktwits.com/news-articles/markets/equity/nasdaq-100-futures-drop-as-reports-relating-to-jensen-huang-s-ousting/cNGzQslR997",
+        "publish_time": 1794442926
+      },
+      {
+        "title": "Market Chatter: Microsoft Wants to Power Data Centers Without Subsidies or Higher Costs for Others",
+        "summary": "Microsoft (MSFT) aims to find ways to power its data centers without relying on government subsidies",
+        "source": "MT Newswires",
+        "url": "https://finance.yahoo.com/technology/articles/market-chatter-microsoft-wants-power-000818359.html",
+        "publish_time": 1794442098
+      },
+      {
+        "title": "Q3 Earnings Results Reconfirm Broad-Based Strength as Outlook Improves",
+        "summary": "The Q3 earnings season has reconfirmed the broad-based strength that we have been seeing in recent reporting cycles. The revisions trend remains positive, with estimates for 2026 Q4 and full-year 2027 continuing to rise and overall painting a strong earnings picture.",
+        "source": "Zacks",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/q3-earnings-results-reconfirm-broad-233700093.html",
+        "publish_time": 1794440220
       }
     ],
-    "overall_mood": -0.11,
-    "fetched_at": "2026-11-11T01:17:59+00:00"
+    "overall_mood": -0.14,
+    "fetched_at": "2026-11-12T02:18:44+00:00"
   }
 }
