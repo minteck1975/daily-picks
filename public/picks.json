@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T02:18:45+00:00",
+  "generated_at": "2026-11-13T01:55:23+00:00",
   "market": "top100",
   "scanned": 0,
   "enriched": 0,
@@ -118,8 +118,8 @@
       "total": 0
     },
     "vix": {
-      "level": 17.49,
-      "day_change_pct": -10.12,
+      "level": 18.7,
+      "day_change_pct": 6.92,
       "regime": "normal"
     },
     "hyg": {
@@ -129,88 +129,88 @@
       "month_return": NaN
     },
     "fear_greed": {
-      "score": 37.0,
+      "score": 39.9,
       "rating": "fear",
-      "previous_close": 33.5,
-      "previous_1_week": 34.2,
-      "previous_1_month": 43.5,
-      "previous_1_year": 30.5
+      "previous_close": 37.0,
+      "previous_1_week": 20.0,
+      "previous_1_month": 45.2,
+      "previous_1_year": 34.6
     }
   },
   "market_news": {
     "items": [
       {
-        "title": "Dow Jones Futures Rise, Techs Fall As Nvidia May Oust CEO Huang After CoreWave Leads Rally",
-        "summary": "Techs fell as Nvidia dived on news that it may oust CEO Jensen Huang. AMD extended gains. Will that spoil Wednesday's rally?",
+        "title": "Why Mobility Global Stock Gained Today",
+        "summary": "CARFAX is an increasingly valuable information source for the auto industry.",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/investing/2026/11/12/why-mobility-global-stock-gained-today/",
+        "publish_time": 1794533754
+      },
+      {
+        "title": "Dow Jones Futures Rise After Market Weathers Nvidia CEO Huang's Exit, Surging Yields; SpaceX-Tesla Merger Deal Close",
+        "summary": "The stock market held up well given Nvidia CEO Jensen Huang's exit, surging yields and more. Cisco led key earnings reports late.",
         "source": "Investor's Business Daily",
-        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-coreweave-sandisk-nvidia-amd-nebius-bloom/?src=A00220&yptr=yahoo",
-        "publish_time": 1794449703
+        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-nvidia-ceo-huang-exit-surging-yields-spacex-tesla-merger-deal/?src=A00220&yptr=yahoo",
+        "publish_time": 1794533442
       },
       {
-        "title": "Top Democrats Target Trump Administration\u2019s Nvidia-China Records",
-        "summary": "Sens. Elizabeth Warren and Chris Coons asked for documents to be preserved, often an initial step before formal congressional investigations.",
-        "source": "The Wall Street Journal",
-        "url": "https://www.wsj.com/politics/policy/top-democrats-target-trump-administrations-nvidia-china-records-0c212746?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1794448800
+        "title": "CoreWeave stock sinks nearly 7% after Nvidia CEO Jensen Huang resigns",
+        "summary": "The AI cloud provider gave back part of its 25% earnings rally as Nvidia\u2019s leadership shakeup raised concerns about its biggest chip supplier.",
+        "source": "TheStreet",
+        "url": "https://www.thestreet.com/investing/stocks/coreweave-stock-sinks-nearly-7-after-nvidia-ceo-jensen-huang-resigns",
+        "publish_time": 1794532921
       },
       {
-        "title": "Huang\u2019s Coziness With Trump Wasn\u2019t Enough to Save Him From Spying Scandal",
-        "summary": "U.S. officials have repeatedly raised concerns about the Nvidia CEO\u2019s influence with the president and his posture toward China.",
-        "source": "The Wall Street Journal",
-        "url": "https://www.wsj.com/politics/national-security/huangs-coziness-with-trump-wasnt-enough-to-save-him-from-spying-scandal-85ce06f4?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1794448800
-      },
-      {
-        "title": "Alphabet Kicks Off Asia Bond Sale as AI Firms Face Scrutiny",
-        "summary": "Alphabet Inc. began marketing its inaugural Hong Kong and Singapore dollar bond sale, testing investor interest at a time of increasing volatility for companies focused on artificial intelligence.",
-        "source": "Bloomberg",
-        "url": "https://finance.yahoo.com/technology/ai/articles/alphabet-kicks-off-asia-bond-011249415.html",
-        "publish_time": 1794445969
-      },
-      {
-        "title": "Applied Digital (APLD) Could Be 71% Undervalued After CoreWeave Lifted AI Sentiment",
-        "summary": "Applied Digital (APLD) jumped after CoreWeave reported strong AI hardware demand, raised its revenue outlook and showed pricing power, which lifted sentiment toward data center and AI infrastructure peers. Applied Digital\u2019s sharp 1-day share price return of 7.4% sits against a to",
+        "title": "Sansan And 2 High Growth Insider Stocks To Watch",
+        "summary": "Jensen Huang\u2019s resignation from Nvidia has shaken confidence in one of the key pillars of the AI chip world, and it has reminded investors how quickly market darlings can be hit by leadership risk and regulatory pressure. That kind of shock pushes attention toward fast growing bu",
         "source": "Simply Wall St.",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/applied-digital-apld-could-71-011156493.html",
-        "publish_time": 1794445916
+        "url": "https://finance.yahoo.com/markets/stocks/articles/sansan-2-high-growth-insider-011633947.html",
+        "publish_time": 1794532593
       },
       {
-        "title": "How Investors May Respond To Shopify (SHOP) Mixed Earnings And AI Push",
-        "summary": "Shopify reported third quarter 2026 revenue of US$3.74b and net income of US$462m, issued guidance for low 30% revenue growth in the fourth quarter, and filed an omnibus shelf registration covering equity, debt, warrants and units. The quarter highlighted Shopify\u2019s heavier tilt t",
-        "source": "Simply Wall St.",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/investors-may-respond-shopify-shop-011010918.html",
-        "publish_time": 1794445810
+        "title": "What Cerebras Systems (CBRS) Said on Its Q3 Earnings Call",
+        "summary": "Cerebras Systems (NASDAQ:CBRS) raised its 2026 financial outlook after reporting record third-quarter core revenue and announcing a cloud agreement with Microsoft, while executives said data center delays have put portions of its OpenAI contract behind schedule. Chief Executive O",
+        "source": "MarketBeat",
+        "url": "https://www.marketbeat.com/instant-alerts/transcript-what-cerebras-systems-cbrs-said-on-its-q3-earnings-call-2026-11-12/?utm_source=yahoofinance&utm_medium=yahoofinance",
+        "publish_time": 1794532470
       },
       {
-        "title": "Nvidia Stock Tumbles. Jensen Huang Could Be Out Soon.",
-        "summary": "The stock was down about 8% in after-hours trading.",
-        "source": "Barrons.com",
-        "url": "https://www.barrons.com/articles/nvidia-stock-price-huang-affair-ceo-ouster-26c99dad?siteid=yhoof2&yptr=yahoo",
-        "publish_time": 1794445560
+        "title": "LiveOne Inc (LVO) (Q2 2027) Earnings Call Highlights: Record EBITDA, Major B2B Partnerships and ...",
+        "summary": "LiveOne Inc (LVO) posted record first-half EBITDA of $7.8 million, up 619% year-over-year, while outlining plans for a massive B2B launch and over $100 million in revenue next year.",
+        "source": "GuruFocus.com",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/liveone-inc-lvo-q2-2027-010439618.html",
+        "publish_time": 1794531879
       },
       {
-        "title": "Nasdaq 100 Futures Drop As Reports Relating To Jensen Huang\u2019s Ousting Outweigh CoreWeave\u2019s Strong Outlook \u2014  NVDA, TSLA, SNDK, CAPR, CRWV In Focus",
-        "summary": "Nvidia\u2019s board is preparing to meet as soon as today to determine Jensen Huang\u2019s future as the chipmaker\u2019s chief executive, WSJ reported.",
+        "title": "Musk gives Cybertruck a reprieve, but many will still get refunds",
+        "summary": "Tesla is extending Cybertruck production through the end of summer 2027, but CEO Elon Musk says the company still can\u2019t fulfill every order.",
+        "source": "TheStreet",
+        "url": "https://www.thestreet.com/retail/tesla-cybertruck-refunds-musk-production-extension",
+        "publish_time": 1794531780
+      },
+      {
+        "title": "TeraWulf Stock Fell 24% in a Month. Lucid Capital Still Sees 67% Upside",
+        "summary": "Key TakeawaysTeraWulf (WULF) fell approximately 24% between October 6 and November 6, 2026, closing at $11. 37 as financing concerns pressured AI infrastructure stocks.",
+        "source": "TIKR",
+        "url": "https://www.tikr.com/blog/terawulf-stock-fell-24-in-a-month-lucid-capital-still-sees-67-upside?ref=yahoofinance&tlnk=yf-261112-6xjf7mcf",
+        "publish_time": 1794529435
+      },
+      {
+        "title": "S&P 500, Dow, Nasdaq Futures Recover After Markets End Lower On Jensen Huang\u2019s Exit, Oil Price Pressure  \u2014  CRWV, CBRS, NVDA, TSLA In Focus",
+        "summary": "Nvidia\u2019s CEO Jensen Huang ousted; CFO Colette Kress named interim chief executive officer.",
         "source": "Stocktwits",
-        "url": "https://stocktwits.com/news-articles/markets/equity/nasdaq-100-futures-drop-as-reports-relating-to-jensen-huang-s-ousting/cNGzQslR997",
-        "publish_time": 1794442926
+        "url": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-dow-nasdaq-futures-recover-after-markets-end-lower-on-jensen-huang-s-exit-oil-price-pressure-crwv-cbrs-nvda-tsla-in-focus/cNbbkHFR9OI",
+        "publish_time": 1794529140
       },
       {
-        "title": "Market Chatter: Microsoft Wants to Power Data Centers Without Subsidies or Higher Costs for Others",
-        "summary": "Microsoft (MSFT) aims to find ways to power its data centers without relying on government subsidies",
-        "source": "MT Newswires",
-        "url": "https://finance.yahoo.com/technology/articles/market-chatter-microsoft-wants-power-000818359.html",
-        "publish_time": 1794442098
-      },
-      {
-        "title": "Q3 Earnings Results Reconfirm Broad-Based Strength as Outlook Improves",
-        "summary": "The Q3 earnings season has reconfirmed the broad-based strength that we have been seeing in recent reporting cycles. The revisions trend remains positive, with estimates for 2026 Q4 and full-year 2027 continuing to rise and overall painting a strong earnings picture.",
-        "source": "Zacks",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/q3-earnings-results-reconfirm-broad-233700093.html",
-        "publish_time": 1794440220
+        "title": "A 68-Year-Old Retiree Bought 1,000 Tesla Shares at $108 in January 2023. Now Musk Could Merge Tesla Into SpaceX by December, and a 15% Premium Would Turn Her Stake Into About 3,270 SpaceX Shares",
+        "summary": "SpaceX and Tesla could announce a merger as soon as December, Bloomberg reported. At Thursday's closes, a 15% premium would turn 1,000 Tesla shares into about 3,266 SpaceX shares.",
+        "source": "24/7 Wall St.",
+        "url": "https://247wallst.com/investing/2026/11/12/a-68-year-old-retiree-bought-1000-tesla-shares-at-108-in-january-2023-now-musk-could-merge-tesla-into-spacex-by-december-and-a-15-premium-would-turn-her-stake-into-about-3270-spacex-shares/",
+        "publish_time": 1794529020
       }
     ],
-    "overall_mood": -0.14,
-    "fetched_at": "2026-11-12T02:18:44+00:00"
+    "overall_mood": -0.34,
+    "fetched_at": "2026-11-13T01:55:22+00:00"
   }
 }

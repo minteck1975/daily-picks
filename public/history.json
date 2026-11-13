@@ -12342,7 +12342,9 @@
         "rs_leader": true
       },
       "return_1d": -0.92,
-      "alpha_1d": -3.29
+      "alpha_1d": -3.29,
+      "return_3d": -1.61,
+      "alpha_3d": -4.95
     },
     {
       "date": "2026-11-07",
@@ -12366,7 +12368,9 @@
         "rs_leader": true
       },
       "return_1d": 1.61,
-      "alpha_1d": -0.76
+      "alpha_1d": -0.76,
+      "return_3d": -0.79,
+      "alpha_3d": -4.12
     },
     {
       "date": "2026-11-07",
@@ -12390,7 +12394,9 @@
         "rs_leader": true
       },
       "return_1d": -0.86,
-      "alpha_1d": -3.22
+      "alpha_1d": -3.22,
+      "return_3d": -1.85,
+      "alpha_3d": -5.18
     },
     {
       "date": "2026-11-10",
@@ -12412,7 +12418,9 @@
         "atr_pct": 3.36,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.48,
+      "alpha_1d": -1.8
     },
     {
       "date": "2026-11-10",
@@ -12434,7 +12442,9 @@
         "atr_pct": 2.92,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.35,
+      "alpha_1d": -1.67
     },
     {
       "date": "2026-11-10",
@@ -12456,7 +12466,9 @@
         "atr_pct": 3.66,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.59,
+      "alpha_1d": -1.91
     }
   ]
 }
