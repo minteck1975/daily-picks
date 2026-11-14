@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T01:55:23+00:00",
+  "generated_at": "2026-11-14T01:29:50+00:00",
   "market": "top100",
   "scanned": 0,
   "enriched": 0,
@@ -118,8 +118,8 @@
       "total": 0
     },
     "vix": {
-      "level": 18.7,
-      "day_change_pct": 6.92,
+      "level": 19.3,
+      "day_change_pct": 3.21,
       "regime": "normal"
     },
     "hyg": {
@@ -129,88 +129,88 @@
       "month_return": NaN
     },
     "fear_greed": {
-      "score": 39.9,
+      "score": 38.6,
       "rating": "fear",
-      "previous_close": 37.0,
-      "previous_1_week": 20.0,
-      "previous_1_month": 45.2,
-      "previous_1_year": 34.6
+      "previous_close": 39.8,
+      "previous_1_week": 24.4,
+      "previous_1_month": 45.6,
+      "previous_1_year": 24.5
     }
   },
   "market_news": {
     "items": [
       {
-        "title": "Why Mobility Global Stock Gained Today",
-        "summary": "CARFAX is an increasingly valuable information source for the auto industry.",
-        "source": "Motley Fool",
-        "url": "https://www.fool.com/investing/2026/11/12/why-mobility-global-stock-gained-today/",
-        "publish_time": 1794533754
-      },
-      {
-        "title": "Dow Jones Futures Rise After Market Weathers Nvidia CEO Huang's Exit, Surging Yields; SpaceX-Tesla Merger Deal Close",
-        "summary": "The stock market held up well given Nvidia CEO Jensen Huang's exit, surging yields and more. Cisco led key earnings reports late.",
-        "source": "Investor's Business Daily",
-        "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-nvidia-ceo-huang-exit-surging-yields-spacex-tesla-merger-deal/?src=A00220&yptr=yahoo",
-        "publish_time": 1794533442
-      },
-      {
-        "title": "CoreWeave stock sinks nearly 7% after Nvidia CEO Jensen Huang resigns",
-        "summary": "The AI cloud provider gave back part of its 25% earnings rally as Nvidia\u2019s leadership shakeup raised concerns about its biggest chip supplier.",
-        "source": "TheStreet",
-        "url": "https://www.thestreet.com/investing/stocks/coreweave-stock-sinks-nearly-7-after-nvidia-ceo-jensen-huang-resigns",
-        "publish_time": 1794532921
-      },
-      {
-        "title": "Sansan And 2 High Growth Insider Stocks To Watch",
-        "summary": "Jensen Huang\u2019s resignation from Nvidia has shaken confidence in one of the key pillars of the AI chip world, and it has reminded investors how quickly market darlings can be hit by leadership risk and regulatory pressure. That kind of shock pushes attention toward fast growing bu",
-        "source": "Simply Wall St.",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/sansan-2-high-growth-insider-011633947.html",
-        "publish_time": 1794532593
-      },
-      {
-        "title": "What Cerebras Systems (CBRS) Said on Its Q3 Earnings Call",
-        "summary": "Cerebras Systems (NASDAQ:CBRS) raised its 2026 financial outlook after reporting record third-quarter core revenue and announcing a cloud agreement with Microsoft, while executives said data center delays have put portions of its OpenAI contract behind schedule. Chief Executive O",
-        "source": "MarketBeat",
-        "url": "https://www.marketbeat.com/instant-alerts/transcript-what-cerebras-systems-cbrs-said-on-its-q3-earnings-call-2026-11-12/?utm_source=yahoofinance&utm_medium=yahoofinance",
-        "publish_time": 1794532470
-      },
-      {
-        "title": "LiveOne Inc (LVO) (Q2 2027) Earnings Call Highlights: Record EBITDA, Major B2B Partnerships and ...",
-        "summary": "LiveOne Inc (LVO) posted record first-half EBITDA of $7.8 million, up 619% year-over-year, while outlining plans for a massive B2B launch and over $100 million in revenue next year.",
+        "title": "Insight Enterprises Inc (NSIT) (Q3 2026) Earnings Call Highlights: AI-Driven Demand Fuels 34% ...",
+        "summary": "Insight Enterprises Inc (NSIT) posted 20% gross profit growth and lifted its 2026 guidance, as surging AI infrastructure and cloud demand offset margin pressure and anticipated Q4 moderation.",
         "source": "GuruFocus.com",
-        "url": "https://finance.yahoo.com/markets/stocks/articles/liveone-inc-lvo-q2-2027-010439618.html",
-        "publish_time": 1794531879
+        "url": "https://finance.yahoo.com/technology/ai/articles/insight-enterprises-inc-nsit-q3-010120715.html",
+        "publish_time": 1794618080
       },
       {
-        "title": "Musk gives Cybertruck a reprieve, but many will still get refunds",
-        "summary": "Tesla is extending Cybertruck production through the end of summer 2027, but CEO Elon Musk says the company still can\u2019t fulfill every order.",
-        "source": "TheStreet",
-        "url": "https://www.thestreet.com/retail/tesla-cybertruck-refunds-musk-production-extension",
-        "publish_time": 1794531780
+        "title": "What It Takes to Get Your Wings Delivered During a Football Game\u2014Fast and Hot",
+        "summary": "Wingstop relies on Amazon to shave minutes and troubleshoot the Super Bowl rush.",
+        "source": "The Wall Street Journal",
+        "url": "https://www.wsj.com/business/wingstop-aws-digital-ordering-8e4567d1?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1794618000
       },
       {
-        "title": "TeraWulf Stock Fell 24% in a Month. Lucid Capital Still Sees 67% Upside",
-        "summary": "Key TakeawaysTeraWulf (WULF) fell approximately 24% between October 6 and November 6, 2026, closing at $11. 37 as financing concerns pressured AI infrastructure stocks.",
-        "source": "TIKR",
-        "url": "https://www.tikr.com/blog/terawulf-stock-fell-24-in-a-month-lucid-capital-still-sees-67-upside?ref=yahoofinance&tlnk=yf-261112-6xjf7mcf",
-        "publish_time": 1794529435
-      },
-      {
-        "title": "S&P 500, Dow, Nasdaq Futures Recover After Markets End Lower On Jensen Huang\u2019s Exit, Oil Price Pressure  \u2014  CRWV, CBRS, NVDA, TSLA In Focus",
-        "summary": "Nvidia\u2019s CEO Jensen Huang ousted; CFO Colette Kress named interim chief executive officer.",
-        "source": "Stocktwits",
-        "url": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-dow-nasdaq-futures-recover-after-markets-end-lower-on-jensen-huang-s-exit-oil-price-pressure-crwv-cbrs-nvda-tsla-in-focus/cNbbkHFR9OI",
-        "publish_time": 1794529140
-      },
-      {
-        "title": "A 68-Year-Old Retiree Bought 1,000 Tesla Shares at $108 in January 2023. Now Musk Could Merge Tesla Into SpaceX by December, and a 15% Premium Would Turn Her Stake Into About 3,270 SpaceX Shares",
-        "summary": "SpaceX and Tesla could announce a merger as soon as December, Bloomberg reported. At Thursday's closes, a 15% premium would turn 1,000 Tesla shares into about 3,266 SpaceX shares.",
+        "title": "Jensen Huang Just Resigned From Nvidia. A Study of 187 Forced CEO Exits Shows What Could Happen Next",
+        "summary": "Jensen Huang resigned as Nvidia CEO Thursday with no permanent successor. A 2021 study of 187 forced CEO exits at S&P 1500 companies found that when a board pushes out a CEO whose stock had beaten the market, the stock falls 3.4% around the news and trails the market by 13 points",
         "source": "24/7 Wall St.",
-        "url": "https://247wallst.com/investing/2026/11/12/a-68-year-old-retiree-bought-1000-tesla-shares-at-108-in-january-2023-now-musk-could-merge-tesla-into-spacex-by-december-and-a-15-premium-would-turn-her-stake-into-about-3270-spacex-shares/",
-        "publish_time": 1794529020
+        "url": "https://247wallst.com/investing/2026/11/13/jensen-huang-just-resigned-from-nvidia-a-study-of-187-forced-ceo-exits-shows-what-could-happen-next/",
+        "publish_time": 1794617220
+      },
+      {
+        "title": "Zero To Sixty: Tesla Winds Down Cybertruck, Pulls Model Y Variant While Rivian, Lucid Chase Volumes",
+        "summary": "Tesla is winding down Cybertruck production by summer 2027 to free capacity for Cybercab while Rivian and Lucid chase volume with cheaper offerings.",
+        "source": "Stocktwits",
+        "url": "https://stocktwits.com/news-articles/markets/equity/zero-to-sixty-tesla-winds-down-cybertruck-pulls-model-y-variant-while-rivian-lucid-chase-volumes-in-ev-updates-this-week/cNb2AojR9QP",
+        "publish_time": 1794617156
+      },
+      {
+        "title": "Booking Holdings vs. GameStop: Which Consumer Stock Is a Better Buy for 2027?",
+        "summary": "Booking earns a high-margin travel business with strong free cash flow, while GameStop is mid-pivot toward capital allocation. The valuation gap between them is narrower than the business models suggest.",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/coverage/better-buy/2026/11/13/booking-holdings-vs-gamestop-which-consumer-stock-is-a-better-buy-for-2027/",
+        "publish_time": 1794616322
+      },
+      {
+        "title": "Is Apple Stock a Buy Right Now?",
+        "summary": "Apple is hitting new highs, but it could go even higher.",
+        "source": "Motley Fool",
+        "url": "https://www.fool.com/investing/2026/11/13/is-apple-stock-a-buy-right-now/",
+        "publish_time": 1794616020
+      },
+      {
+        "title": "Will ETF Buying Change Meta Stock Narrative",
+        "summary": "Large ETFs including SPY, XLC and SPYM recently added to Meta Platforms positions over several days, alongside fresh fixed income offerings and expanded sustainability agreements tied to green steel, clean cement and zero emission trucking. The combination of strong ETF buying an",
+        "source": "Simply Wall St.",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/etf-buying-change-meta-stock-002017757.html",
+        "publish_time": 1794615617
+      },
+      {
+        "title": "The Chaos and Unexpected Joys of a 19-Hour Global Email Outage",
+        "summary": "It was the workplace equivalent of a snow day, pushing some to frustration, some to the telephone. One man built bookshelves.",
+        "source": "The Wall Street Journal",
+        "url": "https://www.wsj.com/business/telecom/the-chaos-and-unexpected-joys-of-a-19-hour-global-email-outage-37b7170c?siteid=yhoof2&yptr=yahoo",
+        "publish_time": 1794614640
+      },
+      {
+        "title": "S&P 500, Dow, Nasdaq End Lower Amid Nvidia Turmoil, But Record Best Week Since August \u2014  SPCX, NVDA, ARM, AZN In Focus",
+        "summary": "Nvidia saw its worst week since April last year after Jensen Huang stepped down as CEO, and its board is looking for candidates.",
+        "source": "Stocktwits",
+        "url": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-dow-nasdaq-end-lower-amid-nvidia-turmoil-but-record-best-week-since-august-spcx-nvda-arm-azn-in-focus/cNbRj3uR9Q2",
+        "publish_time": 1794613049
+      },
+      {
+        "title": "Walmart, Target, and Nvidia Headline a Pivotal Week for Q3 Earnings",
+        "summary": "Nvidia, Target, and Walmart reflect three notable upcoming releases in the Q3 earnings season, with Nvidia's release wrapping up the reporting cycle for the Magnificent 7 group. Total Q3 earnings for the S&P 500 members that have reported are up +24.9% year-over-year on +13.7% hi",
+        "source": "Zacks",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/walmart-target-nvidia-headline-pivotal-230000146.html",
+        "publish_time": 1794610800
       }
     ],
-    "overall_mood": -0.34,
-    "fetched_at": "2026-11-13T01:55:22+00:00"
+    "overall_mood": 0.04,
+    "fetched_at": "2026-11-14T01:29:48+00:00"
   }
 }
