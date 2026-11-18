@@ -11429,7 +11429,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_5d": -3.85,
-      "alpha_5d": -3.72
+      "alpha_5d": -3.72,
+      "return_30d": -34.59,
+      "alpha_30d": -28.6
     },
     {
       "date": "2026-10-06",
@@ -11464,7 +11466,9 @@
       "exit_reason": "stop",
       "days_held": 6,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -22.52,
+      "alpha_30d": -16.53
     },
     {
       "date": "2026-10-06",
@@ -11499,7 +11503,9 @@
       "exit_reason": "target",
       "days_held": 13,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 6.24,
+      "alpha_30d": 12.23
     },
     {
       "date": "2026-10-07",
@@ -11933,7 +11939,14 @@
       "return_3d": 1.84,
       "alpha_3d": 0.55,
       "return_5d": 2.46,
-      "alpha_5d": 2.89
+      "alpha_5d": 2.89,
+      "exit_date": "2026-11-17",
+      "exit_price": 28.4,
+      "exit_return": -3.1,
+      "exit_reason": "stop",
+      "days_held": 22,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-16",
@@ -12435,7 +12448,9 @@
       "return_1d": -0.48,
       "alpha_1d": -1.8,
       "return_3d": -2.74,
-      "alpha_3d": -3.33
+      "alpha_3d": -3.33,
+      "return_5d": -4.27,
+      "alpha_5d": -1.94
     },
     {
       "date": "2026-11-10",
@@ -12461,7 +12476,9 @@
       "return_1d": -0.35,
       "alpha_1d": -1.67,
       "return_3d": -0.62,
-      "alpha_3d": -1.22
+      "alpha_3d": -1.22,
+      "return_5d": -4.06,
+      "alpha_5d": -1.73
     },
     {
       "date": "2026-11-10",
@@ -12487,7 +12504,9 @@
       "return_1d": -0.59,
       "alpha_1d": -1.91,
       "return_3d": 2.51,
-      "alpha_3d": 1.91
+      "alpha_3d": 1.91,
+      "return_5d": -0.7,
+      "alpha_5d": 1.63
     },
     {
       "date": "2026-11-17",
@@ -12551,6 +12570,72 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 4.27,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-18",
+      "ticker": "MDLZ",
+      "name": "Mondelez International, Inc.",
+      "sector": "Consumer Defensive",
+      "entry_price": 66.75,
+      "signal_close": 66.75,
+      "entry_realistic": false,
+      "score": 17.5,
+      "stop_loss": 63.55,
+      "target": 73.14,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 17.95,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.39,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-18",
+      "ticker": "RTX",
+      "name": "RTX Corporation",
+      "sector": "Industrials",
+      "entry_price": 198.0,
+      "signal_close": 198.0,
+      "entry_realistic": false,
+      "score": 17.1,
+      "stop_loss": 186.67,
+      "target": 220.65,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 14.01,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.86,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-18",
+      "ticker": "NEE",
+      "name": "NextEra Energy, Inc.",
+      "sector": "Utilities",
+      "entry_price": 84.41999816894531,
+      "signal_close": 84.41999816894531,
+      "entry_realistic": false,
+      "score": 17.0,
+      "stop_loss": 80.71,
+      "target": 91.84,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 14.39,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.2,
         "insider_buy": false,
         "rs_leader": true
       }
