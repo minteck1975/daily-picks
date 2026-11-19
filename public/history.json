@@ -11540,7 +11540,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_5d": -1.69,
-      "alpha_5d": -0.7
+      "alpha_5d": -0.7,
+      "return_30d": 2.44,
+      "alpha_30d": 8.49
     },
     {
       "date": "2026-10-07",
@@ -11575,7 +11577,9 @@
       "exit_reason": "stop",
       "days_held": 6,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 2.57,
+      "alpha_30d": 8.62
     },
     {
       "date": "2026-10-13",
@@ -12107,7 +12111,14 @@
       "return_3d": -1.71,
       "alpha_3d": -3.34,
       "return_5d": -4.41,
-      "alpha_5d": -3.85
+      "alpha_5d": -3.85,
+      "exit_date": "2026-11-18",
+      "exit_price": 425.94,
+      "exit_return": -5.75,
+      "exit_reason": "stop",
+      "days_held": 18,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-23",
@@ -12310,7 +12321,14 @@
       "return_3d": -0.62,
       "alpha_3d": 1.91,
       "return_5d": 2.15,
-      "alpha_5d": 2.74
+      "alpha_5d": 2.74,
+      "exit_date": "2026-11-18",
+      "exit_price": 375.98,
+      "exit_return": -5.2,
+      "exit_reason": "stop",
+      "days_held": 11,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-11-03",
@@ -12513,9 +12531,9 @@
       "ticker": "UNH",
       "name": "UnitedHealth Group Incorporated",
       "sector": "Healthcare",
-      "entry_price": 412.0199890136719,
+      "entry_price": 387.14,
       "signal_close": 412.0199890136719,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 20.5,
       "stop_loss": 390.06,
       "target": 455.94,
@@ -12528,16 +12546,25 @@
         "atr_pct": 2.67,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -9.62,
+      "alpha_1d": -9.31,
+      "exit_date": "2026-11-18",
+      "exit_price": 355.81,
+      "exit_return": -8.09,
+      "exit_reason": "stop",
+      "days_held": 1,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-11-17",
       "ticker": "PEP",
       "name": "Pepsico, Inc.",
       "sector": "Consumer Defensive",
-      "entry_price": 146.42999267578125,
+      "entry_price": 140.39,
       "signal_close": 146.42999267578125,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 19.5,
       "stop_loss": 139.56,
       "target": 160.17,
@@ -12550,16 +12577,18 @@
         "atr_pct": 2.35,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.05,
+      "alpha_1d": 1.36
     },
     {
       "date": "2026-11-17",
       "ticker": "ABNB",
       "name": "Airbnb, Inc.",
       "sector": "Consumer Cyclical",
-      "entry_price": 186.19000244140625,
+      "entry_price": 179.29,
       "signal_close": 186.19000244140625,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.6,
       "stop_loss": 170.28,
       "target": 218.0,
@@ -12572,7 +12601,9 @@
         "atr_pct": 4.27,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.51,
+      "alpha_1d": 0.82
     },
     {
       "date": "2026-11-18",
@@ -12636,6 +12667,72 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.2,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "ticker": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "sector": "Consumer Cyclical",
+      "entry_price": 267.739990234375,
+      "signal_close": 267.739990234375,
+      "entry_realistic": false,
+      "score": 17.0,
+      "stop_loss": 245.74,
+      "target": 311.74,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 9.06,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 4.11,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "ticker": "HON",
+      "name": "Honeywell International Inc.",
+      "sector": "Industrials",
+      "entry_price": 222.6999969482422,
+      "signal_close": 222.6999969482422,
+      "entry_realistic": false,
+      "score": 14.6,
+      "stop_loss": 209.41,
+      "target": 249.28,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 13.06,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.98,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "ticker": "DIS",
+      "name": "Walt Disney Company (The)",
+      "sector": "Communication Services",
+      "entry_price": 122.36000061035156,
+      "signal_close": 122.36000061035156,
+      "entry_realistic": false,
+      "score": 14.0,
+      "stop_loss": 115.77,
+      "target": 135.53,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 22.86,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.69,
         "insider_buy": false,
         "rs_leader": true
       }
