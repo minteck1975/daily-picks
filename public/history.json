@@ -12293,7 +12293,14 @@
       "return_3d": -1.12,
       "alpha_3d": 1.41,
       "return_5d": -1.03,
-      "alpha_5d": -0.45
+      "alpha_5d": -0.45,
+      "exit_date": "2026-11-19",
+      "exit_price": 409.36,
+      "exit_return": -4.23,
+      "exit_reason": "stop",
+      "days_held": 12,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-11-03",
@@ -12496,7 +12503,14 @@
       "return_3d": -0.62,
       "alpha_3d": -1.22,
       "return_5d": -4.06,
-      "alpha_5d": -1.73
+      "alpha_5d": -1.73,
+      "exit_date": "2026-11-19",
+      "exit_price": 1142.69,
+      "exit_return": -7.14,
+      "exit_reason": "stop",
+      "days_held": 7,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-11-10",
@@ -12579,7 +12593,14 @@
         "rs_leader": true
       },
       "return_1d": 1.05,
-      "alpha_1d": 1.36
+      "alpha_1d": 1.36,
+      "exit_date": "2026-11-19",
+      "exit_price": 139.42,
+      "exit_return": -0.69,
+      "exit_reason": "stop",
+      "days_held": 2,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-11-17",
@@ -12610,9 +12631,9 @@
       "ticker": "MDLZ",
       "name": "Mondelez International, Inc.",
       "sector": "Consumer Defensive",
-      "entry_price": 66.75,
+      "entry_price": 65.5,
       "signal_close": 66.75,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.5,
       "stop_loss": 63.55,
       "target": 73.14,
@@ -12625,16 +12646,18 @@
         "atr_pct": 2.39,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.29,
+      "alpha_1d": 2.25
     },
     {
       "date": "2026-11-18",
       "ticker": "RTX",
       "name": "RTX Corporation",
       "sector": "Industrials",
-      "entry_price": 198.0,
+      "entry_price": 197.5,
       "signal_close": 198.0,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.1,
       "stop_loss": 186.67,
       "target": 220.65,
@@ -12647,16 +12670,18 @@
         "atr_pct": 2.86,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -2.06,
+      "alpha_1d": -0.09
     },
     {
       "date": "2026-11-18",
       "ticker": "NEE",
       "name": "NextEra Energy, Inc.",
       "sector": "Utilities",
-      "entry_price": 84.41999816894531,
+      "entry_price": 84.12,
       "signal_close": 84.41999816894531,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 17.0,
       "stop_loss": 80.71,
       "target": 91.84,
@@ -12669,7 +12694,9 @@
         "atr_pct": 2.2,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -0.39,
+      "alpha_1d": 1.57
     },
     {
       "date": "2026-11-19",
@@ -12733,6 +12760,72 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.69,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "ticker": "MCD",
+      "name": "McDonald's Corporation",
+      "sector": "Consumer Cyclical",
+      "entry_price": 272.3500061035156,
+      "signal_close": 272.3500061035156,
+      "entry_realistic": false,
+      "score": 18.0,
+      "stop_loss": 257.57,
+      "target": 301.92,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 22.47,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.71,
+        "insider_buy": true,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "ticker": "WMT",
+      "name": "Walmart Inc.",
+      "sector": "Consumer Defensive",
+      "entry_price": 126.04000091552734,
+      "signal_close": 126.04000091552734,
+      "entry_realistic": false,
+      "score": 14.8,
+      "stop_loss": 119.75,
+      "target": 138.61,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 21.5,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.49,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "ticker": "BRK-B",
+      "name": "Berkshire Hathaway Inc. New",
+      "sector": "Financial Services",
+      "entry_price": 572.0399780273438,
+      "signal_close": 572.0399780273438,
+      "entry_realistic": false,
+      "score": 12.0,
+      "stop_loss": 548.13,
+      "target": 619.86,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 19.44,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.09,
         "insider_buy": false,
         "rs_leader": true
       }
