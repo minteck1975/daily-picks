@@ -12146,7 +12146,14 @@
       "return_3d": 7.24,
       "alpha_3d": 5.61,
       "return_5d": 4.13,
-      "alpha_5d": 4.68
+      "alpha_5d": 4.68,
+      "exit_date": "2026-11-20",
+      "exit_price": 265.37,
+      "exit_return": -8.15,
+      "exit_reason": "stop",
+      "days_held": 20,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-23",
@@ -12475,7 +12482,14 @@
       "return_3d": -2.74,
       "alpha_3d": -3.33,
       "return_5d": -4.27,
-      "alpha_5d": -1.94
+      "alpha_5d": -1.94,
+      "exit_date": "2026-11-20",
+      "exit_price": 213.41,
+      "exit_return": -6.7,
+      "exit_reason": "stop",
+      "days_held": 8,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-11-10",
@@ -12576,7 +12590,9 @@
       "exit_reason": "stop",
       "days_held": 1,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": -12.22,
+      "alpha_3d": -6.39
     },
     {
       "date": "2026-11-17",
@@ -12607,7 +12623,9 @@
       "exit_reason": "stop",
       "days_held": 2,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": 0.11,
+      "alpha_3d": 5.93
     },
     {
       "date": "2026-11-17",
@@ -12631,7 +12649,16 @@
         "rs_leader": true
       },
       "return_1d": 0.51,
-      "alpha_1d": 0.82
+      "alpha_1d": 0.82,
+      "return_3d": -4.98,
+      "alpha_3d": 0.84,
+      "exit_date": "2026-11-20",
+      "exit_price": 170.11,
+      "exit_return": -5.12,
+      "exit_reason": "stop",
+      "days_held": 3,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-11-18",
@@ -12655,7 +12682,9 @@
         "rs_leader": true
       },
       "return_1d": 0.29,
-      "alpha_1d": 2.25
+      "alpha_1d": 2.25,
+      "return_3d": 1.15,
+      "alpha_3d": 2.23
     },
     {
       "date": "2026-11-18",
@@ -12679,7 +12708,9 @@
         "rs_leader": true
       },
       "return_1d": -2.06,
-      "alpha_1d": -0.09
+      "alpha_1d": -0.09,
+      "return_3d": -1.38,
+      "alpha_3d": -0.3
     },
     {
       "date": "2026-11-18",
@@ -12703,7 +12734,9 @@
         "rs_leader": true
       },
       "return_1d": -0.39,
-      "alpha_1d": 1.57
+      "alpha_1d": 1.57,
+      "return_3d": -0.18,
+      "alpha_3d": 0.9
     },
     {
       "date": "2026-11-19",
@@ -12725,7 +12758,16 @@
         "atr_pct": 4.11,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -2.6,
+      "alpha_1d": 1.04,
+      "exit_date": "2026-11-20",
+      "exit_price": 245.49,
+      "exit_return": -3.12,
+      "exit_reason": "stop",
+      "days_held": 1,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-11-19",
@@ -12747,7 +12789,9 @@
         "atr_pct": 2.98,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -2.17,
+      "alpha_1d": 1.47
     },
     {
       "date": "2026-11-19",
@@ -12769,16 +12813,18 @@
         "atr_pct": 2.69,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": -2.52,
+      "alpha_1d": 1.12
     },
     {
       "date": "2026-11-20",
       "ticker": "MCD",
       "name": "McDonald's Corporation",
       "sector": "Consumer Cyclical",
-      "entry_price": 272.3500061035156,
+      "entry_price": 271.78,
       "signal_close": 272.3500061035156,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.0,
       "stop_loss": 257.57,
       "target": 301.92,
@@ -12791,16 +12837,18 @@
         "atr_pct": 2.71,
         "insider_buy": true,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.69,
+      "alpha_1d": -3.02
     },
     {
       "date": "2026-11-20",
       "ticker": "WMT",
       "name": "Walmart Inc.",
       "sector": "Consumer Defensive",
-      "entry_price": 126.04000091552734,
+      "entry_price": 126.64,
       "signal_close": 126.04000091552734,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 14.8,
       "stop_loss": 119.75,
       "target": 138.61,
@@ -12813,16 +12861,18 @@
         "atr_pct": 2.49,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 2.32,
+      "alpha_1d": -2.39
     },
     {
       "date": "2026-11-20",
       "ticker": "BRK-B",
       "name": "Berkshire Hathaway Inc. New",
       "sector": "Financial Services",
-      "entry_price": 572.0399780273438,
+      "entry_price": 572.53,
       "signal_close": 572.0399780273438,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 12.0,
       "stop_loss": 548.13,
       "target": 619.86,
@@ -12833,6 +12883,74 @@
         "near_52w_high": true,
         "breakout_recent": false,
         "atr_pct": 2.09,
+        "insider_buy": false,
+        "rs_leader": true
+      },
+      "return_1d": -0.03,
+      "alpha_1d": -4.74
+    },
+    {
+      "date": "2026-11-24",
+      "ticker": "MDLZ",
+      "name": "Mondelez International, Inc.",
+      "sector": "Consumer Defensive",
+      "entry_price": 66.25,
+      "signal_close": 66.25,
+      "entry_realistic": false,
+      "score": 18.5,
+      "stop_loss": 63.21,
+      "target": 72.32,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 14.39,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.29,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-24",
+      "ticker": "CMCSA",
+      "name": "Comcast Corporation",
+      "sector": "Communication Services",
+      "entry_price": 24.719999313354492,
+      "signal_close": 24.719999313354492,
+      "entry_realistic": false,
+      "score": 16.3,
+      "stop_loss": 23.31,
+      "target": 27.55,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 26.71,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.86,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-24",
+      "ticker": "HD",
+      "name": "Home Depot, Inc. (The)",
+      "sector": "Consumer Cyclical",
+      "entry_price": 346.05999755859375,
+      "signal_close": 346.05999755859375,
+      "entry_realistic": false,
+      "score": 16.1,
+      "stop_loss": 325.41,
+      "target": 387.37,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 26.25,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.98,
         "insider_buy": false,
         "rs_leader": true
       }
