@@ -11614,7 +11614,9 @@
       "exit_reason": "target",
       "days_held": 7,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": 11.53,
+      "alpha_30d": 19.14
     },
     {
       "date": "2026-10-13",
@@ -11642,7 +11644,16 @@
       "return_3d": 3.04,
       "alpha_3d": 4.94,
       "return_5d": 4.36,
-      "alpha_5d": 5.51
+      "alpha_5d": 5.51,
+      "return_30d": 8.4,
+      "alpha_30d": 16.02,
+      "exit_date": "2026-11-24",
+      "exit_price": 299.98,
+      "exit_return": 8.3,
+      "exit_reason": "horizon",
+      "days_held": 30,
+      "exit_slippage_pct": 0.1,
+      "sim_version": 2
     },
     {
       "date": "2026-10-13",
@@ -11677,7 +11688,9 @@
       "exit_reason": "stop",
       "days_held": 4,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_30d": -22.47,
+      "alpha_30d": -14.86
     },
     {
       "date": "2026-10-15",
@@ -12592,7 +12605,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_3d": -12.22,
-      "alpha_3d": -6.39
+      "alpha_3d": -6.39,
+      "return_5d": -11.69,
+      "alpha_5d": -9.83
     },
     {
       "date": "2026-11-17",
@@ -12625,7 +12640,9 @@
       "exit_slippage_pct": 0.1,
       "sim_version": 2,
       "return_3d": 0.11,
-      "alpha_3d": 5.93
+      "alpha_3d": 5.93,
+      "return_5d": 1.63,
+      "alpha_5d": 3.5
     },
     {
       "date": "2026-11-17",
@@ -12658,7 +12675,9 @@
       "exit_reason": "stop",
       "days_held": 3,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_5d": -3.29,
+      "alpha_5d": -1.43
     },
     {
       "date": "2026-11-18",
@@ -12767,7 +12786,9 @@
       "exit_reason": "stop",
       "days_held": 1,
       "exit_slippage_pct": 0.1,
-      "sim_version": 2
+      "sim_version": 2,
+      "return_3d": -0.44,
+      "alpha_3d": -0.85
     },
     {
       "date": "2026-11-19",
@@ -12791,7 +12812,9 @@
         "rs_leader": true
       },
       "return_1d": -2.17,
-      "alpha_1d": 1.47
+      "alpha_1d": 1.47,
+      "return_3d": 3.44,
+      "alpha_3d": 3.03
     },
     {
       "date": "2026-11-19",
@@ -12815,7 +12838,9 @@
         "rs_leader": true
       },
       "return_1d": -2.52,
-      "alpha_1d": 1.12
+      "alpha_1d": 1.12,
+      "return_3d": 1.22,
+      "alpha_3d": 0.82
     },
     {
       "date": "2026-11-20",
@@ -12952,6 +12977,72 @@
         "breakout_recent": false,
         "atr_pct": 2.98,
         "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-25",
+      "ticker": "JNJ",
+      "name": "Johnson & Johnson",
+      "sector": "Healthcare",
+      "entry_price": 276.4599914550781,
+      "signal_close": 276.4599914550781,
+      "entry_realistic": false,
+      "score": 18.8,
+      "stop_loss": 262.94,
+      "target": 303.5,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 18.82,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.45,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-25",
+      "ticker": "PEP",
+      "name": "Pepsico, Inc.",
+      "sector": "Consumer Defensive",
+      "entry_price": 142.67999267578125,
+      "signal_close": 142.67999267578125,
+      "entry_realistic": false,
+      "score": 15.3,
+      "stop_loss": 135.73,
+      "target": 156.57,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 19.69,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.43,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-25",
+      "ticker": "MCD",
+      "name": "McDonald's Corporation",
+      "sector": "Consumer Cyclical",
+      "entry_price": 280.70001220703125,
+      "signal_close": 280.70001220703125,
+      "entry_realistic": false,
+      "score": 13.0,
+      "stop_loss": 267.71,
+      "target": 306.69,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 26.65,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.31,
+        "insider_buy": true,
         "rs_leader": true
       }
     }
