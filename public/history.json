@@ -12703,7 +12703,9 @@
       "return_1d": 0.29,
       "alpha_1d": 2.25,
       "return_3d": 1.15,
-      "alpha_3d": 2.23
+      "alpha_3d": 2.23,
+      "return_5d": 3.53,
+      "alpha_5d": 5.38
     },
     {
       "date": "2026-11-18",
@@ -12729,7 +12731,9 @@
       "return_1d": -2.06,
       "alpha_1d": -0.09,
       "return_3d": -1.38,
-      "alpha_3d": -0.3
+      "alpha_3d": -0.3,
+      "return_5d": -0.66,
+      "alpha_5d": 1.19
     },
     {
       "date": "2026-11-18",
@@ -12755,7 +12759,9 @@
       "return_1d": -0.39,
       "alpha_1d": 1.57,
       "return_3d": -0.18,
-      "alpha_3d": 0.9
+      "alpha_3d": 0.9,
+      "return_5d": 1.53,
+      "alpha_5d": 3.38
     },
     {
       "date": "2026-11-19",
@@ -12864,7 +12870,9 @@
         "rs_leader": true
       },
       "return_1d": 1.69,
-      "alpha_1d": -3.02
+      "alpha_1d": -3.02,
+      "return_3d": 4.31,
+      "alpha_3d": 0.41
     },
     {
       "date": "2026-11-20",
@@ -12888,7 +12896,9 @@
         "rs_leader": true
       },
       "return_1d": 2.32,
-      "alpha_1d": -2.39
+      "alpha_1d": -2.39,
+      "return_3d": 4.19,
+      "alpha_3d": 0.29
     },
     {
       "date": "2026-11-20",
@@ -12912,16 +12922,18 @@
         "rs_leader": true
       },
       "return_1d": -0.03,
-      "alpha_1d": -4.74
+      "alpha_1d": -4.74,
+      "return_3d": 1.19,
+      "alpha_3d": -2.71
     },
     {
       "date": "2026-11-24",
       "ticker": "MDLZ",
       "name": "Mondelez International, Inc.",
       "sector": "Consumer Defensive",
-      "entry_price": 66.25,
+      "entry_price": 67.69,
       "signal_close": 66.25,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 18.5,
       "stop_loss": 63.21,
       "target": 72.32,
@@ -12934,16 +12946,18 @@
         "atr_pct": 2.29,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 0.18,
+      "alpha_1d": 0.47
     },
     {
       "date": "2026-11-24",
       "ticker": "CMCSA",
       "name": "Comcast Corporation",
       "sector": "Communication Services",
-      "entry_price": 24.719999313354492,
+      "entry_price": 25.44,
       "signal_close": 24.719999313354492,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.3,
       "stop_loss": 23.31,
       "target": 27.55,
@@ -12956,16 +12970,18 @@
         "atr_pct": 2.86,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.14,
+      "alpha_1d": 1.43
     },
     {
       "date": "2026-11-24",
       "ticker": "HD",
       "name": "Home Depot, Inc. (The)",
       "sector": "Consumer Cyclical",
-      "entry_price": 346.05999755859375,
+      "entry_price": 355.0,
       "signal_close": 346.05999755859375,
-      "entry_realistic": false,
+      "entry_realistic": true,
       "score": 16.1,
       "stop_loss": 325.41,
       "target": 387.37,
@@ -12978,7 +12994,9 @@
         "atr_pct": 2.98,
         "insider_buy": false,
         "rs_leader": true
-      }
+      },
+      "return_1d": 1.76,
+      "alpha_1d": 2.05
     },
     {
       "date": "2026-11-25",
@@ -13043,6 +13061,72 @@
         "breakout_recent": false,
         "atr_pct": 2.31,
         "insider_buy": true,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-26",
+      "ticker": "SBUX",
+      "name": "Starbucks Corporation",
+      "sector": "Consumer Cyclical",
+      "entry_price": 107.73999786376953,
+      "signal_close": 107.73999786376953,
+      "entry_realistic": false,
+      "score": 17.1,
+      "stop_loss": 101.27,
+      "target": 120.69,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 22.41,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 3.0,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-26",
+      "ticker": "VRTX",
+      "name": "Vertex Pharmaceuticals Incorpor",
+      "sector": "Healthcare",
+      "entry_price": 564.1199951171875,
+      "signal_close": 564.1199951171875,
+      "entry_realistic": false,
+      "score": 16.8,
+      "stop_loss": 532.61,
+      "target": 627.14,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 20.04,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.79,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-26",
+      "ticker": "DIS",
+      "name": "Walt Disney Company (The)",
+      "sector": "Communication Services",
+      "entry_price": 125.5999984741211,
+      "signal_close": 125.5999984741211,
+      "entry_realistic": false,
+      "score": 16.0,
+      "stop_loss": 118.73,
+      "target": 139.35,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 22.11,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 2.74,
+        "insider_buy": false,
         "rs_leader": true
       }
     }
