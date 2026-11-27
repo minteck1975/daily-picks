@@ -13129,6 +13129,50 @@
         "insider_buy": false,
         "rs_leader": true
       }
+    },
+    {
+      "date": "2026-11-27",
+      "ticker": "ABT",
+      "name": "Abbott Laboratories",
+      "sector": "Healthcare",
+      "entry_price": 108.0,
+      "signal_close": 108.0,
+      "entry_realistic": false,
+      "score": 16.8,
+      "stop_loss": 102.23,
+      "target": 119.53,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 11.76,
+        "weekly_uptrend": true,
+        "near_52w_high": false,
+        "breakout_recent": false,
+        "atr_pct": 2.67,
+        "insider_buy": false,
+        "rs_leader": true
+      }
+    },
+    {
+      "date": "2026-11-27",
+      "ticker": "NEE",
+      "name": "NextEra Energy, Inc.",
+      "sector": "Utilities",
+      "entry_price": 85.41000366210938,
+      "signal_close": 85.41000366210938,
+      "entry_realistic": false,
+      "score": 16.3,
+      "stop_loss": 82.46,
+      "target": 91.31,
+      "rr_ratio": 2.0,
+      "key_signals": {
+        "rs_vs_spy_30d": 15.86,
+        "weekly_uptrend": true,
+        "near_52w_high": true,
+        "breakout_recent": false,
+        "atr_pct": 1.73,
+        "insider_buy": false,
+        "rs_leader": true
+      }
     }
   ]
 }
